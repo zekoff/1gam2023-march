@@ -1,0 +1,57 @@
+{
+	"name": "Main Gameplay",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "SECTOR_HEIGHT",
+			"type": "number",
+			"initialValue": "8000",
+			"comment": "Height of usable space in the sector.",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 833401474128763
+		},
+		{
+			"eventType": "variable",
+			"name": "SECTOR_WIDTH",
+			"type": "number",
+			"initialValue": "5500",
+			"comment": "Width of usable space in the sector.",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 897365075425191
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-double-tap",
+					"objectClass": "Touch",
+					"sid": 407140340315060
+				}
+			],
+			"actions": [
+				{
+					"id": "tween-two-properties",
+					"objectClass": "Camera",
+					"sid": 807246702860099,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "position",
+						"end-x": "Touch.X",
+						"end-y": "Touch.Y",
+						"time": "0.5",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no",
+						"repeat-count": "1"
+					}
+				}
+			],
+			"sid": 319812104505792
+		}
+	],
+	"sid": 165260888475578
+}

@@ -1,0 +1,60 @@
+{
+	"name": "Camera",
+	"plugin-id": "Sprite",
+	"sid": 630325071389173,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "scrollto",
+			"name": "ScrollTo",
+			"sid": 944508749767168
+		},
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 810185458609919
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 249,
+						"height": 127,
+						"originX": 0.4939759036144578,
+						"originY": 0.5039370078740157,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 9534801,
+						"collisionPoly": {
+							"points": [
+								0,
+								0,
+								0.9959839357429718,
+								0,
+								0.9959839357429718,
+								1,
+								0,
+								1
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 780402750975452,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}
