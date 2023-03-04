@@ -51,6 +51,32 @@
 				}
 			],
 			"sid": 319812104505792
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 926097818352499
+				}
+			],
+			"actions": [
+				{
+					"id": "fill-ellipse",
+					"objectClass": "DrawingCanvas",
+					"sid": 434111339166890,
+					"parameters": {
+						"x": "DrawingCanvas.Width / 2",
+						"y": "DrawingCanvas.Height / 2",
+						"radius-x": "DrawingCanvas.Width / 2",
+						"radius-y": "DrawingCanvas.Height / 2",
+						"color": "rgba(100, 100, 100, 100)",
+						"edge": "smooth"
+					}
+				}
+			],
+			"sid": 763817482197626
 		}
 	],
 	"sid": 165260888475578
