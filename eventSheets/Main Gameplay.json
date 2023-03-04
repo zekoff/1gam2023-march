@@ -22,6 +22,16 @@
 			"sid": 897365075425191
 		},
 		{
+			"eventType": "variable",
+			"name": "zoomLevel",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 395106022106576
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -34,7 +44,7 @@
 				{
 					"id": "tween-two-properties",
 					"objectClass": "Camera",
-					"sid": 807246702860099,
+					"sid": 851896383335001,
 					"behaviorType": "Tween",
 					"parameters": {
 						"tags": "\"\"",
@@ -42,7 +52,7 @@
 						"end-x": "Touch.X",
 						"end-y": "Touch.Y",
 						"time": "0.5",
-						"ease": "default",
+						"ease": "easeoutcubic",
 						"destroy-on-complete": "no",
 						"loop": "no",
 						"ping-pong": "no",
@@ -76,7 +86,119 @@
 					}
 				}
 			],
-			"sid": 763817482197626
+			"sid": 763817482197626,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 905410876500380,
+							"parameters": {
+								"object": "Planet"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-speed",
+							"objectClass": "Planet",
+							"sid": 552562846471696,
+							"behaviorType": "Rotate",
+							"parameters": {
+								"speed": "random(20,40) * choose(1, -1)"
+							}
+						}
+					],
+					"sid": 859302440258176
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 832180141437085,
+					"parameters": {
+						"object": "ZoomButton"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 101181508110443,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "evaluate-expression",
+							"objectClass": "System",
+							"sid": 523646936083739,
+							"parameters": {
+								"value": "zoomLevel = 1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 311779733431915,
+							"parameters": {
+								"variable": "zoomLevel",
+								"value": "2"
+							}
+						}
+					],
+					"sid": 441053784931930
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 642631631708065
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 526306567663470,
+							"parameters": {
+								"variable": "zoomLevel",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 492216210927279
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 479765542949163
+				}
+			],
+			"actions": [
+				{
+					"id": "set-layout-scale",
+					"objectClass": "System",
+					"sid": 740586322207735,
+					"parameters": {
+						"scale": "zoomLevel"
+					}
+				}
+			],
+			"sid": 934701507624510
 		}
 	],
 	"sid": 165260888475578

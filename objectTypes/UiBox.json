@@ -1,0 +1,20 @@
+{
+	"name": "UiBox",
+	"plugin-id": "NinePatch",
+	"sid": 180206906809683,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"image": {
+		"width": 100,
+		"height": 100,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "lossless",
+		"exportQuality": 0.8,
+		"imageSpriteId": 8981854,
+		"useCollisionPoly": true
+	}
+}

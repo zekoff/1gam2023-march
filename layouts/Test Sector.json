@@ -300,7 +300,16 @@
 							},
 							"uid": 6,
 							"instanceVariables": {},
-							"behaviors": {},
+							"behaviors": {
+								"Rotate": {
+									"properties": {
+										"speed": 30,
+										"acceleration": 0,
+										"enabled": true,
+										"live-preview": false
+									}
+								}
+							},
 							"world": {
 								"x": 334.27379053088816,
 								"y": 1222.2737905308882,
@@ -329,7 +338,16 @@
 							},
 							"uid": 7,
 							"instanceVariables": {},
-							"behaviors": {},
+							"behaviors": {
+								"Rotate": {
+									"properties": {
+										"speed": 30,
+										"acceleration": 0,
+										"enabled": true,
+										"live-preview": false
+									}
+								}
+							},
 							"world": {
 								"x": 851,
 								"y": 1576,
@@ -358,7 +376,16 @@
 							},
 							"uid": 8,
 							"instanceVariables": {},
-							"behaviors": {},
+							"behaviors": {
+								"Rotate": {
+									"properties": {
+										"speed": 30,
+										"acceleration": 0,
+										"enabled": true,
+										"live-preview": false
+									}
+								}
+							},
 							"world": {
 								"x": 1380,
 								"y": 1047,
@@ -387,7 +414,16 @@
 							},
 							"uid": 9,
 							"instanceVariables": {},
-							"behaviors": {},
+							"behaviors": {
+								"Rotate": {
+									"properties": {
+										"speed": 30,
+										"acceleration": 0,
+										"enabled": true,
+										"live-preview": false
+									}
+								}
+							},
 							"world": {
 								"x": 1352,
 								"y": 2096,
@@ -416,7 +452,16 @@
 							},
 							"uid": 10,
 							"instanceVariables": {},
-							"behaviors": {},
+							"behaviors": {
+								"Rotate": {
+									"properties": {
+										"speed": 30,
+										"acceleration": 0,
+										"enabled": true,
+										"live-preview": false
+									}
+								}
+							},
 							"world": {
 								"x": 726,
 								"y": 2494,
@@ -445,7 +490,16 @@
 							},
 							"uid": 11,
 							"instanceVariables": {},
-							"behaviors": {},
+							"behaviors": {
+								"Rotate": {
+									"properties": {
+										"speed": 30,
+										"acceleration": 0,
+										"enabled": true,
+										"live-preview": false
+									}
+								}
+							},
 							"world": {
 								"x": 1385,
 								"y": 2743,
@@ -613,7 +667,23 @@
 				}
 			],
 			"sid": 998488250014422,
-			"effectTypes": [],
+			"effectTypes": [
+				{
+					"effectId": "pulse",
+					"name": "Pulse",
+					"instance": {
+						"isEnabled": true,
+						"parameters": {
+							"intensity": 0.1,
+							"lighting": 0,
+							"speed": 1,
+							"frequency": 30,
+							"center-x": 0.5,
+							"center-y": 0.5
+						}
+					}
+				}
+			],
 			"isInitiallyVisible": true,
 			"isInitiallyInteractive": true,
 			"color": [
@@ -623,9 +693,9 @@
 				1
 			],
 			"backgroundColor": [
-				0.14901960784313725,
-				0.14901960784313725,
-				0.14901960784313725,
+				0.19607843137254902,
+				0.16862745098039217,
+				0.5686274509803921,
 				1
 			],
 			"isTransparent": false,
@@ -679,6 +749,133 @@
 			"subLayers": [],
 			"instances": [
 				{
+					"type": "UiBox",
+					"properties": {
+						"left-margin": 64,
+						"right-margin": 16,
+						"top-margin": 32,
+						"bottom-margin": 16,
+						"edges": "stretch",
+						"fill": "stretch",
+						"initially-visible": true,
+						"origin": "top-left",
+						"seams": "overlap"
+					},
+					"uid": 15,
+					"instanceVariables": {},
+					"behaviors": {},
+					"sceneGraphData": {
+						"parent-uid": null,
+						"uid": 15,
+						"children": [
+							{
+								"uid": 16,
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"a": true,
+									"d": true,
+									"sm": "normal"
+								}
+							}
+						],
+						"flags": {
+							"x": true,
+							"y": true,
+							"z": true,
+							"w": true,
+							"h": true,
+							"a": true,
+							"d": true,
+							"sm": "all"
+						},
+						"preview": {
+							"transformX": 0,
+							"transformY": 0,
+							"transformZElevation": 0,
+							"transformW": 0,
+							"transformH": 0,
+							"transformA": 0,
+							"transformSX": 0,
+							"transformSY": 0,
+							"previewSceneGraph": false
+						}
+					},
+					"world": {
+						"x": 9,
+						"y": 10,
+						"width": 429,
+						"height": 379,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "ZoomButton",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 16,
+					"instanceVariables": {},
+					"behaviors": {},
+					"sceneGraphData": {
+						"parent-uid": 15,
+						"uid": 16,
+						"flags": {
+							"x": true,
+							"y": true,
+							"z": true,
+							"w": true,
+							"h": true,
+							"a": true,
+							"d": true,
+							"sm": "normal"
+						},
+						"preview": {
+							"transformX": 0,
+							"transformY": 0,
+							"transformZElevation": 0,
+							"transformW": 0,
+							"transformH": 0,
+							"transformA": 0,
+							"transformSX": 0,
+							"transformSY": 0,
+							"previewSceneGraph": false
+						}
+					},
+					"world": {
+						"x": 149,
+						"y": 156,
+						"width": 100,
+						"height": 100,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
 					"type": "Camera",
 					"properties": {
 						"initially-visible": false,
@@ -702,8 +899,8 @@
 						}
 					},
 					"world": {
-						"x": 841,
-						"y": 1109,
+						"x": 908,
+						"y": 1301,
 						"width": 249,
 						"height": 127,
 						"originX": 0.4939759036144578,
@@ -736,9 +933,9 @@
 				1
 			],
 			"isTransparent": true,
-			"parallaxX": 1,
-			"parallaxY": 1,
-			"scaleRate": 1,
+			"parallaxX": 0,
+			"parallaxY": 0,
+			"scaleRate": 0,
 			"forceOwnTexture": false,
 			"renderingMode": "3d",
 			"drawOrder": "z-order",
@@ -769,9 +966,9 @@
 				1
 			],
 			"isTransparent": true,
-			"parallaxX": 1,
-			"parallaxY": 1,
-			"scaleRate": 1,
+			"parallaxX": 0,
+			"parallaxY": 0,
+			"scaleRate": 0,
 			"forceOwnTexture": false,
 			"renderingMode": "3d",
 			"drawOrder": "z-order",

@@ -15,6 +15,13 @@
 		},
 		{
 			"type": "plugin",
+			"id": "NinePatch",
+			"name": "9-patch",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "Sprite",
 			"name": "Sprite",
 			"author": "Scirra",
@@ -36,6 +43,13 @@
 		},
 		{
 			"type": "behavior",
+			"id": "Rotate",
+			"name": "Rotate",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
 			"id": "Tween",
 			"name": "Tween",
 			"author": "Scirra",
@@ -47,6 +61,13 @@
 			"name": "Scroll To",
 			"author": "Scirra",
 			"bundled": false
+		},
+		{
+			"type": "effect",
+			"id": "pulse",
+			"name": "Pulse",
+			"author": "Danguafer/Silexars",
+			"bundled": false
 		}
 	],
 	"uniqueId": "qxlezb40ozj",
@@ -57,7 +78,9 @@
 			"Camera",
 			"Touch",
 			"Planet",
-			"DrawingCanvas"
+			"DrawingCanvas",
+			"UiBox",
+			"ZoomButton"
 		],
 		"subfolders": []
 	},
