@@ -112,6 +112,30 @@
 						}
 					],
 					"sid": 859302440258176
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 405275537144830
+						}
+					],
+					"actions": [
+						{
+							"id": "move-to-position",
+							"objectClass": "TradeShip",
+							"sid": 124626727933247,
+							"behaviorType": "MoveTo",
+							"parameters": {
+								"x": "Planet.X",
+								"y": "Planet.Y",
+								"mode": "direct"
+							}
+						}
+					],
+					"sid": 189342942436540
 				}
 			]
 		},
@@ -146,10 +170,10 @@
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 311779733431915,
+							"sid": 649718702624852,
 							"parameters": {
 								"variable": "zoomLevel",
-								"value": "2"
+								"value": ".2"
 							}
 						}
 					],
@@ -199,6 +223,160 @@
 				}
 			],
 			"sid": 934701507624510
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-x-seconds",
+					"objectClass": "System",
+					"sid": 297510767282406,
+					"parameters": {
+						"interval-seconds": "0.5"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 995148693566923,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "sourcePlanet",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "UID of planet to spawn ship from.",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 335834818102668
+				},
+				{
+					"eventType": "variable",
+					"name": "destinationPlanet",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "UID of planet to send ship to.",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 985538257476315
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-random-instance",
+							"objectClass": "System",
+							"sid": 665026295317104,
+							"parameters": {
+								"object": "Planet"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 904640016997212,
+							"parameters": {
+								"variable": "sourcePlanet",
+								"value": "Planet.UID"
+							}
+						}
+					],
+					"sid": 697291999162594
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-random-instance",
+							"objectClass": "System",
+							"sid": 657589923013420,
+							"parameters": {
+								"object": "Planet"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 895351119771928,
+							"parameters": {
+								"variable": "destinationPlanet",
+								"value": "Planet.UID"
+							}
+						}
+					],
+					"sid": 501909071595071
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 219657327248848,
+							"parameters": {
+								"object-to-create": "TradeShip",
+								"layer": "\"Ships\"",
+								"x": "0",
+								"y": "0",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						}
+					],
+					"sid": 536102455498010
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-last-created",
+							"objectClass": "System",
+							"sid": 688601477402412,
+							"parameters": {
+								"object": "TradeShip"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-default-color",
+							"objectClass": "TradeShip",
+							"sid": 122791227303108,
+							"parameters": {
+								"color": "rgbEx(random(100), random(100), random(100))"
+							}
+						},
+						{
+							"type": "script",
+							"script": "const ship = runtime.objects.TradeShip.getFirstPickedInstance();\nconst sourcePlanet = runtime.getInstanceByUid(localVars.sourcePlanet);\nconst destPlanet = runtime.getInstanceByUid(localVars.destinationPlanet);\nship.x = sourcePlanet.x;\nship.y = sourcePlanet.y;\nship.behaviors.MoveTo.moveToPosition(destPlanet.x, destPlanet.y);"
+						}
+					],
+					"sid": 164038642576086
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-arrived",
+					"objectClass": "TradeShip",
+					"sid": 643361837948472,
+					"behaviorType": "MoveTo"
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "TradeShip",
+					"sid": 916318466240054
+				}
+			],
+			"sid": 244642029274090
 		}
 	],
 	"sid": 165260888475578

@@ -43,6 +43,13 @@
 		},
 		{
 			"type": "behavior",
+			"id": "MoveTo",
+			"name": "Move To",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
 			"id": "Rotate",
 			"name": "Rotate",
 			"author": "Scirra",
@@ -80,7 +87,9 @@
 			"Planet",
 			"DrawingCanvas",
 			"UiBox",
-			"ZoomButton"
+			"ZoomButton",
+			"TradeShip",
+			"ResearchStation"
 		],
 		"subfolders": []
 	},

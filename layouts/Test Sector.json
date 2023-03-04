@@ -33,10 +33,10 @@
 							"instanceVariables": {},
 							"behaviors": {},
 							"world": {
-								"x": -540,
-								"y": -338,
-								"width": 3295,
-								"height": 4654,
+								"x": -1546,
+								"y": -1544,
+								"width": 10069,
+								"height": 12832,
 								"originX": 0,
 								"originY": 0,
 								"color": [
@@ -106,10 +106,10 @@
 							"instanceVariables": {},
 							"behaviors": {},
 							"world": {
-								"x": -467,
-								"y": -254,
-								"width": 3194,
-								"height": 4495,
+								"x": -1466,
+								"y": -1436,
+								"width": 9812,
+								"height": 12546,
 								"originX": 0,
 								"originY": 0,
 								"color": [
@@ -714,7 +714,37 @@
 			"name": "Ships",
 			"overriden": 0,
 			"subLayers": [],
-			"instances": [],
+			"instances": [
+				{
+					"type": "ResearchStation",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 18,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 760,
+						"y": 874,
+						"width": 128,
+						"height": 128,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				}
+			],
 			"sid": 870653052500804,
 			"effectTypes": [],
 			"isInitiallyVisible": true,
@@ -805,10 +835,10 @@
 						}
 					},
 					"world": {
-						"x": 9,
-						"y": 10,
-						"width": 429,
-						"height": 379,
+						"x": 28,
+						"y": 1692,
+						"width": 1025,
+						"height": 200,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -859,8 +889,8 @@
 						}
 					},
 					"world": {
-						"x": 149,
-						"y": 156,
+						"x": 153,
+						"y": 1790,
 						"width": 100,
 						"height": 100,
 						"originX": 0.5,
@@ -981,11 +1011,11 @@
 	"sid": 761256050089909,
 	"nonworld-instances": [],
 	"effectTypes": [],
-	"width": 2160,
-	"height": 3840,
+	"width": 7000,
+	"height": 10000,
 	"unboundedScrolling": false,
 	"vpX": 0.5,
 	"vpY": 0.5,
-	"projection": "orthographic",
+	"projection": "perspective",
 	"eventSheet": "Main Gameplay"
 }
