@@ -22,47 +22,6 @@
 			"sid": 897365075425191
 		},
 		{
-			"eventType": "variable",
-			"name": "zoomLevel",
-			"type": "number",
-			"initialValue": "1",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 395106022106576
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-double-tap",
-					"objectClass": "Touch",
-					"sid": 407140340315060
-				}
-			],
-			"actions": [
-				{
-					"id": "tween-two-properties",
-					"objectClass": "Camera",
-					"sid": 851896383335001,
-					"behaviorType": "Tween",
-					"parameters": {
-						"tags": "\"\"",
-						"property": "position",
-						"end-x": "Touch.X",
-						"end-y": "Touch.Y",
-						"time": "0.5",
-						"ease": "easeoutcubic",
-						"destroy-on-complete": "no",
-						"loop": "no",
-						"ping-pong": "no",
-						"repeat-count": "1"
-					}
-				}
-			],
-			"sid": 319812104505792
-		},
-		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -111,7 +70,8 @@
 							}
 						}
 					],
-					"sid": 859302440258176
+					"sid": 859302440258176,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -143,96 +103,11 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "on-tap-object",
-					"objectClass": "Touch",
-					"sid": 832180141437085,
-					"parameters": {
-						"object": "ZoomButton"
-					}
-				}
-			],
-			"actions": [],
-			"sid": 101181508110443,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "evaluate-expression",
-							"objectClass": "System",
-							"sid": 523646936083739,
-							"parameters": {
-								"value": "zoomLevel = 1"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 649718702624852,
-							"parameters": {
-								"variable": "zoomLevel",
-								"value": ".2"
-							}
-						}
-					],
-					"sid": 441053784931930
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "else",
-							"objectClass": "System",
-							"sid": 642631631708065
-						}
-					],
-					"actions": [
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 526306567663470,
-							"parameters": {
-								"variable": "zoomLevel",
-								"value": "1"
-							}
-						}
-					],
-					"sid": 492216210927279
-				}
-			]
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "every-tick",
-					"objectClass": "System",
-					"sid": 479765542949163
-				}
-			],
-			"actions": [
-				{
-					"id": "set-layout-scale",
-					"objectClass": "System",
-					"sid": 740586322207735,
-					"parameters": {
-						"scale": "zoomLevel"
-					}
-				}
-			],
-			"sid": 934701507624510
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
 					"id": "every-x-seconds",
 					"objectClass": "System",
-					"sid": 297510767282406,
+					"sid": 138289827187897,
 					"parameters": {
-						"interval-seconds": "0.5"
+						"interval-seconds": "0.2"
 					}
 				}
 			],
@@ -351,6 +226,14 @@
 							}
 						},
 						{
+							"id": "set-scale",
+							"objectClass": "TradeShip",
+							"sid": 847545636852220,
+							"parameters": {
+								"scale": ".2"
+							}
+						},
+						{
 							"type": "script",
 							"script": "const ship = runtime.objects.TradeShip.getFirstPickedInstance();\nconst sourcePlanet = runtime.getInstanceByUid(localVars.sourcePlanet);\nconst destPlanet = runtime.getInstanceByUid(localVars.destinationPlanet);\nship.x = sourcePlanet.x;\nship.y = sourcePlanet.y;\nship.behaviors.MoveTo.moveToPosition(destPlanet.x, destPlanet.y);"
 						}
@@ -377,6 +260,209 @@
 				}
 			],
 			"sid": 244642029274090
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Camera",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 541847651363239
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layout-scale",
+							"objectClass": "System",
+							"sid": 113945356255947,
+							"parameters": {
+								"scale": "Camera.ZoomLevel"
+							}
+						}
+					],
+					"sid": 301519640374316
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-playing",
+							"objectClass": "Camera",
+							"sid": 642202338364842,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"zoom\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Camera",
+							"sid": 272695869586273,
+							"parameters": {
+								"instance-variable": "ZoomLevel",
+								"value": "Camera.Tween.Value(\"zoom\")"
+							}
+						}
+					],
+					"sid": 738815488945617
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-tap-object",
+							"objectClass": "Touch",
+							"sid": 638189569391659,
+							"parameters": {
+								"object": "Planet"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "tween-two-properties",
+							"objectClass": "Camera",
+							"sid": 196281862889392,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "position",
+								"end-x": "Planet.X",
+								"end-y": "Planet.Y",
+								"time": "0.5",
+								"ease": "easeoutcubic",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "tween-value",
+							"objectClass": "Camera",
+							"sid": 525661704799288,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"zoom\"",
+								"start-value": "Camera.ZoomLevel",
+								"end-value": "4",
+								"time": "0.5",
+								"ease": "easeoutcubic",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						}
+					],
+					"sid": 448138578322803
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-tap-object",
+							"objectClass": "Touch",
+							"sid": 866886507371575,
+							"parameters": {
+								"object": "ZoomButton"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 679432394782641,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "evaluate-expression",
+									"objectClass": "System",
+									"sid": 434225108704977,
+									"parameters": {
+										"value": "Camera.ZoomLevel = 1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Camera",
+									"sid": 711054718006572,
+									"parameters": {
+										"instance-variable": "ZoomLevel",
+										"value": ".2"
+									}
+								}
+							],
+							"sid": 947972658420318
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 791620491980910
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Camera",
+									"sid": 894827940279149,
+									"parameters": {
+										"instance-variable": "ZoomLevel",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 606539133442171
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-double-tap",
+							"objectClass": "Touch",
+							"sid": 970957617793849
+						}
+					],
+					"actions": [
+						{
+							"id": "tween-two-properties",
+							"objectClass": "Camera",
+							"sid": 936914234992297,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "position",
+								"end-x": "Touch.X",
+								"end-y": "Touch.Y",
+								"time": "0.5",
+								"ease": "easeoutcubic",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						}
+					],
+					"sid": 180929041585509
+				}
+			],
+			"sid": 264496831334389
 		}
 	],
 	"sid": 165260888475578

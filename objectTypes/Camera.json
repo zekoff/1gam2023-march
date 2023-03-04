@@ -3,7 +3,15 @@
 	"plugin-id": "Sprite",
 	"sid": 630325071389173,
 	"isGlobal": false,
-	"instanceVariables": [],
+	"instanceVariables": [
+		{
+			"name": "ZoomLevel",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 648555513771097
+		}
+	],
 	"behaviorTypes": [
 		{
 			"behaviorId": "scrollto",

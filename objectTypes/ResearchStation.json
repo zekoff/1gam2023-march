@@ -4,7 +4,13 @@
 	"sid": 687866240797331,
 	"isGlobal": false,
 	"instanceVariables": [],
-	"behaviorTypes": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Rotate",
+			"name": "Rotate",
+			"sid": 978618815180278
+		}
+	],
 	"effectTypes": [],
 	"animations": {
 		"items": [
