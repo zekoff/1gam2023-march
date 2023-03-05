@@ -268,7 +268,12 @@
 							"uid": 6,
 							"instanceVariables": {
 								"TotalFacilitySlots": 3,
-								"FacilityList": "[]"
+								"FacilityList": "[]",
+								"ConnectionList": "[]",
+								"Exploration": "UNCHARTED",
+								"TraitList": "[]",
+								"QuantiaRate": 0,
+								"StelliumRate": 0
 							},
 							"behaviors": {
 								"Rotate": {
@@ -309,7 +314,12 @@
 							"uid": 7,
 							"instanceVariables": {
 								"TotalFacilitySlots": 3,
-								"FacilityList": "[]"
+								"FacilityList": "[]",
+								"ConnectionList": "[]",
+								"Exploration": "UNCHARTED",
+								"TraitList": "[]",
+								"QuantiaRate": 0,
+								"StelliumRate": 0
 							},
 							"behaviors": {
 								"Rotate": {
@@ -350,7 +360,12 @@
 							"uid": 8,
 							"instanceVariables": {
 								"TotalFacilitySlots": 3,
-								"FacilityList": "[]"
+								"FacilityList": "[]",
+								"ConnectionList": "[]",
+								"Exploration": "UNCHARTED",
+								"TraitList": "[]",
+								"QuantiaRate": 0,
+								"StelliumRate": 0
 							},
 							"behaviors": {
 								"Rotate": {
@@ -391,7 +406,12 @@
 							"uid": 9,
 							"instanceVariables": {
 								"TotalFacilitySlots": 3,
-								"FacilityList": "[]"
+								"FacilityList": "[]",
+								"ConnectionList": "[]",
+								"Exploration": "UNCHARTED",
+								"TraitList": "[]",
+								"QuantiaRate": 0,
+								"StelliumRate": 0
 							},
 							"behaviors": {
 								"Rotate": {
@@ -432,7 +452,12 @@
 							"uid": 10,
 							"instanceVariables": {
 								"TotalFacilitySlots": 3,
-								"FacilityList": "[]"
+								"FacilityList": "[]",
+								"ConnectionList": "[]",
+								"Exploration": "UNCHARTED",
+								"TraitList": "[]",
+								"QuantiaRate": 0,
+								"StelliumRate": 0
 							},
 							"behaviors": {
 								"Rotate": {
@@ -473,7 +498,12 @@
 							"uid": 11,
 							"instanceVariables": {
 								"TotalFacilitySlots": 3,
-								"FacilityList": "[]"
+								"FacilityList": "[]",
+								"ConnectionList": "[]",
+								"Exploration": "UNCHARTED",
+								"TraitList": "[]",
+								"QuantiaRate": 0,
+								"StelliumRate": 0
 							},
 							"behaviors": {
 								"Rotate": {
@@ -546,7 +576,10 @@
 								"live-preview": false
 							},
 							"uid": 19,
-							"instanceVariables": {},
+							"instanceVariables": {
+								"StelliumCost": 0,
+								"QuantiaDrain": 0
+							},
 							"behaviors": {
 								"Rotate": {
 									"properties": {

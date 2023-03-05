@@ -2,7 +2,22 @@
 	"name": "Facilities",
 	"plugin-id": "Sprite",
 	"sid": 418476617622935,
-	"instanceVariables": [],
+	"instanceVariables": [
+		{
+			"name": "StelliumCost",
+			"type": "number",
+			"desc": "One-time cost to build this facility in Stellium.",
+			"show": true,
+			"sid": 848432425794793
+		},
+		{
+			"name": "QuantiaDrain",
+			"type": "number",
+			"desc": "Ongoing drain to Quantia rate required to build this facility.",
+			"show": true,
+			"sid": 847549225253885
+		}
+	],
 	"behaviorTypes": [],
 	"effectTypes": [],
 	"members": [

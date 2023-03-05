@@ -16,6 +16,41 @@
 			"desc": "JSON array containing object UIDs of the facilities built on this planet.",
 			"show": true,
 			"sid": 417099846923104
+		},
+		{
+			"name": "ConnectionList",
+			"type": "string",
+			"desc": "JSON array of UIDs. Which nodes are connected to this one in the supply network.",
+			"show": true,
+			"sid": 955866553960904
+		},
+		{
+			"name": "Exploration",
+			"type": "string",
+			"desc": "Exploration status of this planet: UNCHARTED, SCANNED, or EXPLORED.",
+			"show": true,
+			"sid": 932097499835946
+		},
+		{
+			"name": "TraitList",
+			"type": "string",
+			"desc": "JSON array of string trait names.",
+			"show": true,
+			"sid": 360575593419679
+		},
+		{
+			"name": "QuantiaRate",
+			"type": "number",
+			"desc": "Rate of Quantia income from having this planet in supply network.",
+			"show": true,
+			"sid": 614992113807644
+		},
+		{
+			"name": "StelliumRate",
+			"type": "number",
+			"desc": "Rate of Stellium income from having this node in supply network.",
+			"show": true,
+			"sid": 125200792602311
 		}
 	],
 	"behaviorTypes": [],
