@@ -1,0 +1,26 @@
+{
+	"name": "Nodes",
+	"plugin-id": "Sprite",
+	"sid": 380489038501759,
+	"instanceVariables": [
+		{
+			"name": "TotalFacilitySlots",
+			"type": "number",
+			"desc": "Slots available on this node to build facilities.",
+			"show": true,
+			"sid": 101232279853431
+		},
+		{
+			"name": "FacilityList",
+			"type": "string",
+			"desc": "JSON array containing object UIDs of the facilities built on this planet.",
+			"show": true,
+			"sid": 417099846923104
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"Planet"
+	]
+}

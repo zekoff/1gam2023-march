@@ -1,5 +1,5 @@
 {
-	"name": "Test Sector",
+	"name": "Config Sector",
 	"layers": [
 		{
 			"name": "Background",
@@ -266,7 +266,10 @@
 								"live-preview": false
 							},
 							"uid": 6,
-							"instanceVariables": {},
+							"instanceVariables": {
+								"TotalFacilitySlots": 3,
+								"FacilityList": "[]"
+							},
 							"behaviors": {
 								"Rotate": {
 									"properties": {
@@ -304,7 +307,10 @@
 								"live-preview": false
 							},
 							"uid": 7,
-							"instanceVariables": {},
+							"instanceVariables": {
+								"TotalFacilitySlots": 3,
+								"FacilityList": "[]"
+							},
 							"behaviors": {
 								"Rotate": {
 									"properties": {
@@ -342,7 +348,10 @@
 								"live-preview": false
 							},
 							"uid": 8,
-							"instanceVariables": {},
+							"instanceVariables": {
+								"TotalFacilitySlots": 3,
+								"FacilityList": "[]"
+							},
 							"behaviors": {
 								"Rotate": {
 									"properties": {
@@ -380,7 +389,10 @@
 								"live-preview": false
 							},
 							"uid": 9,
-							"instanceVariables": {},
+							"instanceVariables": {
+								"TotalFacilitySlots": 3,
+								"FacilityList": "[]"
+							},
 							"behaviors": {
 								"Rotate": {
 									"properties": {
@@ -418,7 +430,10 @@
 								"live-preview": false
 							},
 							"uid": 10,
-							"instanceVariables": {},
+							"instanceVariables": {
+								"TotalFacilitySlots": 3,
+								"FacilityList": "[]"
+							},
 							"behaviors": {
 								"Rotate": {
 									"properties": {
@@ -456,7 +471,10 @@
 								"live-preview": false
 							},
 							"uid": 11,
-							"instanceVariables": {},
+							"instanceVariables": {
+								"TotalFacilitySlots": 3,
+								"FacilityList": "[]"
+							},
 							"behaviors": {
 								"Rotate": {
 									"properties": {
@@ -527,44 +545,6 @@
 								"enable-collisions": true,
 								"live-preview": false
 							},
-							"uid": 17,
-							"instanceVariables": {},
-							"behaviors": {
-								"Rotate": {
-									"properties": {
-										"speed": 30,
-										"acceleration": 0,
-										"enabled": true,
-										"live-preview": false
-									}
-								}
-							},
-							"world": {
-								"x": 299,
-								"y": 1184,
-								"width": 36.742346141747674,
-								"height": 36.742346141747674,
-								"originX": 0.5,
-								"originY": 2,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 0,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "Facility",
-							"properties": {
-								"initially-visible": true,
-								"initial-animation": "Animation 4",
-								"initial-frame": 0,
-								"enable-collisions": true,
-								"live-preview": false
-							},
 							"uid": 19,
 							"instanceVariables": {},
 							"behaviors": {
@@ -578,8 +558,8 @@
 								}
 							},
 							"world": {
-								"x": 815.1466233292358,
-								"y": 1540.222170934019,
+								"x": -140,
+								"y": 1197,
 								"width": 36.742346141747674,
 								"height": 36.742346141747674,
 								"originX": 0.5,
@@ -591,82 +571,6 @@
 									1
 								],
 								"angle": 0,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "Facility",
-							"properties": {
-								"initially-visible": true,
-								"initial-animation": "Animation 2",
-								"initial-frame": 0,
-								"enable-collisions": true,
-								"live-preview": false
-							},
-							"uid": 20,
-							"instanceVariables": {},
-							"behaviors": {
-								"Rotate": {
-									"properties": {
-										"speed": 30,
-										"acceleration": 0,
-										"enabled": true,
-										"live-preview": false
-									}
-								}
-							},
-							"world": {
-								"x": 816.4860760471339,
-								"y": 1540.2320590840395,
-								"width": 36.742346141747674,
-								"height": 36.742346141747674,
-								"originX": 0.5,
-								"originY": 2,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 3.8444560472816276,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "Facility",
-							"properties": {
-								"initially-visible": true,
-								"initial-animation": "Animation 6",
-								"initial-frame": 0,
-								"enable-collisions": true,
-								"live-preview": false
-							},
-							"uid": 21,
-							"instanceVariables": {},
-							"behaviors": {
-								"Rotate": {
-									"properties": {
-										"speed": 30,
-										"acceleration": 0,
-										"enabled": true,
-										"live-preview": false
-									}
-								}
-							},
-							"world": {
-								"x": 817.9004241587528,
-								"y": 1540.583333165962,
-								"width": 36.742346141747674,
-								"height": 36.742346141747674,
-								"originX": 0.5,
-								"originY": 2,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 2.3726074733225944,
 								"zElevation": 0
 							}
 						}
@@ -804,6 +708,34 @@
 					"world": {
 						"x": 955,
 						"y": 516,
+						"width": 1060,
+						"height": 921,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"blendMode": "destination-out"
+					}
+				},
+				{
+					"type": "DrawingCanvas",
+					"properties": {
+						"resolution-mode": "auto",
+						"initially-visible": true,
+						"origin": "top-left",
+						"antialiasing": "off"
+					},
+					"uid": 17,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 860,
+						"y": 2130,
 						"width": 1060,
 						"height": 921,
 						"originX": 0,

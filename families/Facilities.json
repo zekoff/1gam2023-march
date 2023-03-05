@@ -1,0 +1,11 @@
+{
+	"name": "Facilities",
+	"plugin-id": "Sprite",
+	"sid": 418476617622935,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"Facility"
+	]
+}

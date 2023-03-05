@@ -105,18 +105,22 @@
 	"autosaveData": null,
 	"containers": [],
 	"families": {
-		"items": [],
+		"items": [
+			"Nodes",
+			"Facilities"
+		],
 		"subfolders": []
 	},
 	"layouts": {
 		"items": [
-			"Test Sector"
+			"Config Sector"
 		],
 		"subfolders": []
 	},
 	"eventSheets": {
 		"items": [
-			"Main Gameplay"
+			"Main Gameplay",
+			"Constants"
 		],
 		"subfolders": []
 	},

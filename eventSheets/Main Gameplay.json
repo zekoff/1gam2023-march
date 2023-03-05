@@ -2,24 +2,89 @@
 	"name": "Main Gameplay",
 	"events": [
 		{
-			"eventType": "variable",
-			"name": "SECTOR_HEIGHT",
-			"type": "number",
-			"initialValue": "8000",
-			"comment": "Height of usable space in the sector.",
-			"isStatic": false,
-			"isConstant": true,
-			"sid": 833401474128763
-		},
-		{
-			"eventType": "variable",
-			"name": "SECTOR_WIDTH",
-			"type": "number",
-			"initialValue": "5500",
-			"comment": "Width of usable space in the sector.",
-			"isStatic": false,
-			"isConstant": true,
-			"sid": 897365075425191
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 781784515742011,
+					"parameters": {
+						"key": 70
+					}
+				}
+			],
+			"actions": [],
+			"sid": 500815712380467,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-random-instance",
+							"objectClass": "System",
+							"sid": 139133860794052,
+							"parameters": {
+								"object": "Planet"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 211250855470194,
+							"parameters": {
+								"object-to-create": "Facility",
+								"layer": "\"Facilities\"",
+								"x": "Planet.X",
+								"y": "Planet.Y",
+								"create-hierarchy": true,
+								"template-name": "\"\""
+							}
+						}
+					],
+					"sid": 291849642839620,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-last-created",
+									"objectClass": "System",
+									"sid": 570747488229166,
+									"parameters": {
+										"object": "Facility"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-angle",
+									"objectClass": "Facility",
+									"sid": 519154224453695,
+									"parameters": {
+										"angle": "360 / Planet.TotalFacilitySlots"
+									}
+								},
+								{
+									"id": "set-speed",
+									"objectClass": "Facility",
+									"sid": 927311049961059,
+									"behaviorType": "Rotate",
+									"parameters": {
+										"speed": "Planet.Rotate.Speed"
+									}
+								},
+								{
+									"type": "script",
+									"script": "const facilityUid = runtime.objects.Facility.getFirstPickedInstance().uid;\nconst planet = runtime.objects.Planet.getFirstPickedInstance();\nconst facilities = JSON.parse(planet.instVars.FacilityList);\nfacilities.push(facilityUid);\nplanet.instVars.FacilityList = JSON.stringify(facilities);"
+								}
+							],
+							"sid": 420140442103784
+						}
+					]
+				}
+			]
 		},
 		{
 			"eventType": "block",
@@ -70,8 +135,7 @@
 							}
 						}
 					],
-					"sid": 859302440258176,
-					"disabled": true
+					"sid": 859302440258176
 				},
 				{
 					"eventType": "block",
@@ -331,14 +395,14 @@
 						{
 							"id": "tween-two-properties",
 							"objectClass": "Camera",
-							"sid": 196281862889392,
+							"sid": 886901956359651,
 							"behaviorType": "Tween",
 							"parameters": {
 								"tags": "\"\"",
 								"property": "position",
 								"end-x": "Planet.X",
 								"end-y": "Planet.Y",
-								"time": "0.5",
+								"time": "ZOOM_TIME",
 								"ease": "easeoutcubic",
 								"destroy-on-complete": "no",
 								"loop": "no",
@@ -349,13 +413,13 @@
 						{
 							"id": "tween-value",
 							"objectClass": "Camera",
-							"sid": 525661704799288,
+							"sid": 255271792983532,
 							"behaviorType": "Tween",
 							"parameters": {
 								"tags": "\"zoom\"",
 								"start-value": "Camera.ZoomLevel",
 								"end-value": "4",
-								"time": "0.5",
+								"time": "ZOOM_TIME",
 								"ease": "easeoutcubic",
 								"destroy-on-complete": "no",
 								"loop": "no",
@@ -443,14 +507,14 @@
 						{
 							"id": "tween-two-properties",
 							"objectClass": "Camera",
-							"sid": 936914234992297,
+							"sid": 699886974338426,
 							"behaviorType": "Tween",
 							"parameters": {
 								"tags": "\"\"",
 								"property": "position",
 								"end-x": "Touch.X",
 								"end-y": "Touch.Y",
-								"time": "0.5",
+								"time": "ZOOM_TIME",
 								"ease": "easeoutcubic",
 								"destroy-on-complete": "no",
 								"loop": "no",

@@ -1,0 +1,46 @@
+{
+	"name": "Constants",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "DEFAULT_FACILITY_SLOTS",
+			"type": "number",
+			"initialValue": "3",
+			"comment": "Default number of facility slots that a planet has.",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 144364618961924
+		},
+		{
+			"eventType": "variable",
+			"name": "SECTOR_HEIGHT",
+			"type": "number",
+			"initialValue": "8000",
+			"comment": "Height of usable space in the sector.",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 833401474128763
+		},
+		{
+			"eventType": "variable",
+			"name": "SECTOR_WIDTH",
+			"type": "number",
+			"initialValue": "5500",
+			"comment": "Width of usable space in the sector.",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 897365075425191
+		},
+		{
+			"eventType": "variable",
+			"name": "ZOOM_TIME",
+			"type": "number",
+			"initialValue": "0.5",
+			"comment": "Time in seconds for camera zoom to complete.",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 664123603417709
+		}
+	],
+	"sid": 496559410000628
+}
