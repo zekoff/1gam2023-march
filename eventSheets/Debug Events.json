@@ -85,6 +85,43 @@
 					]
 				}
 			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 105295683866866,
+					"parameters": {
+						"key": 84
+					}
+				}
+			],
+			"actions": [],
+			"sid": 356510666051878,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-random-instance",
+							"objectClass": "System",
+							"sid": 981979077359282,
+							"parameters": {
+								"object": "Planet"
+							}
+						}
+					],
+					"actions": [
+						{
+							"type": "script",
+							"script": "const planetUid = runtime.objects.Planet.getFirstPickedInstance().uid;\nGameUtils.buildFacilityOnPlanet(runtime, planetUid, \"Warp Depot\");"
+						}
+					],
+					"sid": 836561203530915
+				}
+			]
 		}
 	],
 	"sid": 747474318372044

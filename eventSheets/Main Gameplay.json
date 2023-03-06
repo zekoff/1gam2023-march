@@ -11,7 +11,7 @@
 		},
 		{
 			"eventType": "variable",
-			"name": "StelliumStockpile",
+			"name": "stelliumStockpile",
 			"type": "number",
 			"initialValue": "0",
 			"comment": "Amount of Stellium in the sector stockpile.",
@@ -106,9 +106,9 @@
 				{
 					"id": "every-x-seconds",
 					"objectClass": "System",
-					"sid": 138289827187897,
+					"sid": 409814704176206,
 					"parameters": {
-						"interval-seconds": "0.2"
+						"interval-seconds": "0.01"
 					}
 				}
 			],
@@ -192,14 +192,14 @@
 						{
 							"id": "create-object",
 							"objectClass": "System",
-							"sid": 219657327248848,
+							"sid": 560255514415352,
 							"parameters": {
 								"object-to-create": "TradeShip",
 								"layer": "\"Ships\"",
 								"x": "0",
 								"y": "0",
 								"create-hierarchy": false,
-								"template-name": "\"\""
+								"template-name": "\"Standard Trade Ship\""
 							}
 						}
 					],
@@ -230,6 +230,7 @@
 							"id": "set-scale",
 							"objectClass": "TradeShip",
 							"sid": 847545636852220,
+							"disabled": true,
 							"parameters": {
 								"scale": ".2"
 							}
@@ -488,7 +489,7 @@
 					"actions": [
 						{
 							"type": "script",
-							"script": "runtime.objects.QuantiaDisplay.getFirstInstance().text = \"Quantia Generation: \" + GameUtils.getQuantiaRate(runtime) + \" surplus\";\nruntime.objects.StelliumDisplay.getFirstInstance().text = \n\"Stellium: \" + runtime.globalVars.StelliumStockpile + \" (+\" + GameUtils.getStelliumRate(runtime) + \"/yr)\";"
+							"script": "runtime.objects.QuantiaDisplay.getFirstInstance().text = \"Quantia Generation: \" + GameUtils.getQuantiaRate(runtime) + \" surplus\";\nruntime.objects.StelliumDisplay.getFirstInstance().text = \n\"Stellium: \" + runtime.globalVars.stelliumStockpile + \" (+\" + GameUtils.getStelliumRate(runtime) + \"/yr)\";"
 						}
 					],
 					"sid": 201205195501745

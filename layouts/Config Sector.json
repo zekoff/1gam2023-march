@@ -267,13 +267,13 @@
 							},
 							"uid": 6,
 							"instanceVariables": {
-								"TotalFacilitySlots": 3,
-								"FacilityList": "[]",
-								"ConnectionList": "[]",
-								"Exploration": "UNCHARTED",
-								"TraitList": "[]",
-								"QuantiaRate": 1,
-								"StelliumRate": 0
+								"totalFacilitySlots": 3,
+								"facilityList": "[]",
+								"connectionList": "[]",
+								"exploration": "UNCHARTED",
+								"traitList": "[]",
+								"quantiaRate": 1,
+								"stelliumRate": 0
 							},
 							"behaviors": {
 								"Rotate": {
@@ -313,13 +313,13 @@
 							},
 							"uid": 7,
 							"instanceVariables": {
-								"TotalFacilitySlots": 3,
-								"FacilityList": "[]",
-								"ConnectionList": "[]",
-								"Exploration": "UNCHARTED",
-								"TraitList": "[]",
-								"QuantiaRate": 3,
-								"StelliumRate": 0
+								"totalFacilitySlots": 3,
+								"facilityList": "[]",
+								"connectionList": "[]",
+								"exploration": "UNCHARTED",
+								"traitList": "[]",
+								"quantiaRate": 3,
+								"stelliumRate": 0
 							},
 							"behaviors": {
 								"Rotate": {
@@ -359,13 +359,13 @@
 							},
 							"uid": 8,
 							"instanceVariables": {
-								"TotalFacilitySlots": 3,
-								"FacilityList": "[]",
-								"ConnectionList": "[]",
-								"Exploration": "UNCHARTED",
-								"TraitList": "[]",
-								"QuantiaRate": 0,
-								"StelliumRate": 5
+								"totalFacilitySlots": 3,
+								"facilityList": "[]",
+								"connectionList": "[]",
+								"exploration": "UNCHARTED",
+								"traitList": "[]",
+								"quantiaRate": 0,
+								"stelliumRate": 5
 							},
 							"behaviors": {
 								"Rotate": {
@@ -405,13 +405,13 @@
 							},
 							"uid": 9,
 							"instanceVariables": {
-								"TotalFacilitySlots": 3,
-								"FacilityList": "[]",
-								"ConnectionList": "[]",
-								"Exploration": "UNCHARTED",
-								"TraitList": "[]",
-								"QuantiaRate": 0,
-								"StelliumRate": 10
+								"totalFacilitySlots": 3,
+								"facilityList": "[]",
+								"connectionList": "[]",
+								"exploration": "UNCHARTED",
+								"traitList": "[]",
+								"quantiaRate": 0,
+								"stelliumRate": 10
 							},
 							"behaviors": {
 								"Rotate": {
@@ -451,13 +451,13 @@
 							},
 							"uid": 10,
 							"instanceVariables": {
-								"TotalFacilitySlots": 3,
-								"FacilityList": "[]",
-								"ConnectionList": "[]",
-								"Exploration": "UNCHARTED",
-								"TraitList": "[]",
-								"QuantiaRate": 0,
-								"StelliumRate": 0
+								"totalFacilitySlots": 3,
+								"facilityList": "[]",
+								"connectionList": "[]",
+								"exploration": "UNCHARTED",
+								"traitList": "[]",
+								"quantiaRate": 0,
+								"stelliumRate": 0
 							},
 							"behaviors": {
 								"Rotate": {
@@ -497,13 +497,13 @@
 							},
 							"uid": 11,
 							"instanceVariables": {
-								"TotalFacilitySlots": 3,
-								"FacilityList": "[]",
-								"ConnectionList": "[]",
-								"Exploration": "UNCHARTED",
-								"TraitList": "[]",
-								"QuantiaRate": 0,
-								"StelliumRate": 0
+								"totalFacilitySlots": 3,
+								"facilityList": "[]",
+								"connectionList": "[]",
+								"exploration": "UNCHARTED",
+								"traitList": "[]",
+								"quantiaRate": 0,
+								"stelliumRate": 0
 							},
 							"behaviors": {
 								"Rotate": {
@@ -859,6 +859,218 @@
 						"y": 874,
 						"width": 128,
 						"height": 128,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "TradeShip",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 25,
+					"instanceVariables": {},
+					"behaviors": {
+						"MoveTo": {
+							"properties": {
+								"max-speed": 400,
+								"acceleration": 600,
+								"deceleration": 600,
+								"rotate-speed": 0,
+								"set-angle": true,
+								"stop-on-solids": false,
+								"enabled": true
+							}
+						}
+					},
+					"template": {
+						"mode": "template",
+						"templateName": "Standard Trade Ship",
+						"sourceTemplateName": "",
+						"components": [
+							{
+								"id": "plugin",
+								"component": [
+									{
+										"key": "plugin",
+										"state": [
+											[
+												"initially-visible",
+												true
+											],
+											[
+												"initial-animation",
+												true
+											],
+											[
+												"initial-frame",
+												true
+											],
+											[
+												"enable-collisions",
+												true
+											]
+										]
+									}
+								]
+							},
+							{
+								"id": "instance-variable",
+								"component": [
+									{
+										"key": "instance-variable",
+										"state": []
+									}
+								]
+							},
+							{
+								"id": "behavior",
+								"component": [
+									{
+										"key": "MoveTo",
+										"state": [
+											[
+												"max-speed",
+												true
+											],
+											[
+												"acceleration",
+												true
+											],
+											[
+												"deceleration",
+												true
+											],
+											[
+												"rotate-speed",
+												true
+											],
+											[
+												"set-angle",
+												true
+											],
+											[
+												"stop-on-solids",
+												true
+											],
+											[
+												"enabled",
+												true
+											]
+										]
+									}
+								]
+							},
+							{
+								"id": "effect",
+								"component": []
+							},
+							{
+								"id": "world-instance",
+								"component": [
+									{
+										"key": "world-instance",
+										"state": [
+											[
+												"x",
+												false
+											],
+											[
+												"y",
+												false
+											],
+											[
+												"z",
+												true
+											],
+											[
+												"w",
+												true
+											],
+											[
+												"h",
+												true
+											],
+											[
+												"a",
+												true
+											],
+											[
+												"o",
+												true
+											],
+											[
+												"c",
+												true
+											],
+											[
+												"sx",
+												true
+											],
+											[
+												"sy",
+												true
+											],
+											[
+												"bm",
+												true
+											],
+											[
+												"twpx",
+												true
+											],
+											[
+												"twpy",
+												true
+											],
+											[
+												"twpz",
+												true
+											],
+											[
+												"twpw",
+												true
+											],
+											[
+												"twph",
+												true
+											],
+											[
+												"twpa",
+												true
+											],
+											[
+												"dwp",
+												true
+											],
+											[
+												"ssm",
+												true
+											]
+										]
+									}
+								]
+							}
+						],
+						"replicasUIDs": null
+					},
+					"world": {
+						"x": -223.60769515458674,
+						"y": 893.3923048454133,
+						"width": 20.784609690826528,
+						"height": 20.784609690826528,
 						"originX": 0.5,
 						"originY": 0.5,
 						"color": [

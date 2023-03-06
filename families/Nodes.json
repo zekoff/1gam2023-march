@@ -4,49 +4,49 @@
 	"sid": 380489038501759,
 	"instanceVariables": [
 		{
-			"name": "TotalFacilitySlots",
+			"name": "totalFacilitySlots",
 			"type": "number",
 			"desc": "Slots available on this node to build facilities.",
 			"show": true,
 			"sid": 101232279853431
 		},
 		{
-			"name": "FacilityList",
+			"name": "facilityList",
 			"type": "string",
 			"desc": "JSON array containing object UIDs of the facilities built on this planet.",
 			"show": true,
 			"sid": 417099846923104
 		},
 		{
-			"name": "ConnectionList",
+			"name": "connectionList",
 			"type": "string",
 			"desc": "JSON array of UIDs. Which nodes are connected to this one in the supply network.",
 			"show": true,
 			"sid": 955866553960904
 		},
 		{
-			"name": "Exploration",
+			"name": "exploration",
 			"type": "string",
 			"desc": "Exploration status of this planet: UNCHARTED, SCANNED, or EXPLORED.",
 			"show": true,
 			"sid": 932097499835946
 		},
 		{
-			"name": "TraitList",
+			"name": "traitList",
 			"type": "string",
 			"desc": "JSON array of string trait names.",
 			"show": true,
 			"sid": 360575593419679
 		},
 		{
-			"name": "QuantiaRate",
+			"name": "quantiaRate",
 			"type": "number",
 			"desc": "Rate of Quantia income from having this planet in supply network.",
 			"show": true,
 			"sid": 614992113807644
 		},
 		{
-			"name": "StelliumRate",
+			"name": "stelliumRate",
 			"type": "number",
 			"desc": "Rate of Stellium income from having this node in supply network.",
 			"show": true,
