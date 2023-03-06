@@ -1,0 +1,150 @@
+{
+    "c2array": true,
+    "size": [
+        10,
+        4,
+        1
+    ],
+    "data": [
+        [
+            [
+                "Facility Name"
+            ],
+            [
+                "Warp Depot"
+            ],
+            [
+                "Quantia Harvester"
+            ],
+            [
+                "Stellium Extractor"
+            ]
+        ],
+        [
+            [
+                "Level"
+            ],
+            [
+                1
+            ],
+            [
+                1
+            ],
+            [
+                1
+            ]
+        ],
+        [
+            [
+                "Quantia Drain"
+            ],
+            [
+                0
+            ],
+            [
+                0
+            ],
+            [
+                1
+            ]
+        ],
+        [
+            [
+                "Stellium Cost"
+            ],
+            [
+                0
+            ],
+            [
+                100
+            ],
+            [
+                0
+            ]
+        ],
+        [
+            [
+                "Stellium Drain"
+            ],
+            [
+                0
+            ],
+            [
+                0
+            ],
+            [
+                0
+            ]
+        ],
+        [
+            [
+                "Crysether Cost"
+            ],
+            [
+                1
+            ],
+            [
+                0
+            ],
+            [
+                0
+            ]
+        ],
+        [
+            [
+                "Animation"
+            ],
+            [
+                "Animation 3"
+            ],
+            [
+                "Animation 1"
+            ],
+            [
+                "Animation 2"
+            ]
+        ],
+        [
+            [
+                "Quantia Rate"
+            ],
+            [
+                1
+            ],
+            [
+                3
+            ],
+            [
+                0
+            ]
+        ],
+        [
+            [
+                "Stellium Rate"
+            ],
+            [
+                30
+            ],
+            [
+                0
+            ],
+            [
+                20
+            ]
+        ],
+        [
+            [
+                "Crysether Gain"
+            ],
+            [
+                0
+            ],
+            [
+                0
+            ],
+            [
+                0
+            ]
+        ]
+    ]
+}

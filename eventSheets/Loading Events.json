@@ -1,0 +1,66 @@
+{
+	"name": "Loading Events",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "facilityDataContents",
+			"type": "string",
+			"initialValue": "",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 989217964538277
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-completed",
+					"objectClass": "AJAX",
+					"sid": 913298436236350,
+					"parameters": {
+						"tag": "\"facilityData.json\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "load",
+					"objectClass": "FacilityData",
+					"sid": 597516119876041,
+					"parameters": {
+						"json": "AJAX.LastData"
+					}
+				},
+				{
+					"type": "script",
+					"script": "const result = runtime.objects.FacilityData.getFirstInstance();\nruntime.globalVars.facilityDataContents = JSON.stringify(ConstructUtils.unpackArrayToMapping(result));"
+				}
+			],
+			"sid": 618680877678275
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 129258576028434
+				}
+			],
+			"actions": [
+				{
+					"id": "request-project-file",
+					"objectClass": "AJAX",
+					"sid": 486016529882319,
+					"parameters": {
+						"tag": "\"facilityData.json\"",
+						"file": "facilityData.json"
+					}
+				}
+			],
+			"sid": 695386772024004
+		}
+	],
+	"sid": 349964303565887
+}

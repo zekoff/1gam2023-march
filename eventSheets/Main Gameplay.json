@@ -2,6 +2,10 @@
 	"name": "Main Gameplay",
 	"events": [
 		{
+			"eventType": "include",
+			"includeSheet": "Loading Events"
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{

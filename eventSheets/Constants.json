@@ -40,6 +40,26 @@
 			"isStatic": false,
 			"isConstant": true,
 			"sid": 664123603417709
+		},
+		{
+			"eventType": "variable",
+			"name": "GAME_LENGTH_YEARS",
+			"type": "number",
+			"initialValue": "50",
+			"comment": "Game length in \"years\" -- arbitrary number and duration name for setting rates.",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 825927652505449
+		},
+		{
+			"eventType": "variable",
+			"name": "YEARS_PER_MINUTE",
+			"type": "number",
+			"initialValue": "12",
+			"comment": "Number of game years that elapse per real-world minute.",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 953397982139438
 		}
 	],
 	"sid": 496559410000628

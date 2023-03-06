@@ -1138,7 +1138,18 @@
 		}
 	],
 	"sid": 761256050089909,
-	"nonworld-instances": [],
+	"nonworld-instances": [
+		{
+			"type": "FacilityData",
+			"properties": {
+				"width": 10,
+				"height": 1,
+				"depth": 1
+			},
+			"uid": 23,
+			"instanceVariables": {}
+		}
+	],
 	"effectTypes": [],
 	"width": 6000,
 	"height": 11000,

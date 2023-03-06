@@ -8,6 +8,20 @@
 	"usedAddons": [
 		{
 			"type": "plugin",
+			"id": "AJAX",
+			"name": "AJAX",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Arr",
+			"name": "Array",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "DrawingCanvas",
 			"name": "Drawing canvas",
 			"author": "Scirra",
@@ -98,7 +112,9 @@
 			"TradeShip",
 			"ResearchStation",
 			"Facility",
-			"Keyboard"
+			"Keyboard",
+			"AJAX",
+			"FacilityData"
 		],
 		"subfolders": []
 	},
@@ -120,13 +136,47 @@
 	"eventSheets": {
 		"items": [
 			"Main Gameplay",
-			"Constants"
+			"Constants",
+			"Loading Events"
 		],
 		"subfolders": []
 	},
 	"rootFileFolders": {
 		"script": {
-			"items": [],
+			"items": [
+				{
+					"name": "main.js",
+					"type": "application/javascript",
+					"sid": 379052012075916,
+					"script-info": {
+						"purpose": "main"
+					}
+				},
+				{
+					"name": "importsForEvents.js",
+					"type": "application/javascript",
+					"sid": 300833108980997,
+					"script-info": {
+						"purpose": "imports-for-events"
+					}
+				},
+				{
+					"name": "facilityUtils.js",
+					"type": "application/javascript",
+					"sid": 938273206998552,
+					"script-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "constructUtils.js",
+					"type": "application/javascript",
+					"sid": 441651839000955,
+					"script-info": {
+						"purpose": "none"
+					}
+				}
+			],
 			"subfolders": []
 		},
 		"sound": {
@@ -207,7 +257,16 @@
 			"subfolders": []
 		},
 		"general": {
-			"items": [],
+			"items": [
+				{
+					"name": "facilityData.json",
+					"type": "application/json",
+					"sid": 513933754095021,
+					"file-info": {
+						"purpose": "none"
+					}
+				}
+			],
 			"subfolders": []
 		}
 	},
@@ -272,7 +331,7 @@
 		"preloadSounds": true,
 		"cordovaiOSScheme": "app",
 		"cordovaAndroidScheme": "https",
-		"autoReloadScriptsOnPreview": false,
+		"autoReloadScriptsOnPreview": true,
 		"exportFileStructure": "folders"
 	},
 	"viewportWidth": 1080,
