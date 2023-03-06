@@ -272,7 +272,7 @@
 								"ConnectionList": "[]",
 								"Exploration": "UNCHARTED",
 								"TraitList": "[]",
-								"QuantiaRate": 0,
+								"QuantiaRate": 1,
 								"StelliumRate": 0
 							},
 							"behaviors": {
@@ -318,7 +318,7 @@
 								"ConnectionList": "[]",
 								"Exploration": "UNCHARTED",
 								"TraitList": "[]",
-								"QuantiaRate": 0,
+								"QuantiaRate": 3,
 								"StelliumRate": 0
 							},
 							"behaviors": {
@@ -365,7 +365,7 @@
 								"Exploration": "UNCHARTED",
 								"TraitList": "[]",
 								"QuantiaRate": 0,
-								"StelliumRate": 0
+								"StelliumRate": 5
 							},
 							"behaviors": {
 								"Rotate": {
@@ -411,7 +411,7 @@
 								"Exploration": "UNCHARTED",
 								"TraitList": "[]",
 								"QuantiaRate": 0,
-								"StelliumRate": 0
+								"StelliumRate": 10
 							},
 							"behaviors": {
 								"Rotate": {
@@ -1064,6 +1064,92 @@
 						"height": 127,
 						"originX": 0.4939759036144578,
 						"originY": 0.5039370078740157,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "QuantiaDisplay",
+					"properties": {
+						"text": "QUANTIA",
+						"enable-bbcode": true,
+						"font": "Arial",
+						"size": 24,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0,
+							0,
+							0,
+							1
+						],
+						"horizontal-alignment": "left",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left",
+						"read-aloud": false
+					},
+					"uid": 24,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 338,
+						"y": 1722,
+						"width": 622,
+						"height": 79,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "StelliumDisplay",
+					"properties": {
+						"text": "STELLIUM",
+						"enable-bbcode": true,
+						"font": "Arial",
+						"size": 24,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0,
+							0,
+							0,
+							1
+						],
+						"horizontal-alignment": "left",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left",
+						"read-aloud": false
+					},
+					"uid": 20,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 331,
+						"y": 1808,
+						"width": 664,
+						"height": 79,
+						"originX": 0,
+						"originY": 0,
 						"color": [
 							1,
 							1,

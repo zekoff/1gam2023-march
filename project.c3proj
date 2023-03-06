@@ -50,6 +50,13 @@
 		},
 		{
 			"type": "plugin",
+			"id": "Text",
+			"name": "Text",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "TiledBg",
 			"name": "Tiled Background",
 			"author": "Scirra",
@@ -114,7 +121,9 @@
 			"Facility",
 			"Keyboard",
 			"AJAX",
-			"FacilityData"
+			"FacilityData",
+			"QuantiaDisplay",
+			"StelliumDisplay"
 		],
 		"subfolders": []
 	},
@@ -137,7 +146,8 @@
 		"items": [
 			"Main Gameplay",
 			"Constants",
-			"Loading Events"
+			"Loading Events",
+			"Debug Events"
 		],
 		"subfolders": []
 	},
@@ -161,7 +171,7 @@
 					}
 				},
 				{
-					"name": "facilityUtils.js",
+					"name": "gameUtils.js",
 					"type": "application/javascript",
 					"sid": 938273206998552,
 					"script-info": {

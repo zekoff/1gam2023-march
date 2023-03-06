@@ -1,4 +1,4 @@
 // importsForEvents.js
 
-import * as FacilityUtils from "./facilityUtils.js";
+import * as GameUtils from "./gameUtils.js";
 import * as ConstructUtils from "./constructUtils.js";

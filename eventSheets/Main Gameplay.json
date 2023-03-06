@@ -6,89 +6,18 @@
 			"includeSheet": "Loading Events"
 		},
 		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-key-pressed",
-					"objectClass": "Keyboard",
-					"sid": 781784515742011,
-					"parameters": {
-						"key": 70
-					}
-				}
-			],
-			"actions": [],
-			"sid": 500815712380467,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "pick-random-instance",
-							"objectClass": "System",
-							"sid": 139133860794052,
-							"parameters": {
-								"object": "Planet"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "create-object",
-							"objectClass": "System",
-							"sid": 211250855470194,
-							"parameters": {
-								"object-to-create": "Facility",
-								"layer": "\"Facilities\"",
-								"x": "Planet.X",
-								"y": "Planet.Y",
-								"create-hierarchy": true,
-								"template-name": "\"\""
-							}
-						}
-					],
-					"sid": 291849642839620,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "pick-last-created",
-									"objectClass": "System",
-									"sid": 570747488229166,
-									"parameters": {
-										"object": "Facility"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-angle",
-									"objectClass": "Facility",
-									"sid": 519154224453695,
-									"parameters": {
-										"angle": "360 / Planet.TotalFacilitySlots"
-									}
-								},
-								{
-									"id": "set-speed",
-									"objectClass": "Facility",
-									"sid": 927311049961059,
-									"behaviorType": "Rotate",
-									"parameters": {
-										"speed": "Planet.Rotate.Speed"
-									}
-								},
-								{
-									"type": "script",
-									"script": "const facilityUid = runtime.objects.Facility.getFirstPickedInstance().uid;\nconst planet = runtime.objects.Planet.getFirstPickedInstance();\nconst facilities = JSON.parse(planet.instVars.FacilityList);\nfacilities.push(facilityUid);\nplanet.instVars.FacilityList = JSON.stringify(facilities);"
-								}
-							],
-							"sid": 420140442103784
-						}
-					]
-				}
-			]
+			"eventType": "include",
+			"includeSheet": "Debug Events"
+		},
+		{
+			"eventType": "variable",
+			"name": "StelliumStockpile",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "Amount of Stellium in the sector stockpile.",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 779515009361628
 		},
 		{
 			"eventType": "block",
@@ -166,6 +95,10 @@
 					"sid": 189342942436540
 				}
 			]
+		},
+		{
+			"eventType": "comment",
+			"text": "Visualize trade ships moving between nodes."
 		},
 		{
 			"eventType": "block",
@@ -531,6 +464,37 @@
 				}
 			],
 			"sid": 264496831334389
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "UI",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "Update resource displays."
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 471066900308712
+						}
+					],
+					"actions": [
+						{
+							"type": "script",
+							"script": "runtime.objects.QuantiaDisplay.getFirstInstance().text = \"Quantia Generation: \" + GameUtils.getQuantiaRate(runtime) + \" surplus\";\nruntime.objects.StelliumDisplay.getFirstInstance().text = \n\"Stellium: \" + runtime.globalVars.StelliumStockpile + \" (+\" + GameUtils.getStelliumRate(runtime) + \"/yr)\";"
+						}
+					],
+					"sid": 201205195501745
+				}
+			],
+			"sid": 474990103053014
 		}
 	],
 	"sid": 165260888475578

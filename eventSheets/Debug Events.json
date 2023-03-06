@@ -1,0 +1,91 @@
+{
+	"name": "Debug Events",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 781784515742011,
+					"parameters": {
+						"key": 70
+					}
+				}
+			],
+			"actions": [],
+			"sid": 500815712380467,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-random-instance",
+							"objectClass": "System",
+							"sid": 139133860794052,
+							"parameters": {
+								"object": "Planet"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 211250855470194,
+							"parameters": {
+								"object-to-create": "Facility",
+								"layer": "\"Facilities\"",
+								"x": "Planet.X",
+								"y": "Planet.Y",
+								"create-hierarchy": true,
+								"template-name": "\"\""
+							}
+						}
+					],
+					"sid": 291849642839620,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-last-created",
+									"objectClass": "System",
+									"sid": 570747488229166,
+									"parameters": {
+										"object": "Facility"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-angle",
+									"objectClass": "Facility",
+									"sid": 519154224453695,
+									"parameters": {
+										"angle": "360 / Planet.TotalFacilitySlots"
+									}
+								},
+								{
+									"id": "set-speed",
+									"objectClass": "Facility",
+									"sid": 927311049961059,
+									"behaviorType": "Rotate",
+									"parameters": {
+										"speed": "Planet.Rotate.Speed"
+									}
+								},
+								{
+									"type": "script",
+									"script": "const facilityUid = runtime.objects.Facility.getFirstPickedInstance().uid;\nconst planet = runtime.objects.Planet.getFirstPickedInstance();\nconst facilities = JSON.parse(planet.instVars.FacilityList);\nfacilities.push(facilityUid);\nplanet.instVars.FacilityList = JSON.stringify(facilities);"
+								}
+							],
+							"sid": 420140442103784
+						}
+					]
+				}
+			]
+		}
+	],
+	"sid": 747474318372044
+}

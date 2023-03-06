@@ -3,10 +3,10 @@
 	"events": [
 		{
 			"eventType": "variable",
-			"name": "facilityDataContents",
+			"name": "facilityDataMapping",
 			"type": "string",
-			"initialValue": "",
-			"comment": "",
+			"initialValue": "{}",
+			"comment": "JSON stringified representation of the Facility Data array mapping.",
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 989217964538277
@@ -34,7 +34,7 @@
 				},
 				{
 					"type": "script",
-					"script": "const result = runtime.objects.FacilityData.getFirstInstance();\nruntime.globalVars.facilityDataContents = JSON.stringify(ConstructUtils.unpackArrayToMapping(result));"
+					"script": "const result = runtime.objects.FacilityData.getFirstInstance();\nruntime.globalVars.facilityDataMapping = JSON.stringify(ConstructUtils.unpackArrayToMapping(result));"
 				}
 			],
 			"sid": 618680877678275
