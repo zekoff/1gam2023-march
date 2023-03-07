@@ -23,7 +23,7 @@ export function getStelliumRate(runtime) {
 }
 
 /**
- * Check if a facility can be built on a planet.
+ * Check if a facility is prevented from being built on a planet.
  * 
  * Returns a user-readable error message if the facility cannot be built, or
  * false if the facility build is not prevented (i.e. the facility can be built).
@@ -62,12 +62,10 @@ export function buildFacilityOnPlanet(runtime, planetUid, facilityName) {
   const facilityData = JSON.parse(runtime.globalVars.facilityDataMapping)[facilityName];
   const facility = runtime.objects.Facility.createInstance("Facilities", planet.x, planet.y, "", "");
   facility.setAnimation(facilityData.Animation);
-  // TODO rotation speed is not being set correctly
-  facility.behaviors.Rotate.Speed = planet.behaviors.Rotate.Speed;
+  facility.behaviors.Rotate.speed = planet.behaviors.Rotate.speed;
   const numFacilitiesOnPlanet = JSON.parse(planet.instVars.facilityList).length;
-  facility.angleDegrees = 360 / (numFacilitiesOnPlanet + 1);
+  facility.angleDegrees = 360 / planet.instVars.totalFacilitySlots * (numFacilitiesOnPlanet + 1);
   facility.angleDegrees += planet.angleDegrees;
-  // TODO angle is not being set correctly
   planet.instVars.quantiaRate += facilityData["Quantia Rate"];
   planet.instVars.stelliumRate += facilityData["Stellium Rate"];
   const unpackedFacilityList = JSON.parse(planet.instVars.facilityList);

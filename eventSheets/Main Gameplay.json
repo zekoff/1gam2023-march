@@ -227,15 +227,6 @@
 							}
 						},
 						{
-							"id": "set-scale",
-							"objectClass": "TradeShip",
-							"sid": 847545636852220,
-							"disabled": true,
-							"parameters": {
-								"scale": ".2"
-							}
-						},
-						{
 							"type": "script",
 							"script": "const ship = runtime.objects.TradeShip.getFirstPickedInstance();\nconst sourcePlanet = runtime.getInstanceByUid(localVars.sourcePlanet);\nconst destPlanet = runtime.getInstanceByUid(localVars.destinationPlanet);\nship.x = sourcePlanet.x;\nship.y = sourcePlanet.y;\nship.behaviors.MoveTo.moveToPosition(destPlanet.x, destPlanet.y);"
 						}
