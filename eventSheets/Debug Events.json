@@ -2,6 +2,16 @@
 	"name": "Debug Events",
 	"events": [
 		{
+			"eventType": "variable",
+			"name": "debugTextLog",
+			"type": "string",
+			"initialValue": "[]",
+			"comment": "JSON array of debug text messages.",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 123480690668376
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -32,11 +42,45 @@
 						{
 							"type": "script",
 							"script": "const planetUid = runtime.objects.Planet.getFirstPickedInstance().uid;\nGameUtils.buildFacilityOnPlanet(runtime, planetUid, \"Warp Depot\");"
+						},
+						{
+							"callFunction": "LogDebugMessage",
+							"sid": 731083660108631,
+							"parameters": [
+								"\"Added facility on planet \" & Planet.UID"
+							]
 						}
 					],
 					"sid": 836561203530915
 				}
 			]
+		},
+		{
+			"functionName": "LogDebugMessage",
+			"functionDescription": "Add a message to the debug log to be displayed on the debug layer.",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "text",
+					"type": "string",
+					"initialValue": "",
+					"comment": "The debug message to be logged.",
+					"sid": 344930069477099
+				}
+			],
+			"breakpoint": true,
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"type": "script",
+					"script": "const debugLog = JSON.parse(runtime.globalVars.debugTextLog);\ndebugLog.unshift(localVars.text);\nruntime.globalVars.debugTextLog = JSON.stringify(debugLog);\nruntime.objects.DebugTextDisplay.getFirstInstance().text = debugLog.join(\"\\n\");"
+				}
+			],
+			"sid": 984344716066537
 		}
 	],
 	"sid": 747474318372044
