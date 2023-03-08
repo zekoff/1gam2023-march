@@ -71,13 +71,12 @@
 					"sid": 344930069477099
 				}
 			],
-			"breakpoint": true,
 			"eventType": "function-block",
 			"conditions": [],
 			"actions": [
 				{
 					"type": "script",
-					"script": "const debugLog = JSON.parse(runtime.globalVars.debugTextLog);\ndebugLog.unshift(localVars.text);\nruntime.globalVars.debugTextLog = JSON.stringify(debugLog);\nruntime.objects.DebugTextDisplay.getFirstInstance().text = debugLog.join(\"\\n\");"
+					"script": "const debugLog = JSON.parse(runtime.globalVars.debugTextLog);\ndebugLog.unshift(`${runtime.wallTime.toFixed(2)}s: ` + localVars.text);\nruntime.globalVars.debugTextLog = JSON.stringify(debugLog);\nruntime.objects.DebugTextDisplay.getFirstInstance().text = debugLog.join(\"\\n\");"
 				}
 			],
 			"sid": 984344716066537
