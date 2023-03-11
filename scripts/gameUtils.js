@@ -47,7 +47,7 @@ export function isFacilityBuildPrevented(runtime, planetUid, facilityName) {
  * @param {*} facilityUid 
  */
 export function isFacilityUpgradePrevented(runtime, facilityUid) {
-  
+
 }
 
 /**
@@ -71,7 +71,25 @@ export function buildFacilityOnPlanet(runtime, planetUid, facilityName) {
   const unpackedFacilityList = JSON.parse(planet.instVars.facilityList);
   unpackedFacilityList.push(facility.uid);
   planet.instVars.facilityList = JSON.stringify(unpackedFacilityList);
-  // TODO update supply network if Warp Depot
+  if (facilityName === "Warp Depot") connectNearbyPlanets(runtime, planetUid);
+}
+
+export function connectNearbyPlanets(runtime, planetUid, connectionDistance = null) {
+  if (connectionDistance === null) connectionDistance = runtime.globalVars.WARP_DEPOT_RADIUS;
+  const planet = runtime.getInstanceByUid(planetUid);
+  const planetsInRange = [];
+  for (let testPlanet of runtime.objects.Planet.instances()) {
+    if (testPlanet.uid === planet.uid) continue;
+    const distanceAway = Math.hypot(testPlanet.x - planet.x, testPlanet.y - planet.y);
+    if (connectionDistance >= distanceAway) planetsInRange.push(testPlanet);
+  }
+  const connectedPlanetUids = JSON.parse(planet.instVars.connectionList);
+  for (let i = 0; i < planetsInRange.length; i++) {
+    if (connectedPlanetUids.indexOf(planetsInRange[i].uid) === -1)
+      connectedPlanetUids.push(planetsInRange[i].uid);
+  }
+  planet.instVars.connectionList = JSON.stringify(connectedPlanetUids);
+  // TODO: add bi-directional connection when a connection is added
 }
 
 /**

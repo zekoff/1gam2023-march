@@ -60,6 +60,16 @@
 			"isStatic": false,
 			"isConstant": true,
 			"sid": 953397982139438
+		},
+		{
+			"eventType": "variable",
+			"name": "WARP_DEPOT_RADIUS",
+			"type": "number",
+			"initialValue": "1000",
+			"comment": "Radius in which warp depots provide supply to nearby planets.",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 158189812396306
 		}
 	],
 	"sid": 496559410000628

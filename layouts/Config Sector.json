@@ -315,7 +315,7 @@
 							"instanceVariables": {
 								"totalFacilitySlots": 3,
 								"facilityList": "[]",
-								"connectionList": "[9]",
+								"connectionList": "[]",
 								"exploration": "UNCHARTED",
 								"traitList": "[]",
 								"quantiaRate": 3,
@@ -407,7 +407,7 @@
 							"instanceVariables": {
 								"totalFacilitySlots": 3,
 								"facilityList": "[]",
-								"connectionList": "[7]",
+								"connectionList": "[]",
 								"exploration": "UNCHARTED",
 								"traitList": "[]",
 								"quantiaRate": 0,
@@ -1458,7 +1458,7 @@
 				1,
 				1,
 				1,
-				1
+				0.3
 			],
 			"backgroundColor": [
 				1,

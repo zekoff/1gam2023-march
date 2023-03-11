@@ -106,9 +106,9 @@
 				{
 					"id": "every-x-seconds",
 					"objectClass": "System",
-					"sid": 391479289414900,
+					"sid": 468874745394141,
 					"parameters": {
-						"interval-seconds": "0.2"
+						"interval-seconds": "0.01"
 					}
 				}
 			],
@@ -130,7 +130,7 @@
 					"actions": [
 						{
 							"type": "script",
-							"script": "const planet = runtime.objects.Planet.getFirstPickedInstance();\nif (!GameUtils.isPlanetSupplied(runtime, planet.uid)) return;\nconst ship = runtime.objects.TradeShip.createInstance(\"Ships\", planet.x, planet.y, false, \"Standard Trade Ship\");\nconst destPlanet = GameUtils.getConnectedPlanets(runtime, planet.uid)[0];\nship.behaviors.MoveTo.moveToPosition(destPlanet.x, destPlanet.y);"
+							"script": "const planet = runtime.objects.Planet.getFirstPickedInstance();\nif (!GameUtils.isPlanetSupplied(runtime, planet.uid)) return;\nconst ship = runtime.objects.TradeShip.createInstance(\"Ships\", planet.x, planet.y, false, \"Standard Trade Ship\");\nconst connectedPlanets = GameUtils.getConnectedPlanets(runtime, planet.uid);\nconst destPlanet = connectedPlanets[Math.floor(Math.random() * connectedPlanets.length)];\nship.behaviors.MoveTo.moveToPosition(destPlanet.x, destPlanet.y);"
 						}
 					],
 					"sid": 498177183977100
