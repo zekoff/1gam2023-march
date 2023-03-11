@@ -106,6 +106,43 @@
 				{
 					"id": "every-x-seconds",
 					"objectClass": "System",
+					"sid": 391479289414900,
+					"parameters": {
+						"interval-seconds": "0.2"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 332931173144923,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-random-instance",
+							"objectClass": "System",
+							"sid": 307999249738536,
+							"parameters": {
+								"object": "Planet"
+							}
+						}
+					],
+					"actions": [
+						{
+							"type": "script",
+							"script": "const planet = runtime.objects.Planet.getFirstPickedInstance();\nif (!GameUtils.isPlanetSupplied(runtime, planet.uid)) return;\nconst ship = runtime.objects.TradeShip.createInstance(\"Ships\", planet.x, planet.y, false, \"Standard Trade Ship\");\nconst destPlanet = GameUtils.getConnectedPlanets(runtime, planet.uid)[0];\nship.behaviors.MoveTo.moveToPosition(destPlanet.x, destPlanet.y);"
+						}
+					],
+					"sid": 498177183977100
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-x-seconds",
+					"objectClass": "System",
 					"sid": 409814704176206,
 					"parameters": {
 						"interval-seconds": "0.01"
@@ -114,6 +151,7 @@
 			],
 			"actions": [],
 			"sid": 995148693566923,
+			"disabled": true,
 			"children": [
 				{
 					"eventType": "variable",
@@ -158,7 +196,8 @@
 							}
 						}
 					],
-					"sid": 697291999162594
+					"sid": 697291999162594,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -183,7 +222,8 @@
 							}
 						}
 					],
-					"sid": 501909071595071
+					"sid": 501909071595071,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -203,7 +243,8 @@
 							}
 						}
 					],
-					"sid": 536102455498010
+					"sid": 536102455498010,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -231,7 +272,8 @@
 							"script": "const ship = runtime.objects.TradeShip.getFirstPickedInstance();\nconst sourcePlanet = runtime.getInstanceByUid(localVars.sourcePlanet);\nconst destPlanet = runtime.getInstanceByUid(localVars.destinationPlanet);\nship.x = sourcePlanet.x;\nship.y = sourcePlanet.y;\nship.behaviors.MoveTo.moveToPosition(destPlanet.x, destPlanet.y);"
 						}
 					],
-					"sid": 164038642576086
+					"sid": 164038642576086,
+					"disabled": true
 				}
 			]
 		},

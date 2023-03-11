@@ -82,3 +82,13 @@ export function buildFacilityOnPlanet(runtime, planetUid, facilityName) {
 export function upgradeFacility(runtime, facilityUid) {
 
 }
+
+export function isPlanetSupplied(runtime, planetUid) {
+  return getConnectedPlanets(runtime, planetUid).length > 0;
+}
+
+export function getConnectedPlanets(runtime, planetUid) {
+  const planet = runtime.getInstanceByUid(planetUid);
+  const connectedPlanetUids = JSON.parse(planet.instVars.connectionList);
+  return connectedPlanetUids.map(uid => runtime.getInstanceByUid(uid));
+}
