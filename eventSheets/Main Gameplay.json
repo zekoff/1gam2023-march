@@ -390,6 +390,16 @@
 							"parameters": {
 								"object": "Planet"
 							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Planet",
+							"sid": 489829004054447,
+							"parameters": {
+								"instance-variable": "explorationLevel",
+								"comparison": 4,
+								"value": "0"
+							}
 						}
 					],
 					"actions": [
@@ -664,7 +674,10 @@
 			"isActiveOnStart": true,
 			"children": [
 				{
-					"breakpoint": true,
+					"eventType": "comment",
+					"text": "Place a scan area object upon arrival, and update ship's scan UID."
+				},
+				{
 					"eventType": "block",
 					"conditions": [
 						{
@@ -675,10 +688,6 @@
 						}
 					],
 					"actions": [
-						{
-							"type": "comment",
-							"text": "Place a scan area object upon arrival, and update ship's scan UID."
-						},
 						{
 							"id": "create-object",
 							"objectClass": "System",
@@ -743,6 +752,10 @@
 							"sid": 549678142254958
 						}
 					]
+				},
+				{
+					"eventType": "comment",
+					"text": "Progressively expand scan area when a research station is actively scanning."
 				},
 				{
 					"eventType": "block",
@@ -834,6 +847,10 @@
 					]
 				},
 				{
+					"eventType": "comment",
+					"text": "Send a Research Station to a new location by setting movement coordinates, cleaning up anything at the former location, and adjusting instance variables."
+				},
+				{
 					"functionName": "SendResearchStation",
 					"functionDescription": "Send a research station to the location specified.",
 					"functionCategory": "",
@@ -881,6 +898,138 @@
 						}
 					],
 					"sid": 828955882805271
+				},
+				{
+					"eventType": "comment",
+					"text": "Scan planet (set exploration level to 1) if a scan radius includes an uncharted (exploration level 0) planet."
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 741576654585790,
+							"parameters": {
+								"object": "ScanArea"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 150457829494978,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 221390890769714,
+									"parameters": {
+										"object": "Planet"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Planet",
+									"sid": 825685738459921,
+									"parameters": {
+										"instance-variable": "explorationLevel",
+										"comparison": 0,
+										"value": "0"
+									}
+								},
+								{
+									"id": "evaluate-expression",
+									"objectClass": "System",
+									"sid": 736210361653467,
+									"parameters": {
+										"value": "distance(Planet.X, Planet.Y, ScanArea.X, ScanArea.Y) < ScanArea.Width / 2"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Planet",
+									"sid": 277719871075817,
+									"parameters": {
+										"instance-variable": "explorationLevel",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 527030546940020
+						}
+					]
+				},
+				{
+					"eventType": "comment",
+					"text": "Make uncharted planets appear faded out."
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 186907236446791,
+							"parameters": {
+								"object": "Planet"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 944926497218672,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Planet",
+									"sid": 151069795960574,
+									"parameters": {
+										"instance-variable": "explorationLevel",
+										"comparison": 0,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-opacity",
+									"objectClass": "Planet",
+									"sid": 830927628936288,
+									"parameters": {
+										"opacity": "10"
+									}
+								}
+							],
+							"sid": 380115782463029
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 793211601404591
+								}
+							],
+							"actions": [
+								{
+									"id": "set-opacity",
+									"objectClass": "Planet",
+									"sid": 195481317084989,
+									"parameters": {
+										"opacity": "100"
+									}
+								}
+							],
+							"sid": 968607777069272
+						}
+					]
 				}
 			],
 			"sid": 504751791717747
