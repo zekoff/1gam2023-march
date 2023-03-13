@@ -75,6 +75,7 @@ export function buildFacilityOnPlanet(runtime, planetUid, facilityName) {
 }
 
 export function connectNearbyPlanets(runtime, planetUid, connectionDistance = null) {
+  // TODO: only connect planets that are charted (exploration level > 0)
   if (connectionDistance === null) connectionDistance = runtime.globalVars.WARP_DEPOT_RADIUS;
   const planet = runtime.getInstanceByUid(planetUid);
   const planetsInRange = [];

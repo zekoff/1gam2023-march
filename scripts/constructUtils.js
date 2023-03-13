@@ -49,3 +49,17 @@ export function unpackArrayToMapping(array) {
   }
   return mapping;
 }
+
+/**
+ * Get a random floating-point number between the lower and upper bounds.
+ * Uses Math.random(), so cannot be seeded.
+ * 
+ * @param {*} lowerBound lowest number possible, inclusive
+ * @param {*} upperBound highest number possible, inclusive
+ */
+export function getRandomNumberInRange(lowerBound = 0, upperBound = 100) {
+  if (upperBound < lowerBound) return 0;
+  const range = upperBound - lowerBound;
+  const normalizedRandomResult = Math.random() * range;
+  return lowerBound + normalizedRandomResult;
+}

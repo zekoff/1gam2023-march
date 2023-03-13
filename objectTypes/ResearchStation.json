@@ -3,12 +3,25 @@
 	"plugin-id": "Sprite",
 	"sid": 687866240797331,
 	"isGlobal": false,
-	"instanceVariables": [],
+	"instanceVariables": [
+		{
+			"name": "activeScanUid",
+			"type": "number",
+			"desc": "UID of current active scan area.",
+			"show": true,
+			"sid": 474046596118904
+		}
+	],
 	"behaviorTypes": [
 		{
 			"behaviorId": "Rotate",
 			"name": "Rotate",
 			"sid": 978618815180278
+		},
+		{
+			"behaviorId": "MoveTo",
+			"name": "MoveTo",
+			"sid": 628090100118979
 		}
 	],
 	"effectTypes": [],

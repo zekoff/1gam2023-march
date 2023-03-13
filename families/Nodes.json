@@ -25,9 +25,9 @@
 			"sid": 955866553960904
 		},
 		{
-			"name": "exploration",
-			"type": "string",
-			"desc": "Exploration status of this planet: UNCHARTED, SCANNED, or EXPLORED.",
+			"name": "explorationLevel",
+			"type": "number",
+			"desc": "Exploration status of this planet: 0/uncharted, 1/scanned, or 2/explored.",
 			"show": true,
 			"sid": 932097499835946
 		},

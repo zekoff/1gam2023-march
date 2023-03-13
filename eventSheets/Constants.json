@@ -70,6 +70,36 @@
 			"isStatic": false,
 			"isConstant": true,
 			"sid": 158189812396306
+		},
+		{
+			"eventType": "variable",
+			"name": "SCAN_SPEED",
+			"type": "number",
+			"initialValue": "200",
+			"comment": "Speed at which scanned area increases per year.",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 347554599849984
+		},
+		{
+			"eventType": "variable",
+			"name": "SCAN_AREA_DEFAULT_SIZE",
+			"type": "number",
+			"initialValue": "100",
+			"comment": "Default height/width of scan area when created.",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 684286600586150
+		},
+		{
+			"eventType": "variable",
+			"name": "SCAN_MAX_SIZE",
+			"type": "number",
+			"initialValue": "2000",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 880856360349311
 		}
 	],
 	"sid": 496559410000628

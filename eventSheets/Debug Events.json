@@ -80,6 +80,78 @@
 				}
 			],
 			"sid": 984344716066537
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 558774549005462,
+					"parameters": {
+						"object": "Planet"
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "LogDebugMessage",
+					"sid": 410246319499838,
+					"parameters": [
+						"\"Tapped planet w/ UID \" & Planet.UID"
+					]
+				}
+			],
+			"sid": 395284565958833
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 176353859245914
+				}
+			],
+			"actions": [
+				{
+					"id": "move-to-position",
+					"objectClass": "ResearchStation",
+					"sid": 163141215414801,
+					"behaviorType": "MoveTo",
+					"parameters": {
+						"x": "500",
+						"y": "500",
+						"mode": "direct"
+					}
+				}
+			],
+			"sid": 646794844304346,
+			"disabled": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 761235877220237,
+					"parameters": {
+						"key": 83
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "SendResearchStation",
+					"sid": 769161581132972,
+					"parameters": [
+						"Mouse.X",
+						"Mouse.Y"
+					]
+				}
+			],
+			"sid": 815890438683084
 		}
 	],
 	"sid": 747474318372044
