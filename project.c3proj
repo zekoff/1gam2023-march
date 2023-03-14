@@ -132,7 +132,9 @@
 			"QuantiaDisplay",
 			"StelliumDisplay",
 			"DebugTextDisplay",
-			"Mouse"
+			"Mouse",
+			"GameController",
+			"YearDisplay"
 		],
 		"subfolders": []
 	},

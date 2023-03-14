@@ -108,31 +108,6 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "on-start-of-layout",
-					"objectClass": "System",
-					"sid": 176353859245914
-				}
-			],
-			"actions": [
-				{
-					"id": "move-to-position",
-					"objectClass": "ResearchStation",
-					"sid": 163141215414801,
-					"behaviorType": "MoveTo",
-					"parameters": {
-						"x": "500",
-						"y": "500",
-						"mode": "direct"
-					}
-				}
-			],
-			"sid": 646794844304346,
-			"disabled": true
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
 					"id": "on-key-pressed",
 					"objectClass": "Keyboard",
 					"sid": 761235877220237,
@@ -152,6 +127,32 @@
 				}
 			],
 			"sid": 815890438683084
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 780198066232680
+				}
+			],
+			"actions": [
+				{
+					"id": "fill-ellipse",
+					"objectClass": "ScanArea",
+					"sid": 434111339166890,
+					"parameters": {
+						"x": "ScanArea.Width / 2",
+						"y": "ScanArea.Height / 2",
+						"radius-x": "ScanArea.Width / 2",
+						"radius-y": "ScanArea.Height / 2",
+						"color": "rgba(100, 100, 100, 100)",
+						"edge": "smooth"
+					}
+				}
+			],
+			"sid": 105518405109301
 		}
 	],
 	"sid": 747474318372044

@@ -1874,10 +1874,10 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 338,
-						"y": 1722,
-						"width": 622,
-						"height": 79,
+						"x": 233,
+						"y": 1706,
+						"width": 770,
+						"height": 52,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -1917,10 +1917,85 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 331,
-						"y": 1808,
-						"width": 664,
-						"height": 79,
+						"x": 230,
+						"y": 1760,
+						"width": 810,
+						"height": 51,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "GameController",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 28,
+					"instanceVariables": {
+						"stelliumStockpile": 0,
+						"yearsElapsed": 0
+					},
+					"behaviors": {},
+					"world": {
+						"x": -275,
+						"y": 1546,
+						"width": 250,
+						"height": 250,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "YearDisplay",
+					"properties": {
+						"text": "YEAR",
+						"enable-bbcode": true,
+						"font": "Arial",
+						"size": 24,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0,
+							0,
+							0,
+							1
+						],
+						"horizontal-alignment": "left",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left",
+						"read-aloud": false
+					},
+					"uid": 29,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 228,
+						"y": 1819,
+						"width": 810,
+						"height": 51,
 						"originX": 0,
 						"originY": 0,
 						"color": [

@@ -10,16 +10,6 @@
 			"includeSheet": "Debug Events"
 		},
 		{
-			"eventType": "variable",
-			"name": "stelliumStockpile",
-			"type": "number",
-			"initialValue": "0",
-			"comment": "Amount of Stellium in the sector stockpile.",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 779515009361628
-		},
-		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -28,21 +18,7 @@
 					"sid": 926097818352499
 				}
 			],
-			"actions": [
-				{
-					"id": "fill-ellipse",
-					"objectClass": "ScanArea",
-					"sid": 434111339166890,
-					"parameters": {
-						"x": "ScanArea.Width / 2",
-						"y": "ScanArea.Height / 2",
-						"radius-x": "ScanArea.Width / 2",
-						"radius-y": "ScanArea.Height / 2",
-						"color": "rgba(100, 100, 100, 100)",
-						"edge": "smooth"
-					}
-				}
-			],
+			"actions": [],
 			"sid": 763817482197626,
 			"children": [
 				{
@@ -69,30 +45,6 @@
 						}
 					],
 					"sid": 859302440258176
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "trigger-once-while-true",
-							"objectClass": "System",
-							"sid": 405275537144830
-						}
-					],
-					"actions": [
-						{
-							"id": "move-to-position",
-							"objectClass": "TradeShip",
-							"sid": 124626727933247,
-							"behaviorType": "MoveTo",
-							"parameters": {
-								"x": "Planet.X",
-								"y": "Planet.Y",
-								"mode": "direct"
-							}
-						}
-					],
-					"sid": 189342942436540
 				}
 			]
 		},
@@ -130,7 +82,7 @@
 					"actions": [
 						{
 							"type": "script",
-							"script": "const planet = runtime.objects.Planet.getFirstPickedInstance();\nif (!GameUtils.isPlanetSupplied(runtime, planet.uid)) return;\nconst ship = runtime.objects.TradeShip.createInstance(\n\t\"Ships\",\n\tplanet.x + ConstructUtils.getRandomNumberInRange(-20, 20),\n\tplanet.y + ConstructUtils.getRandomNumberInRange(-20, 20),\n\tfalse,\n\t\"Standard Trade Ship\"\n);\nconst connectedPlanets = GameUtils.getConnectedPlanets(runtime, planet.uid);\nconst destPlanet = connectedPlanets[Math.floor(Math.random() * connectedPlanets.length)];\nship.behaviors.MoveTo.moveToPosition(\n\tdestPlanet.x + ConstructUtils.getRandomNumberInRange(-20, 20),\n\tdestPlanet.y + ConstructUtils.getRandomNumberInRange(-20, 20)\n);"
+							"script": "// Spawn a trade ship and send to a connected planet.\nconst planet = runtime.objects.Planet.getFirstPickedInstance();\nif (!GameUtils.isPlanetSupplied(runtime, planet.uid)) return;\nconst ship = runtime.objects.TradeShip.createInstance(\n\t\"Ships\",\n\tplanet.x + ConstructUtils.getRandomNumberInRange(-20, 20),\n\tplanet.y + ConstructUtils.getRandomNumberInRange(-20, 20),\n\tfalse,\n\t\"Standard Trade Ship\"\n);\nconst connectedPlanets = GameUtils.getConnectedPlanets(runtime, planet.uid);\nconst destPlanet = connectedPlanets[Math.floor(Math.random() * connectedPlanets.length)];\nship.behaviors.MoveTo.moveToPosition(\n\tdestPlanet.x + ConstructUtils.getRandomNumberInRange(-20, 20),\n\tdestPlanet.y + ConstructUtils.getRandomNumberInRange(-20, 20)\n);"
 						}
 					],
 					"sid": 498177183977100
@@ -155,6 +107,36 @@
 				}
 			],
 			"sid": 244642029274090
+		},
+		{
+			"eventType": "comment",
+			"text": "Update GameController instance variables to track passage of time and resource production."
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 690458617469694
+				}
+			],
+			"actions": [
+				{
+					"id": "add-to-instvar",
+					"objectClass": "GameController",
+					"sid": 155177869723363,
+					"parameters": {
+						"instance-variable": "yearsElapsed",
+						"value": "dt * YEARS_PER_MINUTE / 60"
+					}
+				},
+				{
+					"type": "script",
+					"script": "// Stellium production\nconst gc = runtime.objects.GameController.getFirstInstance();\ngc.instVars.stelliumStockpile += GameUtils.getStelliumRate(runtime) * runtime.dt * runtime.globalVars.YEARS_PER_MINUTE / 60;"
+				}
+			],
+			"sid": 672727096901604
 		},
 		{
 			"eventType": "group",
@@ -422,7 +404,7 @@
 					"actions": [
 						{
 							"type": "script",
-							"script": "runtime.objects.QuantiaDisplay.getFirstInstance().text = \"Quantia Generation: \" + GameUtils.getQuantiaRate(runtime) + \" surplus\";\nruntime.objects.StelliumDisplay.getFirstInstance().text = \n\"Stellium: \" + runtime.globalVars.stelliumStockpile + \" (+\" + GameUtils.getStelliumRate(runtime) + \"/yr)\";"
+							"script": "// Set UI text boxes for each resource.\nruntime.objects.QuantiaDisplay.getFirstInstance().text = \"Quantia Generation: \" + GameUtils.getQuantiaRate(runtime) + \" surplus\";\nruntime.objects.StelliumDisplay.getFirstInstance().text = \n\"Stellium: \" + Math.floor(runtime.objects.GameController.getFirstInstance().instVars.stelliumStockpile) + \" (+\" + GameUtils.getStelliumRate(runtime) + \"/yr)\";\nconst year = runtime.objects.GameController.getFirstInstance().instVars.yearsElapsed;\nruntime.objects.YearDisplay.getFirstInstance().text = `Year: ${Math.floor(year)}`;"
 						}
 					],
 					"sid": 201205195501745

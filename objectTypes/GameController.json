@@ -1,0 +1,52 @@
+{
+	"name": "GameController",
+	"plugin-id": "Sprite",
+	"sid": 904336485394941,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "stelliumStockpile",
+			"type": "number",
+			"desc": "Amount of Stellium the player has accumulated.",
+			"show": true,
+			"sid": 754183884131025
+		},
+		{
+			"name": "yearsElapsed",
+			"type": "number",
+			"desc": "Number of game years elapsed since game start.",
+			"show": true,
+			"sid": 549491672152496
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 250,
+						"height": 250,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 3607050,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 422550901460052,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}
