@@ -10,13 +10,6 @@
 			"desc": "",
 			"show": true,
 			"sid": 648555513771097
-		},
-		{
-			"name": "panning",
-			"type": "boolean",
-			"desc": "",
-			"show": true,
-			"sid": 726793829554117
 		}
 	],
 	"behaviorTypes": [

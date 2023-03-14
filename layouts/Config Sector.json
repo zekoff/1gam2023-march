@@ -1816,8 +1816,7 @@
 					},
 					"uid": 4,
 					"instanceVariables": {
-						"zoomLevel": 1,
-						"panning": false
+						"zoomLevel": 1
 					},
 					"behaviors": {
 						"ScrollTo": {
