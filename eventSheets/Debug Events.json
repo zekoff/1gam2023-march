@@ -2,16 +2,6 @@
 	"name": "Debug Events",
 	"events": [
 		{
-			"eventType": "variable",
-			"name": "debugTextLog",
-			"type": "string",
-			"initialValue": "[]",
-			"comment": "JSON array of debug text messages.",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 123480690668376
-		},
-		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -54,32 +44,6 @@
 					"sid": 836561203530915
 				}
 			]
-		},
-		{
-			"functionName": "LogDebugMessage",
-			"functionDescription": "Add a message to the debug log to be displayed on the debug layer.",
-			"functionCategory": "",
-			"functionReturnType": "none",
-			"functionCopyPicked": false,
-			"functionIsAsync": false,
-			"functionParameters": [
-				{
-					"name": "text",
-					"type": "string",
-					"initialValue": "",
-					"comment": "The debug message to be logged.",
-					"sid": 344930069477099
-				}
-			],
-			"eventType": "function-block",
-			"conditions": [],
-			"actions": [
-				{
-					"type": "script",
-					"script": "const debugLog = JSON.parse(runtime.globalVars.debugTextLog);\ndebugLog.unshift(`${runtime.wallTime.toFixed(2)}s: ` + localVars.text);\nruntime.globalVars.debugTextLog = JSON.stringify(debugLog);\nruntime.objects.DebugTextDisplay.getFirstInstance().text = debugLog.join(\"\\n\");"
-				}
-			],
-			"sid": 984344716066537
 		},
 		{
 			"eventType": "block",
@@ -153,6 +117,59 @@
 				}
 			],
 			"sid": 105518405109301
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Debug Log",
+			"description": "Manage debug log additions and display.",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "LogDebugMessage",
+					"functionDescription": "Add a message to the debug log to be displayed on the debug layer.",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "text",
+							"type": "string",
+							"initialValue": "",
+							"comment": "The debug message to be logged.",
+							"sid": 344930069477099
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "script",
+							"script": "const display = runtime.objects.DebugTextDisplay.getFirstInstance();\nconst debugLog = JSON.parse(display.instVars.messages);\ndebugLog.unshift({\n\t\"timestamp\": runtime.wallTime,\n\t\"message\": localVars.text\n});\ndisplay.instVars.messages = JSON.stringify(debugLog);"
+						}
+					],
+					"sid": 353069325148542
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 723166127652218
+						}
+					],
+					"actions": [
+						{
+							"type": "script",
+							"script": "const display = runtime.objects.DebugTextDisplay.getFirstInstance();\nconst duration = display.instVars.messageDuration;\nlet messages = JSON.parse(display.instVars.messages);\n// remove outdated messages\nmessages = messages.filter(item => item.timestamp > runtime.wallTime - duration);\ndisplay.instVars.messages = JSON.stringify(messages);\n// update display\ndisplay.text = messages.map(item => `${item.timestamp.toFixed(2)}s: ${item.message}`).join(\"\\n\");"
+						}
+					],
+					"sid": 793769406371850
+				}
+			],
+			"sid": 186907708226155
 		}
 	],
 	"sid": 747474318372044

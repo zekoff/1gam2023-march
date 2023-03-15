@@ -3,7 +3,22 @@
 	"plugin-id": "Text",
 	"sid": 608448119643305,
 	"isGlobal": false,
-	"instanceVariables": [],
+	"instanceVariables": [
+		{
+			"name": "messages",
+			"type": "string",
+			"desc": "JSON array of message objects {wallTime, message}.",
+			"show": true,
+			"sid": 855932923906242
+		},
+		{
+			"name": "messageDuration",
+			"type": "number",
+			"desc": "Number of seconds a debug message should remain in the log.",
+			"show": true,
+			"sid": 708906559257932
+		}
+	],
 	"behaviorTypes": [],
 	"effectTypes": []
 }

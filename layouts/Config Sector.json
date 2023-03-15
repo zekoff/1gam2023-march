@@ -2066,7 +2066,10 @@
 						"read-aloud": false
 					},
 					"uid": 26,
-					"instanceVariables": {},
+					"instanceVariables": {
+						"messages": "[]",
+						"messageDuration": 5
+					},
 					"behaviors": {},
 					"world": {
 						"x": 53,
