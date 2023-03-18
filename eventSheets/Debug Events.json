@@ -125,6 +125,46 @@
 			"eventType": "block",
 			"conditions": [
 				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 394318249460532,
+					"parameters": {
+						"key": 82
+					}
+				}
+			],
+			"actions": [],
+			"sid": 513870742359477,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Planet",
+							"sid": 109559428439187,
+							"parameters": {
+								"unique-id": "GameController.selectedPlanetUid"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "BuildFacility",
+							"sid": 492486570181348,
+							"parameters": [
+								"\"Research Facility\""
+							]
+						}
+					],
+					"sid": 812277752193111
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
 					"id": "on-tap-object",
 					"objectClass": "Touch",
 					"sid": 558774549005462,

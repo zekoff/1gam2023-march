@@ -75,7 +75,7 @@
 			"eventType": "variable",
 			"name": "SCAN_SPEED",
 			"type": "number",
-			"initialValue": "200",
+			"initialValue": "2000",
 			"comment": "Speed at which scanned area increases per year.",
 			"isStatic": false,
 			"isConstant": true,

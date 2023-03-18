@@ -134,7 +134,8 @@
 			"DebugTextDisplay",
 			"Mouse",
 			"GameController",
-			"YearDisplay"
+			"YearDisplay",
+			"CrysetherDisplay"
 		],
 		"subfolders": []
 	},

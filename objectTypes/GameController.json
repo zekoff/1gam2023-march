@@ -12,6 +12,13 @@
 			"sid": 754183884131025
 		},
 		{
+			"name": "crysetherStockpile",
+			"type": "number",
+			"desc": "Amount of Crysether stockpiled in the sector.",
+			"show": true,
+			"sid": 542402004174425
+		},
+		{
 			"name": "yearsElapsed",
 			"type": "number",
 			"desc": "Number of game years elapsed since game start.",

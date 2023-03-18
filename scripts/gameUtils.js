@@ -58,17 +58,10 @@ export function isFacilityBuildPrevented(runtime, planetUid, facilityName) {
   const stellium = runtime.objects.GameController.getFirstInstance().instVars.stelliumStockpile;
   if (facilityData["Stellium Cost"] > stellium)
     return "Insufficient stellium in stockpile to build this facility.";
+  const crysether = runtime.objects.GameController.getFirstInstance().instVars.crysetherStockpile;
+  if (facilityData["Crysether Cost"] > crysether)
+    return "Insufficient crysether available to build this facility.";
   return false;
-}
-
-// TODO: implement method
-/**
- * TBD
- * @param {*} runtime 
- * @param {*} facilityUid 
- */
-export function isFacilityUpgradePrevented(runtime, facilityUid) {
-
 }
 
 /**
@@ -80,6 +73,7 @@ export function isFacilityUpgradePrevented(runtime, facilityUid) {
  */
 export function buildFacilityOnPlanet(runtime, planetUid, facilityName) {
   const planet = runtime.getInstanceByUid(planetUid);
+  const gameController = runtime.objects.GameController.getFirstInstance();
   const facilityData = JSON.parse(runtime.globalVars.facilityDataMapping)[facilityName];
   const facility = runtime.objects.Facility.createInstance("Facilities", planet.x, planet.y, "", "");
   facility.instVars.name = facilityName;
@@ -90,6 +84,7 @@ export function buildFacilityOnPlanet(runtime, planetUid, facilityName) {
   facility.angleDegrees += planet.angleDegrees;
   planet.instVars.quantiaRate += facilityData["Quantia Rate"];
   planet.instVars.stelliumRate += facilityData["Stellium Rate"];
+  gameController.instVars.crysetherStockpile += facilityData["Crysether Gain"];
   const unpackedFacilityList = JSON.parse(planet.instVars.facilityList);
   unpackedFacilityList.push(facility.uid);
   planet.instVars.facilityList = JSON.stringify(unpackedFacilityList);
@@ -97,7 +92,6 @@ export function buildFacilityOnPlanet(runtime, planetUid, facilityName) {
   if (facilityName === "Warp Depot") updatePlanetConnections(runtime);
 
   // Consume resources
-  const gameController = runtime.objects.GameController.getFirstInstance();
   gameController.instVars.stelliumStockpile -= facilityData["Stellium Cost"];
   planet.instVars.stelliumDrain += facilityData["Stellium Drain"];
   planet.instVars.quantiaDrain += facilityData["Quantia Drain"];
@@ -200,16 +194,6 @@ export function getPlanetsWithWarpDepots(runtime) {
       isFacilityOnPlanet(runtime, planet.uid, "Colony")) planetsWithWarpDepots.push(planet);
   }
   return planetsWithWarpDepots;
-}
-
-// TODO: implement method
-/**
- * TBD
- * @param {*} runtime 
- * @param {*} facilityUid 
- */
-export function upgradeFacility(runtime, facilityUid) {
-
 }
 
 /**
