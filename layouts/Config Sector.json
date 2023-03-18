@@ -272,8 +272,10 @@
 								"connectionList": "[]",
 								"explorationLevel": 0,
 								"traitList": "[]",
-								"quantiaRate": 1,
-								"stelliumRate": 0
+								"quantiaRate": 0,
+								"stelliumRate": 0,
+								"quantiaDrain": 0,
+								"stelliumDrain": 0
 							},
 							"behaviors": {
 								"Rotate": {
@@ -316,10 +318,12 @@
 								"totalFacilitySlots": 3,
 								"facilityList": "[]",
 								"connectionList": "[]",
-								"explorationLevel": 0,
+								"explorationLevel": 1,
 								"traitList": "[]",
-								"quantiaRate": 3,
-								"stelliumRate": 0
+								"quantiaRate": 0,
+								"stelliumRate": 0,
+								"quantiaDrain": 0,
+								"stelliumDrain": 0
 							},
 							"behaviors": {
 								"Rotate": {
@@ -365,7 +369,9 @@
 								"explorationLevel": 0,
 								"traitList": "[]",
 								"quantiaRate": 0,
-								"stelliumRate": 5
+								"stelliumRate": 0,
+								"quantiaDrain": 0,
+								"stelliumDrain": 0
 							},
 							"behaviors": {
 								"Rotate": {
@@ -411,7 +417,9 @@
 								"explorationLevel": 0,
 								"traitList": "[]",
 								"quantiaRate": 0,
-								"stelliumRate": 10
+								"stelliumRate": 0,
+								"quantiaDrain": 0,
+								"stelliumDrain": 0
 							},
 							"behaviors": {
 								"Rotate": {
@@ -457,7 +465,9 @@
 								"explorationLevel": 0,
 								"traitList": "[]",
 								"quantiaRate": 0,
-								"stelliumRate": 0
+								"stelliumRate": 0,
+								"quantiaDrain": 0,
+								"stelliumDrain": 0
 							},
 							"behaviors": {
 								"Rotate": {
@@ -503,7 +513,9 @@
 								"explorationLevel": 0,
 								"traitList": "[]",
 								"quantiaRate": 0,
-								"stelliumRate": 0
+								"stelliumRate": 0,
+								"quantiaDrain": 0,
+								"stelliumDrain": 0
 							},
 							"behaviors": {
 								"Rotate": {
@@ -844,336 +856,6 @@
 						"origin": "center",
 						"antialiasing": "off"
 					},
-					"uid": 12,
-					"instanceVariables": {},
-					"behaviors": {},
-					"template": {
-						"mode": "replica",
-						"templateName": "",
-						"sourceTemplateName": "Scan Area Template",
-						"components": [
-							{
-								"id": "plugin",
-								"component": [
-									{
-										"key": "plugin",
-										"state": [
-											[
-												"resolution-mode",
-												true
-											],
-											[
-												"initially-visible",
-												true
-											],
-											[
-												"origin",
-												true
-											],
-											[
-												"antialiasing",
-												true
-											]
-										]
-									}
-								]
-							},
-							{
-								"id": "instance-variable",
-								"component": [
-									{
-										"key": "instance-variable",
-										"state": []
-									}
-								]
-							},
-							{
-								"id": "behavior",
-								"component": []
-							},
-							{
-								"id": "effect",
-								"component": []
-							},
-							{
-								"id": "world-instance",
-								"component": [
-									{
-										"key": "world-instance",
-										"state": [
-											[
-												"x",
-												false
-											],
-											[
-												"y",
-												false
-											],
-											[
-												"z",
-												true
-											],
-											[
-												"w",
-												true
-											],
-											[
-												"h",
-												true
-											],
-											[
-												"a",
-												true
-											],
-											[
-												"o",
-												true
-											],
-											[
-												"c",
-												true
-											],
-											[
-												"sx",
-												true
-											],
-											[
-												"sy",
-												true
-											],
-											[
-												"bm",
-												true
-											],
-											[
-												"twpx",
-												true
-											],
-											[
-												"twpy",
-												true
-											],
-											[
-												"twpz",
-												true
-											],
-											[
-												"twpw",
-												true
-											],
-											[
-												"twph",
-												true
-											],
-											[
-												"twpa",
-												true
-											],
-											[
-												"dwp",
-												true
-											],
-											[
-												"ssm",
-												true
-											]
-										]
-									}
-								]
-							}
-						],
-						"replicasUIDs": null
-					},
-					"world": {
-						"x": 531,
-						"y": 1806,
-						"width": 474,
-						"height": 422,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"blendMode": "destination-out"
-					}
-				},
-				{
-					"type": "ScanArea",
-					"properties": {
-						"resolution-mode": "auto",
-						"initially-visible": true,
-						"origin": "center",
-						"antialiasing": "off"
-					},
-					"uid": 13,
-					"instanceVariables": {},
-					"behaviors": {},
-					"template": {
-						"mode": "replica",
-						"templateName": "",
-						"sourceTemplateName": "Scan Area Template",
-						"components": [
-							{
-								"id": "plugin",
-								"component": [
-									{
-										"key": "plugin",
-										"state": [
-											[
-												"resolution-mode",
-												true
-											],
-											[
-												"initially-visible",
-												true
-											],
-											[
-												"origin",
-												true
-											],
-											[
-												"antialiasing",
-												true
-											]
-										]
-									}
-								]
-							},
-							{
-								"id": "instance-variable",
-								"component": [
-									{
-										"key": "instance-variable",
-										"state": []
-									}
-								]
-							},
-							{
-								"id": "behavior",
-								"component": []
-							},
-							{
-								"id": "effect",
-								"component": []
-							},
-							{
-								"id": "world-instance",
-								"component": [
-									{
-										"key": "world-instance",
-										"state": [
-											[
-												"x",
-												false
-											],
-											[
-												"y",
-												false
-											],
-											[
-												"z",
-												true
-											],
-											[
-												"w",
-												true
-											],
-											[
-												"h",
-												true
-											],
-											[
-												"a",
-												true
-											],
-											[
-												"o",
-												true
-											],
-											[
-												"c",
-												true
-											],
-											[
-												"sx",
-												true
-											],
-											[
-												"sy",
-												true
-											],
-											[
-												"bm",
-												true
-											],
-											[
-												"twpx",
-												true
-											],
-											[
-												"twpy",
-												true
-											],
-											[
-												"twpz",
-												true
-											],
-											[
-												"twpw",
-												true
-											],
-											[
-												"twph",
-												true
-											],
-											[
-												"twpa",
-												true
-											],
-											[
-												"dwp",
-												true
-											],
-											[
-												"ssm",
-												true
-											]
-										]
-									}
-								]
-							}
-						],
-						"replicasUIDs": null
-					},
-					"world": {
-						"x": 1125,
-						"y": 1458,
-						"width": 474,
-						"height": 422,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"blendMode": "destination-out"
-					}
-				},
-				{
-					"type": "ScanArea",
-					"properties": {
-						"resolution-mode": "auto",
-						"initially-visible": true,
-						"origin": "center",
-						"antialiasing": "off"
-					},
 					"uid": 17,
 					"instanceVariables": {},
 					"behaviors": {},
@@ -1315,8 +997,8 @@
 						"replicasUIDs": null
 					},
 					"world": {
-						"x": 1206,
-						"y": 2052,
+						"x": 843,
+						"y": 1608,
 						"width": 474,
 						"height": 422,
 						"originX": 0.5,
@@ -1416,8 +1098,8 @@
 						}
 					},
 					"world": {
-						"x": 760,
-						"y": 874,
+						"x": 655,
+						"y": 1596,
 						"width": 128,
 						"height": 128,
 						"originX": 0.5,

@@ -551,7 +551,7 @@
 					"actions": [
 						{
 							"type": "script",
-							"script": "// Set UI text boxes for each resource.\nruntime.objects.QuantiaDisplay.getFirstInstance().text = \"Quantia Generation: \" + GameUtils.getQuantiaRate(runtime) + \" surplus\";\nruntime.objects.StelliumDisplay.getFirstInstance().text = \n\"Stellium: \" + Math.floor(runtime.objects.GameController.getFirstInstance().instVars.stelliumStockpile) + \" (+\" + GameUtils.getStelliumRate(runtime) + \"/yr)\";\nconst year = runtime.objects.GameController.getFirstInstance().instVars.yearsElapsed;\nruntime.objects.YearDisplay.getFirstInstance().text = `Year: ${Math.floor(year)}`;"
+							"script": "// Set UI text boxes for each resource.\nruntime.objects.QuantiaDisplay.getFirstInstance().text = \"Quantia Generation: \" + (GameUtils.getQuantiaRate(runtime) - GameUtils.getQuantiaDrain(runtime)) + \" surplus\";\nruntime.objects.StelliumDisplay.getFirstInstance().text = \n\"Stellium: \" + Math.floor(runtime.objects.GameController.getFirstInstance().instVars.stelliumStockpile) + \" (+\" + GameUtils.getStelliumRate(runtime) + \"/yr)\";\nconst year = runtime.objects.GameController.getFirstInstance().instVars.yearsElapsed;\nruntime.objects.YearDisplay.getFirstInstance().text = `Year: ${Math.floor(year)}`;"
 						}
 					],
 					"sid": 201205195501745

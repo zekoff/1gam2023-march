@@ -190,9 +190,52 @@
 						"color": "rgba(100, 100, 100, 100)",
 						"edge": "smooth"
 					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "GameController",
+					"sid": 837213182211331,
+					"parameters": {
+						"instance-variable": "stelliumStockpile",
+						"value": "STARTING_STELLIUM_STOCKPILE"
+					}
 				}
 			],
-			"sid": 105518405109301
+			"sid": 105518405109301,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Planet",
+							"sid": 874306572717105,
+							"breakpoint": true,
+							"parameters": {
+								"unique-id": "7"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "wait-for-signal",
+							"objectClass": "System",
+							"sid": 365542317599973,
+							"parameters": {
+								"tag": "\"loading_complete\""
+							}
+						},
+						{
+							"callFunction": "BuildFacility",
+							"sid": 168552997722128,
+							"parameters": [
+								"\"Colony\""
+							]
+						}
+					],
+					"sid": 194076452485474
+				}
+			]
 		},
 		{
 			"eventType": "group",

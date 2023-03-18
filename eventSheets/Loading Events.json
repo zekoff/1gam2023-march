@@ -35,6 +35,14 @@
 				{
 					"type": "script",
 					"script": "const result = runtime.objects.FacilityData.getFirstInstance();\nruntime.globalVars.facilityDataMapping = JSON.stringify(ConstructUtils.unpackArrayToMapping(result));"
+				},
+				{
+					"id": "signal",
+					"objectClass": "System",
+					"sid": 287934020932425,
+					"parameters": {
+						"tag": "\"loading_complete\""
+					}
 				}
 			],
 			"sid": 618680877678275

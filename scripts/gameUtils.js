@@ -1,25 +1,44 @@
 // gameUtils.js
 
 /**
+ * Reduce all nodes in sector to the sum of the passed instance variable.
+ * The instance variable must be a numeric value. This method is not exported
+ * for use by Construct events.
+ * @param {*} runtime Construct runtime
+ * @param {*} varName the name of the instance variable to reduce, as a string
+ * @returns the sum of the instance variable across all nodes
+ */
+function getNodeInstVarSum(runtime, varName) {
+  const nodeArray = Array.from(runtime.objects.Nodes.instances());
+  return nodeArray.reduce((sum, node) => sum + node.instVars[varName], 0);
+}
+
+/**
  * Get the current Quantia income/rate across the sector.
  */
 export function getQuantiaRate(runtime) {
-  let quantiaRate = 0;
-  for (const planet of runtime.objects.Planet.instances()) {
-    quantiaRate += planet.instVars.quantiaRate;
-  }
-  return quantiaRate;
+  return getNodeInstVarSum(runtime, "quantiaRate");
 }
 
 /**
  * Get the current Stellium income/rate across the sector.
  */
 export function getStelliumRate(runtime) {
-  let stelliumRate = 0;
-  for (const planet of runtime.objects.Planet.instances()) {
-    stelliumRate += planet.instVars.stelliumRate;
-  }
-  return stelliumRate;
+  return getNodeInstVarSum(runtime, "stelliumRate");
+}
+
+/**
+ * Get the current rate of Quantia drain across the sector.
+ */
+export function getQuantiaDrain(runtime) {
+  return getNodeInstVarSum(runtime, "quantiaDrain");
+}
+
+/**
+ * Get the current rate of Stellium drain across the sector.
+ */
+export function getStelliumDrain(runtime) {
+  return getNodeInstVarSum(runtime, "stelliumDrain");
 }
 
 /**
@@ -34,7 +53,7 @@ export function isFacilityBuildPrevented(runtime, planetUid, facilityName) {
   if (planet.instVars.totalFacilitySlots <= numFacilitiesOnPlanet)
     return "No available slots on this planet to build a new facility."
   const facilityData = JSON.parse(runtime.globalVars.facilityDataMapping)[facilityName];
-  if (facilityData["Quantia Drain"] > getQuantiaRate(runtime))
+  if (facilityData["Quantia Drain"] > getQuantiaRate(runtime) - getQuantiaDrain(runtime))
     return "Insufficient quantia generation to power this facility.";
   const stellium = runtime.objects.GameController.getFirstInstance().instVars.stelliumStockpile;
   if (facilityData["Stellium Cost"] > stellium)
@@ -73,6 +92,12 @@ export function buildFacilityOnPlanet(runtime, planetUid, facilityName) {
   unpackedFacilityList.push(facility.uid);
   planet.instVars.facilityList = JSON.stringify(unpackedFacilityList);
   if (facilityName === "Warp Depot") connectNearbyPlanets(runtime, planetUid);
+
+  // Consume resources
+  const gameController = runtime.objects.GameController.getFirstInstance();
+  gameController.instVars.stelliumStockpile -= facilityData["Stellium Cost"];
+  planet.instVars.stelliumDrain += facilityData["Stellium Drain"];
+  planet.instVars.quantiaDrain += facilityData["Quantia Drain"];
 }
 
 export function connectNearbyPlanets(runtime, planetUid, connectionDistance = null) {

@@ -51,6 +51,20 @@
 			"desc": "Rate of Stellium income from having this node in supply network.",
 			"show": true,
 			"sid": 125200792602311
+		},
+		{
+			"name": "quantiaDrain",
+			"type": "number",
+			"desc": "Rate of quantia drain on this node.",
+			"show": true,
+			"sid": 478070064362064
+		},
+		{
+			"name": "stelliumDrain",
+			"type": "number",
+			"desc": "Rate of Stellium drain on this node.",
+			"show": true,
+			"sid": 272886562764659
 		}
 	],
 	"behaviorTypes": [],
