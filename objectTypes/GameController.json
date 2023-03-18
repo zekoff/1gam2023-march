@@ -17,6 +17,20 @@
 			"desc": "Number of game years elapsed since game start.",
 			"show": true,
 			"sid": 549491672152496
+		},
+		{
+			"name": "selectedPlanetUid",
+			"type": "number",
+			"desc": "UID of currently selected planet, or -1 if no planet selected.",
+			"show": true,
+			"sid": 521924089820193
+		},
+		{
+			"name": "overviewMode",
+			"type": "boolean",
+			"desc": "True if the UI is in overview mode (zoomed out to see the whole sector at once).",
+			"show": true,
+			"sid": 708011293634043
 		}
 	],
 	"behaviorTypes": [],

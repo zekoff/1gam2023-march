@@ -1945,7 +1945,9 @@
 					"uid": 28,
 					"instanceVariables": {
 						"stelliumStockpile": 0,
-						"yearsElapsed": 0
+						"yearsElapsed": 0,
+						"selectedPlanetUid": -1,
+						"overviewMode": false
 					},
 					"behaviors": {},
 					"world": {

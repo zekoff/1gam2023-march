@@ -141,39 +141,275 @@
 		{
 			"eventType": "group",
 			"disabled": false,
+			"title": "Touch Input",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-tap-object",
+							"objectClass": "Touch",
+							"sid": 975091997043171,
+							"parameters": {
+								"object": "Planet"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Planet",
+							"sid": 186600812600028,
+							"parameters": {
+								"instance-variable": "explorationLevel",
+								"comparison": 4,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "ZoomToPlanet",
+							"sid": 912058144871775
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "GameController",
+							"sid": 538846299171287,
+							"parameters": {
+								"instance-variable": "overviewMode",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "GameController",
+							"sid": 648157960051587,
+							"parameters": {
+								"instance-variable": "selectedPlanetUid",
+								"value": "Planet.UID"
+							}
+						}
+					],
+					"sid": 564733400746845
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-tap-object",
+							"objectClass": "Touch",
+							"sid": 759685792490118,
+							"parameters": {
+								"object": "ZoomButton"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 553520842889190,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "evaluate-expression",
+									"objectClass": "System",
+									"sid": 800441256603524,
+									"parameters": {
+										"value": "GameController.selectedPlanetUid >= 0"
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "GameController",
+									"sid": 634245049680534,
+									"parameters": {
+										"instance-variable": "overviewMode"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "GameController",
+									"sid": 154779257817053,
+									"parameters": {
+										"instance-variable": "overviewMode",
+										"value": "false"
+									}
+								},
+								{
+									"callFunction": "ZoomToDefault",
+									"sid": 385061695992278
+								}
+							],
+							"sid": 146374892662649,
+							"isOrBlock": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 579781504871910
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "GameController",
+									"sid": 558529737064805,
+									"parameters": {
+										"instance-variable": "overviewMode",
+										"value": "true"
+									}
+								},
+								{
+									"callFunction": "ZoomToOverview",
+									"sid": 540673693977264
+								}
+							],
+							"sid": 382823028718767
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "GameController",
+									"sid": 120666148537827,
+									"parameters": {
+										"instance-variable": "selectedPlanetUid",
+										"value": "-1"
+									}
+								}
+							],
+							"sid": 554905759465709
+						}
+					]
+				}
+			],
+			"sid": 367876103598794
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
 			"title": "Camera",
 			"description": "",
 			"isActiveOnStart": true,
 			"children": [
 				{
-					"eventType": "variable",
-					"name": "panningY",
-					"type": "number",
-					"initialValue": "0",
-					"comment": "",
-					"isStatic": false,
-					"isConstant": false,
-					"sid": 177869394265937
+					"functionName": "ZoomToDefault",
+					"functionDescription": "Set default zoom level for sector view.",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "tween-value",
+							"objectClass": "Camera",
+							"sid": 305042661574128,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"zoom\"",
+								"start-value": "Camera.zoomLevel",
+								"end-value": "1",
+								"time": "ZOOM_TIME",
+								"ease": "easeoutcubic",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						}
+					],
+					"sid": 400780952394963
 				},
 				{
-					"eventType": "variable",
-					"name": "panningX",
-					"type": "number",
-					"initialValue": "0",
-					"comment": "",
-					"isStatic": false,
-					"isConstant": false,
-					"sid": 123931384553097
+					"functionName": "ZoomToOverview",
+					"functionDescription": "Zoom camera out to show entire sector.",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "tween-value",
+							"objectClass": "Camera",
+							"sid": 703448166900084,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"zoom\"",
+								"start-value": "Camera.zoomLevel",
+								"end-value": ".2",
+								"time": "ZOOM_TIME",
+								"ease": "easeoutcubic",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						}
+					],
+					"sid": 154235620584501
 				},
 				{
-					"eventType": "variable",
-					"name": "panning",
-					"type": "boolean",
-					"initialValue": "false",
-					"comment": "True while the camera is being panned.",
-					"isStatic": false,
-					"isConstant": false,
-					"sid": 579858592016075
+					"functionName": "ZoomToPlanet",
+					"functionDescription": "Zoom camera to picked planet.",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": true,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "tween-two-properties",
+							"objectClass": "Camera",
+							"sid": 140213006850231,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "position",
+								"end-x": "Planet.X",
+								"end-y": "Planet.Y",
+								"time": "ZOOM_TIME",
+								"ease": "easeoutcubic",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "tween-value",
+							"objectClass": "Camera",
+							"sid": 154331806423629,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"zoom\"",
+								"start-value": "Camera.zoomLevel",
+								"end-value": "4",
+								"time": "ZOOM_TIME",
+								"ease": "easeoutcubic",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						}
+					],
+					"sid": 856089588785346
 				},
 				{
 					"eventType": "block",
@@ -221,131 +457,6 @@
 						}
 					],
 					"sid": 738815488945617
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-tap-object",
-							"objectClass": "Touch",
-							"sid": 638189569391659,
-							"parameters": {
-								"object": "Planet"
-							}
-						},
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "Planet",
-							"sid": 489829004054447,
-							"parameters": {
-								"instance-variable": "explorationLevel",
-								"comparison": 4,
-								"value": "0"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "tween-two-properties",
-							"objectClass": "Camera",
-							"sid": 886901956359651,
-							"behaviorType": "Tween",
-							"parameters": {
-								"tags": "\"\"",
-								"property": "position",
-								"end-x": "Planet.X",
-								"end-y": "Planet.Y",
-								"time": "ZOOM_TIME",
-								"ease": "easeoutcubic",
-								"destroy-on-complete": "no",
-								"loop": "no",
-								"ping-pong": "no",
-								"repeat-count": "1"
-							}
-						},
-						{
-							"id": "tween-value",
-							"objectClass": "Camera",
-							"sid": 448675506911827,
-							"behaviorType": "Tween",
-							"parameters": {
-								"tags": "\"zoom\"",
-								"start-value": "Camera.zoomLevel",
-								"end-value": "4",
-								"time": "ZOOM_TIME",
-								"ease": "easeoutcubic",
-								"destroy-on-complete": "no",
-								"loop": "no",
-								"ping-pong": "no",
-								"repeat-count": "1"
-							}
-						}
-					],
-					"sid": 448138578322803
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-tap-object",
-							"objectClass": "Touch",
-							"sid": 866886507371575,
-							"parameters": {
-								"object": "ZoomButton"
-							}
-						}
-					],
-					"actions": [],
-					"sid": 679432394782641,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "evaluate-expression",
-									"objectClass": "System",
-									"sid": 641169484355925,
-									"parameters": {
-										"value": "Camera.zoomLevel = 1"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-instvar-value",
-									"objectClass": "Camera",
-									"sid": 711054718006572,
-									"parameters": {
-										"instance-variable": "zoomLevel",
-										"value": ".2"
-									}
-								}
-							],
-							"sid": 947972658420318
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "else",
-									"objectClass": "System",
-									"sid": 791620491980910
-								}
-							],
-							"actions": [
-								{
-									"id": "set-instvar-value",
-									"objectClass": "Camera",
-									"sid": 894827940279149,
-									"parameters": {
-										"instance-variable": "zoomLevel",
-										"value": "1"
-									}
-								}
-							],
-							"sid": 606539133442171
-						}
-					]
 				},
 				{
 					"eventType": "block",
