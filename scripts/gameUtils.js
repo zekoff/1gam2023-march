@@ -161,7 +161,8 @@ export function updatePlanetConnections(runtime, connectionDistance = null) {
   if (connectionDistance === null) connectionDistance = runtime.globalVars.WARP_DEPOT_RADIUS;
   const warpDepotPlanets = getPlanetsWithWarpDepots(runtime);
   for (const planet of runtime.objects.Planet.instances()) {
-    if (isWarpDepotOnPlanet(runtime, planet.uid)) {
+    if (isFacilityOnPlanet(runtime, planet.uid, "Warp Depot") ||
+      isFacilityOnPlanet(runtime, planet.uid, "Colony")) {
       connectNearbyPlanets(runtime, planet.uid, connectionDistance);
       for (const otherWarpDepotPlanet of warpDepotPlanets) {
         if (planet.uid !== otherWarpDepotPlanet.uid)
@@ -172,22 +173,31 @@ export function updatePlanetConnections(runtime, connectionDistance = null) {
 };
 
 /**
- * Check if a planet has a Warp Depot present.
+ * Check if a planet has the named facility present.
  * @param {*} runtime Construct runtime
  * @param {*} planetUid UID of planet to check
- * @returns true if planet has a Warp Depot, false otherwise
+ * @param {*} facilityName the name of the facility to check for
+ * @returns true if planet has at least one of the named facility, false otherwise
  */
-export function isWarpDepotOnPlanet(runtime, planetUid) {
+export function isFacilityOnPlanet(runtime, planetUid, facilityName) {
   const planet = runtime.getInstanceByUid(planetUid);
   const facilityUids = JSON.parse(planet.instVars.facilityList);
   const facilities = facilityUids.map(uid => runtime.getInstanceByUid(uid));
-  return facilities.filter(facility => facility.instVars.name === "Warp Depot").length > 0;
+  return facilities.filter(facility => facility.instVars.name === facilityName).length > 0;
 }
 
-function getPlanetsWithWarpDepots(runtime) {
+/**
+ * Get a list of all planets with Warp Depots or the Colony on them. The returned array
+ * contains planet instances (not just UIDs).
+ * @param {*} runtime the Construct runtime
+ * @returns an array of Planet instances that have Warp Depots on them (or an empty
+ * array if no planet has a Warp Depot)
+ */
+export function getPlanetsWithWarpDepots(runtime) {
   const planetsWithWarpDepots = [];
   for (const planet of runtime.objects.Planet.instances()) {
-    if (isWarpDepotOnPlanet(runtime, planet.uid)) planetsWithWarpDepots.push(planet);
+    if (isFacilityOnPlanet(runtime, planet.uid, "Warp Depot") ||
+      isFacilityOnPlanet(runtime, planet.uid, "Colony")) planetsWithWarpDepots.push(planet);
   }
   return planetsWithWarpDepots;
 }
@@ -202,11 +212,24 @@ export function upgradeFacility(runtime, facilityUid) {
 
 }
 
+/**
+ * Determine whether a planet is in the supply network.
+ * @param {*} runtime Construct runtime
+ * @param {*} planetUid planet to check for supply
+ * @returns true if the planet is in the supply network, else false
+ */
 export function isPlanetSupplied(runtime, planetUid) {
-  // TODO: initial Colony planet should be considered supplied
-  return getConnectedPlanets(runtime, planetUid).length > 0;
+  return getConnectedPlanets(runtime, planetUid).length > 0 ||
+    isFacilityOnPlanet(runtime, planetUid, "Colony");
 }
 
+/**
+ * Get a list of all planets connected to the given planet. The returned array
+ * contains Planet instances (not just UIDs).
+ * @param {*} runtime the Construct runtime
+ * @param {*} planetUid the planet to check for connections
+ * @returns an array of everything in the planet's connectionList
+ */
 export function getConnectedPlanets(runtime, planetUid) {
   const planet = runtime.getInstanceByUid(planetUid);
   const connectedPlanetUids = JSON.parse(planet.instVars.connectionList);

@@ -82,7 +82,7 @@
 					"actions": [
 						{
 							"type": "script",
-							"script": "// Spawn a trade ship and send to a connected planet.\nconst planet = runtime.objects.Planet.getFirstPickedInstance();\nif (!GameUtils.isPlanetSupplied(runtime, planet.uid)) return;\nconst ship = runtime.objects.TradeShip.createInstance(\n\t\"Ships\",\n\tplanet.x + ConstructUtils.getRandomNumberInRange(-20, 20),\n\tplanet.y + ConstructUtils.getRandomNumberInRange(-20, 20),\n\tfalse,\n\t\"Standard Trade Ship\"\n);\nconst connectedPlanets = GameUtils.getConnectedPlanets(runtime, planet.uid);\nconst destPlanet = connectedPlanets[Math.floor(Math.random() * connectedPlanets.length)];\nship.behaviors.MoveTo.moveToPosition(\n\tdestPlanet.x + ConstructUtils.getRandomNumberInRange(-20, 20),\n\tdestPlanet.y + ConstructUtils.getRandomNumberInRange(-20, 20)\n);"
+							"script": "// Spawn a trade ship and send to a connected planet.\nconst planet = runtime.objects.Planet.getFirstPickedInstance();\nconst connectedPlanets = GameUtils.getConnectedPlanets(runtime, planet.uid);\nif (connectedPlanets.length === 0) return;\nconst ship = runtime.objects.TradeShip.createInstance(\n\t\"Ships\",\n\tplanet.x + ConstructUtils.getRandomNumberInRange(-20, 20),\n\tplanet.y + ConstructUtils.getRandomNumberInRange(-20, 20),\n\tfalse,\n\t\"Standard Trade Ship\"\n);\nconst destPlanet = connectedPlanets[Math.floor(Math.random() * connectedPlanets.length)];\nship.behaviors.MoveTo.moveToPosition(\n\tdestPlanet.x + ConstructUtils.getRandomNumberInRange(-20, 20),\n\tdestPlanet.y + ConstructUtils.getRandomNumberInRange(-20, 20)\n);"
 						}
 					],
 					"sid": 498177183977100
