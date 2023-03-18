@@ -36,7 +36,8 @@ export function isFacilityBuildPrevented(runtime, planetUid, facilityName) {
   const facilityData = JSON.parse(runtime.globalVars.facilityDataMapping)[facilityName];
   if (facilityData["Quantia Drain"] > getQuantiaRate(runtime))
     return "Insufficient quantia generation to power this facility.";
-  if (facilityData["Stellium Cost"] > runtime.globalVars["stelliumStockpile"])
+  const stellium = runtime.objects.GameController.getFirstInstance().instVars.stelliumStockpile;
+  if (facilityData["Stellium Cost"] > stellium)
     return "Insufficient stellium in stockpile to build this facility.";
   return false;
 }

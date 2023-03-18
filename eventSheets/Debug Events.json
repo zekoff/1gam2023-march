@@ -7,9 +7,9 @@
 				{
 					"id": "on-key-pressed",
 					"objectClass": "Keyboard",
-					"sid": 462522741610520,
+					"sid": 213834480351442,
 					"parameters": {
-						"key": 70
+						"key": 87
 					}
 				}
 			],
@@ -20,28 +20,104 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "pick-random-instance",
-							"objectClass": "System",
-							"sid": 981979077359282,
+							"id": "pick-by-unique-id",
+							"objectClass": "Planet",
+							"sid": 721310444692775,
 							"parameters": {
-								"object": "Planet"
+								"unique-id": "GameController.selectedPlanetUid"
 							}
 						}
 					],
 					"actions": [
 						{
-							"type": "script",
-							"script": "const planetUid = runtime.objects.Planet.getFirstPickedInstance().uid;\nGameUtils.buildFacilityOnPlanet(runtime, planetUid, \"Warp Depot\");"
-						},
-						{
-							"callFunction": "LogDebugMessage",
-							"sid": 731083660108631,
+							"callFunction": "BuildFacility",
+							"sid": 147769478442709,
 							"parameters": [
-								"\"Added facility on planet \" & Planet.UID"
+								"\"Warp Depot\""
 							]
 						}
 					],
 					"sid": 836561203530915
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 656743861426222,
+					"parameters": {
+						"key": 83
+					}
+				}
+			],
+			"actions": [],
+			"sid": 466733005103787,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Planet",
+							"sid": 779646082978995,
+							"parameters": {
+								"unique-id": "GameController.selectedPlanetUid"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "BuildFacility",
+							"sid": 160866535050048,
+							"parameters": [
+								"\"Stellium Extractor\""
+							]
+						}
+					],
+					"sid": 495732150155463
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 836604493518661,
+					"parameters": {
+						"key": 81
+					}
+				}
+			],
+			"actions": [],
+			"sid": 609882378088647,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Planet",
+							"sid": 142215494776212,
+							"parameters": {
+								"unique-id": "GameController.selectedPlanetUid"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "BuildFacility",
+							"sid": 326859017463916,
+							"parameters": [
+								"\"Quantia Harvester\""
+							]
+						}
+					],
+					"sid": 656100290315855
 				}
 			]
 		},
@@ -74,9 +150,9 @@
 				{
 					"id": "on-key-pressed",
 					"objectClass": "Keyboard",
-					"sid": 761235877220237,
+					"sid": 964109709722897,
 					"parameters": {
-						"key": 83
+						"key": 69
 					}
 				}
 			],

@@ -141,8 +141,44 @@
 		{
 			"eventType": "group",
 			"disabled": false,
+			"title": "Facilities",
+			"description": "Events and functions for building facilities.",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "BuildFacility",
+					"functionDescription": "Function to build a facility on a picked planet. (Checks that facility build is allowed.)",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": true,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "facilityName",
+							"type": "string",
+							"initialValue": "Warp Depot",
+							"comment": "Name of the facility to be built.",
+							"sid": 309419992959037
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "script",
+							"script": "const planetUid = runtime.objects.Planet.getFirstPickedInstance().uid;\nconst buildPreventedMessage = GameUtils.isFacilityBuildPrevented(runtime, planetUid, localVars.facilityName);\nif (buildPreventedMessage) {\n\truntime.callFunction(\"LogDebugMessage\", buildPreventedMessage);\n\treturn;\n}\nGameUtils.buildFacilityOnPlanet(runtime, planetUid, localVars.facilityName);\nruntime.callFunction(\"LogDebugMessage\", `Built ${localVars.facilityName} on planet ${planetUid}.`);"
+						}
+					],
+					"sid": 426283044993029
+				}
+			],
+			"sid": 977042111283029
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
 			"title": "Touch Input",
-			"description": "",
+			"description": "Call functions and events based on touch inputs.",
 			"isActiveOnStart": true,
 			"children": [
 				{
@@ -297,7 +333,7 @@
 			"eventType": "group",
 			"disabled": false,
 			"title": "Camera",
-			"description": "",
+			"description": "Camera movement and zoom.",
 			"isActiveOnStart": true,
 			"children": [
 				{
@@ -496,7 +532,7 @@
 			"eventType": "group",
 			"disabled": false,
 			"title": "UI",
-			"description": "",
+			"description": "Updates for UI display objects.",
 			"isActiveOnStart": true,
 			"children": [
 				{
