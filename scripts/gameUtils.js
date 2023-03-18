@@ -61,8 +61,9 @@ export function isFacilityBuildPrevented(runtime, planetUid, facilityName) {
   return false;
 }
 
+// TODO: implement method
 /**
- * TODO
+ * TBD
  * @param {*} runtime 
  * @param {*} facilityUid 
  */
@@ -81,6 +82,7 @@ export function buildFacilityOnPlanet(runtime, planetUid, facilityName) {
   const planet = runtime.getInstanceByUid(planetUid);
   const facilityData = JSON.parse(runtime.globalVars.facilityDataMapping)[facilityName];
   const facility = runtime.objects.Facility.createInstance("Facilities", planet.x, planet.y, "", "");
+  facility.instVars.name = facilityName;
   facility.setAnimation(facilityData.Animation);
   facility.behaviors.Rotate.speed = planet.behaviors.Rotate.speed;
   const numFacilitiesOnPlanet = JSON.parse(planet.instVars.facilityList).length;
@@ -91,7 +93,8 @@ export function buildFacilityOnPlanet(runtime, planetUid, facilityName) {
   const unpackedFacilityList = JSON.parse(planet.instVars.facilityList);
   unpackedFacilityList.push(facility.uid);
   planet.instVars.facilityList = JSON.stringify(unpackedFacilityList);
-  if (facilityName === "Warp Depot") connectNearbyPlanets(runtime, planetUid);
+  // if (facilityName === "Warp Depot") connectNearbyPlanets(runtime, planetUid);
+  if (facilityName === "Warp Depot") updatePlanetConnections(runtime);
 
   // Consume resources
   const gameController = runtime.objects.GameController.getFirstInstance();
@@ -100,27 +103,98 @@ export function buildFacilityOnPlanet(runtime, planetUid, facilityName) {
   planet.instVars.quantiaDrain += facilityData["Quantia Drain"];
 }
 
+/**
+ * Connect all nearby eligible planets. Performs checks to verify that nearby
+ * planets are eligble for connections (charted, within connection distance).
+ * @param {*} runtime Construct runtime
+ * @param {*} planetUid UID of planet to use as basis for connections
+ * @param {*} connectionDistance distance to limit connections (if null, uses Construct
+ * global WARP_DEPOT_RADIUS as default)
+ */
 export function connectNearbyPlanets(runtime, planetUid, connectionDistance = null) {
-  // TODO: only connect planets that are charted (exploration level > 0)
   if (connectionDistance === null) connectionDistance = runtime.globalVars.WARP_DEPOT_RADIUS;
   const planet = runtime.getInstanceByUid(planetUid);
   const planetsInRange = [];
   for (let testPlanet of runtime.objects.Planet.instances()) {
     if (testPlanet.uid === planet.uid) continue;
+    if (testPlanet.instVars.explorationLevel === 0) continue;
     const distanceAway = Math.hypot(testPlanet.x - planet.x, testPlanet.y - planet.y);
     if (connectionDistance >= distanceAway) planetsInRange.push(testPlanet);
   }
-  const connectedPlanetUids = JSON.parse(planet.instVars.connectionList);
-  for (let i = 0; i < planetsInRange.length; i++) {
-    if (connectedPlanetUids.indexOf(planetsInRange[i].uid) === -1)
-      connectedPlanetUids.push(planetsInRange[i].uid);
+  for (const destinationPlanet of planetsInRange) {
+    connectNodes(runtime, planet.uid, destinationPlanet.uid);
   }
-  planet.instVars.connectionList = JSON.stringify(connectedPlanetUids);
-  // TODO: add bi-directional connection when a connection is added
 }
 
 /**
- * TODO
+ * Connect two nodes by adding them each to the others Node.connectionList instVar.
+ * This method adds the provided nodes without performing any checks to verify
+ * that they are eligible to be connected (distance, warp depot, etc.). If either
+ * node is already in the connectionList of the other, that unidirectional
+ * connection will not be added (so, this method is idempotent if both nodes are
+ * already connected).
+ * 
+ * @param {*} runtime the Construct runtime
+ * @param {*} node1Uid object UID of the first node
+ * @param {*} node2Uid object UID of the second node
+ */
+export function connectNodes(runtime, node1Uid, node2Uid) {
+  const node1 = runtime.getInstanceByUid(node1Uid);
+  const node2 = runtime.getInstanceByUid(node2Uid);
+  const node1Connections = JSON.parse(node1.instVars.connectionList);
+  const node2Connections = JSON.parse(node2.instVars.connectionList);
+  if (!node1Connections.includes(node2Uid)) node1Connections.push(node2Uid);
+  if (!node2Connections.includes(node1Uid)) node2Connections.push(node1Uid);
+  node1.instVars.connectionList = JSON.stringify(node1Connections);
+  node2.instVars.connectionList = JSON.stringify(node2Connections);
+}
+
+/**
+ * Scan entire sector and update connections for all planets. Planets are connected
+ * if they are in range of a Warp Depot, and any Warp Depot is also connected to
+ * every other Warp Depot.
+ * @param {*} runtime Construct runtime
+ * @param {*} connectionDistance distance to limit connections (if null, uses Construct
+ * global WARP_DEPOT_RADIUS as default)
+ */
+export function updatePlanetConnections(runtime, connectionDistance = null) {
+  if (connectionDistance === null) connectionDistance = runtime.globalVars.WARP_DEPOT_RADIUS;
+  const warpDepotPlanets = getPlanetsWithWarpDepots(runtime);
+  for (const planet of runtime.objects.Planet.instances()) {
+    if (isWarpDepotOnPlanet(runtime, planet.uid)) {
+      connectNearbyPlanets(runtime, planet.uid, connectionDistance);
+      for (const otherWarpDepotPlanet of warpDepotPlanets) {
+        if (planet.uid !== otherWarpDepotPlanet.uid)
+          connectNodes(runtime, planet.uid, otherWarpDepotPlanet.uid);
+      }
+    }
+  }
+};
+
+/**
+ * Check if a planet has a Warp Depot present.
+ * @param {*} runtime Construct runtime
+ * @param {*} planetUid UID of planet to check
+ * @returns true if planet has a Warp Depot, false otherwise
+ */
+export function isWarpDepotOnPlanet(runtime, planetUid) {
+  const planet = runtime.getInstanceByUid(planetUid);
+  const facilityUids = JSON.parse(planet.instVars.facilityList);
+  const facilities = facilityUids.map(uid => runtime.getInstanceByUid(uid));
+  return facilities.filter(facility => facility.instVars.name === "Warp Depot").length > 0;
+}
+
+function getPlanetsWithWarpDepots(runtime) {
+  const planetsWithWarpDepots = [];
+  for (const planet of runtime.objects.Planet.instances()) {
+    if (isWarpDepotOnPlanet(runtime, planet.uid)) planetsWithWarpDepots.push(planet);
+  }
+  return planetsWithWarpDepots;
+}
+
+// TODO: implement method
+/**
+ * TBD
  * @param {*} runtime 
  * @param {*} facilityUid 
  */
@@ -129,6 +203,7 @@ export function upgradeFacility(runtime, facilityUid) {
 }
 
 export function isPlanetSupplied(runtime, planetUid) {
+  // TODO: initial Colony planet should be considered supplied
   return getConnectedPlanets(runtime, planetUid).length > 0;
 }
 

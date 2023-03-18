@@ -37,10 +37,10 @@
 						{
 							"id": "set-speed",
 							"objectClass": "Planet",
-							"sid": 552562846471696,
+							"sid": 485329293709353,
 							"behaviorType": "Rotate",
 							"parameters": {
-								"speed": "random(20,40) * choose(1, -1)"
+								"speed": "random(5,20) * choose(1, -1)"
 							}
 						}
 					],
@@ -850,6 +850,10 @@
 										"instance-variable": "explorationLevel",
 										"value": "1"
 									}
+								},
+								{
+									"type": "script",
+									"script": "GameUtils.updatePlanetConnections(runtime);"
 								}
 							],
 							"sid": 527030546940020

@@ -589,8 +589,7 @@
 							},
 							"uid": 19,
 							"instanceVariables": {
-								"StelliumCost": 0,
-								"QuantiaDrain": 0
+								"name": "Unknown Facility"
 							},
 							"behaviors": {
 								"Rotate": {
@@ -1488,48 +1487,6 @@
 					}
 				},
 				{
-					"type": "Camera",
-					"properties": {
-						"initially-visible": false,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 4,
-					"instanceVariables": {
-						"zoomLevel": 1
-					},
-					"behaviors": {
-						"ScrollTo": {
-							"properties": {
-								"enabled": true
-							}
-						},
-						"Tween": {
-							"properties": {
-								"enabled": true
-							}
-						}
-					},
-					"world": {
-						"x": 1059,
-						"y": 1740,
-						"width": 249,
-						"height": 127,
-						"originX": 0.4939759036144578,
-						"originY": 0.5039370078740157,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
 					"type": "QuantiaDisplay",
 					"properties": {
 						"text": "QUANTIA",
@@ -1616,40 +1573,6 @@
 					}
 				},
 				{
-					"type": "GameController",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 28,
-					"instanceVariables": {
-						"stelliumStockpile": 0,
-						"yearsElapsed": 0,
-						"selectedPlanetUid": -1,
-						"overviewMode": false
-					},
-					"behaviors": {},
-					"world": {
-						"x": -275,
-						"y": 1546,
-						"width": 250,
-						"height": 250,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
 					"type": "YearDisplay",
 					"properties": {
 						"text": "YEAR",
@@ -1713,6 +1636,116 @@
 			"parallaxX": 0,
 			"parallaxY": 0,
 			"scaleRate": 0,
+			"forceOwnTexture": false,
+			"renderingMode": "3d",
+			"drawOrder": "z-order",
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"zElevation": 0,
+			"global": false
+		},
+		{
+			"name": "Controllers",
+			"overriden": 0,
+			"subLayers": [],
+			"instances": [
+				{
+					"type": "GameController",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 28,
+					"instanceVariables": {
+						"stelliumStockpile": 0,
+						"yearsElapsed": 0,
+						"selectedPlanetUid": -1,
+						"overviewMode": false
+					},
+					"behaviors": {},
+					"world": {
+						"x": -275,
+						"y": 1546,
+						"width": 250,
+						"height": 250,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Camera",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 4,
+					"instanceVariables": {
+						"zoomLevel": 1
+					},
+					"behaviors": {
+						"ScrollTo": {
+							"properties": {
+								"enabled": true
+							}
+						},
+						"Tween": {
+							"properties": {
+								"enabled": true
+							}
+						}
+					},
+					"world": {
+						"x": 845,
+						"y": 1546,
+						"width": 249,
+						"height": 127,
+						"originX": 0.4939759036144578,
+						"originY": 0.5039370078740157,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				}
+			],
+			"sid": 572825284931440,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"isInitiallyInteractive": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				1,
+				1,
+				1,
+				1
+			],
+			"isTransparent": true,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
 			"forceOwnTexture": false,
 			"renderingMode": "3d",
 			"drawOrder": "z-order",

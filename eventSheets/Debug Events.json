@@ -210,13 +210,23 @@
 							"id": "pick-by-unique-id",
 							"objectClass": "Planet",
 							"sid": 874306572717105,
-							"breakpoint": true,
 							"parameters": {
 								"unique-id": "7"
 							}
 						}
 					],
 					"actions": [
+						{
+							"id": "move-to-position",
+							"objectClass": "ResearchStation",
+							"sid": 862014146000818,
+							"behaviorType": "MoveTo",
+							"parameters": {
+								"x": "Planet.X",
+								"y": "Planet.Y + 100",
+								"mode": "direct"
+							}
+						},
 						{
 							"id": "wait-for-signal",
 							"objectClass": "System",

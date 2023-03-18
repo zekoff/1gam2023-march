@@ -3,7 +3,15 @@
 	"plugin-id": "Sprite",
 	"sid": 234478508517869,
 	"isGlobal": false,
-	"instanceVariables": [],
+	"instanceVariables": [
+		{
+			"name": "name",
+			"type": "string",
+			"desc": "Name of the facility (user-readable, and same as facilityData.json).",
+			"show": true,
+			"sid": 345772307516531
+		}
+	],
 	"behaviorTypes": [
 		{
 			"behaviorId": "Rotate",

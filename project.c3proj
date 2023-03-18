@@ -142,8 +142,7 @@
 	"containers": [],
 	"families": {
 		"items": [
-			"Nodes",
-			"Facilities"
+			"Nodes"
 		],
 		"subfolders": []
 	},
