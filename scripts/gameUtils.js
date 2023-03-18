@@ -88,11 +88,11 @@ export function buildFacilityOnPlanet(runtime, planetUid, facilityName) {
   const unpackedFacilityList = JSON.parse(planet.instVars.facilityList);
   unpackedFacilityList.push(facility.uid);
   planet.instVars.facilityList = JSON.stringify(unpackedFacilityList);
-  // if (facilityName === "Warp Depot") connectNearbyPlanets(runtime, planetUid);
   if (facilityName === "Warp Depot") updatePlanetConnections(runtime);
 
   // Consume resources
   gameController.instVars.stelliumStockpile -= facilityData["Stellium Cost"];
+  gameController.instVars.crysetherStockpile -= facilityData["Crysether Cost"];
   planet.instVars.stelliumDrain += facilityData["Stellium Drain"];
   planet.instVars.quantiaDrain += facilityData["Quantia Drain"];
 }
