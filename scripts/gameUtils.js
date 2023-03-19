@@ -316,3 +316,20 @@ export function updateUiText(runtime) {
   const year = gameController.instVars.yearsElapsed;
   runtime.objects.YearDisplay.getFirstInstance().text = `Year: ${Math.floor(year)}`;
 }
+
+export function generateRandomPlanetName(uid) {
+  const PREFIXES = ["Alpha", "Beta", "Theta", "Gamma", "Epsilon", "Virgo", "Red", "Blue", "Green"];
+  const NAMES = ["Veritas", "Mercurius", "Centauri", "Gandalfi", "Griffindus", "Tychus", "Aristotle",
+    "Socrates", "Plato", "Kant", "Chidi", "Emma", "Jack", "Elizabeth", "Lauren", "Fortius", "Temperandi",
+    "Basalt", "Shale", "Materia", "Personus"];
+  const SUFFIXES = ["VI", "RT", "A", "B", "Z", "VII", "III", "II", "I"];
+  const name = [];
+  name.push(`${pickRandomFromList(...NAMES)}-${uid}`);
+  if (Math.random() < .3) name.unshift(pickRandomFromList(...PREFIXES));
+  if (Math.random() < .3) name.push(pickRandomFromList(...SUFFIXES));
+  return name.join(" ");
+}
+
+function pickRandomFromList(...items) {
+  return items[Math.floor(Math.random() * items.length)];
+}

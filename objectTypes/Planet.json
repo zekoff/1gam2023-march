@@ -10,6 +10,13 @@
 			"desc": "How much the planet has been improved through building facilities.",
 			"show": true,
 			"sid": 494222705694025
+		},
+		{
+			"name": "name",
+			"type": "string",
+			"desc": "Name of this planet (for flavor and player identification).",
+			"show": true,
+			"sid": 255103995438500
 		}
 	],
 	"behaviorTypes": [

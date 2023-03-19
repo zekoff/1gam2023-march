@@ -355,6 +355,26 @@
 					"eventType": "block",
 					"conditions": [
 						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 249900634978979,
+							"parameters": {
+								"object": "Planet"
+							}
+						}
+					],
+					"actions": [
+						{
+							"type": "script",
+							"script": "const planet = runtime.objects.Planet.getFirstPickedInstance();\nplanet.instVars.name = GameUtils.generateRandomPlanetName(planet.uid);"
+						}
+					],
+					"sid": 940289517788049
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
 							"id": "pick-by-unique-id",
 							"objectClass": "Planet",
 							"sid": 874306572717105,

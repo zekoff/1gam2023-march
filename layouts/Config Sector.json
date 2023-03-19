@@ -276,7 +276,8 @@
 								"stelliumRate": 0,
 								"quantiaDrain": 0,
 								"stelliumDrain": 0,
-								"improvementLevel": 0
+								"improvementLevel": 0,
+								"name": ""
 							},
 							"behaviors": {
 								"Rotate": {
@@ -325,7 +326,8 @@
 								"stelliumRate": 0,
 								"quantiaDrain": 0,
 								"stelliumDrain": 0,
-								"improvementLevel": 0
+								"improvementLevel": 0,
+								"name": ""
 							},
 							"behaviors": {
 								"Rotate": {
@@ -374,7 +376,8 @@
 								"stelliumRate": 0,
 								"quantiaDrain": 0,
 								"stelliumDrain": 0,
-								"improvementLevel": 0
+								"improvementLevel": 0,
+								"name": ""
 							},
 							"behaviors": {
 								"Rotate": {
@@ -423,7 +426,8 @@
 								"stelliumRate": 0,
 								"quantiaDrain": 0,
 								"stelliumDrain": 0,
-								"improvementLevel": 0
+								"improvementLevel": 0,
+								"name": ""
 							},
 							"behaviors": {
 								"Rotate": {
@@ -472,7 +476,8 @@
 								"stelliumRate": 0,
 								"quantiaDrain": 0,
 								"stelliumDrain": 0,
-								"improvementLevel": 0
+								"improvementLevel": 0,
+								"name": ""
 							},
 							"behaviors": {
 								"Rotate": {
@@ -521,7 +526,8 @@
 								"stelliumRate": 0,
 								"quantiaDrain": 0,
 								"stelliumDrain": 0,
-								"improvementLevel": 0
+								"improvementLevel": 0,
+								"name": ""
 							},
 							"behaviors": {
 								"Rotate": {
@@ -570,7 +576,8 @@
 								"stelliumRate": 0,
 								"quantiaDrain": 0,
 								"stelliumDrain": 0,
-								"improvementLevel": 0
+								"improvementLevel": 0,
+								"name": ""
 							},
 							"behaviors": {
 								"Rotate": {
@@ -619,7 +626,8 @@
 								"stelliumRate": 0,
 								"quantiaDrain": 0,
 								"stelliumDrain": 0,
-								"improvementLevel": 0
+								"improvementLevel": 0,
+								"name": ""
 							},
 							"behaviors": {
 								"Rotate": {
@@ -668,7 +676,8 @@
 								"stelliumRate": 0,
 								"quantiaDrain": 0,
 								"stelliumDrain": 0,
-								"improvementLevel": 0
+								"improvementLevel": 0,
+								"name": ""
 							},
 							"behaviors": {
 								"Rotate": {
@@ -717,7 +726,8 @@
 								"stelliumRate": 0,
 								"quantiaDrain": 0,
 								"stelliumDrain": 0,
-								"improvementLevel": 0
+								"improvementLevel": 0,
+								"name": ""
 							},
 							"behaviors": {
 								"Rotate": {
@@ -766,7 +776,8 @@
 								"stelliumRate": 0,
 								"quantiaDrain": 0,
 								"stelliumDrain": 0,
-								"improvementLevel": 0
+								"improvementLevel": 0,
+								"name": ""
 							},
 							"behaviors": {
 								"Rotate": {
@@ -815,7 +826,8 @@
 								"stelliumRate": 0,
 								"quantiaDrain": 0,
 								"stelliumDrain": 0,
-								"improvementLevel": 0
+								"improvementLevel": 0,
+								"name": ""
 							},
 							"behaviors": {
 								"Rotate": {
@@ -864,7 +876,8 @@
 								"stelliumRate": 0,
 								"quantiaDrain": 0,
 								"stelliumDrain": 0,
-								"improvementLevel": 0
+								"improvementLevel": 0,
+								"name": ""
 							},
 							"behaviors": {
 								"Rotate": {
@@ -913,7 +926,8 @@
 								"stelliumRate": 0,
 								"quantiaDrain": 0,
 								"stelliumDrain": 0,
-								"improvementLevel": 0
+								"improvementLevel": 0,
+								"name": ""
 							},
 							"behaviors": {
 								"Rotate": {
@@ -962,7 +976,8 @@
 								"stelliumRate": 0,
 								"quantiaDrain": 0,
 								"stelliumDrain": 0,
-								"improvementLevel": 0
+								"improvementLevel": 0,
+								"name": ""
 							},
 							"behaviors": {
 								"Rotate": {
@@ -1011,7 +1026,8 @@
 								"stelliumRate": 0,
 								"quantiaDrain": 0,
 								"stelliumDrain": 0,
-								"improvementLevel": 0
+								"improvementLevel": 0,
+								"name": ""
 							},
 							"behaviors": {
 								"Rotate": {
@@ -1060,7 +1076,8 @@
 								"stelliumRate": 0,
 								"quantiaDrain": 0,
 								"stelliumDrain": 0,
-								"improvementLevel": 0
+								"improvementLevel": 0,
+								"name": ""
 							},
 							"behaviors": {
 								"Rotate": {
@@ -1109,7 +1126,8 @@
 								"stelliumRate": 0,
 								"quantiaDrain": 0,
 								"stelliumDrain": 0,
-								"improvementLevel": 0
+								"improvementLevel": 0,
+								"name": ""
 							},
 							"behaviors": {
 								"Rotate": {
@@ -1158,7 +1176,8 @@
 								"stelliumRate": 0,
 								"quantiaDrain": 0,
 								"stelliumDrain": 0,
-								"improvementLevel": 0
+								"improvementLevel": 0,
+								"name": ""
 							},
 							"behaviors": {
 								"Rotate": {
@@ -1207,7 +1226,8 @@
 								"stelliumRate": 0,
 								"quantiaDrain": 0,
 								"stelliumDrain": 0,
-								"improvementLevel": 0
+								"improvementLevel": 0,
+								"name": ""
 							},
 							"behaviors": {
 								"Rotate": {
@@ -1256,7 +1276,8 @@
 								"stelliumRate": 0,
 								"quantiaDrain": 0,
 								"stelliumDrain": 0,
-								"improvementLevel": 0
+								"improvementLevel": 0,
+								"name": ""
 							},
 							"behaviors": {
 								"Rotate": {
@@ -1305,7 +1326,8 @@
 								"stelliumRate": 0,
 								"quantiaDrain": 0,
 								"stelliumDrain": 0,
-								"improvementLevel": 0
+								"improvementLevel": 0,
+								"name": ""
 							},
 							"behaviors": {
 								"Rotate": {
@@ -1354,7 +1376,8 @@
 								"stelliumRate": 0,
 								"quantiaDrain": 0,
 								"stelliumDrain": 0,
-								"improvementLevel": 0
+								"improvementLevel": 0,
+								"name": ""
 							},
 							"behaviors": {
 								"Rotate": {
@@ -1403,7 +1426,8 @@
 								"stelliumRate": 0,
 								"quantiaDrain": 0,
 								"stelliumDrain": 0,
-								"improvementLevel": 0
+								"improvementLevel": 0,
+								"name": ""
 							},
 							"behaviors": {
 								"Rotate": {
@@ -1452,7 +1476,8 @@
 								"stelliumRate": 0,
 								"quantiaDrain": 0,
 								"stelliumDrain": 0,
-								"improvementLevel": 0
+								"improvementLevel": 0,
+								"name": ""
 							},
 							"behaviors": {
 								"Rotate": {
@@ -1501,7 +1526,8 @@
 								"stelliumRate": 0,
 								"quantiaDrain": 0,
 								"stelliumDrain": 0,
-								"improvementLevel": 0
+								"improvementLevel": 0,
+								"name": ""
 							},
 							"behaviors": {
 								"Rotate": {
