@@ -276,11 +276,8 @@
 							}
 						},
 						{
-							"callFunction": "BuildFacility",
-							"sid": 168552997722128,
-							"parameters": [
-								"\"Colony\""
-							]
+							"type": "script",
+							"script": "const planetUid = runtime.objects.Planet.getFirstPickedInstance().uid;\nGameUtils.buildFacilityOnPlanet(runtime, planetUid, \"Colony\");"
 						}
 					],
 					"sid": 194076452485474

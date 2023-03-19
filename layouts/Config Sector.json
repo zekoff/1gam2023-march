@@ -33,10 +33,10 @@
 							"instanceVariables": {},
 							"behaviors": {},
 							"world": {
-								"x": -2741,
-								"y": -2861,
-								"width": 10806,
-								"height": 17712,
+								"x": -6786,
+								"y": -6234,
+								"width": 19047,
+								"height": 24264,
 								"originX": 0,
 								"originY": 0,
 								"color": [
@@ -106,10 +106,10 @@
 							"instanceVariables": {},
 							"behaviors": {},
 							"world": {
-								"x": -2194,
-								"y": -2687,
-								"width": 10569,
-								"height": 17410,
+								"x": -7126,
+								"y": -6266,
+								"width": 21234,
+								"height": 25573,
 								"originX": 0,
 								"originY": 0,
 								"color": [
@@ -2087,9 +2087,9 @@
 					"behaviors": {
 						"MoveTo": {
 							"properties": {
-								"max-speed": 400,
-								"acceleration": 600,
-								"deceleration": 600,
+								"max-speed": 1000,
+								"acceleration": 200,
+								"deceleration": 200,
 								"rotate-speed": 0,
 								"set-angle": true,
 								"stop-on-solids": false,

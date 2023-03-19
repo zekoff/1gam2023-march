@@ -49,6 +49,10 @@ export function getStelliumDrain(runtime) {
  */
 export function isFacilityBuildPrevented(runtime, planetUid, facilityName) {
   const planet = runtime.getInstanceByUid(planetUid);
+  if (planet.instVars.explorationLevel === 0)
+    return "Planet has not yet been scanned and charted.";
+  if (!isPlanetSupplied(runtime, planet.uid) && facilityName !== "Warp Depot")
+    return "Planet is not in supply network.";
   const numFacilitiesOnPlanet = JSON.parse(planet.instVars.facilityList).length;
   if (planet.instVars.totalFacilitySlots <= numFacilitiesOnPlanet)
     return "No available slots on this planet to build a new facility."

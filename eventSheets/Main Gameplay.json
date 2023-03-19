@@ -381,12 +381,12 @@
 						{
 							"id": "tween-value",
 							"objectClass": "Camera",
-							"sid": 703448166900084,
+							"sid": 872055254110003,
 							"behaviorType": "Tween",
 							"parameters": {
 								"tags": "\"zoom\"",
 								"start-value": "Camera.zoomLevel",
-								"end-value": ".2",
+								"end-value": ".15",
 								"time": "ZOOM_TIME",
 								"ease": "easeoutcubic",
 								"destroy-on-complete": "no",
