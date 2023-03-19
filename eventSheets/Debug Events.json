@@ -47,6 +47,46 @@
 				{
 					"id": "on-key-pressed",
 					"objectClass": "Keyboard",
+					"sid": 578709553209993,
+					"parameters": {
+						"key": 72
+					}
+				}
+			],
+			"actions": [],
+			"sid": 524555524603690,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Planet",
+							"sid": 497490939932996,
+							"parameters": {
+								"unique-id": "GameController.selectedPlanetUid"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "BuildFacility",
+							"sid": 436632547866372,
+							"parameters": [
+								"\"Habitat\""
+							]
+						}
+					],
+					"sid": 360066883393804
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
 					"sid": 656743861426222,
 					"parameters": {
 						"key": 83

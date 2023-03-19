@@ -62,6 +62,9 @@ export function isFacilityBuildPrevented(runtime, planetUid, facilityName) {
   const stellium = runtime.objects.GameController.getFirstInstance().instVars.stelliumStockpile;
   if (facilityData["Stellium Cost"] > stellium)
     return "Insufficient stellium in stockpile to build this facility.";
+  const stelliumRate = getStelliumRate(runtime) - getStelliumDrain(runtime);
+  if (facilityData["Stellium Drain"] > stelliumRate)
+    return "Inadequate Stellium extraction rate to maintain this facility.";
   const crysether = runtime.objects.GameController.getFirstInstance().instVars.crysetherStockpile;
   if (facilityData["Crysether Cost"] > crysether)
     return "Insufficient crysether available to build this facility.";

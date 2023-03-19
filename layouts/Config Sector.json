@@ -2690,7 +2690,7 @@
 				{
 					"type": "Camera",
 					"properties": {
-						"initially-visible": false,
+						"initially-visible": true,
 						"initial-animation": "Animation 1",
 						"initial-frame": 0,
 						"enable-collisions": true,
@@ -2732,8 +2732,8 @@
 			],
 			"sid": 572825284931440,
 			"effectTypes": [],
-			"isInitiallyVisible": true,
-			"isInitiallyInteractive": true,
+			"isInitiallyVisible": false,
+			"isInitiallyInteractive": false,
 			"color": [
 				1,
 				1,
