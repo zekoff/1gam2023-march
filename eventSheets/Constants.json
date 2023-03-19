@@ -103,9 +103,9 @@
 		},
 		{
 			"eventType": "variable",
-			"name": "STARTING_STELLIUM_STOCKPILE",
+			"name": "ADDITIONAL_STARTING_STELLIUM_STOCKPILE",
 			"type": "number",
-			"initialValue": "200",
+			"initialValue": "0",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": true,

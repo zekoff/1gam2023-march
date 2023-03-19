@@ -32,9 +32,9 @@
 			"sid": 932097499835946
 		},
 		{
-			"name": "traitList",
+			"name": "trait",
 			"type": "string",
-			"desc": "JSON array of string trait names.",
+			"desc": "Name of planet trait, or empty if planet has no trait.",
 			"show": true,
 			"sid": 360575593419679
 		},

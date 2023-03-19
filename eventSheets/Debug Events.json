@@ -205,6 +205,46 @@
 			"eventType": "block",
 			"conditions": [
 				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 169164879481872,
+					"parameters": {
+						"key": 77
+					}
+				}
+			],
+			"actions": [],
+			"sid": 181382481402902,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Planet",
+							"sid": 845190334988287,
+							"parameters": {
+								"unique-id": "GameController.selectedPlanetUid"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "BuildFacility",
+							"sid": 543377409835503,
+							"parameters": [
+								"\"Strip Mine\""
+							]
+						}
+					],
+					"sid": 386781425592261
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
 					"id": "on-tap-object",
 					"objectClass": "Touch",
 					"sid": 558774549005462,
@@ -269,15 +309,6 @@
 						"radius-y": "ScanArea.Height / 2",
 						"color": "rgba(100, 100, 100, 100)",
 						"edge": "smooth"
-					}
-				},
-				{
-					"id": "set-instvar-value",
-					"objectClass": "GameController",
-					"sid": 837213182211331,
-					"parameters": {
-						"instance-variable": "stelliumStockpile",
-						"value": "STARTING_STELLIUM_STOCKPILE"
 					}
 				}
 			],

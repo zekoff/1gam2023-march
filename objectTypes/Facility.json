@@ -279,6 +279,135 @@
 				"repeatCount": 1,
 				"repeatTo": 0,
 				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 128,
+						"height": 128,
+						"originX": 0.5,
+						"originY": 2,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 4833815,
+						"collisionPoly": {
+							"points": [
+								0.0078125,
+								0.0078125,
+								0.5,
+								0.0625,
+								0.9921875,
+								0.0078125,
+								1,
+								0.5,
+								0.9921875,
+								0.9921875,
+								0.5,
+								0.9375,
+								0.0078125,
+								0.9921875,
+								0,
+								0.5
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 365075448020504,
+				"name": "Animation 7",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 128,
+						"height": 128,
+						"originX": 0.5,
+						"originY": 2,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 9467394,
+						"collisionPoly": {
+							"points": [
+								0.2265625,
+								0.2265625,
+								0.5,
+								0,
+								0.7734375,
+								0.2265625,
+								0.984375,
+								0.5,
+								0.9375,
+								0.9375,
+								0.5,
+								1,
+								0.0625,
+								0.9375,
+								0.015625,
+								0.5
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 120418892794117,
+				"name": "Animation 8",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 128,
+						"height": 128,
+						"originX": 0.5,
+						"originY": 2,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 290419,
+						"collisionPoly": {
+							"points": [
+								0.375,
+								0.375,
+								0.5,
+								0.390625,
+								0.6171875,
+								0.3828125,
+								0.625,
+								0.5,
+								0.6875,
+								0.6875,
+								0.5,
+								0.875,
+								0.3125,
+								0.6875,
+								0.375,
+								0.5
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 518357580030381,
+				"name": "Animation 9",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
 			}
 		],
 		"subfolders": []

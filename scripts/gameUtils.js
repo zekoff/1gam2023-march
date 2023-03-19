@@ -92,6 +92,7 @@ export function buildFacilityOnPlanet(runtime, planetUid, facilityName) {
   planet.instVars.quantiaRate += facilityData["Quantia Rate"];
   planet.instVars.stelliumRate += facilityData["Stellium Rate"];
   gameController.instVars.crysetherStockpile += facilityData["Crysether Gain"];
+  gameController.instVars.stelliumStockpile += facilityData["Stellium Gain"];
   const unpackedFacilityList = JSON.parse(planet.instVars.facilityList);
   unpackedFacilityList.push(facility.uid);
   planet.instVars.facilityList = JSON.stringify(unpackedFacilityList);
