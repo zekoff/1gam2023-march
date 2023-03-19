@@ -843,17 +843,8 @@
 							],
 							"actions": [
 								{
-									"id": "set-instvar-value",
-									"objectClass": "Planet",
-									"sid": 277719871075817,
-									"parameters": {
-										"instance-variable": "explorationLevel",
-										"value": "1"
-									}
-								},
-								{
-									"type": "script",
-									"script": "GameUtils.updatePlanetConnections(runtime);"
+									"callFunction": "ScanPlanet",
+									"sid": 663451132060989
 								}
 							],
 							"sid": 527030546940020
@@ -927,6 +918,74 @@
 							"sid": 968607777069272
 						}
 					]
+				},
+				{
+					"functionName": "ExplorePlanet",
+					"functionDescription": "Set a planet to fully-explored (exploration level 2).",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": true,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Planet",
+							"sid": 254013383545556,
+							"parameters": {
+								"instance-variable": "explorationLevel",
+								"value": "2"
+							}
+						},
+						{
+							"type": "script",
+							"script": "const planet = runtime.objects.Planet.getFirstPickedInstance();\nGameUtils.applyPlanetTraitRetroactively(runtime, planet.uid);"
+						},
+						{
+							"callFunction": "LogDebugMessage",
+							"sid": 171334887619371,
+							"parameters": [
+								"\"Explored planet \" & Planet.UID"
+							]
+						}
+					],
+					"sid": 427903072584693
+				},
+				{
+					"functionName": "ScanPlanet",
+					"functionDescription": "Set planet to scanned (set to exploration level 1).",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": true,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Planet",
+							"sid": 436068523368339,
+							"parameters": {
+								"instance-variable": "explorationLevel",
+								"value": "1"
+							}
+						},
+						{
+							"type": "script",
+							"script": "GameUtils.updatePlanetConnections(runtime);"
+						},
+						{
+							"callFunction": "LogDebugMessage",
+							"sid": 644972210340088,
+							"parameters": [
+								"\"Scanned planet \" & Planet.UID"
+							]
+						}
+					],
+					"sid": 895969925963579
 				}
 			],
 			"sid": 504751791717747

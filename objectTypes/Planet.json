@@ -3,7 +3,15 @@
 	"plugin-id": "Sprite",
 	"sid": 255777452242242,
 	"isGlobal": false,
-	"instanceVariables": [],
+	"instanceVariables": [
+		{
+			"name": "improvementLevel",
+			"type": "number",
+			"desc": "How much the planet has been improved through building facilities.",
+			"show": true,
+			"sid": 494222705694025
+		}
+	],
 	"behaviorTypes": [
 		{
 			"behaviorId": "Rotate",

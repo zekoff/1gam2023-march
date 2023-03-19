@@ -1,5 +1,15 @@
 // gameUtils.js
 
+const PLANET_TRAITS = {
+  "Stellium Rich": "Stellium extraction rate increased on this planet.",
+  "Quantia Clouds": "Quantia harvesting rate increased on this planet.",
+  "Garden World": "Habitats on this planet contribute extra to improvement level.",
+  "Large Landmasses": "Extra facility slots on this planet.",
+  "Precursor Ruins": "Research Facilities give extra Crysether.",
+  "Stellium Cache": "Grants additional Stellium to stockpile if in supply network.",
+  "Crysether Cache": "Grants additional Crysether to stockpile if in supply network."
+};
+
 /**
  * Reduce all nodes in sector to the sum of the passed instance variable.
  * The instance variable must be a numeric value. This method is not exported
@@ -71,6 +81,47 @@ export function isFacilityBuildPrevented(runtime, planetUid, facilityName) {
   return false;
 }
 
+export function applyPlanetTraitRetroactively(runtime, planetUid) {
+  const planet = runtime.getInstanceByUid(planetUid);
+  const facilityDataMapping = JSON.parse(runtime.globalVars.facilityDataMapping);
+  if (planet.instVars.explorationLevel !== 2) return;
+  if (!planet.instVars.trait) return;
+  switch (planet.instVars.trait) {
+    case "Stellium Rich":
+      planet.instVars.stelliumRate *= 2;
+      break;
+    case "Quantia Clouds":
+      planet.instVars.quantiaRate *= 2;
+      break;
+    case "Garden World":
+      const numHabitats = numFacilityOnPlanet(runtime, planet.uid, "Habitat");
+      const habitatImprovementValue = facilityDataMapping["Habitat"]["Improvement Level"];
+      planet.instVars.improvementLevel += numHabitats * habitatImprovementValue;
+      break;
+    case "Large Landmasses":
+      planet.instVars.totalFacilitySlots += 2;
+      let facilities = JSON.parse(planet.instVars.facilityList);
+      facilities = facilities.map(uid => runtime.getInstanceByUid(uid));
+      facilities.forEach((facility, index) => {
+        facility.angleDegrees = 360 / planet.instVars.totalFacilitySlots * index;
+        facility.angleDegrees += planet.angleDegrees;
+      });
+      break;
+    case "Precursor Ruins":
+      const numResearchFacilities = numFacilityOnPlanet(runtime, planet.uid, "Research Facility");
+      gameController.instVars.crysetherStockpile += numResearchFacilities;
+      break;
+    case "Stellium Cache":
+      runtime.objects.GameController.getFirstInstance().instVars.stelliumStockpile += 1000;
+      break;
+    case "Crysether Cache":
+      runtime.objects.GameController.getFirstInstance().instVars.crysetherStockpile += 1;
+      break;
+    default:
+      break;
+  }
+}
+
 /**
  * Construct a facility on the designated planet. Does not verify that constraints
  * are met to construct the facility (enough resources, slots on target planet, etc.).
@@ -87,7 +138,7 @@ export function buildFacilityOnPlanet(runtime, planetUid, facilityName) {
   facility.setAnimation(facilityData.Animation);
   facility.behaviors.Rotate.speed = planet.behaviors.Rotate.speed;
   const numFacilitiesOnPlanet = JSON.parse(planet.instVars.facilityList).length;
-  facility.angleDegrees = 360 / planet.instVars.totalFacilitySlots * (numFacilitiesOnPlanet + 1);
+  facility.angleDegrees = 360 / planet.instVars.totalFacilitySlots * numFacilitiesOnPlanet;
   facility.angleDegrees += planet.angleDegrees;
   planet.instVars.quantiaRate += facilityData["Quantia Rate"];
   planet.instVars.stelliumRate += facilityData["Stellium Rate"];
@@ -97,6 +148,26 @@ export function buildFacilityOnPlanet(runtime, planetUid, facilityName) {
   unpackedFacilityList.push(facility.uid);
   planet.instVars.facilityList = JSON.stringify(unpackedFacilityList);
   if (facilityName === "Warp Depot") updatePlanetConnections(runtime);
+
+  // Handle traits related to facility builds
+  if (planet.instVars.explorationLevel === 2 && planet.instVars.trait) {
+    switch (planet.instVars.trait) {
+      case "Stellium Rich":
+        planet.instVars.stelliumRate += facilityData["Stellium Rate"];
+        break;
+      case "Quantia Clouds":
+        planet.instVars.quantiaRate += facilityData["Quantia Rate"];
+        break;
+      case "Garden World":
+        if (facilityName === "Habitat") planet.instVars.improvementLevel += facilityData["Improvement Level"];
+        break;
+      case "Precursor Ruins":
+        if (facilityName === "Research Facility") gameController.instVars.crysetherStockpile += 1;
+        break;
+      default:
+        break;
+    }
+  }
 
   // Consume resources
   gameController.instVars.stelliumStockpile -= facilityData["Stellium Cost"];
@@ -163,8 +234,8 @@ export function updatePlanetConnections(runtime, connectionDistance = null) {
   if (connectionDistance === null) connectionDistance = runtime.globalVars.WARP_DEPOT_RADIUS;
   const warpDepotPlanets = getPlanetsWithWarpDepots(runtime);
   for (const planet of runtime.objects.Planet.instances()) {
-    if (isFacilityOnPlanet(runtime, planet.uid, "Warp Depot") ||
-      isFacilityOnPlanet(runtime, planet.uid, "Colony")) {
+    if (numFacilityOnPlanet(runtime, planet.uid, "Warp Depot") ||
+      numFacilityOnPlanet(runtime, planet.uid, "Colony")) {
       connectNearbyPlanets(runtime, planet.uid, connectionDistance);
       for (const otherWarpDepotPlanet of warpDepotPlanets) {
         if (planet.uid !== otherWarpDepotPlanet.uid)
@@ -175,13 +246,14 @@ export function updatePlanetConnections(runtime, connectionDistance = null) {
 };
 
 /**
- * Check if a planet has the named facility present.
+ * Check if a planet has the named facility present. Returns number of that facility on planet,
+ * or zero if none are present.
  * @param {*} runtime Construct runtime
  * @param {*} planetUid UID of planet to check
  * @param {*} facilityName the name of the facility to check for
- * @returns true if planet has at least one of the named facility, false otherwise
+ * @returns number of the named facility on this planet
  */
-export function isFacilityOnPlanet(runtime, planetUid, facilityName) {
+export function numFacilityOnPlanet(runtime, planetUid, facilityName) {
   const planet = runtime.getInstanceByUid(planetUid);
   const facilityUids = JSON.parse(planet.instVars.facilityList);
   const facilities = facilityUids.map(uid => runtime.getInstanceByUid(uid));
@@ -198,8 +270,8 @@ export function isFacilityOnPlanet(runtime, planetUid, facilityName) {
 export function getPlanetsWithWarpDepots(runtime) {
   const planetsWithWarpDepots = [];
   for (const planet of runtime.objects.Planet.instances()) {
-    if (isFacilityOnPlanet(runtime, planet.uid, "Warp Depot") ||
-      isFacilityOnPlanet(runtime, planet.uid, "Colony")) planetsWithWarpDepots.push(planet);
+    if (numFacilityOnPlanet(runtime, planet.uid, "Warp Depot") ||
+      numFacilityOnPlanet(runtime, planet.uid, "Colony")) planetsWithWarpDepots.push(planet);
   }
   return planetsWithWarpDepots;
 }
@@ -212,7 +284,7 @@ export function getPlanetsWithWarpDepots(runtime) {
  */
 export function isPlanetSupplied(runtime, planetUid) {
   return getConnectedPlanets(runtime, planetUid).length > 0 ||
-    isFacilityOnPlanet(runtime, planetUid, "Colony");
+    numFacilityOnPlanet(runtime, planetUid, "Colony");
 }
 
 /**

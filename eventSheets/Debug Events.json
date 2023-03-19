@@ -245,6 +245,67 @@
 			"eventType": "block",
 			"conditions": [
 				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 809889737733597,
+					"parameters": {
+						"key": 88
+					}
+				}
+			],
+			"actions": [],
+			"sid": 625615191176302,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Planet",
+							"sid": 722752124864059,
+							"parameters": {
+								"unique-id": "GameController.selectedPlanetUid"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "ExplorePlanet",
+							"sid": 941326982136968
+						}
+					],
+					"sid": 594349919485720
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 386012916862366,
+					"parameters": {
+						"key": 69
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "SendResearchStation",
+					"sid": 922715059269383,
+					"parameters": [
+						"Mouse.X",
+						"Mouse.Y"
+					]
+				}
+			],
+			"sid": 221449889826008
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
 					"id": "on-tap-object",
 					"objectClass": "Touch",
 					"sid": 558774549005462,
@@ -263,30 +324,6 @@
 				}
 			],
 			"sid": 395284565958833
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-key-pressed",
-					"objectClass": "Keyboard",
-					"sid": 964109709722897,
-					"parameters": {
-						"key": 69
-					}
-				}
-			],
-			"actions": [
-				{
-					"callFunction": "SendResearchStation",
-					"sid": 769161581132972,
-					"parameters": [
-						"Mouse.X",
-						"Mouse.Y"
-					]
-				}
-			],
-			"sid": 815890438683084
 		},
 		{
 			"eventType": "block",
