@@ -537,7 +537,7 @@
 			"children": [
 				{
 					"eventType": "comment",
-					"text": "Update resource displays."
+					"text": "Update overview/sector displays."
 				},
 				{
 					"eventType": "block",
@@ -555,6 +555,225 @@
 						}
 					],
 					"sid": 201205195501745
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "GameController",
+							"sid": 155345454217103,
+							"parameters": {
+								"instance-variable": "selectedPlanetUid",
+								"comparison": 5,
+								"value": "0"
+							}
+						},
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Planet",
+							"sid": 110556264015963,
+							"parameters": {
+								"unique-id": "GameController.selectedPlanetUid"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 940257874056155,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "GenericLabel",
+									"sid": 947094087621590,
+									"parameters": {
+										"instance-variable": "handle",
+										"comparison": 0,
+										"value": "\"Planet Name\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "GenericLabel",
+									"sid": 312241828152022,
+									"parameters": {
+										"text": "\"Planet Name: \" & Planet.name"
+									}
+								}
+							],
+							"sid": 635542973051341
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "GenericLabel",
+									"sid": 642489719367107,
+									"parameters": {
+										"instance-variable": "handle",
+										"comparison": 0,
+										"value": "\"Improvement Level\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "GenericLabel",
+									"sid": 251735783089270,
+									"parameters": {
+										"text": "\"Improvement Level: \" & Planet.improvementLevel"
+									}
+								}
+							],
+							"sid": 826926408751804
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "GenericLabel",
+									"sid": 383883539103902,
+									"parameters": {
+										"instance-variable": "handle",
+										"comparison": 0,
+										"value": "\"Stellium\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "GenericLabel",
+									"sid": 435470082563493,
+									"parameters": {
+										"text": "\"Stellium Extraction Rate: \" & Planet.stelliumRate - Planet.stelliumDrain"
+									}
+								}
+							],
+							"sid": 867161572571403
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "GenericLabel",
+									"sid": 549989403012881,
+									"parameters": {
+										"instance-variable": "handle",
+										"comparison": 0,
+										"value": "\"Quantia\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "GenericLabel",
+									"sid": 500051528316355,
+									"parameters": {
+										"text": "\"Quantia Harvest Rate: \" & Planet.quantiaRate - Planet.quantiaDrain"
+									}
+								}
+							],
+							"sid": 346936358016595
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "GenericLabel",
+									"sid": 372760780509968,
+									"parameters": {
+										"instance-variable": "handle",
+										"comparison": 0,
+										"value": "\"Exploration\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 780148464265243,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Planet",
+											"sid": 619788203982004,
+											"parameters": {
+												"instance-variable": "explorationLevel",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "GenericLabel",
+											"sid": 580843522455674,
+											"parameters": {
+												"text": "\"Exploration Level: Scanned\""
+											}
+										}
+									],
+									"sid": 642516988919372
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 713115020338882
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "GenericLabel",
+											"sid": 555994358914908,
+											"parameters": {
+												"text": "\"Exploration Level: Fully Explored\""
+											}
+										}
+									],
+									"sid": 938246536931995
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "GenericLabel",
+									"sid": 399460820188269,
+									"parameters": {
+										"instance-variable": "handle",
+										"comparison": 0,
+										"value": "\"Supply\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"type": "script",
+									"script": "const planet = runtime.objects.Planet.getFirstPickedInstance();\nconst label = runtime.objects.GenericLabel.getFirstPickedInstance();\nconst connectionList = JSON.parse(planet.instVars.connectionList);\nconst message = connectionList.length > 0 ? \"Planet in supply network\" : \"Planet NOT in supply network\";\nlabel.text = message;"
+								}
+							],
+							"sid": 467503219745892
+						}
+					]
 				}
 			],
 			"sid": 474990103053014

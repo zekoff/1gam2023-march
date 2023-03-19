@@ -121,23 +121,31 @@
 			"Touch",
 			"Planet",
 			"ScanArea",
-			"UiBox",
-			"ZoomButton",
 			"TradeShip",
 			"ResearchStation",
 			"Facility",
 			"Keyboard",
 			"AJAX",
 			"FacilityData",
-			"QuantiaDisplay",
-			"StelliumDisplay",
-			"DebugTextDisplay",
 			"Mouse",
-			"GameController",
-			"YearDisplay",
-			"CrysetherDisplay"
+			"GameController"
 		],
-		"subfolders": []
+		"subfolders": [
+			{
+				"items": [
+					"CrysetherDisplay",
+					"DebugTextDisplay",
+					"QuantiaDisplay",
+					"StelliumDisplay",
+					"UiBox",
+					"YearDisplay",
+					"ZoomButton",
+					"GenericLabel"
+				],
+				"subfolders": [],
+				"name": "UI Objects"
+			}
+		]
 	},
 	"autosaveData": null,
 	"containers": [],

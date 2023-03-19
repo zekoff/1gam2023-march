@@ -1,0 +1,17 @@
+{
+	"name": "GenericLabel",
+	"plugin-id": "Text",
+	"sid": 783870175351498,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "handle",
+			"type": "string",
+			"desc": "String by which this label is identified (for selecting it when updating)",
+			"show": true,
+			"sid": 592313853414718
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": []
+}
