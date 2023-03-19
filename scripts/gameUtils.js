@@ -226,3 +226,20 @@ export function getConnectedPlanets(runtime, planetUid) {
   const connectedPlanetUids = JSON.parse(planet.instVars.connectionList);
   return connectedPlanetUids.map(uid => runtime.getInstanceByUid(uid));
 }
+
+/**
+ * Update UI elements that display resource/status text each tick.
+ * @param {*} runtime Construct runtime
+ */
+export function updateUiText(runtime) {
+  const gameController = runtime.objects.GameController.getFirstInstance();
+  runtime.objects.QuantiaDisplay.getFirstInstance().text =
+    "Quantia Generation: " + (getQuantiaRate(runtime) - getQuantiaDrain(runtime)) + " surplus";
+  runtime.objects.StelliumDisplay.getFirstInstance().text =
+    "Stellium: " + Math.floor(gameController.instVars.stelliumStockpile) + " (net extraction +" +
+    (getStelliumRate(runtime) - getStelliumDrain(runtime)) + "/yr)";
+  runtime.objects.CrysetherDisplay.getFirstInstance().text =
+    "Crysether Available: " + gameController.instVars.crysetherStockpile;
+  const year = gameController.instVars.yearsElapsed;
+  runtime.objects.YearDisplay.getFirstInstance().text = `Year: ${Math.floor(year)}`;
+}

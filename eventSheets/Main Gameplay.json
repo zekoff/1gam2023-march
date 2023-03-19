@@ -551,7 +551,7 @@
 					"actions": [
 						{
 							"type": "script",
-							"script": "// Set UI text boxes for each resource.\nruntime.objects.QuantiaDisplay.getFirstInstance().text = \"Quantia Generation: \" + (GameUtils.getQuantiaRate(runtime) - GameUtils.getQuantiaDrain(runtime)) + \" surplus\";\nruntime.objects.StelliumDisplay.getFirstInstance().text = \n\"Stellium: \" + Math.floor(runtime.objects.GameController.getFirstInstance().instVars.stelliumStockpile) + \" (+\" + GameUtils.getStelliumRate(runtime) + \"/yr)\";\nruntime.objects.CrysetherDisplay.getFirstInstance().text = \"Crysether Available: \" + runtime.objects.GameController.getFirstInstance().instVars.crysetherStockpile;\nconst year = runtime.objects.GameController.getFirstInstance().instVars.yearsElapsed;\nruntime.objects.YearDisplay.getFirstInstance().text = `Year: ${Math.floor(year)}`;"
+							"script": "GameUtils.updateUiText(runtime);"
 						}
 					],
 					"sid": 201205195501745
