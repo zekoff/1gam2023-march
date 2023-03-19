@@ -2389,8 +2389,16 @@
 								"seams": "overlap"
 							},
 							"uid": 49,
-							"instanceVariables": {},
-							"behaviors": {},
+							"instanceVariables": {
+								"handle": "Planet"
+							},
+							"behaviors": {
+								"Tween": {
+									"properties": {
+										"enabled": true
+									}
+								}
+							},
 							"sceneGraphData": {
 								"parent-uid": null,
 								"uid": 49,
@@ -2446,6 +2454,32 @@
 											"d": true,
 											"sm": "normal"
 										}
+									},
+									{
+										"uid": 55,
+										"flags": {
+											"x": true,
+											"y": true,
+											"z": true,
+											"w": true,
+											"h": true,
+											"a": true,
+											"d": true,
+											"sm": "normal"
+										}
+									},
+									{
+										"uid": 56,
+										"flags": {
+											"x": true,
+											"y": true,
+											"z": true,
+											"w": true,
+											"h": true,
+											"a": true,
+											"d": true,
+											"sm": "normal"
+										}
 									}
 								],
 								"flags": {
@@ -2471,8 +2505,8 @@
 								}
 							},
 							"world": {
-								"x": 31,
-								"y": 21,
+								"x": 34,
+								"y": -385,
 								"width": 1025,
 								"height": 365,
 								"originX": 0,
@@ -2950,8 +2984,8 @@
 								}
 							},
 							"world": {
-								"x": 136,
-								"y": 48,
+								"x": 139,
+								"y": -358,
 								"width": 200,
 								"height": 45,
 								"originX": 0,
@@ -3202,8 +3236,8 @@
 								}
 							},
 							"world": {
-								"x": 138,
-								"y": 110,
+								"x": 141,
+								"y": -296,
 								"width": 200,
 								"height": 45,
 								"originX": 0,
@@ -3454,8 +3488,8 @@
 								}
 							},
 							"world": {
-								"x": 139,
-								"y": 157,
+								"x": 142,
+								"y": -249,
 								"width": 882,
 								"height": 45,
 								"originX": 0,
@@ -3706,8 +3740,8 @@
 								}
 							},
 							"world": {
-								"x": 136,
-								"y": 203,
+								"x": 139,
+								"y": -203,
 								"width": 882,
 								"height": 45,
 								"originX": 0,
@@ -3932,9 +3966,34 @@
 								],
 								"replicasUIDs": null
 							},
+							"sceneGraphData": {
+								"parent-uid": 49,
+								"uid": 55,
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"a": true,
+									"d": true,
+									"sm": "normal"
+								},
+								"preview": {
+									"transformX": 0,
+									"transformY": 0,
+									"transformZElevation": 0,
+									"transformW": 0,
+									"transformH": 0,
+									"transformA": 0,
+									"transformSX": 0,
+									"transformSY": 0,
+									"previewSceneGraph": false
+								}
+							},
 							"world": {
-								"x": 136,
-								"y": 251,
+								"x": 139,
+								"y": -155,
 								"width": 882,
 								"height": 45,
 								"originX": 0,
@@ -4159,9 +4218,34 @@
 								],
 								"replicasUIDs": null
 							},
+							"sceneGraphData": {
+								"parent-uid": 49,
+								"uid": 56,
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"a": true,
+									"d": true,
+									"sm": "normal"
+								},
+								"preview": {
+									"transformX": 0,
+									"transformY": 0,
+									"transformZElevation": 0,
+									"transformW": 0,
+									"transformH": 0,
+									"transformA": 0,
+									"transformSX": 0,
+									"transformSY": 0,
+									"previewSceneGraph": false
+								}
+							},
 							"world": {
-								"x": 136,
-								"y": 306,
+								"x": 139,
+								"y": -100,
 								"width": 882,
 								"height": 45,
 								"originX": 0,
@@ -4224,8 +4308,16 @@
 								"seams": "overlap"
 							},
 							"uid": 15,
-							"instanceVariables": {},
-							"behaviors": {},
+							"instanceVariables": {
+								"handle": ""
+							},
+							"behaviors": {
+								"Tween": {
+									"properties": {
+										"enabled": true
+									}
+								}
+							},
 							"sceneGraphData": {
 								"parent-uid": null,
 								"uid": 15,
@@ -4714,8 +4806,8 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 53,
-						"y": 51,
+						"x": 57,
+						"y": 411,
 						"width": 971,
 						"height": 459,
 						"originX": 0,

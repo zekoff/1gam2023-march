@@ -3,8 +3,22 @@
 	"plugin-id": "NinePatch",
 	"sid": 180206906809683,
 	"isGlobal": false,
-	"instanceVariables": [],
-	"behaviorTypes": [],
+	"instanceVariables": [
+		{
+			"name": "handle",
+			"type": "string",
+			"desc": "UI section this is associated with, for selecting hierarchy of elements.",
+			"show": true,
+			"sid": 242290814615653
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 385482821528407
+		}
+	],
 	"effectTypes": [],
 	"image": {
 		"width": 100,

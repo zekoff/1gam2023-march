@@ -177,7 +177,7 @@
 		{
 			"eventType": "group",
 			"disabled": false,
-			"title": "Touch Input",
+			"title": "Input",
 			"description": "Call functions and events based on touch inputs.",
 			"isActiveOnStart": true,
 			"children": [
@@ -205,26 +205,8 @@
 					],
 					"actions": [
 						{
-							"callFunction": "ZoomToPlanet",
-							"sid": 912058144871775
-						},
-						{
-							"id": "set-boolean-instvar",
-							"objectClass": "GameController",
-							"sid": 538846299171287,
-							"parameters": {
-								"instance-variable": "overviewMode",
-								"value": "false"
-							}
-						},
-						{
-							"id": "set-instvar-value",
-							"objectClass": "GameController",
-							"sid": 648157960051587,
-							"parameters": {
-								"instance-variable": "selectedPlanetUid",
-								"value": "Planet.UID"
-							}
+							"callFunction": "SelectPlanet",
+							"sid": 554222732511569
 						}
 					],
 					"sid": 564733400746845
@@ -266,17 +248,8 @@
 							],
 							"actions": [
 								{
-									"id": "set-boolean-instvar",
-									"objectClass": "GameController",
-									"sid": 154779257817053,
-									"parameters": {
-										"instance-variable": "overviewMode",
-										"value": "false"
-									}
-								},
-								{
-									"callFunction": "ZoomToDefault",
-									"sid": 385061695992278
+									"callFunction": "DeselectPlanet",
+									"sid": 301300951822813
 								}
 							],
 							"sid": 146374892662649,
@@ -323,6 +296,152 @@
 								}
 							],
 							"sid": 554905759465709
+						}
+					]
+				},
+				{
+					"functionName": "DeselectPlanet",
+					"functionDescription": "Deselect a planet by updating GameController and UI.",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "GameController",
+							"sid": 515808984493551,
+							"parameters": {
+								"instance-variable": "overviewMode",
+								"value": "false"
+							}
+						},
+						{
+							"callFunction": "ZoomToDefault",
+							"sid": 712166667618860
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "GameController",
+							"sid": 536035698929331,
+							"parameters": {
+								"instance-variable": "selectedPlanetUid",
+								"value": "-1"
+							}
+						}
+					],
+					"sid": 318510524515513,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "UiBox",
+									"sid": 355490638195188,
+									"parameters": {
+										"instance-variable": "handle",
+										"comparison": 0,
+										"value": "\"Planet\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "tween-one-property",
+									"objectClass": "UiBox",
+									"sid": 431394108952245,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"selection\"",
+										"property": "offsetY",
+										"end-value": "-400",
+										"time": "0.5",
+										"ease": "easeoutcubic",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								}
+							],
+							"sid": 674883601079856
+						}
+					]
+				},
+				{
+					"functionName": "SelectPlanet",
+					"functionDescription": "Select a planet by updating GameController and adjusting UI.",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": true,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"callFunction": "ZoomToPlanet",
+							"sid": 718435124576634
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "GameController",
+							"sid": 338042468801104,
+							"parameters": {
+								"instance-variable": "overviewMode",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "GameController",
+							"sid": 199946262970277,
+							"parameters": {
+								"instance-variable": "selectedPlanetUid",
+								"value": "Planet.UID"
+							}
+						}
+					],
+					"sid": 324109786727323,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "UiBox",
+									"sid": 260567814352713,
+									"parameters": {
+										"instance-variable": "handle",
+										"comparison": 0,
+										"value": "\"Planet\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "tween-one-property",
+									"objectClass": "UiBox",
+									"sid": 140381930164772,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"selection\"",
+										"property": "offsetY",
+										"end-value": "21",
+										"time": "0.5",
+										"ease": "easeoutcubic",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								}
+							],
+							"sid": 262114590837373
 						}
 					]
 				}
@@ -557,6 +676,10 @@
 					"sid": 201205195501745
 				},
 				{
+					"eventType": "comment",
+					"text": "Update planet information displays."
+				},
+				{
 					"eventType": "block",
 					"conditions": [
 						{
@@ -768,7 +891,7 @@
 							"actions": [
 								{
 									"type": "script",
-									"script": "const planet = runtime.objects.Planet.getFirstPickedInstance();\nconst label = runtime.objects.GenericLabel.getFirstPickedInstance();\nconst connectionList = JSON.parse(planet.instVars.connectionList);\nconst message = connectionList.length > 0 ? \"Planet in supply network\" : \"Planet NOT in supply network\";\nlabel.text = message;"
+									"script": "const planet = runtime.objects.Planet.getFirstPickedInstance();\nconst label = runtime.objects.GenericLabel.getFirstPickedInstance();\nconst message = GameUtils.isPlanetSupplied(runtime, planet.uid) ? \"Planet in supply network\" : \"Planet NOT in supply network\";\nlabel.text = message;"
 								}
 							],
 							"sid": 467503219745892
