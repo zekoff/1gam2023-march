@@ -22,6 +22,16 @@
 			"behaviorId": "Tween",
 			"name": "Tween",
 			"sid": 810185458609919
+		},
+		{
+			"behaviorId": "EightDir",
+			"name": "8Direction",
+			"sid": 486961882927036
+		},
+		{
+			"behaviorId": "bound",
+			"name": "BoundToLayout",
+			"sid": 412608109603488
 		}
 	],
 	"effectTypes": [],

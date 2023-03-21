@@ -178,127 +178,9 @@
 			"eventType": "group",
 			"disabled": false,
 			"title": "Input",
-			"description": "Call functions and events based on touch inputs.",
+			"description": "Call functions and events based on player inputs.",
 			"isActiveOnStart": true,
 			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-tap-object",
-							"objectClass": "Touch",
-							"sid": 975091997043171,
-							"parameters": {
-								"object": "Planet"
-							}
-						},
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "Planet",
-							"sid": 186600812600028,
-							"parameters": {
-								"instance-variable": "explorationLevel",
-								"comparison": 4,
-								"value": "0"
-							}
-						}
-					],
-					"actions": [
-						{
-							"callFunction": "SelectPlanet",
-							"sid": 554222732511569
-						}
-					],
-					"sid": 564733400746845
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-tap-object",
-							"objectClass": "Touch",
-							"sid": 759685792490118,
-							"parameters": {
-								"object": "ZoomButton"
-							}
-						}
-					],
-					"actions": [],
-					"sid": 553520842889190,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "evaluate-expression",
-									"objectClass": "System",
-									"sid": 800441256603524,
-									"parameters": {
-										"value": "GameController.selectedPlanetUid >= 0"
-									}
-								},
-								{
-									"id": "is-boolean-instance-variable-set",
-									"objectClass": "GameController",
-									"sid": 634245049680534,
-									"parameters": {
-										"instance-variable": "overviewMode"
-									}
-								}
-							],
-							"actions": [
-								{
-									"callFunction": "DeselectPlanet",
-									"sid": 301300951822813
-								}
-							],
-							"sid": 146374892662649,
-							"isOrBlock": true
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "else",
-									"objectClass": "System",
-									"sid": 579781504871910
-								}
-							],
-							"actions": [
-								{
-									"id": "set-boolean-instvar",
-									"objectClass": "GameController",
-									"sid": 558529737064805,
-									"parameters": {
-										"instance-variable": "overviewMode",
-										"value": "true"
-									}
-								},
-								{
-									"callFunction": "ZoomToOverview",
-									"sid": 540673693977264
-								}
-							],
-							"sid": 382823028718767
-						},
-						{
-							"eventType": "block",
-							"conditions": [],
-							"actions": [
-								{
-									"id": "set-instvar-value",
-									"objectClass": "GameController",
-									"sid": 120666148537827,
-									"parameters": {
-										"instance-variable": "selectedPlanetUid",
-										"value": "-1"
-									}
-								}
-							],
-							"sid": 554905759465709
-						}
-					]
-				},
 				{
 					"functionName": "DeselectPlanet",
 					"functionDescription": "Deselect a planet by updating GameController and UI.",
@@ -444,6 +326,486 @@
 							"sid": 262114590837373
 						}
 					]
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Touch Inputs",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-double-tap",
+									"objectClass": "Touch",
+									"sid": 905869986514254
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "MoveCameraTo",
+									"sid": 516348504259604,
+									"parameters": [
+										"Touch.X",
+										"Touch.Y"
+									]
+								}
+							],
+							"sid": 756196497580131
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-tap-object",
+									"objectClass": "Touch",
+									"sid": 571984375416282,
+									"parameters": {
+										"object": "Planet"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Planet",
+									"sid": 803622819296927,
+									"parameters": {
+										"instance-variable": "explorationLevel",
+										"comparison": 4,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "SelectPlanet",
+									"sid": 146019280638389
+								}
+							],
+							"sid": 231956611975039
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-tap-object",
+									"objectClass": "Touch",
+									"sid": 426386981314104,
+									"parameters": {
+										"object": "ZoomButton"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 546338811798456,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "evaluate-expression",
+											"objectClass": "System",
+											"sid": 390766790733413,
+											"parameters": {
+												"value": "GameController.selectedPlanetUid >= 0"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "GameController",
+											"sid": 541464854579559,
+											"parameters": {
+												"instance-variable": "overviewMode"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "DeselectPlanet",
+											"sid": 542606468703216
+										}
+									],
+									"sid": 292615600481773,
+									"isOrBlock": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 713475594785463
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "GameController",
+											"sid": 648591901977482,
+											"parameters": {
+												"instance-variable": "overviewMode",
+												"value": "true"
+											}
+										},
+										{
+											"callFunction": "ZoomToOverview",
+											"sid": 701590988780996
+										}
+									],
+									"sid": 608642748049865
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "GameController",
+											"sid": 969978896243214,
+											"parameters": {
+												"instance-variable": "selectedPlanetUid",
+												"value": "-1"
+											}
+										}
+									],
+									"sid": 833389707913302
+								}
+							]
+						}
+					],
+					"sid": 833852739168471
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Keyboard Inputs",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 846064980995569,
+									"parameters": {
+										"key": 87
+									}
+								}
+							],
+							"actions": [],
+							"sid": 208754666273903,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "Planet",
+											"sid": 557257217533057,
+											"parameters": {
+												"unique-id": "GameController.selectedPlanetUid"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "BuildFacility",
+											"sid": 829410079667338,
+											"parameters": [
+												"\"Warp Depot\""
+											]
+										}
+									],
+									"sid": 678272148482319
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 180472017081600,
+									"parameters": {
+										"key": 72
+									}
+								}
+							],
+							"actions": [],
+							"sid": 720876018016913,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "Planet",
+											"sid": 647372351363820,
+											"parameters": {
+												"unique-id": "GameController.selectedPlanetUid"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "BuildFacility",
+											"sid": 810044831639482,
+											"parameters": [
+												"\"Habitat\""
+											]
+										}
+									],
+									"sid": 644155962741927
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 904643891381544,
+									"parameters": {
+										"key": 83
+									}
+								}
+							],
+							"actions": [],
+							"sid": 463076631076733,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "Planet",
+											"sid": 396416900417081,
+											"parameters": {
+												"unique-id": "GameController.selectedPlanetUid"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "BuildFacility",
+											"sid": 639418171818520,
+											"parameters": [
+												"\"Stellium Extractor\""
+											]
+										}
+									],
+									"sid": 947472019439548
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 714635138404473,
+									"parameters": {
+										"key": 81
+									}
+								}
+							],
+							"actions": [],
+							"sid": 526417796482591,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "Planet",
+											"sid": 560558978110878,
+											"parameters": {
+												"unique-id": "GameController.selectedPlanetUid"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "BuildFacility",
+											"sid": 555799693328031,
+											"parameters": [
+												"\"Quantia Harvester\""
+											]
+										}
+									],
+									"sid": 145171455460306
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 664561692631312,
+									"parameters": {
+										"key": 82
+									}
+								}
+							],
+							"actions": [],
+							"sid": 861192000997993,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "Planet",
+											"sid": 628714454210921,
+											"parameters": {
+												"unique-id": "GameController.selectedPlanetUid"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "BuildFacility",
+											"sid": 208948312330286,
+											"parameters": [
+												"\"Research Facility\""
+											]
+										}
+									],
+									"sid": 636349520851990
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 981810662496834,
+									"parameters": {
+										"key": 77
+									}
+								}
+							],
+							"actions": [],
+							"sid": 520810299952405,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "Planet",
+											"sid": 209336650818173,
+											"parameters": {
+												"unique-id": "GameController.selectedPlanetUid"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "BuildFacility",
+											"sid": 180804553793778,
+											"parameters": [
+												"\"Strip Mine\""
+											]
+										}
+									],
+									"sid": 393693474710257
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 657154877404533,
+									"parameters": {
+										"key": 88
+									}
+								}
+							],
+							"actions": [],
+							"sid": 484989419123645,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "Planet",
+											"sid": 292847562170200,
+											"parameters": {
+												"unique-id": "GameController.selectedPlanetUid"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "ExplorePlanet",
+											"sid": 816143842331651
+										}
+									],
+									"sid": 321213785783200
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 257428061795862,
+									"parameters": {
+										"key": 69
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "SendResearchStation",
+									"sid": 887018841294306,
+									"parameters": [
+										"Mouse.X",
+										"Mouse.Y"
+									]
+								}
+							],
+							"sid": 276802658646937
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 181692237755819,
+									"parameters": {
+										"key": 27
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "DeselectPlanet",
+									"sid": 296184456806952
+								}
+							],
+							"sid": 488503577696685
+						}
+					],
+					"sid": 269664480010904
 				}
 			],
 			"sid": 367876103598794
@@ -455,6 +817,53 @@
 			"description": "Camera movement and zoom.",
 			"isActiveOnStart": true,
 			"children": [
+				{
+					"functionName": "MoveCameraTo",
+					"functionDescription": "Move the camera to the parameter X/Y location.",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "x",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "x location to which the camera should move.",
+							"sid": 382759682275374
+						},
+						{
+							"name": "y",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "Y location to which the camera should move.",
+							"sid": 122873940754597
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "tween-two-properties",
+							"objectClass": "Camera",
+							"sid": 663582839002286,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "position",
+								"end-x": "x",
+								"end-y": "y",
+								"time": "ZOOM_TIME",
+								"ease": "easeoutcubic",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						}
+					],
+					"sid": 698214500569606
+				},
 				{
 					"functionName": "ZoomToDefault",
 					"functionDescription": "Set default zoom level for sector view.",
@@ -612,37 +1021,6 @@
 						}
 					],
 					"sid": 738815488945617
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-double-tap",
-							"objectClass": "Touch",
-							"sid": 970957617793849
-						}
-					],
-					"actions": [
-						{
-							"id": "tween-two-properties",
-							"objectClass": "Camera",
-							"sid": 699886974338426,
-							"behaviorType": "Tween",
-							"parameters": {
-								"tags": "\"\"",
-								"property": "position",
-								"end-x": "Touch.X",
-								"end-y": "Touch.Y",
-								"time": "ZOOM_TIME",
-								"ease": "easeoutcubic",
-								"destroy-on-complete": "no",
-								"loop": "no",
-								"ping-pong": "no",
-								"repeat-count": "1"
-							}
-						}
-					],
-					"sid": 180929041585509
 				}
 			],
 			"sid": 264496831334389

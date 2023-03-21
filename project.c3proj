@@ -78,6 +78,13 @@
 		},
 		{
 			"type": "behavior",
+			"id": "EightDir",
+			"name": "8 Direction",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
 			"id": "MoveTo",
 			"name": "Move To",
 			"author": "Scirra",
@@ -94,6 +101,13 @@
 			"type": "behavior",
 			"id": "Tween",
 			"name": "Tween",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "bound",
+			"name": "Bound to layout",
 			"author": "Scirra",
 			"bundled": false
 		},

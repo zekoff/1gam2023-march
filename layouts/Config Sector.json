@@ -4723,6 +4723,23 @@
 							"properties": {
 								"enabled": true
 							}
+						},
+						"8Direction": {
+							"properties": {
+								"max-speed": 2000,
+								"acceleration": 8000,
+								"deceleration": 8000,
+								"directions": "dir-8",
+								"set-angle": "no",
+								"allow-sliding": false,
+								"default-controls": true,
+								"enabled": true
+							}
+						},
+						"BoundToLayout": {
+							"properties": {
+								"bound-by": "edge"
+							}
 						}
 					},
 					"world": {
