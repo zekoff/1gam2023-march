@@ -5,6 +5,47 @@
 			"eventType": "block",
 			"conditions": [
 				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 547975309234566,
+					"parameters": {
+						"key": 88
+					}
+				}
+			],
+			"actions": [],
+			"sid": 523495119938475,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Planet",
+							"sid": 206215826850146,
+							"parameters": {
+								"unique-id": "GameController.selectedPlanetUid"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "signal",
+							"objectClass": "System",
+							"sid": 554006090076681,
+							"parameters": {
+								"tag": "\"explore\" & Planet.UID"
+							}
+						}
+					],
+					"sid": 939446509489657
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
 					"id": "on-start-of-layout",
 					"objectClass": "System",
 					"sid": 780198066232680

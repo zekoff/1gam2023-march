@@ -729,43 +729,6 @@
 								{
 									"id": "on-key-pressed",
 									"objectClass": "Keyboard",
-									"sid": 657154877404533,
-									"parameters": {
-										"key": 88
-									}
-								}
-							],
-							"actions": [],
-							"sid": 484989419123645,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "pick-by-unique-id",
-											"objectClass": "Planet",
-											"sid": 292847562170200,
-											"parameters": {
-												"unique-id": "GameController.selectedPlanetUid"
-											}
-										}
-									],
-									"actions": [
-										{
-											"callFunction": "ExplorePlanet",
-											"sid": 816143842331651
-										}
-									],
-									"sid": 321213785783200
-								}
-							]
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-key-pressed",
-									"objectClass": "Keyboard",
 									"sid": 257428061795862,
 									"parameters": {
 										"key": 69
@@ -1563,8 +1526,12 @@
 							],
 							"actions": [
 								{
-									"callFunction": "ScanPlanet",
-									"sid": 663451132060989
+									"id": "signal",
+									"objectClass": "System",
+									"sid": 289519068185058,
+									"parameters": {
+										"tag": "\"scan\" & Planet.UID"
+									}
 								}
 							],
 							"sid": 527030546940020
@@ -1706,6 +1673,76 @@
 						}
 					],
 					"sid": 895969925963579
+				},
+				{
+					"eventType": "comment",
+					"text": "Prepare each planet to be scanned."
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 210979547494352
+						},
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 259633811282245,
+							"parameters": {
+								"object": "Planet"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "wait-for-signal",
+							"objectClass": "System",
+							"sid": 614269945723650,
+							"parameters": {
+								"tag": "\"scan\" & Planet.UID"
+							}
+						},
+						{
+							"callFunction": "ScanPlanet",
+							"sid": 393096810481125
+						}
+					],
+					"sid": 848936461572186
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 871672280047215
+						},
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 779405268008201,
+							"parameters": {
+								"object": "Planet"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "wait-for-signal",
+							"objectClass": "System",
+							"sid": 556465798785169,
+							"parameters": {
+								"tag": "\"explore\" & Planet.UID"
+							}
+						},
+						{
+							"callFunction": "ExplorePlanet",
+							"sid": 168491794272314
+						}
+					],
+					"sid": 401435332479615
 				}
 			],
 			"sid": 504751791717747
