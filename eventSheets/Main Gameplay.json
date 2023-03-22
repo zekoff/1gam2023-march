@@ -109,10 +109,10 @@
 						{
 							"id": "set-instvar-value",
 							"objectClass": "GameController",
-							"sid": 536035698929331,
+							"sid": 941529413125172,
 							"parameters": {
 								"instance-variable": "selectedPlanetUid",
-								"value": "-1"
+								"value": "0"
 							}
 						}
 					],
@@ -1181,6 +1181,10 @@
 					"conditions": [],
 					"actions": [
 						{
+							"callFunction": "EndExploringPlanet",
+							"sid": 691277204931657
+						},
+						{
 							"id": "move-to-position",
 							"objectClass": "ResearchStation",
 							"sid": 878210518985851,
@@ -1194,10 +1198,10 @@
 						{
 							"id": "set-instvar-value",
 							"objectClass": "ResearchStation",
-							"sid": 466753801389151,
+							"sid": 641845494713102,
 							"parameters": {
 								"instance-variable": "activeScanUid",
-								"value": "-1"
+								"value": "0"
 							}
 						}
 					],
@@ -1296,11 +1300,26 @@
 								{
 									"id": "set-instvar-value",
 									"objectClass": "ResearchStation",
-									"sid": 345692970830031,
+									"sid": 118371402746946,
 									"parameters": {
 										"instance-variable": "activeScanUid",
-										"value": "-1"
+										"value": "0"
 									}
+								},
+								{
+									"callFunction": "LogDebugMessage",
+									"sid": 106503229050427,
+									"disabled": true,
+									"parameters": [
+										"\"Exploring planet \" & Functions.PickPlanetUidToExplore"
+									]
+								},
+								{
+									"callFunction": "BeginExploringPlanet",
+									"sid": 272054462617319,
+									"parameters": [
+										"Functions.PickPlanetUidToExplore"
+									]
 								}
 							],
 							"sid": 549678142254958
@@ -1711,7 +1730,7 @@
 					"sid": 401435332479615
 				},
 				{
-					"functionName": "PickPlanetToExplore",
+					"functionName": "PickPlanetUidToExplore",
 					"functionDescription": "Pick the suitable planet to explore and return UID.",
 					"functionCategory": "",
 					"functionReturnType": "number",
@@ -1719,9 +1738,236 @@
 					"functionIsAsync": false,
 					"functionParameters": [],
 					"eventType": "function-block",
-					"conditions": [],
-					"actions": [],
+					"conditions": [
+						{
+							"id": "pick-all",
+							"objectClass": "System",
+							"sid": 989409943556195,
+							"parameters": {
+								"object": "Planet"
+							}
+						},
+						{
+							"id": "pick-by-evaluate",
+							"objectClass": "System",
+							"sid": 662943221111211,
+							"parameters": {
+								"object": "Planet",
+								"expression": "Planet.explorationLevel = 1"
+							}
+						},
+						{
+							"id": "pick-nearestfurthest",
+							"objectClass": "Planet",
+							"sid": 802794099077149,
+							"parameters": {
+								"which": "nearest",
+								"x": "ResearchStation.X",
+								"y": "ResearchStation.Y"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 299127464573123,
+							"parameters": {
+								"value": "Planet.UID"
+							}
+						}
+					],
 					"sid": 790294211319620
+				},
+				{
+					"functionName": "BeginExploringPlanet",
+					"functionDescription": "Set up variables to begin exploring a planet.",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": true,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "planetUid",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "UID of the planet to begin exploring.",
+							"sid": 219267633215971
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Planet",
+							"sid": 564179895794986,
+							"disabled": true,
+							"parameters": {
+								"unique-id": "planetUid"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "LogDebugMessage",
+							"sid": 257068897336926,
+							"parameters": [
+								"\"Now exploring planet \" & Planet.name"
+							]
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "ResearchStation",
+							"sid": 875014738868010,
+							"parameters": {
+								"instance-variable": "exploringPlanetUid",
+								"value": "planetUid"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "ResearchStation",
+							"sid": 875217504660367,
+							"parameters": {
+								"instance-variable": "explorationYearsRemaining",
+								"value": "EXPLORE_TIME_YEARS"
+							}
+						}
+					],
+					"sid": 280218353422598
+				},
+				{
+					"functionName": "EndExploringPlanet",
+					"functionDescription": "Research station stops exploring a planet (either because it completed, or moved away).",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": true,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"callFunction": "LogDebugMessage",
+							"sid": 323494771957886,
+							"parameters": [
+								"\"Ending planetary exploration\""
+							]
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "ResearchStation",
+							"sid": 270871447879871,
+							"parameters": {
+								"instance-variable": "exploringPlanetUid",
+								"value": "0"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "ResearchStation",
+							"sid": 410999512429566,
+							"parameters": {
+								"instance-variable": "explorationYearsRemaining",
+								"value": "0"
+							}
+						}
+					],
+					"sid": 469535009678474
+				},
+				{
+					"eventType": "comment",
+					"text": "Continue exploring target planet, or select new planet to explore if complete."
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 803960448490704,
+							"parameters": {
+								"object": "ResearchStation"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "ResearchStation",
+							"sid": 758973986262195,
+							"parameters": {
+								"instance-variable": "exploringPlanetUid",
+								"comparison": 4,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 222191903702820,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "ResearchStation",
+									"sid": 781359862102684,
+									"parameters": {
+										"instance-variable": "explorationYearsRemaining",
+										"comparison": 4,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "subtract-from-instvar",
+									"objectClass": "ResearchStation",
+									"sid": 107238873210255,
+									"parameters": {
+										"instance-variable": "explorationYearsRemaining",
+										"value": "dt * YEARS_PER_MINUTE / 60"
+									}
+								}
+							],
+							"sid": 649968198345127
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 899352986489401
+								},
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Planet",
+									"sid": 873653761418498,
+									"parameters": {
+										"unique-id": "ResearchStation.exploringPlanetUid"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "ExplorePlanet",
+									"sid": 653268791739858
+								},
+								{
+									"callFunction": "EndExploringPlanet",
+									"sid": 219601070801033
+								},
+								{
+									"callFunction": "BeginExploringPlanet",
+									"sid": 831883695343480,
+									"parameters": [
+										"Functions.PickPlanetUidToExplore"
+									]
+								}
+							],
+							"sid": 923282069811781
+						}
+					]
 				}
 			],
 			"sid": 504751791717747

@@ -2085,7 +2085,9 @@
 					},
 					"uid": 18,
 					"instanceVariables": {
-						"activeScanUid": 0
+						"activeScanUid": 0,
+						"exploringPlanetUid": 0,
+						"explorationYearsRemaining": 0
 					},
 					"behaviors": {
 						"Rotate": {

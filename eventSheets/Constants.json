@@ -110,6 +110,16 @@
 			"isStatic": false,
 			"isConstant": true,
 			"sid": 761254094771165
+		},
+		{
+			"eventType": "variable",
+			"name": "EXPLORE_TIME_YEARS",
+			"type": "number",
+			"initialValue": "0.5",
+			"comment": "Number of years required for a research station to explore a planet.",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 334761075777438
 		}
 	],
 	"sid": 496559410000628

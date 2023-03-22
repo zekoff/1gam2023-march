@@ -250,6 +250,29 @@
 				}
 			],
 			"sid": 186907708226155
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "object-uid-exists",
+					"objectClass": "System",
+					"sid": 510437257148872,
+					"parameters": {
+						"uid": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "LogDebugMessage",
+					"sid": 844997227280644,
+					"parameters": [
+						"\"Object w/ UID 0 exists!\""
+					]
+				}
+			],
+			"sid": 319205727064703
 		}
 	],
 	"sid": 747474318372044

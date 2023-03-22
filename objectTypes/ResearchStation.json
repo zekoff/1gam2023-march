@@ -10,6 +10,20 @@
 			"desc": "UID of current active scan area.",
 			"show": true,
 			"sid": 474046596118904
+		},
+		{
+			"name": "exploringPlanetUid",
+			"type": "number",
+			"desc": "UID of the planet that is being explored by this research station.",
+			"show": true,
+			"sid": 268108976237093
+		},
+		{
+			"name": "explorationYearsRemaining",
+			"type": "number",
+			"desc": "Number of years remaining before the current exploration will be complete.",
+			"show": true,
+			"sid": 764319956144658
 		}
 	],
 	"behaviorTypes": [
