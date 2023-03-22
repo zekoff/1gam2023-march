@@ -10,105 +10,6 @@
 			"includeSheet": "Debug Events"
 		},
 		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-start-of-layout",
-					"objectClass": "System",
-					"sid": 926097818352499
-				}
-			],
-			"actions": [],
-			"sid": 763817482197626,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "for-each",
-							"objectClass": "System",
-							"sid": 905410876500380,
-							"parameters": {
-								"object": "Planet"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-speed",
-							"objectClass": "Planet",
-							"sid": 485329293709353,
-							"behaviorType": "Rotate",
-							"parameters": {
-								"speed": "random(5,20) * choose(1, -1)"
-							}
-						}
-					],
-					"sid": 859302440258176
-				}
-			]
-		},
-		{
-			"eventType": "comment",
-			"text": "Visualize trade ships moving between nodes."
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "every-x-seconds",
-					"objectClass": "System",
-					"sid": 468874745394141,
-					"parameters": {
-						"interval-seconds": "0.01"
-					}
-				}
-			],
-			"actions": [],
-			"sid": 332931173144923,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "pick-random-instance",
-							"objectClass": "System",
-							"sid": 307999249738536,
-							"parameters": {
-								"object": "Planet"
-							}
-						}
-					],
-					"actions": [
-						{
-							"type": "script",
-							"script": "// Spawn a trade ship and send to a connected planet.\nconst planet = runtime.objects.Planet.getFirstPickedInstance();\nconst connectedPlanets = GameUtils.getConnectedPlanets(runtime, planet.uid);\nif (connectedPlanets.length === 0) return;\nconst ship = runtime.objects.TradeShip.createInstance(\n\t\"Ships\",\n\tplanet.x + ConstructUtils.getRandomNumberInRange(-20, 20),\n\tplanet.y + ConstructUtils.getRandomNumberInRange(-20, 20),\n\tfalse,\n\t\"Standard Trade Ship\"\n);\nconst destPlanet = connectedPlanets[Math.floor(Math.random() * connectedPlanets.length)];\nship.behaviors.MoveTo.moveToPosition(\n\tdestPlanet.x + ConstructUtils.getRandomNumberInRange(-20, 20),\n\tdestPlanet.y + ConstructUtils.getRandomNumberInRange(-20, 20)\n);"
-						}
-					],
-					"sid": 498177183977100
-				}
-			]
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-arrived",
-					"objectClass": "TradeShip",
-					"sid": 643361837948472,
-					"behaviorType": "MoveTo"
-				}
-			],
-			"actions": [
-				{
-					"id": "destroy",
-					"objectClass": "TradeShip",
-					"sid": 916318466240054
-				}
-			],
-			"sid": 244642029274090
-		},
-		{
 			"eventType": "comment",
 			"text": "Update GameController instance variables to track passage of time and resource production."
 		},
@@ -1251,6 +1152,59 @@
 			"children": [
 				{
 					"eventType": "comment",
+					"text": "Send a Research Station to a new location by setting movement coordinates, cleaning up anything at the former location, and adjusting instance variables."
+				},
+				{
+					"functionName": "SendResearchStation",
+					"functionDescription": "Send a research station to the location specified.",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": true,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "x",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 693493420665511
+						},
+						{
+							"name": "y",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 193140090512972
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "move-to-position",
+							"objectClass": "ResearchStation",
+							"sid": 878210518985851,
+							"behaviorType": "MoveTo",
+							"parameters": {
+								"x": "x",
+								"y": "y",
+								"mode": "direct"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "ResearchStation",
+							"sid": 466753801389151,
+							"parameters": {
+								"instance-variable": "activeScanUid",
+								"value": "-1"
+							}
+						}
+					],
+					"sid": 467513985603009
+				},
+				{
+					"eventType": "comment",
 					"text": "Place a scan area object upon arrival, and update ship's scan UID."
 				},
 				{
@@ -1322,6 +1276,30 @@
 										"radius-y": "ScanArea.Height / 2",
 										"color": "rgba(100, 100, 100, 100)",
 										"edge": "smooth"
+									}
+								},
+								{
+									"id": "wait-for-signal",
+									"objectClass": "System",
+									"sid": 758011105781361,
+									"parameters": {
+										"tag": "\"scan_area_complete\" & ScanArea.UID"
+									}
+								},
+								{
+									"callFunction": "LogDebugMessage",
+									"sid": 941390801022562,
+									"parameters": [
+										"\"Scan complete; beginning planetary exploration\""
+									]
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "ResearchStation",
+									"sid": 345692970830031,
+									"parameters": {
+										"instance-variable": "activeScanUid",
+										"value": "-1"
 									}
 								}
 							],
@@ -1415,65 +1393,33 @@
 												}
 											],
 											"sid": 297129771850152
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 942882285163511
+												}
+											],
+											"actions": [
+												{
+													"id": "signal",
+													"objectClass": "System",
+													"sid": 955742288054706,
+													"parameters": {
+														"tag": "\"scan_area_complete\" & ScanArea.UID"
+													}
+												}
+											],
+											"sid": 569822921487146
 										}
 									]
 								}
 							]
 						}
 					]
-				},
-				{
-					"eventType": "comment",
-					"text": "Send a Research Station to a new location by setting movement coordinates, cleaning up anything at the former location, and adjusting instance variables."
-				},
-				{
-					"functionName": "SendResearchStation",
-					"functionDescription": "Send a research station to the location specified.",
-					"functionCategory": "",
-					"functionReturnType": "none",
-					"functionCopyPicked": true,
-					"functionIsAsync": false,
-					"functionParameters": [
-						{
-							"name": "x",
-							"type": "number",
-							"initialValue": "0",
-							"comment": "",
-							"sid": 693493420665511
-						},
-						{
-							"name": "y",
-							"type": "number",
-							"initialValue": "0",
-							"comment": "",
-							"sid": 193140090512972
-						}
-					],
-					"eventType": "function-block",
-					"conditions": [],
-					"actions": [
-						{
-							"id": "move-to-position",
-							"objectClass": "ResearchStation",
-							"sid": 947228666068988,
-							"behaviorType": "MoveTo",
-							"parameters": {
-								"x": "x",
-								"y": "y",
-								"mode": "direct"
-							}
-						},
-						{
-							"id": "set-instvar-value",
-							"objectClass": "ResearchStation",
-							"sid": 717623642841959,
-							"parameters": {
-								"instance-variable": "activeScanUid",
-								"value": "0"
-							}
-						}
-					],
-					"sid": 828955882805271
 				},
 				{
 					"eventType": "comment",
@@ -1607,6 +1553,40 @@
 					]
 				},
 				{
+					"functionName": "ScanPlanet",
+					"functionDescription": "Set planet to scanned (set to exploration level 1).",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": true,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Planet",
+							"sid": 323858254718874,
+							"parameters": {
+								"instance-variable": "explorationLevel",
+								"value": "1"
+							}
+						},
+						{
+							"type": "script",
+							"script": "GameUtils.updatePlanetConnections(runtime);"
+						},
+						{
+							"callFunction": "LogDebugMessage",
+							"sid": 197955882600389,
+							"parameters": [
+								"\"Scanned planet \" & Planet.name"
+							]
+						}
+					],
+					"sid": 113638445789323
+				},
+				{
 					"functionName": "ExplorePlanet",
 					"functionDescription": "Set a planet to fully-explored (exploration level 2).",
 					"functionCategory": "",
@@ -1632,51 +1612,17 @@
 						},
 						{
 							"callFunction": "LogDebugMessage",
-							"sid": 171334887619371,
+							"sid": 306082888286053,
 							"parameters": [
-								"\"Explored planet \" & Planet.UID"
+								"\"Explored planet \" & Planet.name"
 							]
 						}
 					],
 					"sid": 427903072584693
 				},
 				{
-					"functionName": "ScanPlanet",
-					"functionDescription": "Set planet to scanned (set to exploration level 1).",
-					"functionCategory": "",
-					"functionReturnType": "none",
-					"functionCopyPicked": true,
-					"functionIsAsync": false,
-					"functionParameters": [],
-					"eventType": "function-block",
-					"conditions": [],
-					"actions": [
-						{
-							"id": "set-instvar-value",
-							"objectClass": "Planet",
-							"sid": 436068523368339,
-							"parameters": {
-								"instance-variable": "explorationLevel",
-								"value": "1"
-							}
-						},
-						{
-							"type": "script",
-							"script": "GameUtils.updatePlanetConnections(runtime);"
-						},
-						{
-							"callFunction": "LogDebugMessage",
-							"sid": 644972210340088,
-							"parameters": [
-								"\"Scanned planet \" & Planet.UID"
-							]
-						}
-					],
-					"sid": 895969925963579
-				},
-				{
 					"eventType": "comment",
-					"text": "Prepare each planet to be scanned."
+					"text": "Stage planet signals to be scanned/explored."
 				},
 				{
 					"eventType": "block",
@@ -1692,6 +1638,16 @@
 							"sid": 259633811282245,
 							"parameters": {
 								"object": "Planet"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Planet",
+							"sid": 534185780417693,
+							"parameters": {
+								"instance-variable": "explorationLevel",
+								"comparison": 2,
+								"value": "1"
 							}
 						}
 					],
@@ -1726,6 +1682,16 @@
 							"parameters": {
 								"object": "Planet"
 							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Planet",
+							"sid": 743350260917159,
+							"parameters": {
+								"instance-variable": "explorationLevel",
+								"comparison": 2,
+								"value": "2"
+							}
 						}
 					],
 					"actions": [
@@ -1743,6 +1709,19 @@
 						}
 					],
 					"sid": 401435332479615
+				},
+				{
+					"functionName": "PickPlanetToExplore",
+					"functionDescription": "Pick the suitable planet to explore and return UID.",
+					"functionCategory": "",
+					"functionReturnType": "number",
+					"functionCopyPicked": true,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 790294211319620
 				}
 			],
 			"sid": 504751791717747
