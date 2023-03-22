@@ -2482,6 +2482,19 @@
 											"d": true,
 											"sm": "normal"
 										}
+									},
+									{
+										"uid": 57,
+										"flags": {
+											"x": true,
+											"y": true,
+											"z": true,
+											"w": true,
+											"h": true,
+											"a": true,
+											"d": true,
+											"sm": "normal"
+										}
 									}
 								],
 								"flags": {
@@ -2507,10 +2520,10 @@
 								}
 							},
 							"world": {
-								"x": 34,
-								"y": -385,
+								"x": 31,
+								"y": -428,
 								"width": 1025,
-								"height": 365,
+								"height": 410,
 								"originX": 0,
 								"originY": 0,
 								"color": [
@@ -2986,8 +2999,8 @@
 								}
 							},
 							"world": {
-								"x": 139,
-								"y": -358,
+								"x": 136,
+								"y": -401,
 								"width": 200,
 								"height": 45,
 								"originX": 0,
@@ -3238,8 +3251,8 @@
 								}
 							},
 							"world": {
-								"x": 141,
-								"y": -296,
+								"x": 138,
+								"y": -339,
 								"width": 200,
 								"height": 45,
 								"originX": 0,
@@ -3490,8 +3503,8 @@
 								}
 							},
 							"world": {
-								"x": 142,
-								"y": -249,
+								"x": 139,
+								"y": -292,
 								"width": 882,
 								"height": 45,
 								"originX": 0,
@@ -3742,8 +3755,8 @@
 								}
 							},
 							"world": {
-								"x": 139,
-								"y": -203,
+								"x": 136,
+								"y": -246,
 								"width": 882,
 								"height": 45,
 								"originX": 0,
@@ -3994,8 +4007,8 @@
 								}
 							},
 							"world": {
-								"x": 139,
-								"y": -155,
+								"x": 136,
+								"y": -198,
 								"width": 882,
 								"height": 45,
 								"originX": 0,
@@ -4018,7 +4031,7 @@
 								"font": "Arial",
 								"size": 24,
 								"line-height": 0,
-								"bold": false,
+								"bold": true,
 								"italic": true,
 								"color": [
 									0,
@@ -4071,7 +4084,7 @@
 													],
 													[
 														"bold",
-														true
+														false
 													],
 													[
 														"italic",
@@ -4246,9 +4259,261 @@
 								}
 							},
 							"world": {
-								"x": 139,
-								"y": -100,
+								"x": 130,
+								"y": -87,
 								"width": 882,
+								"height": 45,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "GenericLabel",
+							"properties": {
+								"text": "(TRAIT INFO)",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 24,
+								"line-height": 0,
+								"bold": false,
+								"italic": false,
+								"color": [
+									0,
+									0,
+									0,
+									1
+								],
+								"horizontal-alignment": "left",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "top-left",
+								"read-aloud": false
+							},
+							"uid": 57,
+							"instanceVariables": {
+								"handle": "Trait"
+							},
+							"behaviors": {},
+							"template": {
+								"mode": "replica",
+								"templateName": "",
+								"sourceTemplateName": "Generic Label",
+								"components": [
+									{
+										"id": "plugin",
+										"component": [
+											{
+												"key": "plugin",
+												"state": [
+													[
+														"text",
+														false
+													],
+													[
+														"enable-bbcode",
+														true
+													],
+													[
+														"font",
+														true
+													],
+													[
+														"size",
+														true
+													],
+													[
+														"line-height",
+														true
+													],
+													[
+														"bold",
+														true
+													],
+													[
+														"italic",
+														true
+													],
+													[
+														"color",
+														true
+													],
+													[
+														"horizontal-alignment",
+														true
+													],
+													[
+														"vertical-alignment",
+														true
+													],
+													[
+														"wrapping",
+														true
+													],
+													[
+														"initially-visible",
+														true
+													],
+													[
+														"origin",
+														true
+													],
+													[
+														"read-aloud",
+														true
+													]
+												]
+											}
+										]
+									},
+									{
+										"id": "instance-variable",
+										"component": [
+											{
+												"key": "instance-variable",
+												"state": [
+													{
+														"iv": "handle",
+														"state": false
+													}
+												]
+											}
+										]
+									},
+									{
+										"id": "behavior",
+										"component": []
+									},
+									{
+										"id": "effect",
+										"component": []
+									},
+									{
+										"id": "world-instance",
+										"component": [
+											{
+												"key": "world-instance",
+												"state": [
+													[
+														"x",
+														false
+													],
+													[
+														"y",
+														false
+													],
+													[
+														"z",
+														true
+													],
+													[
+														"w",
+														false
+													],
+													[
+														"h",
+														true
+													],
+													[
+														"a",
+														true
+													],
+													[
+														"o",
+														true
+													],
+													[
+														"c",
+														true
+													],
+													[
+														"sx",
+														false
+													],
+													[
+														"sy",
+														true
+													],
+													[
+														"bm",
+														true
+													],
+													[
+														"twpx",
+														true
+													],
+													[
+														"twpy",
+														true
+													],
+													[
+														"twpz",
+														true
+													],
+													[
+														"twpw",
+														true
+													],
+													[
+														"twph",
+														true
+													],
+													[
+														"twpa",
+														true
+													],
+													[
+														"dwp",
+														true
+													],
+													[
+														"ssm",
+														true
+													]
+												]
+											}
+										]
+									}
+								],
+								"replicasUIDs": null
+							},
+							"sceneGraphData": {
+								"parent-uid": 49,
+								"uid": 57,
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"a": true,
+									"d": true,
+									"sm": "normal"
+								},
+								"preview": {
+									"transformX": 0,
+									"transformY": 0,
+									"transformZElevation": 0,
+									"transformW": 0,
+									"transformH": 0,
+									"transformA": 0,
+									"transformSX": 0,
+									"transformSY": 0,
+									"previewSceneGraph": false
+								}
+							},
+							"world": {
+								"x": 177,
+								"y": -149,
+								"width": 862,
 								"height": 45,
 								"originX": 0,
 								"originY": 0,
@@ -4821,12 +5086,12 @@
 					"uid": 26,
 					"instanceVariables": {
 						"messages": "[]",
-						"messageDuration": 5
+						"messageDuration": 7
 					},
 					"behaviors": {},
 					"world": {
-						"x": 57,
-						"y": 411,
+						"x": 65,
+						"y": 480,
 						"width": 971,
 						"height": 459,
 						"originX": 0,

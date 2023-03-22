@@ -136,12 +136,12 @@
 								{
 									"id": "tween-one-property",
 									"objectClass": "UiBox",
-									"sid": 431394108952245,
+									"sid": 765177935443302,
 									"behaviorType": "Tween",
 									"parameters": {
 										"tags": "\"selection\"",
 										"property": "offsetY",
-										"end-value": "-400",
+										"end-value": "-440",
 										"time": "0.5",
 										"ease": "easeoutcubic",
 										"destroy-on-complete": "no",
@@ -1122,6 +1122,113 @@
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "GenericLabel",
+									"sid": 975375381851519,
+									"parameters": {
+										"instance-variable": "handle",
+										"comparison": 0,
+										"value": "\"Trait\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 261824671977339,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Planet",
+											"sid": 426508625059117,
+											"parameters": {
+												"instance-variable": "explorationLevel",
+												"comparison": 2,
+												"value": "2"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "GenericLabel",
+											"sid": 485371730123089,
+											"parameters": {
+												"text": "\"(explore planet to discover potential trait)\""
+											}
+										}
+									],
+									"sid": 357325264568826
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 426725590508749
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Planet",
+											"sid": 276360787893566,
+											"parameters": {
+												"instance-variable": "explorationLevel",
+												"comparison": 0,
+												"value": "2"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Planet",
+											"sid": 601066102667387,
+											"parameters": {
+												"instance-variable": "trait",
+												"comparison": 4,
+												"value": "\"\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "GenericLabel",
+											"sid": 721821218344006,
+											"parameters": {
+												"text": "\"(Planet trait: \" & Planet.trait & \")\""
+											}
+										}
+									],
+									"sid": 994556720593661
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 257593439024752
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "GenericLabel",
+											"sid": 216214108734453,
+											"parameters": {
+												"text": "\"(No special planet trait)\""
+											}
+										}
+									],
+									"sid": 594746230455666
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "GenericLabel",
 									"sid": 399460820188269,
 									"parameters": {
 										"instance-variable": "handle",
@@ -1307,18 +1414,11 @@
 									}
 								},
 								{
-									"callFunction": "LogDebugMessage",
-									"sid": 106503229050427,
-									"disabled": true,
-									"parameters": [
-										"\"Exploring planet \" & Functions.PickPlanetUidToExplore"
-									]
-								},
-								{
 									"callFunction": "BeginExploringPlanet",
-									"sid": 272054462617319,
+									"sid": 378503538978738,
 									"parameters": [
-										"Functions.PickPlanetUidToExplore"
+										"Functions.PickPlanetUidToExplore(ResearchStation.UID)",
+										"ResearchStation.UID"
 									]
 								}
 							],
@@ -1734,17 +1834,25 @@
 					"functionDescription": "Pick the suitable planet to explore and return UID.",
 					"functionCategory": "",
 					"functionReturnType": "number",
-					"functionCopyPicked": true,
+					"functionCopyPicked": false,
 					"functionIsAsync": false,
-					"functionParameters": [],
+					"functionParameters": [
+						{
+							"name": "researchStationUid",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "UID of the research station to use for \"nearest\" calculation.",
+							"sid": 666628595224071
+						}
+					],
 					"eventType": "function-block",
 					"conditions": [
 						{
-							"id": "pick-all",
-							"objectClass": "System",
-							"sid": 989409943556195,
+							"id": "pick-by-unique-id",
+							"objectClass": "ResearchStation",
+							"sid": 545651609089079,
 							"parameters": {
-								"object": "Planet"
+								"unique-id": "researchStationUid"
 							}
 						},
 						{
@@ -1784,7 +1892,7 @@
 					"functionDescription": "Set up variables to begin exploring a planet.",
 					"functionCategory": "",
 					"functionReturnType": "none",
-					"functionCopyPicked": true,
+					"functionCopyPicked": false,
 					"functionIsAsync": false,
 					"functionParameters": [
 						{
@@ -1793,6 +1901,13 @@
 							"initialValue": "0",
 							"comment": "UID of the planet to begin exploring.",
 							"sid": 219267633215971
+						},
+						{
+							"name": "researchStationUid",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "UID of the research station that will be exploring.",
+							"sid": 288168253388939
 						}
 					],
 					"eventType": "function-block",
@@ -1801,9 +1916,16 @@
 							"id": "pick-by-unique-id",
 							"objectClass": "Planet",
 							"sid": 564179895794986,
-							"disabled": true,
 							"parameters": {
 								"unique-id": "planetUid"
+							}
+						},
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "ResearchStation",
+							"sid": 955059348945623,
+							"parameters": {
+								"unique-id": "researchStationUid"
 							}
 						}
 					],
@@ -1959,9 +2081,10 @@
 								},
 								{
 									"callFunction": "BeginExploringPlanet",
-									"sid": 831883695343480,
+									"sid": 765104270134731,
 									"parameters": [
-										"Functions.PickPlanetUidToExplore"
+										"Functions.PickPlanetUidToExplore(ResearchStation.UID)",
+										"ResearchStation.UID"
 									]
 								}
 							],
