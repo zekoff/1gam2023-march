@@ -334,3 +334,18 @@ export function generateRandomPlanetName(uid) {
 function pickRandomFromList(...items) {
   return items[Math.floor(Math.random() * items.length)];
 }
+
+export function generateSector(runtime) {
+  const PLANETS_TO_GENERATE = 100;
+  const MINIMUM_DISTANCE_BETWEEN_PLANETS = 100;
+  for (let i = 0; i < PLANETS_TO_GENERATE; i++) {
+    const x = Math.random() * 5000 + 500;
+    const y = Math.random() * 9000 + 500;
+    const planet = runtime.objects.Planet.createInstance("Planets", x, y, false, "Standard Planet");
+    planet.instVars.name = generateRandomPlanetName(planet.uid);
+    if (Math.random() < .4) {
+      planet.instVars.trait = pickRandomFromList(...Array.from(Object.keys(PLANET_TRAITS)));
+    }
+    planet.setAnimation("Animation " + Math.ceil(Math.random() * 10));
+  }
+}

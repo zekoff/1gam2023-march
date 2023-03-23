@@ -1,0 +1,35 @@
+{
+	"name": "Development Sector Events",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "Debug Events"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "Main Gameplay"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 796838646155242
+				}
+			],
+			"actions": [
+				{
+					"id": "signal",
+					"objectClass": "System",
+					"sid": 729315634387487,
+					"parameters": {
+						"tag": "\"sector_generation_complete\""
+					}
+				}
+			],
+			"sid": 432214745277832
+		}
+	],
+	"sid": 505999183839255
+}

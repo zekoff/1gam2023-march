@@ -6,10 +6,6 @@
 			"includeSheet": "Loading Events"
 		},
 		{
-			"eventType": "include",
-			"includeSheet": "Debug Events"
-		},
-		{
 			"eventType": "comment",
 			"text": "Update GameController instance variables to track passage of time and resource production."
 		},
@@ -1749,41 +1745,109 @@
 						{
 							"id": "on-start-of-layout",
 							"objectClass": "System",
-							"sid": 210979547494352
-						},
-						{
-							"id": "for-each",
-							"objectClass": "System",
-							"sid": 259633811282245,
-							"parameters": {
-								"object": "Planet"
-							}
-						},
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "Planet",
-							"sid": 534185780417693,
-							"parameters": {
-								"instance-variable": "explorationLevel",
-								"comparison": 2,
-								"value": "1"
-							}
+							"sid": 300640059688809
 						}
 					],
 					"actions": [
 						{
 							"id": "wait-for-signal",
 							"objectClass": "System",
-							"sid": 614269945723650,
+							"sid": 633282502256888,
 							"parameters": {
-								"tag": "\"scan\" & Planet.UID"
+								"tag": "\"sector_generation_complete\""
 							}
-						},
-						{
-							"callFunction": "ScanPlanet",
-							"sid": 393096810481125
 						}
 					],
+					"sid": 953282995217412,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 298823393167436,
+									"parameters": {
+										"object": "Planet"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Planet",
+									"sid": 467523928469364,
+									"parameters": {
+										"instance-variable": "explorationLevel",
+										"comparison": 2,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "wait-for-signal",
+									"objectClass": "System",
+									"sid": 175061168848814,
+									"parameters": {
+										"tag": "\"scan\" & Planet.UID"
+									}
+								},
+								{
+									"callFunction": "ScanPlanet",
+									"sid": 852742338960446
+								}
+							],
+							"sid": 853923949673970
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 132053906891704,
+									"parameters": {
+										"object": "Planet"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Planet",
+									"sid": 256906614113644,
+									"parameters": {
+										"instance-variable": "explorationLevel",
+										"comparison": 2,
+										"value": "2"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "wait-for-signal",
+									"objectClass": "System",
+									"sid": 820333741188947,
+									"parameters": {
+										"tag": "\"explore\" & Planet.UID"
+									}
+								},
+								{
+									"callFunction": "ExplorePlanet",
+									"sid": 840632538165551
+								}
+							],
+							"sid": 238482599458076
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 210979547494352
+						}
+					],
+					"actions": [],
 					"sid": 848936461572186
 				},
 				{
@@ -1793,40 +1857,9 @@
 							"id": "on-start-of-layout",
 							"objectClass": "System",
 							"sid": 871672280047215
-						},
-						{
-							"id": "for-each",
-							"objectClass": "System",
-							"sid": 779405268008201,
-							"parameters": {
-								"object": "Planet"
-							}
-						},
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "Planet",
-							"sid": 743350260917159,
-							"parameters": {
-								"instance-variable": "explorationLevel",
-								"comparison": 2,
-								"value": "2"
-							}
 						}
 					],
-					"actions": [
-						{
-							"id": "wait-for-signal",
-							"objectClass": "System",
-							"sid": 556465798785169,
-							"parameters": {
-								"tag": "\"explore\" & Planet.UID"
-							}
-						},
-						{
-							"callFunction": "ExplorePlanet",
-							"sid": 168491794272314
-						}
-					],
+					"actions": [],
 					"sid": 401435332479615
 				},
 				{

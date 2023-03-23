@@ -171,7 +171,8 @@
 	},
 	"layouts": {
 		"items": [
-			"Config Sector"
+			"Config Sector",
+			"Procedural Sector"
 		],
 		"subfolders": []
 	},
@@ -180,7 +181,9 @@
 			"Main Gameplay",
 			"Constants",
 			"Loading Events",
-			"Debug Events"
+			"Debug Events",
+			"Development Sector Events",
+			"Procedural Sector Events"
 		],
 		"subfolders": []
 	},

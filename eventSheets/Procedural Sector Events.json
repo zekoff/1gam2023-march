@@ -1,0 +1,141 @@
+{
+	"name": "Procedural Sector Events",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "Main Gameplay"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 361317710701296
+				}
+			],
+			"actions": [
+				{
+					"type": "script",
+					"script": "GameUtils.generateSector(runtime);"
+				}
+			],
+			"sid": 354910276859754
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 243201396466001
+				}
+			],
+			"actions": [
+				{
+					"id": "set-speed",
+					"objectClass": "Planet",
+					"sid": 261046545436959,
+					"behaviorType": "Rotate",
+					"parameters": {
+						"speed": "random(5,20) * choose(1, -1)"
+					}
+				}
+			],
+			"sid": 630029472671107
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 779002546946439
+				},
+				{
+					"id": "pick-random-instance",
+					"objectClass": "System",
+					"sid": 926078297341694,
+					"parameters": {
+						"object": "Planet"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "wait-for-signal",
+					"objectClass": "System",
+					"sid": 606107305805242,
+					"parameters": {
+						"tag": "\"loading_complete\""
+					}
+				},
+				{
+					"type": "script",
+					"script": "const planetUid = runtime.objects.Planet.getFirstPickedInstance().uid;\nGameUtils.buildFacilityOnPlanet(runtime, planetUid, \"Colony\");"
+				},
+				{
+					"id": "set-position",
+					"objectClass": "ResearchStation",
+					"sid": 344738314031923,
+					"parameters": {
+						"x": "Planet.X - 50",
+						"y": "Planet.Y - 50"
+					}
+				},
+				{
+					"id": "move-to-position",
+					"objectClass": "ResearchStation",
+					"sid": 147985575748622,
+					"behaviorType": "MoveTo",
+					"parameters": {
+						"x": "Planet.X",
+						"y": "Planet.Y + 100",
+						"mode": "direct"
+					}
+				},
+				{
+					"id": "set-position",
+					"objectClass": "Camera",
+					"sid": 887194276518907,
+					"parameters": {
+						"x": "Planet.X",
+						"y": "Planet.Y"
+					}
+				},
+				{
+					"id": "set-position",
+					"objectClass": "ScanArea",
+					"sid": 422936558381247,
+					"parameters": {
+						"x": "Planet.X",
+						"y": "Planet.Y"
+					}
+				},
+				{
+					"id": "fill-ellipse",
+					"objectClass": "ScanArea",
+					"sid": 696261058456295,
+					"parameters": {
+						"x": "ScanArea.Width / 2",
+						"y": "ScanArea.Height / 2",
+						"radius-x": "ScanArea.Width / 2",
+						"radius-y": "ScanArea.Height / 2",
+						"color": "rgba(100, 100, 100, 100)",
+						"edge": "smooth"
+					}
+				},
+				{
+					"id": "signal",
+					"objectClass": "System",
+					"sid": 316705013331812,
+					"parameters": {
+						"tag": "\"sector_generation_complete\""
+					}
+				}
+			],
+			"sid": 252064592148514
+		}
+	],
+	"sid": 610176550027079
+}

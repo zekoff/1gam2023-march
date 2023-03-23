@@ -1,5 +1,5 @@
 {
-	"name": "Config Sector",
+	"name": "Procedural Sector",
 	"layers": [
 		{
 			"name": "Background",
@@ -29,7 +29,7 @@
 								"blend-margin-x": 0.1,
 								"blend-margin-y": 0.1
 							},
-							"uid": 2,
+							"uid": 63,
 							"instanceVariables": {},
 							"behaviors": {},
 							"world": {
@@ -50,7 +50,7 @@
 							}
 						}
 					],
-					"sid": 744819437276346,
+					"sid": 730875109713626,
 					"effectTypes": [],
 					"isInitiallyVisible": true,
 					"isInitiallyInteractive": true,
@@ -102,7 +102,7 @@
 								"blend-margin-x": 0.1,
 								"blend-margin-y": 0.1
 							},
-							"uid": 3,
+							"uid": 64,
 							"instanceVariables": {},
 							"behaviors": {},
 							"world": {
@@ -123,7 +123,7 @@
 							}
 						}
 					],
-					"sid": 555821719119278,
+					"sid": 438051189566742,
 					"effectTypes": [],
 					"isInitiallyVisible": true,
 					"isInitiallyInteractive": true,
@@ -150,43 +150,10 @@
 					"blendMode": "normal",
 					"zElevation": 0,
 					"global": false
-				},
-				{
-					"name": "Terrain",
-					"overriden": 0,
-					"subLayers": [],
-					"instances": [],
-					"sid": 535631023975329,
-					"effectTypes": [],
-					"isInitiallyVisible": true,
-					"isInitiallyInteractive": true,
-					"color": [
-						1,
-						1,
-						1,
-						1
-					],
-					"backgroundColor": [
-						1,
-						1,
-						1,
-						1
-					],
-					"isTransparent": true,
-					"parallaxX": 1,
-					"parallaxY": 1,
-					"scaleRate": 1,
-					"forceOwnTexture": false,
-					"renderingMode": "3d",
-					"drawOrder": "z-order",
-					"useRenderCells": false,
-					"blendMode": "normal",
-					"zElevation": 0,
-					"global": false
 				}
 			],
 			"instances": [],
-			"sid": 245657237873619,
+			"sid": 844719707452892,
 			"effectTypes": [],
 			"isInitiallyVisible": true,
 			"isInitiallyInteractive": true,
@@ -219,1595 +186,11 @@
 			"overriden": 0,
 			"subLayers": [
 				{
-					"name": "Supply Area",
-					"overriden": 0,
-					"subLayers": [],
-					"instances": [],
-					"sid": 796688050929856,
-					"effectTypes": [],
-					"isInitiallyVisible": true,
-					"isInitiallyInteractive": true,
-					"color": [
-						1,
-						1,
-						1,
-						1
-					],
-					"backgroundColor": [
-						1,
-						1,
-						1,
-						1
-					],
-					"isTransparent": true,
-					"parallaxX": 1,
-					"parallaxY": 1,
-					"scaleRate": 1,
-					"forceOwnTexture": false,
-					"renderingMode": "3d",
-					"drawOrder": "z-order",
-					"useRenderCells": false,
-					"blendMode": "normal",
-					"zElevation": 0,
-					"global": false
-				},
-				{
 					"name": "Planets",
 					"overriden": 0,
 					"subLayers": [],
-					"instances": [
-						{
-							"type": "Planet",
-							"properties": {
-								"initially-visible": true,
-								"initial-animation": "Animation 1",
-								"initial-frame": 0,
-								"enable-collisions": true,
-								"live-preview": false
-							},
-							"uid": 6,
-							"instanceVariables": {
-								"totalFacilitySlots": 3,
-								"facilityList": "[]",
-								"connectionList": "[]",
-								"explorationLevel": 0,
-								"trait": "",
-								"quantiaRate": 0,
-								"stelliumRate": 0,
-								"quantiaDrain": 0,
-								"stelliumDrain": 0,
-								"improvementLevel": 0,
-								"name": ""
-							},
-							"behaviors": {
-								"Rotate": {
-									"properties": {
-										"speed": 30,
-										"acceleration": 0,
-										"enabled": true,
-										"live-preview": false
-									}
-								}
-							},
-							"world": {
-								"x": 298.78579209089713,
-								"y": 1186.785792090897,
-								"width": 115.57158418179424,
-								"height": 115.57158418179424,
-								"originX": 0.5,
-								"originY": 0.5,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 0,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "Planet",
-							"properties": {
-								"initially-visible": true,
-								"initial-animation": "Animation 10",
-								"initial-frame": 0,
-								"enable-collisions": true,
-								"live-preview": false
-							},
-							"uid": 7,
-							"instanceVariables": {
-								"totalFacilitySlots": 3,
-								"facilityList": "[]",
-								"connectionList": "[]",
-								"explorationLevel": 1,
-								"trait": "Large Landmasses",
-								"quantiaRate": 0,
-								"stelliumRate": 0,
-								"quantiaDrain": 0,
-								"stelliumDrain": 0,
-								"improvementLevel": 0,
-								"name": ""
-							},
-							"behaviors": {
-								"Rotate": {
-									"properties": {
-										"speed": 30,
-										"acceleration": 0,
-										"enabled": true,
-										"live-preview": false
-									}
-								}
-							},
-							"world": {
-								"x": 815.5120015600089,
-								"y": 1540.512001560009,
-								"width": 115.57158418179424,
-								"height": 115.57158418179424,
-								"originX": 0.5,
-								"originY": 0.5,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 0,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "Planet",
-							"properties": {
-								"initially-visible": true,
-								"initial-animation": "Animation 6",
-								"initial-frame": 0,
-								"enable-collisions": true,
-								"live-preview": false
-							},
-							"uid": 8,
-							"instanceVariables": {
-								"totalFacilitySlots": 3,
-								"facilityList": "[]",
-								"connectionList": "[]",
-								"explorationLevel": 0,
-								"trait": "",
-								"quantiaRate": 0,
-								"stelliumRate": 0,
-								"quantiaDrain": 0,
-								"stelliumDrain": 0,
-								"improvementLevel": 0,
-								"name": ""
-							},
-							"behaviors": {
-								"Rotate": {
-									"properties": {
-										"speed": 30,
-										"acceleration": 0,
-										"enabled": true,
-										"live-preview": false
-									}
-								}
-							},
-							"world": {
-								"x": 1344.512001560009,
-								"y": 1011.5120015600089,
-								"width": 115.57158418179424,
-								"height": 115.57158418179424,
-								"originX": 0.5,
-								"originY": 0.5,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 0,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "Planet",
-							"properties": {
-								"initially-visible": true,
-								"initial-animation": "Animation 8",
-								"initial-frame": 0,
-								"enable-collisions": true,
-								"live-preview": false
-							},
-							"uid": 9,
-							"instanceVariables": {
-								"totalFacilitySlots": 3,
-								"facilityList": "[]",
-								"connectionList": "[]",
-								"explorationLevel": 0,
-								"trait": "",
-								"quantiaRate": 0,
-								"stelliumRate": 0,
-								"quantiaDrain": 0,
-								"stelliumDrain": 0,
-								"improvementLevel": 0,
-								"name": ""
-							},
-							"behaviors": {
-								"Rotate": {
-									"properties": {
-										"speed": 30,
-										"acceleration": 0,
-										"enabled": true,
-										"live-preview": false
-									}
-								}
-							},
-							"world": {
-								"x": 1316.512001560009,
-								"y": 2060.512001560009,
-								"width": 115.57158418179424,
-								"height": 115.57158418179424,
-								"originX": 0.5,
-								"originY": 0.5,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 0,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "Planet",
-							"properties": {
-								"initially-visible": true,
-								"initial-animation": "Animation 3",
-								"initial-frame": 0,
-								"enable-collisions": true,
-								"live-preview": false
-							},
-							"uid": 10,
-							"instanceVariables": {
-								"totalFacilitySlots": 3,
-								"facilityList": "[]",
-								"connectionList": "[]",
-								"explorationLevel": 0,
-								"trait": "",
-								"quantiaRate": 0,
-								"stelliumRate": 0,
-								"quantiaDrain": 0,
-								"stelliumDrain": 0,
-								"improvementLevel": 0,
-								"name": ""
-							},
-							"behaviors": {
-								"Rotate": {
-									"properties": {
-										"speed": 30,
-										"acceleration": 0,
-										"enabled": true,
-										"live-preview": false
-									}
-								}
-							},
-							"world": {
-								"x": 690.5120015600089,
-								"y": 2458.512001560009,
-								"width": 115.57158418179424,
-								"height": 115.57158418179424,
-								"originX": 0.5,
-								"originY": 0.5,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 0,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "Planet",
-							"properties": {
-								"initially-visible": true,
-								"initial-animation": "Animation 7",
-								"initial-frame": 0,
-								"enable-collisions": true,
-								"live-preview": false
-							},
-							"uid": 11,
-							"instanceVariables": {
-								"totalFacilitySlots": 3,
-								"facilityList": "[]",
-								"connectionList": "[]",
-								"explorationLevel": 0,
-								"trait": "",
-								"quantiaRate": 0,
-								"stelliumRate": 0,
-								"quantiaDrain": 0,
-								"stelliumDrain": 0,
-								"improvementLevel": 0,
-								"name": ""
-							},
-							"behaviors": {
-								"Rotate": {
-									"properties": {
-										"speed": 30,
-										"acceleration": 0,
-										"enabled": true,
-										"live-preview": false
-									}
-								}
-							},
-							"world": {
-								"x": 1349.512001560009,
-								"y": 2707.512001560009,
-								"width": 115.57158418179424,
-								"height": 115.57158418179424,
-								"originX": 0.5,
-								"originY": 0.5,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 0,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "Planet",
-							"properties": {
-								"initially-visible": true,
-								"initial-animation": "Animation 8",
-								"initial-frame": 0,
-								"enable-collisions": true,
-								"live-preview": false
-							},
-							"uid": 13,
-							"instanceVariables": {
-								"totalFacilitySlots": 3,
-								"facilityList": "[]",
-								"connectionList": "[]",
-								"explorationLevel": 0,
-								"trait": "",
-								"quantiaRate": 0,
-								"stelliumRate": 0,
-								"quantiaDrain": 0,
-								"stelliumDrain": 0,
-								"improvementLevel": 0,
-								"name": ""
-							},
-							"behaviors": {
-								"Rotate": {
-									"properties": {
-										"speed": 30,
-										"acceleration": 0,
-										"enabled": true,
-										"live-preview": false
-									}
-								}
-							},
-							"world": {
-								"x": 3855,
-								"y": 1646,
-								"width": 115.57158418179424,
-								"height": 115.57158418179424,
-								"originX": 0.5,
-								"originY": 0.5,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 0,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "Planet",
-							"properties": {
-								"initially-visible": true,
-								"initial-animation": "Animation 6",
-								"initial-frame": 0,
-								"enable-collisions": true,
-								"live-preview": false
-							},
-							"uid": 30,
-							"instanceVariables": {
-								"totalFacilitySlots": 3,
-								"facilityList": "[]",
-								"connectionList": "[]",
-								"explorationLevel": 0,
-								"trait": "",
-								"quantiaRate": 0,
-								"stelliumRate": 0,
-								"quantiaDrain": 0,
-								"stelliumDrain": 0,
-								"improvementLevel": 0,
-								"name": ""
-							},
-							"behaviors": {
-								"Rotate": {
-									"properties": {
-										"speed": 30,
-										"acceleration": 0,
-										"enabled": true,
-										"live-preview": false
-									}
-								}
-							},
-							"world": {
-								"x": 2938,
-								"y": 2788,
-								"width": 115.57158418179424,
-								"height": 115.57158418179424,
-								"originX": 0.5,
-								"originY": 0.5,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 0,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "Planet",
-							"properties": {
-								"initially-visible": true,
-								"initial-animation": "Animation 7",
-								"initial-frame": 0,
-								"enable-collisions": true,
-								"live-preview": false
-							},
-							"uid": 31,
-							"instanceVariables": {
-								"totalFacilitySlots": 3,
-								"facilityList": "[]",
-								"connectionList": "[]",
-								"explorationLevel": 0,
-								"trait": "",
-								"quantiaRate": 0,
-								"stelliumRate": 0,
-								"quantiaDrain": 0,
-								"stelliumDrain": 0,
-								"improvementLevel": 0,
-								"name": ""
-							},
-							"behaviors": {
-								"Rotate": {
-									"properties": {
-										"speed": 30,
-										"acceleration": 0,
-										"enabled": true,
-										"live-preview": false
-									}
-								}
-							},
-							"world": {
-								"x": 1433,
-								"y": 4428,
-								"width": 115.57158418179424,
-								"height": 115.57158418179424,
-								"originX": 0.5,
-								"originY": 0.5,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 0,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "Planet",
-							"properties": {
-								"initially-visible": true,
-								"initial-animation": "Animation 3",
-								"initial-frame": 0,
-								"enable-collisions": true,
-								"live-preview": false
-							},
-							"uid": 32,
-							"instanceVariables": {
-								"totalFacilitySlots": 3,
-								"facilityList": "[]",
-								"connectionList": "[]",
-								"explorationLevel": 0,
-								"trait": "",
-								"quantiaRate": 0,
-								"stelliumRate": 0,
-								"quantiaDrain": 0,
-								"stelliumDrain": 0,
-								"improvementLevel": 0,
-								"name": ""
-							},
-							"behaviors": {
-								"Rotate": {
-									"properties": {
-										"speed": 30,
-										"acceleration": 0,
-										"enabled": true,
-										"live-preview": false
-									}
-								}
-							},
-							"world": {
-								"x": 790,
-								"y": 4106,
-								"width": 115.57158418179424,
-								"height": 115.57158418179424,
-								"originX": 0.5,
-								"originY": 0.5,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 0,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "Planet",
-							"properties": {
-								"initially-visible": true,
-								"initial-animation": "Animation 1",
-								"initial-frame": 0,
-								"enable-collisions": true,
-								"live-preview": false
-							},
-							"uid": 33,
-							"instanceVariables": {
-								"totalFacilitySlots": 3,
-								"facilityList": "[]",
-								"connectionList": "[]",
-								"explorationLevel": 0,
-								"trait": "",
-								"quantiaRate": 0,
-								"stelliumRate": 0,
-								"quantiaDrain": 0,
-								"stelliumDrain": 0,
-								"improvementLevel": 0,
-								"name": ""
-							},
-							"behaviors": {
-								"Rotate": {
-									"properties": {
-										"speed": 30,
-										"acceleration": 0,
-										"enabled": true,
-										"live-preview": false
-									}
-								}
-							},
-							"world": {
-								"x": 2891,
-								"y": 4019,
-								"width": 115.57158418179424,
-								"height": 115.57158418179424,
-								"originX": 0.5,
-								"originY": 0.5,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 0,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "Planet",
-							"properties": {
-								"initially-visible": true,
-								"initial-animation": "Animation 7",
-								"initial-frame": 0,
-								"enable-collisions": true,
-								"live-preview": false
-							},
-							"uid": 34,
-							"instanceVariables": {
-								"totalFacilitySlots": 3,
-								"facilityList": "[]",
-								"connectionList": "[]",
-								"explorationLevel": 0,
-								"trait": "",
-								"quantiaRate": 0,
-								"stelliumRate": 0,
-								"quantiaDrain": 0,
-								"stelliumDrain": 0,
-								"improvementLevel": 0,
-								"name": ""
-							},
-							"behaviors": {
-								"Rotate": {
-									"properties": {
-										"speed": 30,
-										"acceleration": 0,
-										"enabled": true,
-										"live-preview": false
-									}
-								}
-							},
-							"world": {
-								"x": 2070,
-								"y": 3545,
-								"width": 115.57158418179424,
-								"height": 115.57158418179424,
-								"originX": 0.5,
-								"originY": 0.5,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 0,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "Planet",
-							"properties": {
-								"initially-visible": true,
-								"initial-animation": "Animation 1",
-								"initial-frame": 0,
-								"enable-collisions": true,
-								"live-preview": false
-							},
-							"uid": 35,
-							"instanceVariables": {
-								"totalFacilitySlots": 3,
-								"facilityList": "[]",
-								"connectionList": "[]",
-								"explorationLevel": 0,
-								"trait": "",
-								"quantiaRate": 0,
-								"stelliumRate": 0,
-								"quantiaDrain": 0,
-								"stelliumDrain": 0,
-								"improvementLevel": 0,
-								"name": ""
-							},
-							"behaviors": {
-								"Rotate": {
-									"properties": {
-										"speed": 30,
-										"acceleration": 0,
-										"enabled": true,
-										"live-preview": false
-									}
-								}
-							},
-							"world": {
-								"x": 2216,
-								"y": 2118,
-								"width": 115.57158418179424,
-								"height": 115.57158418179424,
-								"originX": 0.5,
-								"originY": 0.5,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 0,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "Planet",
-							"properties": {
-								"initially-visible": true,
-								"initial-animation": "Animation 6",
-								"initial-frame": 0,
-								"enable-collisions": true,
-								"live-preview": false
-							},
-							"uid": 36,
-							"instanceVariables": {
-								"totalFacilitySlots": 3,
-								"facilityList": "[]",
-								"connectionList": "[]",
-								"explorationLevel": 0,
-								"trait": "",
-								"quantiaRate": 0,
-								"stelliumRate": 0,
-								"quantiaDrain": 0,
-								"stelliumDrain": 0,
-								"improvementLevel": 0,
-								"name": ""
-							},
-							"behaviors": {
-								"Rotate": {
-									"properties": {
-										"speed": 30,
-										"acceleration": 0,
-										"enabled": true,
-										"live-preview": false
-									}
-								}
-							},
-							"world": {
-								"x": 2473,
-								"y": 2775,
-								"width": 115.57158418179424,
-								"height": 115.57158418179424,
-								"originX": 0.5,
-								"originY": 0.5,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 0,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "Planet",
-							"properties": {
-								"initially-visible": true,
-								"initial-animation": "Animation 8",
-								"initial-frame": 0,
-								"enable-collisions": true,
-								"live-preview": false
-							},
-							"uid": 37,
-							"instanceVariables": {
-								"totalFacilitySlots": 3,
-								"facilityList": "[]",
-								"connectionList": "[]",
-								"explorationLevel": 0,
-								"trait": "",
-								"quantiaRate": 0,
-								"stelliumRate": 0,
-								"quantiaDrain": 0,
-								"stelliumDrain": 0,
-								"improvementLevel": 0,
-								"name": ""
-							},
-							"behaviors": {
-								"Rotate": {
-									"properties": {
-										"speed": 30,
-										"acceleration": 0,
-										"enabled": true,
-										"live-preview": false
-									}
-								}
-							},
-							"world": {
-								"x": 2604,
-								"y": 1648,
-								"width": 115.57158418179424,
-								"height": 115.57158418179424,
-								"originX": 0.5,
-								"originY": 0.5,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 0,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "Planet",
-							"properties": {
-								"initially-visible": true,
-								"initial-animation": "Animation 8",
-								"initial-frame": 0,
-								"enable-collisions": true,
-								"live-preview": false
-							},
-							"uid": 38,
-							"instanceVariables": {
-								"totalFacilitySlots": 3,
-								"facilityList": "[]",
-								"connectionList": "[]",
-								"explorationLevel": 0,
-								"trait": "",
-								"quantiaRate": 0,
-								"stelliumRate": 0,
-								"quantiaDrain": 0,
-								"stelliumDrain": 0,
-								"improvementLevel": 0,
-								"name": ""
-							},
-							"behaviors": {
-								"Rotate": {
-									"properties": {
-										"speed": 30,
-										"acceleration": 0,
-										"enabled": true,
-										"live-preview": false
-									}
-								}
-							},
-							"world": {
-								"x": 3716,
-								"y": 832,
-								"width": 115.57158418179424,
-								"height": 115.57158418179424,
-								"originX": 0.5,
-								"originY": 0.5,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 0,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "Planet",
-							"properties": {
-								"initially-visible": true,
-								"initial-animation": "Animation 3",
-								"initial-frame": 0,
-								"enable-collisions": true,
-								"live-preview": false
-							},
-							"uid": 39,
-							"instanceVariables": {
-								"totalFacilitySlots": 3,
-								"facilityList": "[]",
-								"connectionList": "[]",
-								"explorationLevel": 0,
-								"trait": "",
-								"quantiaRate": 0,
-								"stelliumRate": 0,
-								"quantiaDrain": 0,
-								"stelliumDrain": 0,
-								"improvementLevel": 0,
-								"name": ""
-							},
-							"behaviors": {
-								"Rotate": {
-									"properties": {
-										"speed": 30,
-										"acceleration": 0,
-										"enabled": true,
-										"live-preview": false
-									}
-								}
-							},
-							"world": {
-								"x": 894,
-								"y": 4917,
-								"width": 115.57158418179424,
-								"height": 115.57158418179424,
-								"originX": 0.5,
-								"originY": 0.5,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 0,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "Planet",
-							"properties": {
-								"initially-visible": true,
-								"initial-animation": "Animation 6",
-								"initial-frame": 0,
-								"enable-collisions": true,
-								"live-preview": false
-							},
-							"uid": 40,
-							"instanceVariables": {
-								"totalFacilitySlots": 3,
-								"facilityList": "[]",
-								"connectionList": "[]",
-								"explorationLevel": 0,
-								"trait": "",
-								"quantiaRate": 0,
-								"stelliumRate": 0,
-								"quantiaDrain": 0,
-								"stelliumDrain": 0,
-								"improvementLevel": 0,
-								"name": ""
-							},
-							"behaviors": {
-								"Rotate": {
-									"properties": {
-										"speed": 30,
-										"acceleration": 0,
-										"enabled": true,
-										"live-preview": false
-									}
-								}
-							},
-							"world": {
-								"x": 1938,
-								"y": 5496,
-								"width": 115.57158418179424,
-								"height": 115.57158418179424,
-								"originX": 0.5,
-								"originY": 0.5,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 0,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "Planet",
-							"properties": {
-								"initially-visible": true,
-								"initial-animation": "Animation 7",
-								"initial-frame": 0,
-								"enable-collisions": true,
-								"live-preview": false
-							},
-							"uid": 41,
-							"instanceVariables": {
-								"totalFacilitySlots": 3,
-								"facilityList": "[]",
-								"connectionList": "[]",
-								"explorationLevel": 0,
-								"trait": "",
-								"quantiaRate": 0,
-								"stelliumRate": 0,
-								"quantiaDrain": 0,
-								"stelliumDrain": 0,
-								"improvementLevel": 0,
-								"name": ""
-							},
-							"behaviors": {
-								"Rotate": {
-									"properties": {
-										"speed": 30,
-										"acceleration": 0,
-										"enabled": true,
-										"live-preview": false
-									}
-								}
-							},
-							"world": {
-								"x": 2331,
-								"y": 4813,
-								"width": 115.57158418179424,
-								"height": 115.57158418179424,
-								"originX": 0.5,
-								"originY": 0.5,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 0,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "Planet",
-							"properties": {
-								"initially-visible": true,
-								"initial-animation": "Animation 1",
-								"initial-frame": 0,
-								"enable-collisions": true,
-								"live-preview": false
-							},
-							"uid": 42,
-							"instanceVariables": {
-								"totalFacilitySlots": 3,
-								"facilityList": "[]",
-								"connectionList": "[]",
-								"explorationLevel": 0,
-								"trait": "",
-								"quantiaRate": 0,
-								"stelliumRate": 0,
-								"quantiaDrain": 0,
-								"stelliumDrain": 0,
-								"improvementLevel": 0,
-								"name": ""
-							},
-							"behaviors": {
-								"Rotate": {
-									"properties": {
-										"speed": 30,
-										"acceleration": 0,
-										"enabled": true,
-										"live-preview": false
-									}
-								}
-							},
-							"world": {
-								"x": 1495,
-								"y": 3844,
-								"width": 115.57158418179424,
-								"height": 115.57158418179424,
-								"originX": 0.5,
-								"originY": 0.5,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 0,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "Planet",
-							"properties": {
-								"initially-visible": true,
-								"initial-animation": "Animation 1",
-								"initial-frame": 0,
-								"enable-collisions": true,
-								"live-preview": false
-							},
-							"uid": 43,
-							"instanceVariables": {
-								"totalFacilitySlots": 3,
-								"facilityList": "[]",
-								"connectionList": "[]",
-								"explorationLevel": 0,
-								"trait": "",
-								"quantiaRate": 0,
-								"stelliumRate": 0,
-								"quantiaDrain": 0,
-								"stelliumDrain": 0,
-								"improvementLevel": 0,
-								"name": ""
-							},
-							"behaviors": {
-								"Rotate": {
-									"properties": {
-										"speed": 30,
-										"acceleration": 0,
-										"enabled": true,
-										"live-preview": false
-									}
-								}
-							},
-							"world": {
-								"x": 799,
-								"y": 5725,
-								"width": 115.57158418179424,
-								"height": 115.57158418179424,
-								"originX": 0.5,
-								"originY": 0.5,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 0,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "Planet",
-							"properties": {
-								"initially-visible": true,
-								"initial-animation": "Animation 1",
-								"initial-frame": 0,
-								"enable-collisions": true,
-								"live-preview": false
-							},
-							"uid": 44,
-							"instanceVariables": {
-								"totalFacilitySlots": 3,
-								"facilityList": "[]",
-								"connectionList": "[]",
-								"explorationLevel": 0,
-								"trait": "",
-								"quantiaRate": 0,
-								"stelliumRate": 0,
-								"quantiaDrain": 0,
-								"stelliumDrain": 0,
-								"improvementLevel": 0,
-								"name": ""
-							},
-							"behaviors": {
-								"Rotate": {
-									"properties": {
-										"speed": 30,
-										"acceleration": 0,
-										"enabled": true,
-										"live-preview": false
-									}
-								}
-							},
-							"world": {
-								"x": 3576,
-								"y": 5662,
-								"width": 115.57158418179424,
-								"height": 115.57158418179424,
-								"originX": 0.5,
-								"originY": 0.5,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 0,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "Planet",
-							"properties": {
-								"initially-visible": true,
-								"initial-animation": "Animation 6",
-								"initial-frame": 0,
-								"enable-collisions": true,
-								"live-preview": false
-							},
-							"uid": 45,
-							"instanceVariables": {
-								"totalFacilitySlots": 3,
-								"facilityList": "[]",
-								"connectionList": "[]",
-								"explorationLevel": 0,
-								"trait": "",
-								"quantiaRate": 0,
-								"stelliumRate": 0,
-								"quantiaDrain": 0,
-								"stelliumDrain": 0,
-								"improvementLevel": 0,
-								"name": ""
-							},
-							"behaviors": {
-								"Rotate": {
-									"properties": {
-										"speed": 30,
-										"acceleration": 0,
-										"enabled": true,
-										"live-preview": false
-									}
-								}
-							},
-							"world": {
-								"x": 3687,
-								"y": 4637,
-								"width": 115.57158418179424,
-								"height": 115.57158418179424,
-								"originX": 0.5,
-								"originY": 0.5,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 0,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "Planet",
-							"properties": {
-								"initially-visible": true,
-								"initial-animation": "Animation 6",
-								"initial-frame": 0,
-								"enable-collisions": true,
-								"live-preview": false
-							},
-							"uid": 46,
-							"instanceVariables": {
-								"totalFacilitySlots": 3,
-								"facilityList": "[]",
-								"connectionList": "[]",
-								"explorationLevel": 0,
-								"trait": "",
-								"quantiaRate": 0,
-								"stelliumRate": 0,
-								"quantiaDrain": 0,
-								"stelliumDrain": 0,
-								"improvementLevel": 0,
-								"name": ""
-							},
-							"behaviors": {
-								"Rotate": {
-									"properties": {
-										"speed": 30,
-										"acceleration": 0,
-										"enabled": true,
-										"live-preview": false
-									}
-								}
-							},
-							"world": {
-								"x": 3561,
-								"y": 3994,
-								"width": 115.57158418179424,
-								"height": 115.57158418179424,
-								"originX": 0.5,
-								"originY": 0.5,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 0,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "Planet",
-							"properties": {
-								"initially-visible": true,
-								"initial-animation": "Animation 1",
-								"initial-frame": 0,
-								"enable-collisions": true,
-								"live-preview": false
-							},
-							"uid": 47,
-							"instanceVariables": {
-								"totalFacilitySlots": 3,
-								"facilityList": "[]",
-								"connectionList": "[]",
-								"explorationLevel": 0,
-								"trait": "",
-								"quantiaRate": 0,
-								"stelliumRate": 0,
-								"quantiaDrain": 0,
-								"stelliumDrain": 0,
-								"improvementLevel": 0,
-								"name": ""
-							},
-							"behaviors": {
-								"Rotate": {
-									"properties": {
-										"speed": 30,
-										"acceleration": 0,
-										"enabled": true,
-										"live-preview": false
-									}
-								}
-							},
-							"world": {
-								"x": 3250,
-								"y": 2231,
-								"width": 115.57158418179424,
-								"height": 115.57158418179424,
-								"originX": 0.5,
-								"originY": 0.5,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 0,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "Planet",
-							"properties": {
-								"initially-visible": true,
-								"initial-animation": "Animation 8",
-								"initial-frame": 0,
-								"enable-collisions": true,
-								"live-preview": false
-							},
-							"uid": 48,
-							"instanceVariables": {
-								"totalFacilitySlots": 3,
-								"facilityList": "[]",
-								"connectionList": "[]",
-								"explorationLevel": 0,
-								"trait": "",
-								"quantiaRate": 0,
-								"stelliumRate": 0,
-								"quantiaDrain": 0,
-								"stelliumDrain": 0,
-								"improvementLevel": 0,
-								"name": ""
-							},
-							"behaviors": {
-								"Rotate": {
-									"properties": {
-										"speed": 30,
-										"acceleration": 0,
-										"enabled": true,
-										"live-preview": false
-									}
-								}
-							},
-							"world": {
-								"x": 2882,
-								"y": 3572,
-								"width": 115.57158418179424,
-								"height": 115.57158418179424,
-								"originX": 0.5,
-								"originY": 0.5,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 0,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "Planet",
-							"properties": {
-								"initially-visible": true,
-								"initial-animation": "Animation 1",
-								"initial-frame": 0,
-								"enable-collisions": true,
-								"live-preview": false
-							},
-							"uid": 65,
-							"instanceVariables": {
-								"totalFacilitySlots": 3,
-								"facilityList": "[]",
-								"connectionList": "[]",
-								"explorationLevel": 0,
-								"trait": "",
-								"quantiaRate": 0,
-								"stelliumRate": 0,
-								"quantiaDrain": 0,
-								"stelliumDrain": 0,
-								"improvementLevel": 0,
-								"name": ""
-							},
-							"behaviors": {
-								"Rotate": {
-									"properties": {
-										"speed": 30,
-										"acceleration": 0,
-										"enabled": true,
-										"live-preview": false
-									}
-								}
-							},
-							"template": {
-								"mode": "template",
-								"templateName": "Standard Planet",
-								"sourceTemplateName": "",
-								"components": [
-									{
-										"id": "plugin",
-										"component": [
-											{
-												"key": "plugin",
-												"state": [
-													[
-														"initially-visible",
-														true
-													],
-													[
-														"initial-animation",
-														true
-													],
-													[
-														"initial-frame",
-														true
-													],
-													[
-														"enable-collisions",
-														true
-													]
-												]
-											}
-										]
-									},
-									{
-										"id": "instance-variable",
-										"component": [
-											{
-												"key": "instance-variable",
-												"state": [
-													{
-														"iv": "totalFacilitySlots",
-														"state": true
-													},
-													{
-														"iv": "facilityList",
-														"state": true
-													},
-													{
-														"iv": "connectionList",
-														"state": true
-													},
-													{
-														"iv": "explorationLevel",
-														"state": true
-													},
-													{
-														"iv": "trait",
-														"state": true
-													},
-													{
-														"iv": "quantiaRate",
-														"state": true
-													},
-													{
-														"iv": "stelliumRate",
-														"state": true
-													},
-													{
-														"iv": "quantiaDrain",
-														"state": true
-													},
-													{
-														"iv": "stelliumDrain",
-														"state": true
-													},
-													{
-														"iv": "improvementLevel",
-														"state": true
-													},
-													{
-														"iv": "name",
-														"state": true
-													}
-												]
-											}
-										]
-									},
-									{
-										"id": "behavior",
-										"component": [
-											{
-												"key": "Rotate",
-												"state": [
-													[
-														"speed",
-														true
-													],
-													[
-														"acceleration",
-														true
-													],
-													[
-														"enabled",
-														true
-													]
-												]
-											}
-										]
-									},
-									{
-										"id": "effect",
-										"component": []
-									},
-									{
-										"id": "world-instance",
-										"component": [
-											{
-												"key": "world-instance",
-												"state": [
-													[
-														"x",
-														false
-													],
-													[
-														"y",
-														false
-													],
-													[
-														"z",
-														true
-													],
-													[
-														"w",
-														true
-													],
-													[
-														"h",
-														true
-													],
-													[
-														"a",
-														true
-													],
-													[
-														"o",
-														true
-													],
-													[
-														"c",
-														true
-													],
-													[
-														"sx",
-														true
-													],
-													[
-														"sy",
-														true
-													],
-													[
-														"bm",
-														true
-													],
-													[
-														"twpx",
-														true
-													],
-													[
-														"twpy",
-														true
-													],
-													[
-														"twpz",
-														true
-													],
-													[
-														"twpw",
-														true
-													],
-													[
-														"twph",
-														true
-													],
-													[
-														"twpa",
-														true
-													],
-													[
-														"dwp",
-														true
-													],
-													[
-														"ssm",
-														true
-													]
-												]
-											}
-										]
-									}
-								],
-								"replicasUIDs": null
-							},
-							"world": {
-								"x": -496,
-								"y": 2064,
-								"width": 115.57158418179424,
-								"height": 115.57158418179424,
-								"originX": 0.5,
-								"originY": 0.5,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 0,
-								"zElevation": 0
-							}
-						}
-					],
-					"sid": 612867354278422,
+					"instances": [],
+					"sid": 266199832286503,
 					"effectTypes": [],
 					"isInitiallyVisible": true,
 					"isInitiallyInteractive": true,
@@ -1849,7 +232,7 @@
 								"enable-collisions": true,
 								"live-preview": false
 							},
-							"uid": 19,
+							"uid": 91,
 							"instanceVariables": {
 								"name": "Unknown Facility"
 							},
@@ -1881,7 +264,7 @@
 							}
 						}
 					],
-					"sid": 998100451985904,
+					"sid": 713911919357739,
 					"effectTypes": [],
 					"isInitiallyVisible": true,
 					"isInitiallyInteractive": true,
@@ -1911,7 +294,7 @@
 				}
 			],
 			"instances": [],
-			"sid": 681590790758238,
+			"sid": 903064995587050,
 			"effectTypes": [],
 			"isInitiallyVisible": true,
 			"isInitiallyInteractive": true,
@@ -1952,13 +335,13 @@
 						"origin": "center",
 						"antialiasing": "off"
 					},
-					"uid": 14,
+					"uid": 66,
 					"instanceVariables": {},
 					"behaviors": {},
 					"template": {
-						"mode": "template",
-						"templateName": "Scan Area Template",
-						"sourceTemplateName": "",
+						"mode": "replica",
+						"templateName": "",
+						"sourceTemplateName": "Scan Area Template",
 						"components": [
 							{
 								"id": "plugin",
@@ -2093,36 +476,8 @@
 						"replicasUIDs": null
 					},
 					"world": {
-						"x": -500,
-						"y": 2430.5,
-						"width": 474,
-						"height": 422,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"blendMode": "destination-out"
-					}
-				},
-				{
-					"type": "ScanArea",
-					"properties": {
-						"resolution-mode": "auto",
-						"initially-visible": true,
-						"origin": "center",
-						"antialiasing": "off"
-					},
-					"uid": 17,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": 843,
-						"y": 1608,
+						"x": 1430,
+						"y": 2972,
 						"width": 474,
 						"height": 422,
 						"originX": 0.5,
@@ -2138,7 +493,7 @@
 					}
 				}
 			],
-			"sid": 998488250014422,
+			"sid": 541831890082597,
 			"effectTypes": [
 				{
 					"effectId": "pulse",
@@ -2196,7 +551,7 @@
 						"enable-collisions": true,
 						"live-preview": false
 					},
-					"uid": 18,
+					"uid": 58,
 					"instanceVariables": {
 						"activeScanUid": 0,
 						"exploringPlanetUid": 0,
@@ -2249,7 +604,7 @@
 						"enable-collisions": true,
 						"live-preview": false
 					},
-					"uid": 25,
+					"uid": 59,
 					"instanceVariables": {},
 					"behaviors": {
 						"MoveTo": {
@@ -2453,7 +808,7 @@
 					}
 				}
 			],
-			"sid": 870653052500804,
+			"sid": 457327983040211,
 			"effectTypes": [],
 			"isInitiallyVisible": true,
 			"isInitiallyInteractive": true,
@@ -2503,7 +858,7 @@
 								"origin": "top-left",
 								"seams": "overlap"
 							},
-							"uid": 49,
+							"uid": 92,
 							"instanceVariables": {
 								"handle": "Planet"
 							},
@@ -2516,10 +871,10 @@
 							},
 							"sceneGraphData": {
 								"parent-uid": null,
-								"uid": 49,
+								"uid": 92,
 								"children": [
 									{
-										"uid": 51,
+										"uid": 94,
 										"flags": {
 											"x": true,
 											"y": true,
@@ -2532,7 +887,7 @@
 										}
 									},
 									{
-										"uid": 52,
+										"uid": 95,
 										"flags": {
 											"x": true,
 											"y": true,
@@ -2545,7 +900,7 @@
 										}
 									},
 									{
-										"uid": 53,
+										"uid": 96,
 										"flags": {
 											"x": true,
 											"y": true,
@@ -2558,7 +913,7 @@
 										}
 									},
 									{
-										"uid": 54,
+										"uid": 97,
 										"flags": {
 											"x": true,
 											"y": true,
@@ -2571,7 +926,7 @@
 										}
 									},
 									{
-										"uid": 55,
+										"uid": 98,
 										"flags": {
 											"x": true,
 											"y": true,
@@ -2584,7 +939,7 @@
 										}
 									},
 									{
-										"uid": 56,
+										"uid": 99,
 										"flags": {
 											"x": true,
 											"y": true,
@@ -2597,7 +952,7 @@
 										}
 									},
 									{
-										"uid": 57,
+										"uid": 100,
 										"flags": {
 											"x": true,
 											"y": true,
@@ -2672,7 +1027,7 @@
 								"origin": "top-left",
 								"read-aloud": false
 							},
-							"uid": 50,
+							"uid": 93,
 							"instanceVariables": {
 								"handle": ""
 							},
@@ -2899,7 +1254,7 @@
 								"origin": "top-left",
 								"read-aloud": false
 							},
-							"uid": 51,
+							"uid": 94,
 							"instanceVariables": {
 								"handle": "Planet Name"
 							},
@@ -3087,8 +1442,8 @@
 								"replicasUIDs": null
 							},
 							"sceneGraphData": {
-								"parent-uid": 49,
-								"uid": 51,
+								"parent-uid": 92,
+								"uid": 94,
 								"flags": {
 									"x": true,
 									"y": true,
@@ -3151,7 +1506,7 @@
 								"origin": "top-left",
 								"read-aloud": false
 							},
-							"uid": 52,
+							"uid": 95,
 							"instanceVariables": {
 								"handle": "Improvement Level"
 							},
@@ -3339,8 +1694,8 @@
 								"replicasUIDs": null
 							},
 							"sceneGraphData": {
-								"parent-uid": 49,
-								"uid": 52,
+								"parent-uid": 92,
+								"uid": 95,
 								"flags": {
 									"x": true,
 									"y": true,
@@ -3403,7 +1758,7 @@
 								"origin": "top-left",
 								"read-aloud": false
 							},
-							"uid": 53,
+							"uid": 96,
 							"instanceVariables": {
 								"handle": "Quantia"
 							},
@@ -3591,8 +1946,8 @@
 								"replicasUIDs": null
 							},
 							"sceneGraphData": {
-								"parent-uid": 49,
-								"uid": 53,
+								"parent-uid": 92,
+								"uid": 96,
 								"flags": {
 									"x": true,
 									"y": true,
@@ -3655,7 +2010,7 @@
 								"origin": "top-left",
 								"read-aloud": false
 							},
-							"uid": 54,
+							"uid": 97,
 							"instanceVariables": {
 								"handle": "Stellium"
 							},
@@ -3843,8 +2198,8 @@
 								"replicasUIDs": null
 							},
 							"sceneGraphData": {
-								"parent-uid": 49,
-								"uid": 54,
+								"parent-uid": 92,
+								"uid": 97,
 								"flags": {
 									"x": true,
 									"y": true,
@@ -3907,7 +2262,7 @@
 								"origin": "top-left",
 								"read-aloud": false
 							},
-							"uid": 55,
+							"uid": 98,
 							"instanceVariables": {
 								"handle": "Exploration"
 							},
@@ -4095,8 +2450,8 @@
 								"replicasUIDs": null
 							},
 							"sceneGraphData": {
-								"parent-uid": 49,
-								"uid": 55,
+								"parent-uid": 92,
+								"uid": 98,
 								"flags": {
 									"x": true,
 									"y": true,
@@ -4159,7 +2514,7 @@
 								"origin": "top-left",
 								"read-aloud": false
 							},
-							"uid": 56,
+							"uid": 99,
 							"instanceVariables": {
 								"handle": "Supply"
 							},
@@ -4347,8 +2702,8 @@
 								"replicasUIDs": null
 							},
 							"sceneGraphData": {
-								"parent-uid": 49,
-								"uid": 56,
+								"parent-uid": 92,
+								"uid": 99,
 								"flags": {
 									"x": true,
 									"y": true,
@@ -4411,7 +2766,7 @@
 								"origin": "top-left",
 								"read-aloud": false
 							},
-							"uid": 57,
+							"uid": 100,
 							"instanceVariables": {
 								"handle": "Trait"
 							},
@@ -4599,8 +2954,8 @@
 								"replicasUIDs": null
 							},
 							"sceneGraphData": {
-								"parent-uid": 49,
-								"uid": 57,
+								"parent-uid": 92,
+								"uid": 100,
 								"flags": {
 									"x": true,
 									"y": true,
@@ -4641,7 +2996,7 @@
 							}
 						}
 					],
-					"sid": 620010550599616,
+					"sid": 739408166489736,
 					"effectTypes": [],
 					"isInitiallyVisible": true,
 					"isInitiallyInteractive": true,
@@ -4687,7 +3042,7 @@
 								"origin": "top-left",
 								"seams": "overlap"
 							},
-							"uid": 15,
+							"uid": 101,
 							"instanceVariables": {
 								"handle": ""
 							},
@@ -4700,10 +3055,10 @@
 							},
 							"sceneGraphData": {
 								"parent-uid": null,
-								"uid": 15,
+								"uid": 101,
 								"children": [
 									{
-										"uid": 16,
+										"uid": 102,
 										"flags": {
 											"x": true,
 											"y": true,
@@ -4764,12 +3119,12 @@
 								"enable-collisions": true,
 								"live-preview": false
 							},
-							"uid": 16,
+							"uid": 102,
 							"instanceVariables": {},
 							"behaviors": {},
 							"sceneGraphData": {
-								"parent-uid": 15,
-								"uid": 16,
+								"parent-uid": 101,
+								"uid": 102,
 								"flags": {
 									"x": true,
 									"y": true,
@@ -4832,7 +3187,7 @@
 								"origin": "top-left",
 								"read-aloud": false
 							},
-							"uid": 24,
+							"uid": 103,
 							"instanceVariables": {},
 							"behaviors": {},
 							"world": {
@@ -4875,7 +3230,7 @@
 								"origin": "top-left",
 								"read-aloud": false
 							},
-							"uid": 20,
+							"uid": 104,
 							"instanceVariables": {},
 							"behaviors": {},
 							"world": {
@@ -4918,7 +3273,7 @@
 								"origin": "top-left",
 								"read-aloud": false
 							},
-							"uid": 29,
+							"uid": 105,
 							"instanceVariables": {},
 							"behaviors": {},
 							"world": {
@@ -4961,7 +3316,7 @@
 								"origin": "top-left",
 								"read-aloud": false
 							},
-							"uid": 12,
+							"uid": 106,
 							"instanceVariables": {},
 							"behaviors": {},
 							"world": {
@@ -4982,7 +3337,7 @@
 							}
 						}
 					],
-					"sid": 685249971819265,
+					"sid": 942049504984029,
 					"effectTypes": [],
 					"isInitiallyVisible": true,
 					"isInitiallyInteractive": true,
@@ -5012,7 +3367,7 @@
 				}
 			],
 			"instances": [],
-			"sid": 876012128810586,
+			"sid": 291471612537222,
 			"effectTypes": [],
 			"isInitiallyVisible": true,
 			"isInitiallyInteractive": true,
@@ -5054,7 +3409,7 @@
 						"enable-collisions": true,
 						"live-preview": false
 					},
-					"uid": 28,
+					"uid": 60,
 					"instanceVariables": {
 						"stelliumStockpile": 0,
 						"crysetherStockpile": 0,
@@ -5089,7 +3444,7 @@
 						"enable-collisions": true,
 						"live-preview": false
 					},
-					"uid": 4,
+					"uid": 61,
 					"instanceVariables": {
 						"zoomLevel": 1
 					},
@@ -5140,7 +3495,7 @@
 					}
 				}
 			],
-			"sid": 572825284931440,
+			"sid": 111212935470525,
 			"effectTypes": [],
 			"isInitiallyVisible": false,
 			"isInitiallyInteractive": false,
@@ -5196,7 +3551,7 @@
 						"origin": "top-left",
 						"read-aloud": false
 					},
-					"uid": 26,
+					"uid": 62,
 					"instanceVariables": {
 						"messages": "[]",
 						"messageDuration": 7
@@ -5220,10 +3575,10 @@
 					}
 				}
 			],
-			"sid": 885803122786064,
+			"sid": 864255954347781,
 			"effectTypes": [],
-			"isInitiallyVisible": true,
-			"isInitiallyInteractive": true,
+			"isInitiallyVisible": false,
+			"isInitiallyInteractive": false,
 			"color": [
 				1,
 				1,
@@ -5249,19 +3604,8 @@
 			"global": false
 		}
 	],
-	"sid": 761256050089909,
-	"nonworld-instances": [
-		{
-			"type": "FacilityData",
-			"properties": {
-				"width": 10,
-				"height": 1,
-				"depth": 1
-			},
-			"uid": 23,
-			"instanceVariables": {}
-		}
-	],
+	"sid": 149615788485023,
+	"nonworld-instances": [],
 	"effectTypes": [],
 	"width": 6000,
 	"height": 11000,
@@ -5269,5 +3613,5 @@
 	"vpX": 0.5,
 	"vpY": 0.5,
 	"projection": "perspective",
-	"eventSheet": "Development Sector Events"
+	"eventSheet": "Procedural Sector Events"
 }
