@@ -3,12 +3,30 @@
 	"plugin-id": "Sprite",
 	"sid": 760039333067204,
 	"isGlobal": false,
-	"instanceVariables": [],
+	"instanceVariables": [
+		{
+			"name": "lifetimeYears",
+			"type": "number",
+			"desc": "Number of years this ship lasts in orbit mode.",
+			"show": true,
+			"sid": 513400550303057
+		}
+	],
 	"behaviorTypes": [
 		{
 			"behaviorId": "MoveTo",
 			"name": "MoveTo",
 			"sid": 754860589288761
+		},
+		{
+			"behaviorId": "Orbit",
+			"name": "Orbit",
+			"sid": 513047132406555
+		},
+		{
+			"behaviorId": "Timer",
+			"name": "Timer",
+			"sid": 648001034760744
 		}
 	],
 	"effectTypes": [],

@@ -92,8 +92,22 @@
 		},
 		{
 			"type": "behavior",
+			"id": "Orbit",
+			"name": "Orbit",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
 			"id": "Rotate",
 			"name": "Rotate",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Timer",
+			"name": "Timer",
 			"author": "Scirra",
 			"bundled": false
 		},
@@ -382,5 +396,5 @@
 	},
 	"viewportWidth": 1080,
 	"viewportHeight": 1920,
-	"firstLayout": null
+	"firstLayout": "Procedural Sector"
 }

@@ -24,6 +24,11 @@
 			"behaviorId": "Rotate",
 			"name": "Rotate",
 			"sid": 118863215130209
+		},
+		{
+			"behaviorId": "Timer",
+			"name": "Timer",
+			"sid": 273069262620143
 		}
 	],
 	"effectTypes": [],

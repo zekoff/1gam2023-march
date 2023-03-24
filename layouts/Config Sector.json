@@ -287,6 +287,9 @@
 										"enabled": true,
 										"live-preview": false
 									}
+								},
+								"Timer": {
+									"properties": {}
 								}
 							},
 							"world": {
@@ -337,6 +340,9 @@
 										"enabled": true,
 										"live-preview": false
 									}
+								},
+								"Timer": {
+									"properties": {}
 								}
 							},
 							"world": {
@@ -387,6 +393,9 @@
 										"enabled": true,
 										"live-preview": false
 									}
+								},
+								"Timer": {
+									"properties": {}
 								}
 							},
 							"world": {
@@ -437,6 +446,9 @@
 										"enabled": true,
 										"live-preview": false
 									}
+								},
+								"Timer": {
+									"properties": {}
 								}
 							},
 							"world": {
@@ -487,6 +499,9 @@
 										"enabled": true,
 										"live-preview": false
 									}
+								},
+								"Timer": {
+									"properties": {}
 								}
 							},
 							"world": {
@@ -537,6 +552,9 @@
 										"enabled": true,
 										"live-preview": false
 									}
+								},
+								"Timer": {
+									"properties": {}
 								}
 							},
 							"world": {
@@ -587,6 +605,9 @@
 										"enabled": true,
 										"live-preview": false
 									}
+								},
+								"Timer": {
+									"properties": {}
 								}
 							},
 							"world": {
@@ -637,6 +658,9 @@
 										"enabled": true,
 										"live-preview": false
 									}
+								},
+								"Timer": {
+									"properties": {}
 								}
 							},
 							"world": {
@@ -687,6 +711,9 @@
 										"enabled": true,
 										"live-preview": false
 									}
+								},
+								"Timer": {
+									"properties": {}
 								}
 							},
 							"world": {
@@ -737,6 +764,9 @@
 										"enabled": true,
 										"live-preview": false
 									}
+								},
+								"Timer": {
+									"properties": {}
 								}
 							},
 							"world": {
@@ -787,6 +817,9 @@
 										"enabled": true,
 										"live-preview": false
 									}
+								},
+								"Timer": {
+									"properties": {}
 								}
 							},
 							"world": {
@@ -837,6 +870,9 @@
 										"enabled": true,
 										"live-preview": false
 									}
+								},
+								"Timer": {
+									"properties": {}
 								}
 							},
 							"world": {
@@ -887,6 +923,9 @@
 										"enabled": true,
 										"live-preview": false
 									}
+								},
+								"Timer": {
+									"properties": {}
 								}
 							},
 							"world": {
@@ -937,6 +976,9 @@
 										"enabled": true,
 										"live-preview": false
 									}
+								},
+								"Timer": {
+									"properties": {}
 								}
 							},
 							"world": {
@@ -987,6 +1029,9 @@
 										"enabled": true,
 										"live-preview": false
 									}
+								},
+								"Timer": {
+									"properties": {}
 								}
 							},
 							"world": {
@@ -1037,6 +1082,9 @@
 										"enabled": true,
 										"live-preview": false
 									}
+								},
+								"Timer": {
+									"properties": {}
 								}
 							},
 							"world": {
@@ -1087,6 +1135,9 @@
 										"enabled": true,
 										"live-preview": false
 									}
+								},
+								"Timer": {
+									"properties": {}
 								}
 							},
 							"world": {
@@ -1137,6 +1188,9 @@
 										"enabled": true,
 										"live-preview": false
 									}
+								},
+								"Timer": {
+									"properties": {}
 								}
 							},
 							"world": {
@@ -1187,6 +1241,9 @@
 										"enabled": true,
 										"live-preview": false
 									}
+								},
+								"Timer": {
+									"properties": {}
 								}
 							},
 							"world": {
@@ -1237,6 +1294,9 @@
 										"enabled": true,
 										"live-preview": false
 									}
+								},
+								"Timer": {
+									"properties": {}
 								}
 							},
 							"world": {
@@ -1287,6 +1347,9 @@
 										"enabled": true,
 										"live-preview": false
 									}
+								},
+								"Timer": {
+									"properties": {}
 								}
 							},
 							"world": {
@@ -1337,6 +1400,9 @@
 										"enabled": true,
 										"live-preview": false
 									}
+								},
+								"Timer": {
+									"properties": {}
 								}
 							},
 							"world": {
@@ -1387,6 +1453,9 @@
 										"enabled": true,
 										"live-preview": false
 									}
+								},
+								"Timer": {
+									"properties": {}
 								}
 							},
 							"world": {
@@ -1437,6 +1506,9 @@
 										"enabled": true,
 										"live-preview": false
 									}
+								},
+								"Timer": {
+									"properties": {}
 								}
 							},
 							"world": {
@@ -1487,6 +1559,9 @@
 										"enabled": true,
 										"live-preview": false
 									}
+								},
+								"Timer": {
+									"properties": {}
 								}
 							},
 							"world": {
@@ -1537,6 +1612,9 @@
 										"enabled": true,
 										"live-preview": false
 									}
+								},
+								"Timer": {
+									"properties": {}
 								}
 							},
 							"world": {
@@ -1587,6 +1665,9 @@
 										"enabled": true,
 										"live-preview": false
 									}
+								},
+								"Timer": {
+									"properties": {}
 								}
 							},
 							"template": {
@@ -1693,6 +1774,10 @@
 														true
 													]
 												]
+											},
+											{
+												"key": "Timer",
+												"state": []
 											}
 										]
 									},
@@ -2250,7 +2335,9 @@
 						"live-preview": false
 					},
 					"uid": 25,
-					"instanceVariables": {},
+					"instanceVariables": {
+						"lifetimeYears": 0
+					},
 					"behaviors": {
 						"MoveTo": {
 							"properties": {
@@ -2262,6 +2349,21 @@
 								"stop-on-solids": false,
 								"enabled": true
 							}
+						},
+						"Orbit": {
+							"properties": {
+								"speed": 180,
+								"acceleration": 0,
+								"primary-axis": 100,
+								"secondary-axis": 100,
+								"offset-angle": 0,
+								"match-rotation": true,
+								"enabled": true,
+								"live-preview": false
+							}
+						},
+						"Timer": {
+							"properties": {}
 						}
 					},
 					"template": {
@@ -2300,7 +2402,12 @@
 								"component": [
 									{
 										"key": "instance-variable",
-										"state": []
+										"state": [
+											{
+												"iv": "lifetimeYears",
+												"state": true
+											}
+										]
 									}
 								]
 							},
@@ -2339,6 +2446,43 @@
 												true
 											]
 										]
+									},
+									{
+										"key": "Orbit",
+										"state": [
+											[
+												"speed",
+												true
+											],
+											[
+												"acceleration",
+												true
+											],
+											[
+												"primary-axis",
+												true
+											],
+											[
+												"secondary-axis",
+												true
+											],
+											[
+												"offset-angle",
+												true
+											],
+											[
+												"match-rotation",
+												true
+											],
+											[
+												"enabled",
+												true
+											]
+										]
+									},
+									{
+										"key": "Timer",
+										"state": []
 									}
 								]
 							},

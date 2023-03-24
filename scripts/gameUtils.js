@@ -258,7 +258,7 @@ export function numFacilityOnPlanet(runtime, planetUid, facilityName) {
   const planet = runtime.getInstanceByUid(planetUid);
   const facilityUids = JSON.parse(planet.instVars.facilityList);
   const facilities = facilityUids.map(uid => runtime.getInstanceByUid(uid));
-  return facilities.filter(facility => facility.instVars.name === facilityName).length > 0;
+  return facilities.filter(facility => facility.instVars.name === facilityName).length;
 }
 
 /**

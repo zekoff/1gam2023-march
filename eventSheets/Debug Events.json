@@ -43,66 +43,6 @@
 			]
 		},
 		{
-			"eventType": "comment",
-			"text": "Visualize trade ships moving between nodes."
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "every-x-seconds",
-					"objectClass": "System",
-					"sid": 468874745394141,
-					"parameters": {
-						"interval-seconds": "0.01"
-					}
-				}
-			],
-			"actions": [],
-			"sid": 332931173144923,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "pick-random-instance",
-							"objectClass": "System",
-							"sid": 307999249738536,
-							"parameters": {
-								"object": "Planet"
-							}
-						}
-					],
-					"actions": [
-						{
-							"type": "script",
-							"script": "const rnd = ConstructUtils.getRandomNumberInRange;\n\n// Spawn a trade ship and send to a connected planet.\nconst planet = runtime.objects.Planet.getFirstPickedInstance();\nconst connectedPlanets = GameUtils.getConnectedPlanets(runtime, planet.uid);\nif (connectedPlanets.length === 0) return;\nconst ship = runtime.objects.TradeShip.createInstance(\n\t\"Ships\",\n\tplanet.x + rnd(-20, 20),\n\tplanet.y + rnd(-20, 20),\n\tfalse,\n\t\"Standard Trade Ship\"\n);\nconst destPlanet = connectedPlanets[Math.floor(Math.random() * connectedPlanets.length)];\nship.behaviors.MoveTo.moveToPosition(\n\tdestPlanet.x + rnd(-20, 20),\n\tdestPlanet.y + rnd(-20, 20)\n);"
-						}
-					],
-					"sid": 498177183977100
-				}
-			]
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-arrived",
-					"objectClass": "TradeShip",
-					"sid": 643361837948472,
-					"behaviorType": "MoveTo"
-				}
-			],
-			"actions": [
-				{
-					"id": "destroy",
-					"objectClass": "TradeShip",
-					"sid": 916318466240054
-				}
-			],
-			"sid": 244642029274090
-		},
-		{
 			"eventType": "block",
 			"conditions": [
 				{

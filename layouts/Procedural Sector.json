@@ -605,7 +605,9 @@
 						"live-preview": false
 					},
 					"uid": 59,
-					"instanceVariables": {},
+					"instanceVariables": {
+						"lifetimeYears": 0
+					},
 					"behaviors": {
 						"MoveTo": {
 							"properties": {
@@ -615,8 +617,23 @@
 								"rotate-speed": 0,
 								"set-angle": true,
 								"stop-on-solids": false,
-								"enabled": true
+								"enabled": false
 							}
+						},
+						"Orbit": {
+							"properties": {
+								"speed": 180,
+								"acceleration": 0,
+								"primary-axis": 100,
+								"secondary-axis": 100,
+								"offset-angle": 0,
+								"match-rotation": true,
+								"enabled": false,
+								"live-preview": false
+							}
+						},
+						"Timer": {
+							"properties": {}
 						}
 					},
 					"template": {
@@ -655,7 +672,12 @@
 								"component": [
 									{
 										"key": "instance-variable",
-										"state": []
+										"state": [
+											{
+												"iv": "lifetimeYears",
+												"state": true
+											}
+										]
 									}
 								]
 							},
@@ -694,6 +716,43 @@
 												true
 											]
 										]
+									},
+									{
+										"key": "Orbit",
+										"state": [
+											[
+												"speed",
+												true
+											],
+											[
+												"acceleration",
+												true
+											],
+											[
+												"primary-axis",
+												true
+											],
+											[
+												"secondary-axis",
+												true
+											],
+											[
+												"offset-angle",
+												true
+											],
+											[
+												"match-rotation",
+												true
+											],
+											[
+												"enabled",
+												true
+											]
+										]
+									},
+									{
+										"key": "Timer",
+										"state": []
 									}
 								]
 							},
@@ -3527,57 +3586,10 @@
 			"name": "Debug",
 			"overriden": 0,
 			"subLayers": [],
-			"instances": [
-				{
-					"type": "DebugTextDisplay",
-					"properties": {
-						"text": "DEBUG TEXT",
-						"enable-bbcode": true,
-						"font": "Arial",
-						"size": 18,
-						"line-height": 0,
-						"bold": false,
-						"italic": false,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"horizontal-alignment": "left",
-						"vertical-alignment": "top",
-						"wrapping": "word",
-						"initially-visible": true,
-						"origin": "top-left",
-						"read-aloud": false
-					},
-					"uid": 62,
-					"instanceVariables": {
-						"messages": "[]",
-						"messageDuration": 7
-					},
-					"behaviors": {},
-					"world": {
-						"x": 65,
-						"y": 480,
-						"width": 971,
-						"height": 459,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				}
-			],
+			"instances": [],
 			"sid": 864255954347781,
 			"effectTypes": [],
-			"isInitiallyVisible": false,
+			"isInitiallyVisible": true,
 			"isInitiallyInteractive": false,
 			"color": [
 				1,

@@ -2127,6 +2127,221 @@
 				}
 			],
 			"sid": 504751791717747
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Trade Ships",
+			"description": "Creation and management of trade ships.",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 255561997423125
+						}
+					],
+					"actions": [
+						{
+							"id": "wait-for-signal",
+							"objectClass": "System",
+							"sid": 778545364601181,
+							"parameters": {
+								"tag": "\"sector_generation_complete\""
+							}
+						},
+						{
+							"id": "start-timer",
+							"objectClass": "Planet",
+							"sid": 951157973670152,
+							"behaviorType": "Timer",
+							"parameters": {
+								"duration": "0.5",
+								"type": "regular",
+								"tag": "\"orbit_ship\""
+							}
+						},
+						{
+							"id": "start-timer",
+							"objectClass": "Planet",
+							"sid": 662077053624610,
+							"behaviorType": "Timer",
+							"parameters": {
+								"duration": "0.2",
+								"type": "regular",
+								"tag": "\"trade_ship\""
+							}
+						}
+					],
+					"sid": 344973388948326
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-arrived",
+							"objectClass": "TradeShip",
+							"sid": 154470112440478,
+							"behaviorType": "MoveTo"
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "TradeShip",
+							"sid": 709917845459343
+						}
+					],
+					"sid": 614037299175894
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-timer",
+							"objectClass": "TradeShip",
+							"sid": 451918182209723,
+							"behaviorType": "Timer",
+							"parameters": {
+								"tag": "\"lifetime\""
+							}
+						},
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 420298612869285,
+							"parameters": {
+								"object": "TradeShip"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "TradeShip",
+							"sid": 175379491210350
+						}
+					],
+					"sid": 178761408853884
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-timer",
+							"objectClass": "Planet",
+							"sid": 416073701887659,
+							"behaviorType": "Timer",
+							"parameters": {
+								"tag": "\"orbit_ship\""
+							}
+						},
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 162534522804034,
+							"parameters": {
+								"object": "Planet"
+							}
+						}
+					],
+					"actions": [
+						{
+							"type": "script",
+							"script": "const rnd = ConstructUtils.getRandomNumberInRange;\n\n// Spawn a trade ship to orbit this planet\nconst planet = runtime.objects.Planet.getFirstPickedInstance();\nif (Math.random() > planet.instVars.improvementLevel / 15) return;\n\nconst ship = runtime.objects.TradeShip.createInstance(\n\t\"Ships\",\n\tplanet.x,\n\tplanet.y,\n\tfalse,\n\t\"Standard Trade Ship\"\n);\nship.behaviors.Orbit.isEnabled = true;\nship.behaviors.Orbit.speed = rnd(Math.PI / 4, Math.PI);\nif (Math.random() <= 0.5) ship.behaviors.Orbit.speed *= -1;\nship.behaviors.Orbit.pin(planet);\nship.behaviors.Orbit.primaryRadius = rnd(50, 80);\nship.behaviors.Orbit.secondaryRadius = rnd(50, 80);\nship.behaviors.Orbit.rotation = rnd(0, Math.PI * 2);\nship.behaviors.Orbit.offsetAngle = rnd(0, Math.PI * 2);\nship.behaviors.isMatchRotation = true;\nship.instVars.lifetimeYears = 2;"
+						}
+					],
+					"sid": 819554711623696,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-last-created",
+									"objectClass": "System",
+									"sid": 979645811180774,
+									"parameters": {
+										"object": "TradeShip"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "start-timer",
+									"objectClass": "TradeShip",
+									"sid": 498786419958398,
+									"behaviorType": "Timer",
+									"parameters": {
+										"duration": "2 * 60 / YEARS_PER_MINUTE",
+										"type": "once",
+										"tag": "\"lifetime\""
+									}
+								}
+							],
+							"sid": 643161580067075,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "evaluate-expression",
+											"objectClass": "System",
+											"sid": 268060031754855,
+											"parameters": {
+												"value": "TradeShip.Orbit.Speed < 0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-mirrored",
+											"objectClass": "TradeShip",
+											"sid": 637054941974804,
+											"parameters": {
+												"state": "mirrored"
+											}
+										}
+									],
+									"sid": 449302853144258
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-timer",
+							"objectClass": "Planet",
+							"sid": 904245317818262,
+							"behaviorType": "Timer",
+							"parameters": {
+								"tag": "\"trade_ship\""
+							}
+						},
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 417821934746854,
+							"parameters": {
+								"object": "Planet"
+							}
+						}
+					],
+					"actions": [
+						{
+							"type": "script",
+							"script": "const rnd = ConstructUtils.getRandomNumberInRange;\n\n// Spawn a trade ship and send to a connected planet.\nconst planet = runtime.objects.Planet.getFirstPickedInstance();\nconst connectedPlanets = GameUtils.getConnectedPlanets(runtime, planet.uid);\nif (connectedPlanets.length === 0) return;\n\nlet tradeLevel = 0;\ntradeLevel += GameUtils.numFacilityOnPlanet(runtime, planet.uid, \"Quantia Harvester\");\ntradeLevel += GameUtils.numFacilityOnPlanet(runtime, planet.uid, \"Stellium Extractor\");\ntradeLevel += GameUtils.numFacilityOnPlanet(runtime, planet.uid, \"Strip Mine\");\ntradeLevel += GameUtils.numFacilityOnPlanet(runtime, planet.uid, \"Warp Depot\") * 4;\ntradeLevel += GameUtils.numFacilityOnPlanet(runtime, planet.uid, \"Colony\") * 3;\n\n// Spawn more ships at higher trade level\nif (Math.random() > (tradeLevel / 6)) return;\n\nconst ship = runtime.objects.TradeShip.createInstance(\n\t\"Ships\",\n\tplanet.x + rnd(-20, 20),\n\tplanet.y + rnd(-20, 20),\n\tfalse,\n\t\"Standard Trade Ship\"\n);\nship.behaviors.MoveTo.isEnabled = true;\nconst destPlanet = connectedPlanets[Math.floor(Math.random() * connectedPlanets.length)];\nship.behaviors.MoveTo.moveToPosition(\n\tdestPlanet.x + rnd(-20, 20),\n\tdestPlanet.y + rnd(-20, 20)\n);"
+						}
+					],
+					"sid": 569130085474613
+				}
+			],
+			"sid": 748338600580016
 		}
 	],
 	"sid": 165260888475578
