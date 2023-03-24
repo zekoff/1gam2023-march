@@ -3,11 +3,11 @@
 	"layers": [
 		{
 			"name": "Background",
-			"overriden": 0,
+			"overriden": 1,
 			"subLayers": [
 				{
 					"name": "Deep Space Starfield",
-					"overriden": 0,
+					"overriden": 1,
 					"subLayers": [],
 					"instances": [
 						{
@@ -80,7 +80,7 @@
 				},
 				{
 					"name": "Near Space Starfield",
-					"overriden": 0,
+					"overriden": 1,
 					"subLayers": [],
 					"instances": [
 						{
@@ -216,7 +216,7 @@
 		},
 		{
 			"name": "Nodes",
-			"overriden": 0,
+			"overriden": 1,
 			"subLayers": [
 				{
 					"name": "Supply Area",
@@ -253,7 +253,7 @@
 				},
 				{
 					"name": "Planets",
-					"overriden": 0,
+					"overriden": 1,
 					"subLayers": [],
 					"instances": [
 						{
@@ -1922,7 +1922,7 @@
 				},
 				{
 					"name": "Facilities",
-					"overriden": 0,
+					"overriden": 1,
 					"subLayers": [],
 					"instances": [
 						{
@@ -2026,7 +2026,7 @@
 		},
 		{
 			"name": "Exploration",
-			"overriden": 0,
+			"overriden": 1,
 			"subLayers": [],
 			"instances": [
 				{
@@ -2242,7 +2242,7 @@
 				}
 			],
 			"isInitiallyVisible": true,
-			"isInitiallyInteractive": true,
+			"isInitiallyInteractive": false,
 			"color": [
 				1,
 				1,
@@ -2269,7 +2269,7 @@
 		},
 		{
 			"name": "Ships",
-			"overriden": 0,
+			"overriden": 1,
 			"subLayers": [],
 			"instances": [
 				{
@@ -2627,11 +2627,11 @@
 		},
 		{
 			"name": "UI",
-			"overriden": 0,
+			"overriden": 1,
 			"subLayers": [
 				{
 					"name": "Planet Details",
-					"overriden": 0,
+					"overriden": 1,
 					"subLayers": [],
 					"instances": [
 						{
@@ -4815,7 +4815,7 @@
 				},
 				{
 					"name": "Overview",
-					"overriden": 0,
+					"overriden": 1,
 					"subLayers": [],
 					"instances": [
 						{
@@ -5186,7 +5186,7 @@
 		},
 		{
 			"name": "Controllers",
-			"overriden": 0,
+			"overriden": 1,
 			"subLayers": [],
 			"instances": [
 				{

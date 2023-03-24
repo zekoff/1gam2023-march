@@ -168,7 +168,8 @@
 					"UiBox",
 					"YearDisplay",
 					"ZoomButton",
-					"GenericLabel"
+					"GenericLabel",
+					"ExitButton"
 				],
 				"subfolders": [],
 				"name": "UI Objects"

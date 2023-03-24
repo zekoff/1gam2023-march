@@ -738,12 +738,12 @@
 						{
 							"id": "tween-value",
 							"objectClass": "Camera",
-							"sid": 305042661574128,
+							"sid": 805334143180735,
 							"behaviorType": "Tween",
 							"parameters": {
 								"tags": "\"zoom\"",
 								"start-value": "Camera.zoomLevel",
-								"end-value": "1",
+								"end-value": "ZOOM_LEVEL_DEFAULT",
 								"time": "ZOOM_TIME",
 								"ease": "easeoutcubic",
 								"destroy-on-complete": "no",
@@ -769,12 +769,12 @@
 						{
 							"id": "tween-value",
 							"objectClass": "Camera",
-							"sid": 872055254110003,
+							"sid": 968357206011969,
 							"behaviorType": "Tween",
 							"parameters": {
 								"tags": "\"zoom\"",
 								"start-value": "Camera.zoomLevel",
-								"end-value": ".15",
+								"end-value": "ZOOM_LEVEL_OVERVIEW",
 								"time": "ZOOM_TIME",
 								"ease": "easeoutcubic",
 								"destroy-on-complete": "no",
@@ -818,12 +818,12 @@
 						{
 							"id": "tween-value",
 							"objectClass": "Camera",
-							"sid": 154331806423629,
+							"sid": 425353729284107,
 							"behaviorType": "Tween",
 							"parameters": {
 								"tags": "\"zoom\"",
 								"start-value": "Camera.zoomLevel",
-								"end-value": "4",
+								"end-value": "ZOOM_LEVEL_PLANET",
 								"time": "ZOOM_TIME",
 								"ease": "easeoutcubic",
 								"destroy-on-complete": "no",
@@ -1242,6 +1242,26 @@
 							"sid": 467503219745892
 						}
 					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-tap-object",
+							"objectClass": "Touch",
+							"sid": 334109652341939,
+							"parameters": {
+								"object": "ExitButton"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "DeselectPlanet",
+							"sid": 956483865829374
+						}
+					],
+					"sid": 479641056011678
 				}
 			],
 			"sid": 474990103053014

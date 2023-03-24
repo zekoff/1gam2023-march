@@ -96,20 +96,10 @@
 			"name": "SCAN_MAX_SIZE",
 			"type": "number",
 			"initialValue": "2000",
-			"comment": "",
+			"comment": "Maximum width/height the scan area grows to (diameter of circle).",
 			"isStatic": false,
 			"isConstant": true,
 			"sid": 880856360349311
-		},
-		{
-			"eventType": "variable",
-			"name": "ADDITIONAL_STARTING_STELLIUM_STOCKPILE",
-			"type": "number",
-			"initialValue": "0",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": true,
-			"sid": 761254094771165
 		},
 		{
 			"eventType": "variable",
@@ -120,6 +110,36 @@
 			"isStatic": false,
 			"isConstant": true,
 			"sid": 334761075777438
+		},
+		{
+			"eventType": "variable",
+			"name": "ZOOM_LEVEL_DEFAULT",
+			"type": "number",
+			"initialValue": "0.8",
+			"comment": "Default level of zoom on sector map.",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 202553068334393
+		},
+		{
+			"eventType": "variable",
+			"name": "ZOOM_LEVEL_PLANET",
+			"type": "number",
+			"initialValue": "4",
+			"comment": "Level of zoom when focused on a planet.",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 126446846391343
+		},
+		{
+			"eventType": "variable",
+			"name": "ZOOM_LEVEL_OVERVIEW",
+			"type": "number",
+			"initialValue": "0.15",
+			"comment": "Level of zoom when zoomed out to overview mode.",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 454690404665883
 		}
 	],
 	"sid": 496559410000628
