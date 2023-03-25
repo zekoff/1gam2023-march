@@ -79,6 +79,132 @@
 			"isActiveOnStart": true,
 			"children": [
 				{
+					"functionName": "ShowFullOverviewPanel",
+					"functionDescription": "Show the full overview panel.",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "UiBox",
+							"sid": 580482825444588,
+							"parameters": {
+								"instance-variable": "handle",
+								"comparison": 0,
+								"value": "\"Overview\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "tween-one-property",
+							"objectClass": "UiBox",
+							"sid": 251511836456211,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetY",
+								"end-value": "1500",
+								"time": "ZOOM_TIME",
+								"ease": "easeoutcubic",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						}
+					],
+					"sid": 871552593113814
+				},
+				{
+					"functionName": "ShowPartialOverviewPanel",
+					"functionDescription": "Show the topmost part of the overview panel.",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "UiBox",
+							"sid": 959175626404931,
+							"parameters": {
+								"instance-variable": "handle",
+								"comparison": 0,
+								"value": "\"Overview\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "tween-one-property",
+							"objectClass": "UiBox",
+							"sid": 555033532738887,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetY",
+								"end-value": "1816",
+								"time": "ZOOM_TIME",
+								"ease": "easeoutcubic",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						}
+					],
+					"sid": 694398635485721
+				},
+				{
+					"functionName": "HideOverviewPanel",
+					"functionDescription": "Move the Overview panel completely off the screen.",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "UiBox",
+							"sid": 505129736036241,
+							"parameters": {
+								"instance-variable": "handle",
+								"comparison": 0,
+								"value": "\"Overview\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "tween-one-property",
+							"objectClass": "UiBox",
+							"sid": 106718487476805,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetY",
+								"end-value": "1950",
+								"time": "ZOOM_TIME",
+								"ease": "easeoutcubic",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						}
+					],
+					"sid": 467357353646440
+				},
+				{
 					"functionName": "DeselectPlanet",
 					"functionDescription": "Deselect a planet by updating GameController and UI.",
 					"functionCategory": "",
@@ -101,6 +227,10 @@
 								"instance-variable": "selectedPlanetUid",
 								"value": "0"
 							}
+						},
+						{
+							"callFunction": "ShowPartialOverviewPanel",
+							"sid": 317263113372656
 						}
 					],
 					"sid": 318510524515513,
@@ -165,6 +295,10 @@
 								"instance-variable": "selectedPlanetUid",
 								"value": "Planet.UID"
 							}
+						},
+						{
+							"callFunction": "HideOverviewPanel",
+							"sid": 173974738407142
 						}
 					],
 					"sid": 324109786727323,
@@ -230,6 +364,16 @@
 										"comparison": 3,
 										"value": "0"
 									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "GameController",
+									"sid": 630896431282197,
+									"parameters": {
+										"instance-variable": "overviewMode",
+										"comparison": 0,
+										"value": "\"\""
+									}
 								}
 							],
 							"actions": [
@@ -257,6 +401,16 @@
 								},
 								{
 									"id": "compare-instance-variable",
+									"objectClass": "GameController",
+									"sid": 221311344468678,
+									"parameters": {
+										"instance-variable": "overviewMode",
+										"comparison": 0,
+										"value": "\"\""
+									}
+								},
+								{
+									"id": "compare-instance-variable",
 									"objectClass": "Planet",
 									"sid": 803622819296927,
 									"parameters": {
@@ -273,76 +427,6 @@
 								}
 							],
 							"sid": 231956611975039
-						},
-						{
-							"eventType": "comment",
-							"text": "Old \"ZoomButton\" logic."
-						},
-						{
-							"eventType": "block",
-							"conditions": [],
-							"actions": [],
-							"sid": 546338811798456,
-							"disabled": true,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "evaluate-expression",
-											"objectClass": "System",
-											"sid": 390766790733413,
-											"parameters": {
-												"value": "GameController.selectedPlanetUid >= 0"
-											}
-										}
-									],
-									"actions": [
-										{
-											"callFunction": "DeselectPlanet",
-											"sid": 542606468703216
-										}
-									],
-									"sid": 292615600481773,
-									"disabled": true,
-									"isOrBlock": true
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "else",
-											"objectClass": "System",
-											"sid": 713475594785463
-										}
-									],
-									"actions": [
-										{
-											"callFunction": "ZoomToOverview",
-											"sid": 701590988780996
-										}
-									],
-									"sid": 608642748049865,
-									"disabled": true
-								},
-								{
-									"eventType": "block",
-									"conditions": [],
-									"actions": [
-										{
-											"id": "set-instvar-value",
-											"objectClass": "GameController",
-											"sid": 969978896243214,
-											"parameters": {
-												"instance-variable": "selectedPlanetUid",
-												"value": "-1"
-											}
-										}
-									],
-									"sid": 833389707913302,
-									"disabled": true
-								}
-							]
 						},
 						{
 							"eventType": "block",
@@ -363,6 +447,88 @@
 								}
 							],
 							"sid": 513330156586949
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-tap-object",
+									"objectClass": "Touch",
+									"sid": 294801563145252,
+									"parameters": {
+										"object": "OverviewButton"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 765990198650583,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "GameController",
+											"sid": 705622899283762,
+											"parameters": {
+												"instance-variable": "overviewMode",
+												"comparison": 0,
+												"value": "\"\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "ZoomToOverview",
+											"sid": 108038059300911
+										},
+										{
+											"callFunction": "ShowFullOverviewPanel",
+											"sid": 180994003546964
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "GameController",
+											"sid": 168043493015551,
+											"parameters": {
+												"instance-variable": "overviewMode",
+												"value": "\"SECTOR\""
+											}
+										}
+									],
+									"sid": 526495987525902
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 105158596304743
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "ZoomToDefault",
+											"sid": 116729645105778
+										},
+										{
+											"callFunction": "ShowPartialOverviewPanel",
+											"sid": 724308604046518
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "GameController",
+											"sid": 104182380253538,
+											"parameters": {
+												"instance-variable": "overviewMode",
+												"value": "\"\""
+											}
+										}
+									],
+									"sid": 239579734542569
+								}
+							]
 						}
 					],
 					"sid": 833852739168471
