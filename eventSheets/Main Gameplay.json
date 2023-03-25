@@ -145,7 +145,7 @@
 			"children": [
 				{
 					"functionName": "SetDefaultMode",
-					"functionDescription": "Set UI and GameController state into default view mode.",
+					"functionDescription": "Deselect a planet by updating GameController and UI.",
 					"functionCategory": "",
 					"functionReturnType": "none",
 					"functionCopyPicked": false,
@@ -156,23 +156,137 @@
 					"actions": [
 						{
 							"callFunction": "ZoomToDefault",
-							"sid": 116729645105778
-						},
-						{
-							"callFunction": "ShowPartialOverviewPanel",
-							"sid": 724308604046518
+							"sid": 335052349560221
 						},
 						{
 							"id": "set-instvar-value",
 							"objectClass": "GameController",
-							"sid": 471159595530361,
+							"sid": 241266024968672,
+							"parameters": {
+								"instance-variable": "selectedPlanetUid",
+								"value": "0"
+							}
+						},
+						{
+							"callFunction": "ShowPartialOverviewPanel",
+							"sid": 931141675920458
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "GameController",
+							"sid": 840884097790143,
 							"parameters": {
 								"instance-variable": "overviewMode",
 								"value": "DEFAULT_VIEW"
 							}
 						}
 					],
-					"sid": 896663637975950
+					"sid": 821159689685967,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "UiBox",
+									"sid": 534491669031132,
+									"parameters": {
+										"instance-variable": "handle",
+										"comparison": 0,
+										"value": "\"Planet\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "tween-one-property",
+									"objectClass": "UiBox",
+									"sid": 425849402522524,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"selection\"",
+										"property": "offsetY",
+										"end-value": "-440",
+										"time": "0.5",
+										"ease": "easeoutcubic",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								}
+							],
+							"sid": 173554995804206
+						}
+					]
+				},
+				{
+					"functionName": "SelectPlanet",
+					"functionDescription": "Select a planet by updating GameController and adjusting UI.",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": true,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"callFunction": "ZoomToPlanet",
+							"sid": 604906259262922
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "GameController",
+							"sid": 447146864850392,
+							"parameters": {
+								"instance-variable": "selectedPlanetUid",
+								"value": "Planet.UID"
+							}
+						},
+						{
+							"callFunction": "HideOverviewPanel",
+							"sid": 754145123356258
+						}
+					],
+					"sid": 898136418189103,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "UiBox",
+									"sid": 480945249462798,
+									"parameters": {
+										"instance-variable": "handle",
+										"comparison": 0,
+										"value": "\"Planet\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "tween-one-property",
+									"objectClass": "UiBox",
+									"sid": 943784041794819,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"selection\"",
+										"property": "offsetY",
+										"end-value": "21",
+										"time": "0.5",
+										"ease": "easeoutcubic",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								}
+							],
+							"sid": 933041962787836
+						}
+					]
 				},
 				{
 					"functionName": "SetOverviewMode",
@@ -332,142 +446,6 @@
 					"sid": 467357353646440
 				},
 				{
-					"functionName": "DeselectPlanet",
-					"functionDescription": "Deselect a planet by updating GameController and UI.",
-					"functionCategory": "",
-					"functionReturnType": "none",
-					"functionCopyPicked": false,
-					"functionIsAsync": false,
-					"functionParameters": [],
-					"eventType": "function-block",
-					"conditions": [],
-					"actions": [
-						{
-							"callFunction": "ZoomToDefault",
-							"sid": 712166667618860
-						},
-						{
-							"id": "set-instvar-value",
-							"objectClass": "GameController",
-							"sid": 941529413125172,
-							"parameters": {
-								"instance-variable": "selectedPlanetUid",
-								"value": "0"
-							}
-						},
-						{
-							"callFunction": "ShowPartialOverviewPanel",
-							"sid": 317263113372656
-						}
-					],
-					"sid": 318510524515513,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "UiBox",
-									"sid": 355490638195188,
-									"parameters": {
-										"instance-variable": "handle",
-										"comparison": 0,
-										"value": "\"Planet\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "tween-one-property",
-									"objectClass": "UiBox",
-									"sid": 765177935443302,
-									"behaviorType": "Tween",
-									"parameters": {
-										"tags": "\"selection\"",
-										"property": "offsetY",
-										"end-value": "-440",
-										"time": "0.5",
-										"ease": "easeoutcubic",
-										"destroy-on-complete": "no",
-										"loop": "no",
-										"ping-pong": "no",
-										"repeat-count": "1"
-									}
-								}
-							],
-							"sid": 674883601079856
-						}
-					]
-				},
-				{
-					"functionName": "SelectPlanet",
-					"functionDescription": "Select a planet by updating GameController and adjusting UI.",
-					"functionCategory": "",
-					"functionReturnType": "none",
-					"functionCopyPicked": true,
-					"functionIsAsync": false,
-					"functionParameters": [],
-					"eventType": "function-block",
-					"conditions": [],
-					"actions": [
-						{
-							"callFunction": "ZoomToPlanet",
-							"sid": 718435124576634
-						},
-						{
-							"id": "set-instvar-value",
-							"objectClass": "GameController",
-							"sid": 199946262970277,
-							"parameters": {
-								"instance-variable": "selectedPlanetUid",
-								"value": "Planet.UID"
-							}
-						},
-						{
-							"callFunction": "HideOverviewPanel",
-							"sid": 173974738407142
-						}
-					],
-					"sid": 324109786727323,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "UiBox",
-									"sid": 260567814352713,
-									"parameters": {
-										"instance-variable": "handle",
-										"comparison": 0,
-										"value": "\"Planet\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "tween-one-property",
-									"objectClass": "UiBox",
-									"sid": 140381930164772,
-									"behaviorType": "Tween",
-									"parameters": {
-										"tags": "\"selection\"",
-										"property": "offsetY",
-										"end-value": "21",
-										"time": "0.5",
-										"ease": "easeoutcubic",
-										"destroy-on-complete": "no",
-										"loop": "no",
-										"ping-pong": "no",
-										"repeat-count": "1"
-									}
-								}
-							],
-							"sid": 262114590837373
-						}
-					]
-				},
-				{
 					"eventType": "group",
 					"disabled": false,
 					"title": "Touch Inputs",
@@ -475,12 +453,25 @@
 					"isActiveOnStart": true,
 					"children": [
 						{
+							"eventType": "comment",
+							"text": "Camera control via double-taps in default view."
+						},
+						{
 							"eventType": "block",
 							"conditions": [
 								{
 									"id": "on-double-tap",
 									"objectClass": "Touch",
 									"sid": 905869986514254
+								},
+								{
+									"id": "is-touching-object",
+									"objectClass": "Touch",
+									"sid": 386515667548441,
+									"parameters": {
+										"object": "UiBox"
+									},
+									"isInverted": true
 								},
 								{
 									"id": "compare-instance-variable",
@@ -514,6 +505,10 @@
 								}
 							],
 							"sid": 756196497580131
+						},
+						{
+							"eventType": "comment",
+							"text": "Select planet on touch."
 						},
 						{
 							"eventType": "block",
@@ -569,7 +564,7 @@
 							],
 							"actions": [
 								{
-									"callFunction": "DeselectPlanet",
+									"callFunction": "SetDefaultMode",
 									"sid": 905802620401518
 								}
 							],
@@ -624,7 +619,7 @@
 									"actions": [
 										{
 											"callFunction": "SetDefaultMode",
-											"sid": 802555417566114
+											"sid": 774029314021066
 										}
 									],
 									"sid": 239579734542569
@@ -736,6 +731,102 @@
 										}
 									],
 									"sid": 999417047033616
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "Handle click/touch events in overview mode."
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-tap",
+									"objectClass": "Touch",
+									"sid": 964326466882396
+								},
+								{
+									"id": "is-touching-object",
+									"objectClass": "Touch",
+									"sid": 462051097856793,
+									"parameters": {
+										"object": "UiBox"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "GameController",
+									"sid": 969246204415214,
+									"parameters": {
+										"instance-variable": "overviewMode",
+										"comparison": 1,
+										"value": "DEFAULT_VIEW"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 341146006289822,
+							"children": [
+								{
+									"eventType": "comment",
+									"text": "Control Research Station when in Exploration mode."
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "GameController",
+											"sid": 896961313319622,
+											"parameters": {
+												"instance-variable": "overviewMode",
+												"comparison": 0,
+												"value": "OVERVIEW_EXPLORATION"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "SendResearchStation",
+											"sid": 120117365867845,
+											"parameters": [
+												"Touch.X",
+												"Touch.Y"
+											]
+										}
+									],
+									"sid": 756997762831841
+								},
+								{
+									"eventType": "comment",
+									"text": "Send camera to new location."
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 439604012055165
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "SetDefaultMode",
+											"sid": 902878641099482
+										},
+										{
+											"callFunction": "MoveCameraTo",
+											"sid": 969886265751244,
+											"parameters": [
+												"Touch.X",
+												"Touch.Y"
+											]
+										}
+									],
+									"sid": 360123330370473
 								}
 							]
 						}
@@ -1044,7 +1135,7 @@
 									],
 									"actions": [
 										{
-											"callFunction": "DeselectPlanet",
+											"callFunction": "SetDefaultMode",
 											"sid": 323497864074391
 										}
 									],
@@ -1072,7 +1163,7 @@
 									"actions": [
 										{
 											"callFunction": "SetDefaultMode",
-											"sid": 441308361180532
+											"sid": 183444924220163
 										}
 									],
 									"sid": 210645627951213
