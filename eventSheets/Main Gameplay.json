@@ -79,6 +79,68 @@
 			"isActiveOnStart": true,
 			"children": [
 				{
+					"functionName": "SetDefaultMode",
+					"functionDescription": "Set UI and GameController state into default view mode.",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"callFunction": "ZoomToDefault",
+							"sid": 116729645105778
+						},
+						{
+							"callFunction": "ShowPartialOverviewPanel",
+							"sid": 724308604046518
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "GameController",
+							"sid": 104182380253538,
+							"parameters": {
+								"instance-variable": "overviewMode",
+								"value": "\"\""
+							}
+						}
+					],
+					"sid": 896663637975950
+				},
+				{
+					"functionName": "SetOverviewMode",
+					"functionDescription": "Change UI and GameController state into overview mode.",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"callFunction": "ZoomToOverview",
+							"sid": 211746243746707
+						},
+						{
+							"callFunction": "ShowFullOverviewPanel",
+							"sid": 718069292418581
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "GameController",
+							"sid": 955937141805888,
+							"parameters": {
+								"instance-variable": "overviewMode",
+								"value": "\"SECTOR\""
+							}
+						}
+					],
+					"sid": 651224011027360
+				},
+				{
 					"functionName": "ShowFullOverviewPanel",
 					"functionDescription": "Show the full overview panel.",
 					"functionCategory": "",
@@ -479,21 +541,8 @@
 									],
 									"actions": [
 										{
-											"callFunction": "ZoomToOverview",
-											"sid": 108038059300911
-										},
-										{
-											"callFunction": "ShowFullOverviewPanel",
-											"sid": 180994003546964
-										},
-										{
-											"id": "set-instvar-value",
-											"objectClass": "GameController",
-											"sid": 168043493015551,
-											"parameters": {
-												"instance-variable": "overviewMode",
-												"value": "\"SECTOR\""
-											}
+											"callFunction": "SetOverviewMode",
+											"sid": 598117331002627
 										}
 									],
 									"sid": 526495987525902
@@ -509,21 +558,8 @@
 									],
 									"actions": [
 										{
-											"callFunction": "ZoomToDefault",
-											"sid": 116729645105778
-										},
-										{
-											"callFunction": "ShowPartialOverviewPanel",
-											"sid": 724308604046518
-										},
-										{
-											"id": "set-instvar-value",
-											"objectClass": "GameController",
-											"sid": 104182380253538,
-											"parameters": {
-												"instance-variable": "overviewMode",
-												"value": "\"\""
-											}
+											"callFunction": "SetDefaultMode",
+											"sid": 802555417566114
 										}
 									],
 									"sid": 239579734542569
@@ -816,13 +852,76 @@
 									}
 								}
 							],
-							"actions": [
+							"actions": [],
+							"sid": 488503577696685,
+							"children": [
 								{
-									"callFunction": "DeselectPlanet",
-									"sid": 296184456806952
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "GameController",
+											"sid": 514718139705774,
+											"parameters": {
+												"instance-variable": "selectedPlanetUid",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "DeselectPlanet",
+											"sid": 323497864074391
+										}
+									],
+									"sid": 134992499284255
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 593128161180037
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "GameController",
+											"sid": 768206925101672,
+											"parameters": {
+												"instance-variable": "overviewMode",
+												"comparison": 1,
+												"value": "\"\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "SetDefaultMode",
+											"sid": 441308361180532
+										}
+									],
+									"sid": 210645627951213
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 473209245656836
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "SetOverviewMode",
+											"sid": 944366968090212
+										}
+									],
+									"sid": 753619776028672
 								}
-							],
-							"sid": 488503577696685
+							]
 						}
 					],
 					"sid": 269664480010904
@@ -1061,7 +1160,49 @@
 							"script": "GameUtils.updateUiText(runtime);"
 						}
 					],
-					"sid": 201205195501745
+					"sid": 201205195501745,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "totalImprovementLevel",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 960532085507622
+						},
+						{
+							"eventType": "script",
+							"script": "localVars.totalImprovementLevel = GameUtils.getTotalSectorImprovementLevel(runtime);"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "GameController",
+									"sid": 503027246638383,
+									"parameters": {
+										"instance-variable": "overviewMode",
+										"comparison": 0,
+										"value": "\"SECTOR\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "OverviewTextDisplay",
+									"sid": 127537535660021,
+									"parameters": {
+										"text": "\"SECTOR OVERVIEW:\" & newline & \"Crysether Available: \" & GameController.crysetherStockpile & newline & \"Total Sector Improvement Level: \" & totalImprovementLevel"
+									}
+								}
+							],
+							"sid": 459012284001873
+						}
+					]
 				},
 				{
 					"eventType": "comment",
