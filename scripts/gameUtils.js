@@ -51,13 +51,6 @@ export function getStelliumDrain(runtime) {
   return getNodeInstVarSum(runtime, "stelliumDrain");
 }
 
-export function getTotalSectorImprovementLevel(runtime) {
-  return Array.from(runtime.objects.Planet.instances()).reduce(
-    (sum, planet) => sum + planet.instVars.improvementLevel,
-    0
-  );
-}
-
 /**
  * Check if a facility is prevented from being built on a planet.
  * 

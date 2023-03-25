@@ -67,6 +67,71 @@
 						}
 					],
 					"sid": 426283044993029
+				},
+				{
+					"functionName": "GetTotalImprovement",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "number",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 229376850551028,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "totalImprovement",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 254124255219448
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 421131397208578,
+									"parameters": {
+										"object": "Planet"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 445893567833757,
+									"parameters": {
+										"variable": "totalImprovement",
+										"value": "Planet.improvementLevel"
+									}
+								}
+							],
+							"sid": 881898845633948
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-function-return-value",
+									"objectClass": "Functions",
+									"sid": 675969637158149,
+									"parameters": {
+										"value": "totalImprovement"
+									}
+								}
+							],
+							"sid": 804179522570717
+						}
+					]
 				}
 			],
 			"sid": 977042111283029
@@ -100,10 +165,10 @@
 						{
 							"id": "set-instvar-value",
 							"objectClass": "GameController",
-							"sid": 104182380253538,
+							"sid": 471159595530361,
 							"parameters": {
 								"instance-variable": "overviewMode",
-								"value": "\"\""
+								"value": "DEFAULT_VIEW"
 							}
 						}
 					],
@@ -131,10 +196,10 @@
 						{
 							"id": "set-instvar-value",
 							"objectClass": "GameController",
-							"sid": 955937141805888,
+							"sid": 984518094355410,
 							"parameters": {
 								"instance-variable": "overviewMode",
-								"value": "\"SECTOR\""
+								"value": "OVERVIEW_SECTOR"
 							}
 						}
 					],
@@ -430,11 +495,11 @@
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "GameController",
-									"sid": 630896431282197,
+									"sid": 169509545815595,
 									"parameters": {
 										"instance-variable": "overviewMode",
 										"comparison": 0,
-										"value": "\"\""
+										"value": "DEFAULT_VIEW"
 									}
 								}
 							],
@@ -464,11 +529,11 @@
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "GameController",
-									"sid": 221311344468678,
+									"sid": 166188398552708,
 									"parameters": {
 										"instance-variable": "overviewMode",
 										"comparison": 0,
-										"value": "\"\""
+										"value": "DEFAULT_VIEW"
 									}
 								},
 								{
@@ -531,11 +596,11 @@
 										{
 											"id": "compare-instance-variable",
 											"objectClass": "GameController",
-											"sid": 705622899283762,
+											"sid": 652380612657779,
 											"parameters": {
 												"instance-variable": "overviewMode",
 												"comparison": 0,
-												"value": "\"\""
+												"value": "DEFAULT_VIEW"
 											}
 										}
 									],
@@ -563,6 +628,114 @@
 										}
 									],
 									"sid": 239579734542569
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-tap-object",
+									"objectClass": "Touch",
+									"sid": 652207993579183,
+									"parameters": {
+										"object": "CycleButton"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 239015437137507,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "GameController",
+											"sid": 390963195219264,
+											"parameters": {
+												"instance-variable": "overviewMode",
+												"comparison": 0,
+												"value": "OVERVIEW_SECTOR"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "GameController",
+											"sid": 575625303338791,
+											"parameters": {
+												"instance-variable": "overviewMode",
+												"value": "OVERVIEW_EXPLORATION"
+											}
+										}
+									],
+									"sid": 928830421680504
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 370009637441567
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "GameController",
+											"sid": 732713431847950,
+											"parameters": {
+												"instance-variable": "overviewMode",
+												"comparison": 0,
+												"value": "OVERVIEW_EXPLORATION"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "GameController",
+											"sid": 491630397000148,
+											"parameters": {
+												"instance-variable": "overviewMode",
+												"value": "OVERVIEW_SUPPLY"
+											}
+										}
+									],
+									"sid": 731599678056145
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 917615358557627
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "GameController",
+											"sid": 429843200606707,
+											"parameters": {
+												"instance-variable": "overviewMode",
+												"comparison": 0,
+												"value": "OVERVIEW_SUPPLY"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "GameController",
+											"sid": 996001609062396,
+											"parameters": {
+												"instance-variable": "overviewMode",
+												"value": "OVERVIEW_SECTOR"
+											}
+										}
+									],
+									"sid": 999417047033616
 								}
 							]
 						}
@@ -1163,30 +1336,16 @@
 					"sid": 201205195501745,
 					"children": [
 						{
-							"eventType": "variable",
-							"name": "totalImprovementLevel",
-							"type": "number",
-							"initialValue": "0",
-							"comment": "",
-							"isStatic": false,
-							"isConstant": false,
-							"sid": 960532085507622
-						},
-						{
-							"eventType": "script",
-							"script": "localVars.totalImprovementLevel = GameUtils.getTotalSectorImprovementLevel(runtime);"
-						},
-						{
 							"eventType": "block",
 							"conditions": [
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "GameController",
-									"sid": 503027246638383,
+									"sid": 760941610651802,
 									"parameters": {
 										"instance-variable": "overviewMode",
 										"comparison": 0,
-										"value": "\"SECTOR\""
+										"value": "OVERVIEW_SECTOR"
 									}
 								}
 							],
@@ -1194,13 +1353,65 @@
 								{
 									"id": "set-text",
 									"objectClass": "OverviewTextDisplay",
-									"sid": 127537535660021,
+									"sid": 272235709468938,
 									"parameters": {
-										"text": "\"SECTOR OVERVIEW:\" & newline & \"Crysether Available: \" & GameController.crysetherStockpile & newline & \"Total Sector Improvement Level: \" & totalImprovementLevel"
+										"text": "\"SECTOR OVERVIEW:\" & newline & \"Crysether Available: \" & GameController.crysetherStockpile & newline & \"Total Sector Improvement Level: \" & Functions.GetTotalImprovement"
 									}
 								}
 							],
 							"sid": 459012284001873
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "GameController",
+									"sid": 939654011714389,
+									"parameters": {
+										"instance-variable": "overviewMode",
+										"comparison": 0,
+										"value": "OVERVIEW_EXPLORATION"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "OverviewTextDisplay",
+									"sid": 843314734612125,
+									"parameters": {
+										"text": "\"EXPLORATION OVERVIEW:\" & newline & \"Percentage of sector charted: \" & \"UNKNOWN\""
+									}
+								}
+							],
+							"sid": 176563109742235
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "GameController",
+									"sid": 134375901709980,
+									"parameters": {
+										"instance-variable": "overviewMode",
+										"comparison": 0,
+										"value": "OVERVIEW_SUPPLY"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "OverviewTextDisplay",
+									"sid": 242074274911852,
+									"parameters": {
+										"text": "\"SUPPLY OVERVIEW:\" & newline & \"Stats on supply...\""
+									}
+								}
+							],
+							"sid": 310054155808573
 						}
 					]
 				},

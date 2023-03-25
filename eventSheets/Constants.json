@@ -140,6 +140,46 @@
 			"isStatic": false,
 			"isConstant": true,
 			"sid": 454690404665883
+		},
+		{
+			"eventType": "variable",
+			"name": "OVERVIEW_SECTOR",
+			"type": "string",
+			"initialValue": "SECTOR",
+			"comment": "Constant for auto-complete representing Sector mode in overview mode.",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 734314848940684
+		},
+		{
+			"eventType": "variable",
+			"name": "OVERVIEW_EXPLORATION",
+			"type": "string",
+			"initialValue": "EXPLORATION",
+			"comment": "Constant for auto-complete representing Exploration mode in overview mode.",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 393463186774010
+		},
+		{
+			"eventType": "variable",
+			"name": "OVERVIEW_SUPPLY",
+			"type": "string",
+			"initialValue": "SUPPLY",
+			"comment": "Constant for auto-complete representing Supply mode in overview mode.",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 936147762578245
+		},
+		{
+			"eventType": "variable",
+			"name": "DEFAULT_VIEW",
+			"type": "string",
+			"initialValue": "",
+			"comment": "Empty string to represent default mode vs overview mode.",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 243376221784188
 		}
 	],
 	"sid": 496559410000628
