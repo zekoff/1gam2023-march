@@ -28,16 +28,16 @@
 		{
 			"name": "selectedPlanetUid",
 			"type": "number",
-			"desc": "UID of currently selected planet, or -1 if no planet selected.",
+			"desc": "UID of currently selected planet, or 0 if no planet selected.",
 			"show": true,
 			"sid": 521924089820193
 		},
 		{
 			"name": "overviewMode",
-			"type": "boolean",
-			"desc": "True if the UI is in overview mode (zoomed out to see the whole sector at once).",
+			"type": "string",
+			"desc": "One of \"SECTOR\", \"SUPPLY\", or \"EXPLORATION\", or empty (blank string) if the UI is not in overview mode.",
 			"show": true,
-			"sid": 708011293634043
+			"sid": 731612232501253
 		}
 	],
 	"behaviorTypes": [],

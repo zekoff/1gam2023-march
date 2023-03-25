@@ -161,15 +161,18 @@
 		"subfolders": [
 			{
 				"items": [
-					"CrysetherDisplay",
+					"OverviewTextDisplay",
 					"DebugTextDisplay",
-					"QuantiaDisplay",
-					"StelliumDisplay",
+					"OverviewLine1Display",
+					"OverviewLine2Display",
 					"UiBox",
 					"YearDisplay",
-					"ZoomButton",
 					"GenericLabel",
-					"ExitButton"
+					"ExitButton",
+					"OverviewButton",
+					"CycleButton",
+					"InfoSprite",
+					"Separator"
 				],
 				"subfolders": [],
 				"name": "UI Objects"

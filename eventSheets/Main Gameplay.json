@@ -90,15 +90,6 @@
 					"conditions": [],
 					"actions": [
 						{
-							"id": "set-boolean-instvar",
-							"objectClass": "GameController",
-							"sid": 515808984493551,
-							"parameters": {
-								"instance-variable": "overviewMode",
-								"value": "false"
-							}
-						},
-						{
 							"callFunction": "ZoomToDefault",
 							"sid": 712166667618860
 						},
@@ -167,15 +158,6 @@
 							"sid": 718435124576634
 						},
 						{
-							"id": "set-boolean-instvar",
-							"objectClass": "GameController",
-							"sid": 338042468801104,
-							"parameters": {
-								"instance-variable": "overviewMode",
-								"value": "false"
-							}
-						},
-						{
 							"id": "set-instvar-value",
 							"objectClass": "GameController",
 							"sid": 199946262970277,
@@ -238,6 +220,16 @@
 									"id": "on-double-tap",
 									"objectClass": "Touch",
 									"sid": 905869986514254
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "GameController",
+									"sid": 283423117187469,
+									"parameters": {
+										"instance-variable": "selectedPlanetUid",
+										"comparison": 3,
+										"value": "0"
+									}
 								}
 							],
 							"actions": [
@@ -283,19 +275,15 @@
 							"sid": 231956611975039
 						},
 						{
+							"eventType": "comment",
+							"text": "Old \"ZoomButton\" logic."
+						},
+						{
 							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-tap-object",
-									"objectClass": "Touch",
-									"sid": 426386981314104,
-									"parameters": {
-										"object": "ZoomButton"
-									}
-								}
-							],
+							"conditions": [],
 							"actions": [],
 							"sid": 546338811798456,
+							"disabled": true,
 							"children": [
 								{
 									"eventType": "block",
@@ -307,14 +295,6 @@
 											"parameters": {
 												"value": "GameController.selectedPlanetUid >= 0"
 											}
-										},
-										{
-											"id": "is-boolean-instance-variable-set",
-											"objectClass": "GameController",
-											"sid": 541464854579559,
-											"parameters": {
-												"instance-variable": "overviewMode"
-											}
 										}
 									],
 									"actions": [
@@ -324,6 +304,7 @@
 										}
 									],
 									"sid": 292615600481773,
+									"disabled": true,
 									"isOrBlock": true
 								},
 								{
@@ -337,20 +318,12 @@
 									],
 									"actions": [
 										{
-											"id": "set-boolean-instvar",
-											"objectClass": "GameController",
-											"sid": 648591901977482,
-											"parameters": {
-												"instance-variable": "overviewMode",
-												"value": "true"
-											}
-										},
-										{
 											"callFunction": "ZoomToOverview",
 											"sid": 701590988780996
 										}
 									],
-									"sid": 608642748049865
+									"sid": 608642748049865,
+									"disabled": true
 								},
 								{
 									"eventType": "block",
@@ -366,9 +339,30 @@
 											}
 										}
 									],
-									"sid": 833389707913302
+									"sid": 833389707913302,
+									"disabled": true
 								}
 							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-tap-object",
+									"objectClass": "Touch",
+									"sid": 467562287424899,
+									"parameters": {
+										"object": "ExitButton"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "DeselectPlanet",
+									"sid": 905802620401518
+								}
+							],
+							"sid": 513330156586949
 						}
 					],
 					"sid": 833852739168471
@@ -798,22 +792,12 @@
 					"conditions": [],
 					"actions": [
 						{
-							"id": "tween-two-properties",
-							"objectClass": "Camera",
-							"sid": 140213006850231,
-							"behaviorType": "Tween",
-							"parameters": {
-								"tags": "\"\"",
-								"property": "position",
-								"end-x": "Planet.X",
-								"end-y": "Planet.Y",
-								"time": "ZOOM_TIME",
-								"ease": "easeoutcubic",
-								"destroy-on-complete": "no",
-								"loop": "no",
-								"ping-pong": "no",
-								"repeat-count": "1"
-							}
+							"callFunction": "MoveCameraTo",
+							"sid": 502695020790804,
+							"parameters": [
+								"Planet.X",
+								"Planet.Y"
+							]
 						},
 						{
 							"id": "tween-value",
@@ -923,10 +907,10 @@
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "GameController",
-							"sid": 155345454217103,
+							"sid": 728232509854170,
 							"parameters": {
 								"instance-variable": "selectedPlanetUid",
-								"comparison": 5,
+								"comparison": 4,
 								"value": "0"
 							}
 						},
@@ -1242,26 +1226,6 @@
 							"sid": 467503219745892
 						}
 					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-tap-object",
-							"objectClass": "Touch",
-							"sid": 334109652341939,
-							"parameters": {
-								"object": "ExitButton"
-							}
-						}
-					],
-					"actions": [
-						{
-							"callFunction": "DeselectPlanet",
-							"sid": 956483865829374
-						}
-					],
-					"sid": 479641056011678
 				}
 			],
 			"sid": 474990103053014

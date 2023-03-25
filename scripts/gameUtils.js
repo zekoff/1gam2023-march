@@ -307,15 +307,15 @@ export function getConnectedPlanets(runtime, planetUid) {
  */
 export function updateUiText(runtime) {
   const gameController = runtime.objects.GameController.getFirstInstance();
-  runtime.objects.QuantiaDisplay.getFirstInstance().text =
+  runtime.objects.OverviewLine1Display.getFirstInstance().text =
     "Quantia Generation: " + (getQuantiaRate(runtime) - getQuantiaDrain(runtime)) + " surplus";
-  runtime.objects.StelliumDisplay.getFirstInstance().text =
+  runtime.objects.OverviewLine2Display.getFirstInstance().text =
     "Stellium: " + Math.floor(gameController.instVars.stelliumStockpile) + " (net extraction +" +
     (getStelliumRate(runtime) - getStelliumDrain(runtime)) + "/yr)";
-  runtime.objects.CrysetherDisplay.getFirstInstance().text =
+  runtime.objects.OverviewTextDisplay.getFirstInstance().text =
     "Crysether Available: " + gameController.instVars.crysetherStockpile;
   const year = gameController.instVars.yearsElapsed;
-  runtime.objects.YearDisplay.getFirstInstance().text = `Year: ${Math.floor(year)}`;
+  runtime.objects.YearDisplay.getFirstInstance().text = `Year:\n${Math.floor(year)}`;
 }
 
 export function generateRandomPlanetName(uid) {

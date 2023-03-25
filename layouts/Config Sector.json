@@ -4845,21 +4845,6 @@
 							"sceneGraphData": {
 								"parent-uid": null,
 								"uid": 15,
-								"children": [
-									{
-										"uid": 16,
-										"flags": {
-											"x": true,
-											"y": true,
-											"z": true,
-											"w": true,
-											"h": true,
-											"a": true,
-											"d": true,
-											"sm": "normal"
-										}
-									}
-								],
 								"flags": {
 									"x": true,
 									"y": true,
@@ -4900,61 +4885,7 @@
 							}
 						},
 						{
-							"type": "ZoomButton",
-							"properties": {
-								"initially-visible": true,
-								"initial-animation": "Animation 1",
-								"initial-frame": 0,
-								"enable-collisions": true,
-								"live-preview": false
-							},
-							"uid": 16,
-							"instanceVariables": {},
-							"behaviors": {},
-							"sceneGraphData": {
-								"parent-uid": 15,
-								"uid": 16,
-								"flags": {
-									"x": true,
-									"y": true,
-									"z": true,
-									"w": true,
-									"h": true,
-									"a": true,
-									"d": true,
-									"sm": "normal"
-								},
-								"preview": {
-									"transformX": 0,
-									"transformY": 0,
-									"transformZElevation": 0,
-									"transformW": 0,
-									"transformH": 0,
-									"transformA": 0,
-									"transformSX": 0,
-									"transformSY": 0,
-									"previewSceneGraph": false
-								}
-							},
-							"world": {
-								"x": 146,
-								"y": 1774,
-								"width": 166,
-								"height": 160,
-								"originX": 0.5,
-								"originY": 0.5,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 0,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "QuantiaDisplay",
+							"type": "OverviewLine1Display",
 							"properties": {
 								"text": "QUANTIA",
 								"enable-bbcode": true,
@@ -4997,7 +4928,7 @@
 							}
 						},
 						{
-							"type": "StelliumDisplay",
+							"type": "OverviewLine2Display",
 							"properties": {
 								"text": "STELLIUM",
 								"enable-bbcode": true,
@@ -5083,7 +5014,7 @@
 							}
 						},
 						{
-							"type": "CrysetherDisplay",
+							"type": "OverviewTextDisplay",
 							"properties": {
 								"text": "CRYSETHER",
 								"enable-bbcode": true,
@@ -5203,8 +5134,8 @@
 						"stelliumStockpile": 0,
 						"crysetherStockpile": 0,
 						"yearsElapsed": 0,
-						"selectedPlanetUid": -1,
-						"overviewMode": false
+						"selectedPlanetUid": 0,
+						"overviewMode": ""
 					},
 					"behaviors": {},
 					"world": {

@@ -3170,7 +3170,7 @@
 							},
 							"uid": 101,
 							"instanceVariables": {
-								"handle": ""
+								"handle": "Overview"
 							},
 							"behaviors": {
 								"Tween": {
@@ -3184,7 +3184,85 @@
 								"uid": 101,
 								"children": [
 									{
-										"uid": 102,
+										"uid": 16,
+										"flags": {
+											"x": true,
+											"y": true,
+											"z": true,
+											"w": true,
+											"h": true,
+											"a": true,
+											"d": true,
+											"sm": "normal"
+										}
+									},
+									{
+										"uid": 67,
+										"flags": {
+											"x": true,
+											"y": true,
+											"z": true,
+											"w": true,
+											"h": true,
+											"a": true,
+											"d": true,
+											"sm": "normal"
+										}
+									},
+									{
+										"uid": 105,
+										"flags": {
+											"x": true,
+											"y": true,
+											"z": true,
+											"w": true,
+											"h": true,
+											"a": true,
+											"d": true,
+											"sm": "normal"
+										}
+									},
+									{
+										"uid": 103,
+										"flags": {
+											"x": true,
+											"y": true,
+											"z": true,
+											"w": true,
+											"h": true,
+											"a": true,
+											"d": true,
+											"sm": "normal"
+										}
+									},
+									{
+										"uid": 104,
+										"flags": {
+											"x": true,
+											"y": true,
+											"z": true,
+											"w": true,
+											"h": true,
+											"a": true,
+											"d": true,
+											"sm": "normal"
+										}
+									},
+									{
+										"uid": 106,
+										"flags": {
+											"x": true,
+											"y": true,
+											"z": true,
+											"w": true,
+											"h": true,
+											"a": true,
+											"d": true,
+											"sm": "normal"
+										}
+									},
+									{
+										"uid": 68,
 										"flags": {
 											"x": true,
 											"y": true,
@@ -3220,10 +3298,10 @@
 								}
 							},
 							"world": {
-								"x": 28,
-								"y": 1635,
-								"width": 1025,
-								"height": 257,
+								"x": 11,
+								"y": 1500,
+								"width": 1061,
+								"height": 413,
 								"originX": 0,
 								"originY": 0,
 								"color": [
@@ -3237,61 +3315,7 @@
 							}
 						},
 						{
-							"type": "ZoomButton",
-							"properties": {
-								"initially-visible": true,
-								"initial-animation": "Animation 1",
-								"initial-frame": 0,
-								"enable-collisions": true,
-								"live-preview": false
-							},
-							"uid": 102,
-							"instanceVariables": {},
-							"behaviors": {},
-							"sceneGraphData": {
-								"parent-uid": 101,
-								"uid": 102,
-								"flags": {
-									"x": true,
-									"y": true,
-									"z": true,
-									"w": true,
-									"h": true,
-									"a": true,
-									"d": true,
-									"sm": "normal"
-								},
-								"preview": {
-									"transformX": 0,
-									"transformY": 0,
-									"transformZElevation": 0,
-									"transformW": 0,
-									"transformH": 0,
-									"transformA": 0,
-									"transformSX": 0,
-									"transformSY": 0,
-									"previewSceneGraph": false
-								}
-							},
-							"world": {
-								"x": 146,
-								"y": 1774,
-								"width": 166,
-								"height": 160,
-								"originX": 0.5,
-								"originY": 0.5,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 0,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "QuantiaDisplay",
+							"type": "OverviewLine1Display",
 							"properties": {
 								"text": "QUANTIA",
 								"enable-bbcode": true,
@@ -3316,10 +3340,35 @@
 							"uid": 103,
 							"instanceVariables": {},
 							"behaviors": {},
+							"sceneGraphData": {
+								"parent-uid": 101,
+								"uid": 103,
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"a": true,
+									"d": true,
+									"sm": "normal"
+								},
+								"preview": {
+									"transformX": 0,
+									"transformY": 0,
+									"transformZElevation": 0,
+									"transformW": 0,
+									"transformH": 0,
+									"transformA": 0,
+									"transformSX": 0,
+									"transformSY": 0,
+									"previewSceneGraph": false
+								}
+							},
 							"world": {
-								"x": 265,
-								"y": 1643,
-								"width": 770,
+								"x": 194,
+								"y": 1504,
+								"width": 784,
 								"height": 52,
 								"originX": 0,
 								"originY": 0,
@@ -3334,7 +3383,7 @@
 							}
 						},
 						{
-							"type": "StelliumDisplay",
+							"type": "OverviewLine2Display",
 							"properties": {
 								"text": "STELLIUM",
 								"enable-bbcode": true,
@@ -3359,10 +3408,35 @@
 							"uid": 104,
 							"instanceVariables": {},
 							"behaviors": {},
+							"sceneGraphData": {
+								"parent-uid": 101,
+								"uid": 104,
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"a": true,
+									"d": true,
+									"sm": "normal"
+								},
+								"preview": {
+									"transformX": 0,
+									"transformY": 0,
+									"transformZElevation": 0,
+									"transformW": 0,
+									"transformH": 0,
+									"transformA": 0,
+									"transformSX": 0,
+									"transformSY": 0,
+									"previewSceneGraph": false
+								}
+							},
 							"world": {
-								"x": 262,
-								"y": 1693,
-								"width": 763,
+								"x": 194,
+								"y": 1552,
+								"width": 781,
 								"height": 51,
 								"originX": 0,
 								"originY": 0,
@@ -3384,7 +3458,7 @@
 								"font": "Arial",
 								"size": 24,
 								"line-height": 0,
-								"bold": false,
+								"bold": true,
 								"italic": false,
 								"color": [
 									0,
@@ -3392,7 +3466,7 @@
 									0,
 									1
 								],
-								"horizontal-alignment": "left",
+								"horizontal-alignment": "center",
 								"vertical-alignment": "top",
 								"wrapping": "word",
 								"initially-visible": true,
@@ -3402,11 +3476,36 @@
 							"uid": 105,
 							"instanceVariables": {},
 							"behaviors": {},
+							"sceneGraphData": {
+								"parent-uid": 101,
+								"uid": 105,
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"a": true,
+									"d": true,
+									"sm": "normal"
+								},
+								"preview": {
+									"transformX": 0,
+									"transformY": 0,
+									"transformZElevation": 0,
+									"transformW": 0,
+									"transformH": 0,
+									"transformA": 0,
+									"transformSX": 0,
+									"transformSY": 0,
+									"previewSceneGraph": false
+								}
+							},
 							"world": {
-								"x": 262,
-								"y": 1823,
-								"width": 763,
-								"height": 51,
+								"x": 72,
+								"y": 1507,
+								"width": 97,
+								"height": 86,
 								"originX": 0,
 								"originY": 0,
 								"color": [
@@ -3420,7 +3519,7 @@
 							}
 						},
 						{
-							"type": "CrysetherDisplay",
+							"type": "OverviewTextDisplay",
 							"properties": {
 								"text": "CRYSETHER",
 								"enable-bbcode": true,
@@ -3445,11 +3544,202 @@
 							"uid": 106,
 							"instanceVariables": {},
 							"behaviors": {},
+							"sceneGraphData": {
+								"parent-uid": 101,
+								"uid": 106,
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"a": true,
+									"d": true,
+									"sm": "normal"
+								},
+								"preview": {
+									"transformX": 0,
+									"transformY": 0,
+									"transformZElevation": 0,
+									"transformW": 0,
+									"transformH": 0,
+									"transformA": 0,
+									"transformSX": 0,
+									"transformSY": 0,
+									"previewSceneGraph": false
+								}
+							},
 							"world": {
-								"x": 261,
-								"y": 1740,
-								"width": 763,
-								"height": 51,
+								"x": 21,
+								"y": 1614,
+								"width": 1042,
+								"height": 289,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "OverviewButton",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Animation 2",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 16,
+							"instanceVariables": {},
+							"behaviors": {},
+							"sceneGraphData": {
+								"parent-uid": 101,
+								"uid": 16,
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"a": true,
+									"d": true,
+									"sm": "normal"
+								},
+								"preview": {
+									"transformX": 0,
+									"transformY": 0,
+									"transformZElevation": 0,
+									"transformW": 0,
+									"transformH": 0,
+									"transformA": 0,
+									"transformSX": 0,
+									"transformSY": 0,
+									"previewSceneGraph": false
+								}
+							},
+							"world": {
+								"x": 1023,
+								"y": 1545,
+								"width": 100,
+								"height": 100,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "CycleButton",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Animation 2",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 67,
+							"instanceVariables": {},
+							"behaviors": {},
+							"sceneGraphData": {
+								"parent-uid": 101,
+								"uid": 67,
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"a": true,
+									"d": true,
+									"sm": "normal"
+								},
+								"preview": {
+									"transformX": 0,
+									"transformY": 0,
+									"transformZElevation": 0,
+									"transformW": 0,
+									"transformH": 0,
+									"transformA": 0,
+									"transformSX": 0,
+									"transformSY": 0,
+									"previewSceneGraph": false
+								}
+							},
+							"world": {
+								"x": 1002,
+								"y": 1836,
+								"width": 100,
+								"height": 100,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "Separator",
+							"properties": {
+								"left-margin": 1,
+								"right-margin": 1,
+								"top-margin": 1,
+								"bottom-margin": 1,
+								"edges": "stretch",
+								"fill": "stretch",
+								"initially-visible": true,
+								"origin": "top-left",
+								"seams": "overlap"
+							},
+							"uid": 68,
+							"instanceVariables": {},
+							"behaviors": {},
+							"sceneGraphData": {
+								"parent-uid": 101,
+								"uid": 68,
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"a": true,
+									"d": true,
+									"sm": "normal"
+								},
+								"preview": {
+									"transformX": 0,
+									"transformY": 0,
+									"transformZElevation": 0,
+									"transformW": 0,
+									"transformH": 0,
+									"transformA": 0,
+									"transformSX": 0,
+									"transformSY": 0,
+									"previewSceneGraph": false
+								}
+							},
+							"world": {
+								"x": 21,
+								"y": 1599,
+								"width": 1038,
+								"height": 7,
 								"originX": 0,
 								"originY": 0,
 								"color": [
@@ -3540,8 +3830,8 @@
 						"stelliumStockpile": 0,
 						"crysetherStockpile": 0,
 						"yearsElapsed": 0,
-						"selectedPlanetUid": -1,
-						"overviewMode": false
+						"selectedPlanetUid": 0,
+						"overviewMode": ""
 					},
 					"behaviors": {},
 					"world": {

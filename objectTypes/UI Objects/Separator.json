@@ -1,0 +1,20 @@
+{
+	"name": "Separator",
+	"plugin-id": "NinePatch",
+	"sid": 391402540777783,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"image": {
+		"width": 250,
+		"height": 250,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "lossless",
+		"exportQuality": 0.8,
+		"imageSpriteId": 4629359,
+		"useCollisionPoly": true
+	}
+}
