@@ -38,6 +38,59 @@
 		{
 			"eventType": "group",
 			"disabled": false,
+			"title": "Message Log",
+			"description": "Functions/events for the onscreen message log.",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "LogMessage",
+					"functionDescription": "Print text to the message log.",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "text",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 173143095848960
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "script",
+							"script": "const display = runtime.objects.MessageLog.getFirstInstance();\nconst messageLog = JSON.parse(display.instVars.messages);\nconsole.log(localVars.text);\nmessageLog.unshift({\n\t\"timestamp\": runtime.wallTime,\n\t\"message\": localVars.text\n});\ndisplay.instVars.messages = JSON.stringify(messageLog);"
+						}
+					],
+					"sid": 500854358061495
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 301440633548776
+						}
+					],
+					"actions": [
+						{
+							"type": "script",
+							"script": "const display = runtime.objects.MessageLog.getFirstInstance();\nconst duration = display.instVars.messageDuration;\nlet messages = JSON.parse(display.instVars.messages);\n// remove outdated messages\nmessages = messages.filter(item => item.timestamp > runtime.wallTime - duration);\ndisplay.instVars.messages = JSON.stringify(messages);\n// update display\ndisplay.text = messages.map(item => `${item.timestamp.toFixed(2)}s: ${item.message}`).join(\"\\n\");"
+						}
+					],
+					"sid": 734056811131020
+				}
+			],
+			"sid": 212984513362528
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
 			"title": "Facilities",
 			"description": "Events and functions for building facilities.",
 			"isActiveOnStart": true,
@@ -73,7 +126,7 @@
 					"actions": [
 						{
 							"type": "script",
-							"script": "const planetUid = runtime.objects.Planet.getFirstPickedInstance().uid;\nconst buildPreventedMessage = GameUtils.isFacilityBuildPrevented(runtime, planetUid, localVars.facilityName);\nif (buildPreventedMessage) {\n\truntime.callFunction(\"LogDebugMessage\", buildPreventedMessage);\n\treturn;\n}\nGameUtils.buildFacilityOnPlanet(runtime, planetUid, localVars.facilityName);\nruntime.callFunction(\"LogDebugMessage\", `Built ${localVars.facilityName} on planet ${planetUid}.`);\nlocalVars.buildSuccessful = true;"
+							"script": "const planetUid = runtime.objects.Planet.getFirstPickedInstance().uid;\nconst buildPreventedMessage = GameUtils.isFacilityBuildPrevented(runtime, planetUid, localVars.facilityName);\nif (buildPreventedMessage) {\n\truntime.callFunction(\"LogMessage\", buildPreventedMessage);\n\treturn;\n}\nconst planet = runtime.getInstanceByUid(planetUid);\nGameUtils.buildFacilityOnPlanet(runtime, planetUid, localVars.facilityName);\nruntime.callFunction(\"LogMessage\", `Built ${localVars.facilityName} on planet ${planet.instVars.name}.`);\nlocalVars.buildSuccessful = true;"
 						}
 					],
 					"sid": 426283044993029,

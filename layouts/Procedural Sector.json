@@ -1461,6 +1461,19 @@
 											"d": true,
 											"sm": "normal"
 										}
+									},
+									{
+										"uid": 86,
+										"flags": {
+											"x": true,
+											"y": true,
+											"z": true,
+											"w": true,
+											"h": true,
+											"a": true,
+											"d": true,
+											"sm": "normal"
+										}
 									}
 								],
 								"flags": {
@@ -5770,7 +5783,79 @@
 					"global": true
 				}
 			],
-			"instances": [],
+			"instances": [
+				{
+					"type": "MessageLog",
+					"properties": {
+						"text": "MESSAGE LOG",
+						"enable-bbcode": true,
+						"font": "Arial",
+						"size": 24,
+						"line-height": 0,
+						"bold": true,
+						"italic": false,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"horizontal-alignment": "left",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left",
+						"read-aloud": false
+					},
+					"uid": 86,
+					"instanceVariables": {
+						"messages": "[]",
+						"messageDuration": 7
+					},
+					"behaviors": {},
+					"sceneGraphData": {
+						"parent-uid": 92,
+						"uid": 86,
+						"flags": {
+							"x": true,
+							"y": true,
+							"z": true,
+							"w": true,
+							"h": true,
+							"a": true,
+							"d": true,
+							"sm": "normal"
+						},
+						"preview": {
+							"transformX": 0,
+							"transformY": 0,
+							"transformZElevation": 0,
+							"transformW": 0,
+							"transformH": 0,
+							"transformA": 0,
+							"transformSX": 0,
+							"transformSY": 0,
+							"previewSceneGraph": false
+						}
+					},
+					"world": {
+						"x": 20,
+						"y": 13,
+						"width": 1040,
+						"height": 405,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				}
+			],
 			"sid": 291471612537222,
 			"effectTypes": [],
 			"isInitiallyVisible": true,

@@ -1,0 +1,24 @@
+{
+	"name": "MessageLog",
+	"plugin-id": "Text",
+	"sid": 417765439662366,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "messages",
+			"type": "string",
+			"desc": "",
+			"show": true,
+			"sid": 708934826590616
+		},
+		{
+			"name": "messageDuration",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 358667573498703
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": []
+}
