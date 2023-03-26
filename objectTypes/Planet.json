@@ -17,6 +17,13 @@
 			"desc": "Name of this planet (for flavor and player identification).",
 			"show": true,
 			"sid": 255103995438500
+		},
+		{
+			"name": "infoSpriteUid",
+			"type": "number",
+			"desc": "UID of this planet's InfoSprite object (if it has one).",
+			"show": true,
+			"sid": 627312154545014
 		}
 	],
 	"behaviorTypes": [

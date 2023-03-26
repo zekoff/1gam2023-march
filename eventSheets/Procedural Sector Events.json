@@ -126,6 +126,41 @@
 					}
 				},
 				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 851727961199613,
+					"parameters": {
+						"object-to-create": "SupplyHighlight",
+						"layer": "\"Supply Highlights\"",
+						"x": "Planet.X",
+						"y": "Planet.Y",
+						"create-hierarchy": false,
+						"template-name": "\"Standard Template\""
+					}
+				},
+				{
+					"id": "set-size",
+					"objectClass": "SupplyHighlight",
+					"sid": 368862029222463,
+					"parameters": {
+						"width": "WARP_DEPOT_RADIUS * 2",
+						"height": "WARP_DEPOT_RADIUS * 2"
+					}
+				},
+				{
+					"id": "fill-ellipse",
+					"objectClass": "SupplyHighlight",
+					"sid": 106634833841496,
+					"parameters": {
+						"x": "SupplyHighlight.Width / 2",
+						"y": "SupplyHighlight.Height / 2",
+						"radius-x": "SupplyHighlight.Width / 2",
+						"radius-y": "SupplyHighlight.Height / 2",
+						"color": "rgba(100, 100, 0, 50)",
+						"edge": "smooth"
+					}
+				},
+				{
 					"id": "signal",
 					"objectClass": "System",
 					"sid": 316705013331812,
@@ -134,77 +169,7 @@
 					}
 				}
 			],
-			"sid": 252064592148514,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "pick-all",
-							"objectClass": "System",
-							"sid": 398488856388634,
-							"parameters": {
-								"object": "Planet"
-							}
-						},
-						{
-							"id": "for-each",
-							"objectClass": "System",
-							"sid": 143438298135371,
-							"parameters": {
-								"object": "Planet"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "create-object",
-							"objectClass": "System",
-							"sid": 662978522966184,
-							"parameters": {
-								"object-to-create": "PlanetHighlight",
-								"layer": "\"Planet Highlights\"",
-								"x": "Planet.X",
-								"y": "Planet.Y",
-								"create-hierarchy": false,
-								"template-name": "\"Standard Template\""
-							}
-						}
-					],
-					"sid": 795152704790351,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "pick-last-created",
-									"objectClass": "System",
-									"sid": 422117332608454,
-									"parameters": {
-										"object": "PlanetHighlight"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "fill-ellipse",
-									"objectClass": "PlanetHighlight",
-									"sid": 890873050321035,
-									"parameters": {
-										"x": "PlanetHighlight.Width / 2",
-										"y": "PlanetHighlight.Height / 2",
-										"radius-x": "PlanetHighlight.Width / 2",
-										"radius-y": "PlanetHighlight.Height / 2",
-										"color": "rgba(100, 100, 100, 100)",
-										"edge": "smooth"
-									}
-								}
-							],
-							"sid": 872566593909953
-						}
-					]
-				}
-			]
+			"sid": 252064592148514
 		}
 	],
 	"sid": 610176550027079

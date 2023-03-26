@@ -158,7 +158,8 @@
 			"Mouse",
 			"GameController",
 			"PlanetHighlight",
-			"VisualizationController"
+			"VisualizationController",
+			"SupplyHighlight"
 		],
 		"subfolders": [
 			{

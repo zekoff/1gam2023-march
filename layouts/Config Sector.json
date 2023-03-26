@@ -277,7 +277,8 @@
 								"quantiaDrain": 0,
 								"stelliumDrain": 0,
 								"improvementLevel": 0,
-								"name": ""
+								"name": "",
+								"infoSpriteUid": 0
 							},
 							"behaviors": {
 								"Rotate": {
@@ -330,7 +331,8 @@
 								"quantiaDrain": 0,
 								"stelliumDrain": 0,
 								"improvementLevel": 0,
-								"name": ""
+								"name": "",
+								"infoSpriteUid": 0
 							},
 							"behaviors": {
 								"Rotate": {
@@ -383,7 +385,8 @@
 								"quantiaDrain": 0,
 								"stelliumDrain": 0,
 								"improvementLevel": 0,
-								"name": ""
+								"name": "",
+								"infoSpriteUid": 0
 							},
 							"behaviors": {
 								"Rotate": {
@@ -436,7 +439,8 @@
 								"quantiaDrain": 0,
 								"stelliumDrain": 0,
 								"improvementLevel": 0,
-								"name": ""
+								"name": "",
+								"infoSpriteUid": 0
 							},
 							"behaviors": {
 								"Rotate": {
@@ -489,7 +493,8 @@
 								"quantiaDrain": 0,
 								"stelliumDrain": 0,
 								"improvementLevel": 0,
-								"name": ""
+								"name": "",
+								"infoSpriteUid": 0
 							},
 							"behaviors": {
 								"Rotate": {
@@ -542,7 +547,8 @@
 								"quantiaDrain": 0,
 								"stelliumDrain": 0,
 								"improvementLevel": 0,
-								"name": ""
+								"name": "",
+								"infoSpriteUid": 0
 							},
 							"behaviors": {
 								"Rotate": {
@@ -595,7 +601,8 @@
 								"quantiaDrain": 0,
 								"stelliumDrain": 0,
 								"improvementLevel": 0,
-								"name": ""
+								"name": "",
+								"infoSpriteUid": 0
 							},
 							"behaviors": {
 								"Rotate": {
@@ -648,7 +655,8 @@
 								"quantiaDrain": 0,
 								"stelliumDrain": 0,
 								"improvementLevel": 0,
-								"name": ""
+								"name": "",
+								"infoSpriteUid": 0
 							},
 							"behaviors": {
 								"Rotate": {
@@ -701,7 +709,8 @@
 								"quantiaDrain": 0,
 								"stelliumDrain": 0,
 								"improvementLevel": 0,
-								"name": ""
+								"name": "",
+								"infoSpriteUid": 0
 							},
 							"behaviors": {
 								"Rotate": {
@@ -754,7 +763,8 @@
 								"quantiaDrain": 0,
 								"stelliumDrain": 0,
 								"improvementLevel": 0,
-								"name": ""
+								"name": "",
+								"infoSpriteUid": 0
 							},
 							"behaviors": {
 								"Rotate": {
@@ -807,7 +817,8 @@
 								"quantiaDrain": 0,
 								"stelliumDrain": 0,
 								"improvementLevel": 0,
-								"name": ""
+								"name": "",
+								"infoSpriteUid": 0
 							},
 							"behaviors": {
 								"Rotate": {
@@ -860,7 +871,8 @@
 								"quantiaDrain": 0,
 								"stelliumDrain": 0,
 								"improvementLevel": 0,
-								"name": ""
+								"name": "",
+								"infoSpriteUid": 0
 							},
 							"behaviors": {
 								"Rotate": {
@@ -913,7 +925,8 @@
 								"quantiaDrain": 0,
 								"stelliumDrain": 0,
 								"improvementLevel": 0,
-								"name": ""
+								"name": "",
+								"infoSpriteUid": 0
 							},
 							"behaviors": {
 								"Rotate": {
@@ -966,7 +979,8 @@
 								"quantiaDrain": 0,
 								"stelliumDrain": 0,
 								"improvementLevel": 0,
-								"name": ""
+								"name": "",
+								"infoSpriteUid": 0
 							},
 							"behaviors": {
 								"Rotate": {
@@ -1019,7 +1033,8 @@
 								"quantiaDrain": 0,
 								"stelliumDrain": 0,
 								"improvementLevel": 0,
-								"name": ""
+								"name": "",
+								"infoSpriteUid": 0
 							},
 							"behaviors": {
 								"Rotate": {
@@ -1072,7 +1087,8 @@
 								"quantiaDrain": 0,
 								"stelliumDrain": 0,
 								"improvementLevel": 0,
-								"name": ""
+								"name": "",
+								"infoSpriteUid": 0
 							},
 							"behaviors": {
 								"Rotate": {
@@ -1125,7 +1141,8 @@
 								"quantiaDrain": 0,
 								"stelliumDrain": 0,
 								"improvementLevel": 0,
-								"name": ""
+								"name": "",
+								"infoSpriteUid": 0
 							},
 							"behaviors": {
 								"Rotate": {
@@ -1178,7 +1195,8 @@
 								"quantiaDrain": 0,
 								"stelliumDrain": 0,
 								"improvementLevel": 0,
-								"name": ""
+								"name": "",
+								"infoSpriteUid": 0
 							},
 							"behaviors": {
 								"Rotate": {
@@ -1231,7 +1249,8 @@
 								"quantiaDrain": 0,
 								"stelliumDrain": 0,
 								"improvementLevel": 0,
-								"name": ""
+								"name": "",
+								"infoSpriteUid": 0
 							},
 							"behaviors": {
 								"Rotate": {
@@ -1284,7 +1303,8 @@
 								"quantiaDrain": 0,
 								"stelliumDrain": 0,
 								"improvementLevel": 0,
-								"name": ""
+								"name": "",
+								"infoSpriteUid": 0
 							},
 							"behaviors": {
 								"Rotate": {
@@ -1337,7 +1357,8 @@
 								"quantiaDrain": 0,
 								"stelliumDrain": 0,
 								"improvementLevel": 0,
-								"name": ""
+								"name": "",
+								"infoSpriteUid": 0
 							},
 							"behaviors": {
 								"Rotate": {
@@ -1390,7 +1411,8 @@
 								"quantiaDrain": 0,
 								"stelliumDrain": 0,
 								"improvementLevel": 0,
-								"name": ""
+								"name": "",
+								"infoSpriteUid": 0
 							},
 							"behaviors": {
 								"Rotate": {
@@ -1443,7 +1465,8 @@
 								"quantiaDrain": 0,
 								"stelliumDrain": 0,
 								"improvementLevel": 0,
-								"name": ""
+								"name": "",
+								"infoSpriteUid": 0
 							},
 							"behaviors": {
 								"Rotate": {
@@ -1496,7 +1519,8 @@
 								"quantiaDrain": 0,
 								"stelliumDrain": 0,
 								"improvementLevel": 0,
-								"name": ""
+								"name": "",
+								"infoSpriteUid": 0
 							},
 							"behaviors": {
 								"Rotate": {
@@ -1549,7 +1573,8 @@
 								"quantiaDrain": 0,
 								"stelliumDrain": 0,
 								"improvementLevel": 0,
-								"name": ""
+								"name": "",
+								"infoSpriteUid": 0
 							},
 							"behaviors": {
 								"Rotate": {
@@ -1602,7 +1627,8 @@
 								"quantiaDrain": 0,
 								"stelliumDrain": 0,
 								"improvementLevel": 0,
-								"name": ""
+								"name": "",
+								"infoSpriteUid": 0
 							},
 							"behaviors": {
 								"Rotate": {
@@ -1655,7 +1681,8 @@
 								"quantiaDrain": 0,
 								"stelliumDrain": 0,
 								"improvementLevel": 0,
-								"name": ""
+								"name": "",
+								"infoSpriteUid": 0
 							},
 							"behaviors": {
 								"Rotate": {
@@ -1749,6 +1776,10 @@
 													},
 													{
 														"iv": "name",
+														"state": true
+													},
+													{
+														"iv": "infoSpriteUid",
 														"state": true
 													}
 												]

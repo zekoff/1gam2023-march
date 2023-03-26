@@ -900,6 +900,204 @@
 			"overriden": 0,
 			"subLayers": [
 				{
+					"name": "Supply Highlights",
+					"overriden": 0,
+					"subLayers": [],
+					"instances": [
+						{
+							"type": "SupplyHighlight",
+							"properties": {
+								"resolution-mode": "auto",
+								"initially-visible": true,
+								"origin": "center",
+								"antialiasing": "off"
+							},
+							"uid": 72,
+							"instanceVariables": {},
+							"behaviors": {},
+							"template": {
+								"mode": "template",
+								"templateName": "Standard Template",
+								"sourceTemplateName": "",
+								"components": [
+									{
+										"id": "plugin",
+										"component": [
+											{
+												"key": "plugin",
+												"state": [
+													[
+														"resolution-mode",
+														true
+													],
+													[
+														"initially-visible",
+														true
+													],
+													[
+														"origin",
+														true
+													],
+													[
+														"antialiasing",
+														true
+													]
+												]
+											}
+										]
+									},
+									{
+										"id": "instance-variable",
+										"component": [
+											{
+												"key": "instance-variable",
+												"state": []
+											}
+										]
+									},
+									{
+										"id": "behavior",
+										"component": []
+									},
+									{
+										"id": "effect",
+										"component": []
+									},
+									{
+										"id": "world-instance",
+										"component": [
+											{
+												"key": "world-instance",
+												"state": [
+													[
+														"x",
+														false
+													],
+													[
+														"y",
+														false
+													],
+													[
+														"z",
+														true
+													],
+													[
+														"w",
+														true
+													],
+													[
+														"h",
+														true
+													],
+													[
+														"a",
+														true
+													],
+													[
+														"o",
+														true
+													],
+													[
+														"c",
+														true
+													],
+													[
+														"sx",
+														true
+													],
+													[
+														"sy",
+														true
+													],
+													[
+														"bm",
+														true
+													],
+													[
+														"twpx",
+														true
+													],
+													[
+														"twpy",
+														true
+													],
+													[
+														"twpz",
+														true
+													],
+													[
+														"twpw",
+														true
+													],
+													[
+														"twph",
+														true
+													],
+													[
+														"twpa",
+														true
+													],
+													[
+														"dwp",
+														true
+													],
+													[
+														"ssm",
+														true
+													]
+												]
+											}
+										]
+									}
+								],
+								"replicasUIDs": null
+							},
+							"world": {
+								"x": -570,
+								"y": 1731,
+								"width": 677.9107610888029,
+								"height": 677.9107610888029,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0
+							}
+						}
+					],
+					"sid": 409068035729767,
+					"effectTypes": [],
+					"isInitiallyVisible": true,
+					"isInitiallyInteractive": true,
+					"color": [
+						1,
+						1,
+						1,
+						1
+					],
+					"backgroundColor": [
+						1,
+						1,
+						1,
+						1
+					],
+					"isTransparent": true,
+					"parallaxX": 1,
+					"parallaxY": 1,
+					"scaleRate": 1,
+					"forceOwnTexture": false,
+					"renderingMode": "3d",
+					"drawOrder": "z-order",
+					"useRenderCells": false,
+					"blendMode": "normal",
+					"zElevation": 0,
+					"global": true
+				},
+				{
 					"name": "Planet Highlights",
 					"overriden": 0,
 					"subLayers": [],
@@ -938,39 +1136,6 @@
 					"subLayers": [],
 					"instances": [],
 					"sid": 262318379338102,
-					"effectTypes": [],
-					"isInitiallyVisible": true,
-					"isInitiallyInteractive": true,
-					"color": [
-						1,
-						1,
-						1,
-						1
-					],
-					"backgroundColor": [
-						1,
-						1,
-						1,
-						1
-					],
-					"isTransparent": true,
-					"parallaxX": 1,
-					"parallaxY": 1,
-					"scaleRate": 1,
-					"forceOwnTexture": false,
-					"renderingMode": "3d",
-					"drawOrder": "z-order",
-					"useRenderCells": false,
-					"blendMode": "normal",
-					"zElevation": 0,
-					"global": true
-				},
-				{
-					"name": "Supply Highlights",
-					"overriden": 0,
-					"subLayers": [],
-					"instances": [],
-					"sid": 409068035729767,
 					"effectTypes": [],
 					"isInitiallyVisible": true,
 					"isInitiallyInteractive": true,
@@ -4303,10 +4468,10 @@
 						"replicasUIDs": null
 					},
 					"world": {
-						"x": -207.39095963511807,
-						"y": 750.9336767055563,
-						"width": 66.41480671454892,
-						"height": 66.41480671454892,
+						"x": -192,
+						"y": 659,
+						"width": 293.9404396468221,
+						"height": 293.9404396468221,
 						"originX": 0.5,
 						"originY": 0.5,
 						"color": [

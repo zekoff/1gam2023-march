@@ -95,7 +95,7 @@
 			"eventType": "variable",
 			"name": "SCAN_MAX_SIZE",
 			"type": "number",
-			"initialValue": "2000",
+			"initialValue": "4000",
 			"comment": "Maximum width/height the scan area grows to (diameter of circle).",
 			"isStatic": false,
 			"isConstant": true,

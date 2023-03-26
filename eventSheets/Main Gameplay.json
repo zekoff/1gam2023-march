@@ -66,7 +66,79 @@
 							"script": "const planetUid = runtime.objects.Planet.getFirstPickedInstance().uid;\nconst buildPreventedMessage = GameUtils.isFacilityBuildPrevented(runtime, planetUid, localVars.facilityName);\nif (buildPreventedMessage) {\n\truntime.callFunction(\"LogDebugMessage\", buildPreventedMessage);\n\treturn;\n}\nGameUtils.buildFacilityOnPlanet(runtime, planetUid, localVars.facilityName);\nruntime.callFunction(\"LogDebugMessage\", `Built ${localVars.facilityName} on planet ${planetUid}.`);"
 						}
 					],
-					"sid": 426283044993029
+					"sid": 426283044993029,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "evaluate-expression",
+									"objectClass": "System",
+									"sid": 372539049017146,
+									"parameters": {
+										"value": "facilityName = \"Warp Depot\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 605028562881347,
+									"parameters": {
+										"object-to-create": "SupplyHighlight",
+										"layer": "\"Supply Highlights\"",
+										"x": "Planet.X",
+										"y": "Planet.Y",
+										"create-hierarchy": false,
+										"template-name": "\"Standard Template\""
+									}
+								}
+							],
+							"sid": 690792689413816,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-last-created",
+											"objectClass": "System",
+											"sid": 370403488533357,
+											"parameters": {
+												"object": "SupplyHighlight"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-size",
+											"objectClass": "SupplyHighlight",
+											"sid": 424863833522861,
+											"parameters": {
+												"width": "WARP_DEPOT_RADIUS * 2",
+												"height": "WARP_DEPOT_RADIUS * 2"
+											}
+										},
+										{
+											"id": "fill-ellipse",
+											"objectClass": "SupplyHighlight",
+											"sid": 287417816104951,
+											"parameters": {
+												"x": "SupplyHighlight.Width / 2",
+												"y": "SupplyHighlight.Height / 2",
+												"radius-x": "SupplyHighlight.Width / 2",
+												"radius-y": "SupplyHighlight.Height / 2",
+												"color": "rgba(100, 100, 0, 50)",
+												"edge": "smooth"
+											}
+										}
+									],
+									"sid": 140495177921207
+								}
+							],
+							"isOrBlock": true
+						}
+					]
 				},
 				{
 					"functionName": "GetTotalImprovement",
@@ -1294,9 +1366,9 @@
 						{
 							"id": "set-layer-opacity",
 							"objectClass": "System",
-							"sid": 678905463602424,
+							"sid": 352381988348572,
 							"parameters": {
-								"layer": "\"Supply Area\"",
+								"layer": "\"Supply Highlights\"",
 								"opacity": "VisualizationController.supplyOpacity"
 							}
 						},
@@ -1390,6 +1462,58 @@
 								}
 							],
 							"sid": 794691632662751
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-playing",
+									"objectClass": "VisualizationController",
+									"sid": 993744796604972,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"exploration\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "VisualizationController",
+									"sid": 138790181539140,
+									"parameters": {
+										"instance-variable": "explorationOpacity",
+										"value": "VisualizationController.Tween.Value(\"exploration\")"
+									}
+								}
+							],
+							"sid": 728053601080978
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-playing",
+									"objectClass": "VisualizationController",
+									"sid": 420528948603843,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"supply\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "VisualizationController",
+									"sid": 191083272099946,
+									"parameters": {
+										"instance-variable": "supplyOpacity",
+										"value": "VisualizationController.Tween.Value(\"supply\")"
+									}
+								}
+							],
+							"sid": 315701165436332
 						}
 					]
 				},
@@ -1455,6 +1579,40 @@
 						{
 							"callFunction": "GenericHighlights",
 							"sid": 112384089304563
+						},
+						{
+							"id": "tween-value",
+							"objectClass": "VisualizationController",
+							"sid": 292403598523574,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"exploration\"",
+								"start-value": "VisualizationController.explorationOpacity",
+								"end-value": "100",
+								"time": "ZOOM_TIME",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "tween-value",
+							"objectClass": "VisualizationController",
+							"sid": 890208433103160,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"supply\"",
+								"start-value": "VisualizationController.supplyOpacity",
+								"end-value": "0",
+								"time": "ZOOM_TIME",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
 						}
 					],
 					"sid": 672471986017895
@@ -1473,6 +1631,40 @@
 						{
 							"callFunction": "GenericHighlights",
 							"sid": 403804664104768
+						},
+						{
+							"id": "tween-value",
+							"objectClass": "VisualizationController",
+							"sid": 627833167033850,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"exploration\"",
+								"start-value": "VisualizationController.explorationOpacity",
+								"end-value": "0",
+								"time": "ZOOM_TIME",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "tween-value",
+							"objectClass": "VisualizationController",
+							"sid": 486289950565806,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"supply\"",
+								"start-value": "VisualizationController.supplyOpacity",
+								"end-value": "0",
+								"time": "ZOOM_TIME",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
 						}
 					],
 					"sid": 965237121943544
@@ -1491,6 +1683,40 @@
 						{
 							"callFunction": "GenericHighlights",
 							"sid": 284100006791105
+						},
+						{
+							"id": "tween-value",
+							"objectClass": "VisualizationController",
+							"sid": 544113287110563,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"exploration\"",
+								"start-value": "VisualizationController.explorationOpacity",
+								"end-value": "0",
+								"time": "ZOOM_TIME",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "tween-value",
+							"objectClass": "VisualizationController",
+							"sid": 716935135198377,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"supply\"",
+								"start-value": "VisualizationController.supplyOpacity",
+								"end-value": "100",
+								"time": "ZOOM_TIME",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
 						}
 					],
 					"sid": 281739808477068
@@ -1506,6 +1732,23 @@
 					"eventType": "function-block",
 					"conditions": [],
 					"actions": [
+						{
+							"id": "tween-value",
+							"objectClass": "VisualizationController",
+							"sid": 900446488787005,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"supply\"",
+								"start-value": "VisualizationController.supplyOpacity",
+								"end-value": "0",
+								"time": "ZOOM_TIME",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
 						{
 							"id": "tween-value",
 							"objectClass": "VisualizationController",
@@ -1532,6 +1775,23 @@
 								"tags": "\"background\"",
 								"start-value": "VisualizationController.backgroundOpacity",
 								"end-value": "100",
+								"time": "ZOOM_TIME",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "tween-value",
+							"objectClass": "VisualizationController",
+							"sid": 115299935435103,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"exploration\"",
+								"start-value": "VisualizationController.explorationOpacity",
+								"end-value": "0",
 								"time": "ZOOM_TIME",
 								"ease": "default",
 								"destroy-on-complete": "no",
@@ -2675,9 +2935,100 @@
 							"parameters": [
 								"\"Scanned planet \" & Planet.name"
 							]
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 302824196026273,
+							"parameters": {
+								"object-to-create": "PlanetHighlight",
+								"layer": "\"Planet Highlights\"",
+								"x": "Planet.X",
+								"y": "Planet.Y",
+								"create-hierarchy": false,
+								"template-name": "\"Standard Template\""
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 751085226614196,
+							"parameters": {
+								"object-to-create": "InfoSprite",
+								"layer": "\"Exploration Highlights\"",
+								"x": "Planet.X + 75",
+								"y": "Planet.Y - 75",
+								"create-hierarchy": false,
+								"template-name": "\"Standard Template\""
+							}
 						}
 					],
-					"sid": 113638445789323
+					"sid": 113638445789323,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-last-created",
+									"objectClass": "System",
+									"sid": 701714939522741,
+									"parameters": {
+										"object": "PlanetHighlight"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "fill-ellipse",
+									"objectClass": "PlanetHighlight",
+									"sid": 559313345252524,
+									"parameters": {
+										"x": "PlanetHighlight.Width / 2",
+										"y": "PlanetHighlight.Height / 2",
+										"radius-x": "PlanetHighlight.Width / 2",
+										"radius-y": "PlanetHighlight.Height / 2",
+										"color": "rgba(100, 100, 100, 100)",
+										"edge": "smooth"
+									}
+								}
+							],
+							"sid": 533045820112566
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-last-created",
+									"objectClass": "System",
+									"sid": 731985071514180,
+									"parameters": {
+										"object": "InfoSprite"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "InfoSprite",
+									"sid": 669914954904464,
+									"parameters": {
+										"animation": "\"Question\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Planet",
+									"sid": 357743493386667,
+									"parameters": {
+										"instance-variable": "infoSpriteUid",
+										"value": "InfoSprite.UID"
+									}
+								}
+							],
+							"sid": 216672511310389
+						}
+					]
 				},
 				{
 					"functionName": "ExplorePlanet",
@@ -2711,7 +3062,80 @@
 							]
 						}
 					],
-					"sid": 427903072584693
+					"sid": 427903072584693,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "InfoSprite",
+									"sid": 404036595465599,
+									"parameters": {
+										"unique-id": "Planet.infoSpriteUid"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 508516140634154,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Planet",
+											"sid": 590946741423611,
+											"parameters": {
+												"instance-variable": "trait",
+												"comparison": 4,
+												"value": "\"\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "InfoSprite",
+											"sid": 714896315822162,
+											"parameters": {
+												"animation": "\"Exclamation\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 388212172643113
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 829018959671577
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "InfoSprite",
+											"sid": 998898117806754
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Planet",
+											"sid": 649762561588665,
+											"parameters": {
+												"instance-variable": "infoSpriteUid",
+												"value": "0"
+											}
+										}
+									],
+									"sid": 174457215601442
+								}
+							]
+						}
+					]
 				},
 				{
 					"eventType": "comment",
