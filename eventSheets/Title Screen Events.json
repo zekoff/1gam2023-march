@@ -1,0 +1,98 @@
+{
+	"name": "Title Screen Events",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 700132992020897,
+					"parameters": {
+						"object": "UiBox"
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "UiBox",
+					"sid": 995000007024520,
+					"parameters": {
+						"instance-variable": "handle",
+						"comparison": 0,
+						"value": "\"Start\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 131068578095425,
+					"parameters": {
+						"layout": "Procedural Sector"
+					}
+				}
+			],
+			"sid": 733696373091898
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 715802537167952,
+					"parameters": {
+						"object": "UiBox"
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "UiBox",
+					"sid": 706019771591006,
+					"parameters": {
+						"instance-variable": "handle",
+						"comparison": 0,
+						"value": "\"Instructions\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 723889236983247,
+					"parameters": {
+						"layout": "How To Play Screen"
+					}
+				}
+			],
+			"sid": 548365062223943
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 987659093837613,
+					"parameters": {
+						"object": "ExitButton"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 539022510100301,
+					"parameters": {
+						"layout": "Title Screen"
+					}
+				}
+			],
+			"sid": 573902241982544
+		}
+	],
+	"sid": 354100334461099
+}

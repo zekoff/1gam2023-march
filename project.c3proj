@@ -1,7 +1,7 @@
 {
 	"projectFormatVersion": 1,
 	"savedWithRelease": 32703,
-	"name": "1gam2023-march",
+	"name": "Planet Pioneers",
 	"runtime": "c3",
 	"useWorker": "auto",
 	"bundleAddons": false,
@@ -208,7 +208,9 @@
 	"layouts": {
 		"items": [
 			"Config Sector",
-			"Procedural Sector"
+			"Procedural Sector",
+			"Title Screen",
+			"How To Play Screen"
 		],
 		"subfolders": []
 	},
@@ -219,7 +221,8 @@
 			"Loading Events",
 			"Debug Events",
 			"Development Sector Events",
-			"Procedural Sector Events"
+			"Procedural Sector Events",
+			"Title Screen Events"
 		],
 		"subfolders": []
 	},
@@ -368,8 +371,8 @@
 		"version": "1.0.0.0",
 		"author": "Michael Zekoff",
 		"authorEmail": "zekoff@gmail.com",
-		"authorWebsite": "",
-		"appId": "",
+		"authorWebsite": "https://zekoff.com/1gam2023-march",
+		"appId": "com.zekoff.1gam2023.march",
 		"pixelRounding": false,
 		"zAxisScale": "normalized",
 		"fov": 0.7853981633974483,
@@ -384,9 +387,9 @@
 			0
 		],
 		"splashColor": [
-			1,
-			1,
-			1,
+			0.08627450980392157,
+			0.16862745098039217,
+			0.792156862745098,
 			0
 		],
 		"useThemeColor": false,
@@ -418,5 +421,5 @@
 	},
 	"viewportWidth": 1080,
 	"viewportHeight": 1920,
-	"firstLayout": "Procedural Sector"
+	"firstLayout": "Title Screen"
 }

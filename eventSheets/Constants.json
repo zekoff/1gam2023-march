@@ -45,7 +45,7 @@
 			"eventType": "variable",
 			"name": "GAME_LENGTH_YEARS",
 			"type": "number",
-			"initialValue": "50",
+			"initialValue": "30",
 			"comment": "Game length in \"years\" -- arbitrary number and duration name for setting rates.",
 			"isStatic": false,
 			"isConstant": true,

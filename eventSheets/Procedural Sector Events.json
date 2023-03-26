@@ -77,19 +77,19 @@
 				{
 					"id": "set-position",
 					"objectClass": "ResearchStation",
-					"sid": 344738314031923,
+					"sid": 821852035053922,
 					"parameters": {
-						"x": "Planet.X - 50",
+						"x": "Planet.X - 100",
 						"y": "Planet.Y - 50"
 					}
 				},
 				{
 					"id": "move-to-position",
 					"objectClass": "ResearchStation",
-					"sid": 147985575748622,
+					"sid": 777657331437808,
 					"behaviorType": "MoveTo",
 					"parameters": {
-						"x": "Planet.X",
+						"x": "Planet.X - 100",
 						"y": "Planet.Y + 100",
 						"mode": "direct"
 					}
@@ -269,9 +269,9 @@
 						},
 						{
 							"callFunction": "LogMessage",
-							"sid": 447559200982531,
+							"sid": 138385287927772,
 							"parameters": [
-								"\"Colony founded on planet \" & Planet.name & \". Beginning our exploration of the sector.\""
+								"\"Advance colony founded on planet \" & Planet.name & \". Settlement ships arrive in \" & GAME_LENGTH_YEARS & \" years. Beginning our exploration of the sector.\""
 							]
 						}
 					],

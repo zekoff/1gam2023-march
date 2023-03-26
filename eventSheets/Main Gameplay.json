@@ -4113,6 +4113,133 @@
 				}
 			],
 			"sid": 748338600580016
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Game End Events",
+			"description": "Events for when the game is over.",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "GameController",
+							"sid": 250775039737061,
+							"parameters": {
+								"instance-variable": "yearsElapsed",
+								"comparison": 4,
+								"value": "GAME_LENGTH_YEARS - (YEARS_PER_MINUTE/2)"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 415540538453108
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "LogMessage",
+							"sid": 161818414947487,
+							"parameters": [
+								"\"Settlement ships arrive in \" & (YEARS_PER_MINUTE/2) & \" years!\""
+							]
+						}
+					],
+					"sid": 419595501112969
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "GameController",
+							"sid": 838704142562289,
+							"parameters": {
+								"instance-variable": "yearsElapsed",
+								"comparison": 4,
+								"value": "GAME_LENGTH_YEARS"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 744565008831689
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "LogMessage",
+							"sid": 210358352419254,
+							"parameters": [
+								"\"Settlement ships have arrived!\""
+							]
+						},
+						{
+							"callFunction": "LogMessage",
+							"sid": 599476671587939,
+							"parameters": [
+								"\"Score (tota sector improvement level plus crysether stockpiled): \" & (Functions.GetTotalImprovement + GameController.crysetherStockpile)"
+							]
+						},
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 449947514017576,
+							"parameters": {
+								"group-name": "\"Touch Inputs\"",
+								"state": "deactivated"
+							}
+						},
+						{
+							"callFunction": "SetDefaultMode",
+							"sid": 280269465416401
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 460647785298312,
+							"parameters": {
+								"seconds": "0.5"
+							}
+						},
+						{
+							"callFunction": "SetOverviewMode",
+							"sid": 299084713549152
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 296750063166524,
+							"parameters": {
+								"seconds": "10"
+							}
+						},
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 318349916716556,
+							"parameters": {
+								"group-name": "\"Touch Inputs\"",
+								"state": "activated"
+							}
+						},
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 192429377347858,
+							"parameters": {
+								"layout": "Title Screen"
+							}
+						}
+					],
+					"sid": 978426777284082
+				}
+			],
+			"sid": 957821045802842
 		}
 	],
 	"sid": 165260888475578

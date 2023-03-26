@@ -156,7 +156,7 @@
 			"sid": 844719707452892,
 			"effectTypes": [],
 			"isInitiallyVisible": true,
-			"isInitiallyInteractive": true,
+			"isInitiallyInteractive": false,
 			"color": [
 				1,
 				1,
@@ -568,7 +568,7 @@
 						},
 						"MoveTo": {
 							"properties": {
-								"max-speed": 500,
+								"max-speed": 1000,
 								"acceleration": 600,
 								"deceleration": 600,
 								"rotate-speed": 0,
@@ -4437,7 +4437,7 @@
 								"text": "FACILITY DESCRIPTION",
 								"enable-bbcode": true,
 								"font": "Arial",
-								"size": 18,
+								"size": 22,
 								"line-height": 0,
 								"bold": false,
 								"italic": false,
@@ -5625,16 +5625,16 @@
 								}
 							},
 							"world": {
-								"x": 1020,
-								"y": 1864,
-								"width": 100,
-								"height": 100,
+								"x": 1013.0287367377939,
+								"y": 1866.028736737794,
+								"width": 139.16590771637647,
+								"height": 139.16590771637647,
 								"originX": 0.5,
 								"originY": 0.5,
 								"color": [
-									1,
-									1,
-									1,
+									0.058823529411764705,
+									0.7607843137254902,
+									0.43529411764705883,
 									1
 								],
 								"angle": 0,
@@ -5679,16 +5679,16 @@
 								}
 							},
 							"world": {
-								"x": 999,
-								"y": 2155,
-								"width": 100,
-								"height": 100,
+								"x": 1006.0018519321296,
+								"y": 2165.0018519321297,
+								"width": 134.9922960717387,
+								"height": 134.9922960717387,
 								"originX": 0.5,
 								"originY": 0.5,
 								"color": [
-									1,
-									1,
-									1,
+									0.058823529411764705,
+									0.7607843137254902,
+									0.43529411764705883,
 									1
 								],
 								"angle": 0,
@@ -5810,7 +5810,7 @@
 					"uid": 86,
 					"instanceVariables": {
 						"messages": "[]",
-						"messageDuration": 7
+						"messageDuration": 10
 					},
 					"behaviors": {},
 					"sceneGraphData": {
