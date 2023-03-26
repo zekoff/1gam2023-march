@@ -1,0 +1,28 @@
+{
+	"name": "GlassPanel",
+	"plugin-id": "NinePatch",
+	"sid": 921192496796475,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "handle",
+			"type": "string",
+			"desc": "Facility name associated with this panel.",
+			"show": true,
+			"sid": 642700105507154
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"image": {
+		"width": 100,
+		"height": 100,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "lossless",
+		"exportQuality": 0.8,
+		"imageSpriteId": 289600,
+		"useCollisionPoly": true
+	}
+}

@@ -169,7 +169,56 @@
 					}
 				}
 			],
-			"sid": 252064592148514
+			"sid": 252064592148514,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 481692809859412,
+							"parameters": {
+								"object": "GlassPanel"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "FacilityIcon",
+							"sid": 145918048647666,
+							"parameters": {
+								"x": "GlassPanel.X + 60",
+								"y": "GlassPanel.Y + 60"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "FacilityName",
+							"sid": 472355453689097,
+							"parameters": {
+								"x": "GlassPanel.X + 150",
+								"y": "GlassPanel.Y + 5"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "FacilityDescription",
+							"sid": 271881153177139,
+							"parameters": {
+								"x": "GlassPanel.X + 150",
+								"y": "GlassPanel.Y + 45"
+							}
+						},
+						{
+							"type": "script",
+							"script": "GameUtils.populateFacilityBuildPanel(runtime);"
+						}
+					],
+					"sid": 714507269641423
+				}
+			]
 		}
 	],
 	"sid": 610176550027079

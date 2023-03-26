@@ -175,7 +175,11 @@
 					"OverviewButton",
 					"CycleButton",
 					"InfoSprite",
-					"Separator"
+					"Separator",
+					"GlassPanel",
+					"FacilityIcon",
+					"FacilityName",
+					"FacilityDescription"
 				],
 				"subfolders": [],
 				"name": "UI Objects"
@@ -183,7 +187,18 @@
 		]
 	},
 	"autosaveData": null,
-	"containers": [],
+	"containers": [
+		{
+			"members": [
+				"Camera",
+				"FacilityDescription",
+				"FacilityIcon",
+				"FacilityName",
+				"GlassPanel"
+			],
+			"selectMode": "normal"
+		}
+	],
 	"families": {
 		"items": [
 			"Nodes"

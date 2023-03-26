@@ -143,7 +143,7 @@
 			"disabled": false,
 			"title": "Debug Log",
 			"description": "Manage debug log additions and display.",
-			"isActiveOnStart": true,
+			"isActiveOnStart": false,
 			"children": [
 				{
 					"functionName": "LogDebugMessage",

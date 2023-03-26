@@ -2281,9 +2281,9 @@
 				1
 			],
 			"backgroundColor": [
-				0.19607843137254902,
-				0.16862745098039217,
-				0.5686274509803921,
+				0.08235294117647059,
+				0.058823529411764705,
+				0.4235294117647059,
 				1
 			],
 			"isTransparent": false,
@@ -3109,7 +3109,7 @@
 							},
 							"uid": 51,
 							"instanceVariables": {
-								"handle": "Planet Name"
+								"handle": ""
 							},
 							"behaviors": {},
 							"template": {
@@ -3191,7 +3191,7 @@
 												"state": [
 													{
 														"iv": "handle",
-														"state": false
+														"state": true
 													}
 												]
 											}
@@ -3361,7 +3361,7 @@
 							},
 							"uid": 52,
 							"instanceVariables": {
-								"handle": "Improvement Level"
+								"handle": ""
 							},
 							"behaviors": {},
 							"template": {
@@ -3443,7 +3443,7 @@
 												"state": [
 													{
 														"iv": "handle",
-														"state": false
+														"state": true
 													}
 												]
 											}
@@ -3613,7 +3613,7 @@
 							},
 							"uid": 53,
 							"instanceVariables": {
-								"handle": "Quantia"
+								"handle": ""
 							},
 							"behaviors": {},
 							"template": {
@@ -3695,7 +3695,7 @@
 												"state": [
 													{
 														"iv": "handle",
-														"state": false
+														"state": true
 													}
 												]
 											}
@@ -3865,7 +3865,7 @@
 							},
 							"uid": 54,
 							"instanceVariables": {
-								"handle": "Stellium"
+								"handle": ""
 							},
 							"behaviors": {},
 							"template": {
@@ -3947,7 +3947,7 @@
 												"state": [
 													{
 														"iv": "handle",
-														"state": false
+														"state": true
 													}
 												]
 											}
@@ -4117,7 +4117,7 @@
 							},
 							"uid": 55,
 							"instanceVariables": {
-								"handle": "Exploration"
+								"handle": ""
 							},
 							"behaviors": {},
 							"template": {
@@ -4199,7 +4199,7 @@
 												"state": [
 													{
 														"iv": "handle",
-														"state": false
+														"state": true
 													}
 												]
 											}
@@ -4369,7 +4369,7 @@
 							},
 							"uid": 56,
 							"instanceVariables": {
-								"handle": "Supply"
+								"handle": ""
 							},
 							"behaviors": {},
 							"template": {
@@ -4451,7 +4451,7 @@
 												"state": [
 													{
 														"iv": "handle",
-														"state": false
+														"state": true
 													}
 												]
 											}
@@ -4621,7 +4621,7 @@
 							},
 							"uid": 57,
 							"instanceVariables": {
-								"handle": "Trait"
+								"handle": ""
 							},
 							"behaviors": {},
 							"template": {
@@ -4703,7 +4703,7 @@
 												"state": [
 													{
 														"iv": "handle",
-														"state": false
+														"state": true
 													}
 												]
 											}
@@ -5199,7 +5199,8 @@
 						"crysetherStockpile": 0,
 						"yearsElapsed": 0,
 						"selectedPlanetUid": 0,
-						"overviewMode": ""
+						"overviewMode": "",
+						"warpDepotCost": 1
 					},
 					"behaviors": {},
 					"world": {

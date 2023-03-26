@@ -10,6 +10,18 @@ const PLANET_TRAITS = {
   "Crysether Cache": "Grants additional Crysether to stockpile if in supply network."
 };
 
+export function populateFacilityBuildPanel(runtime) {
+  const facilityName = runtime.objects.GlassPanel.getFirstPickedInstance().instVars.handle;
+  console.log(facilityName);
+  const facilityData = JSON.parse(runtime.globalVars.facilityDataMapping)[facilityName];
+  const facilityIcon = runtime.objects.FacilityIcon.getFirstPickedInstance();
+  const facilityNameDisplay = runtime.objects.FacilityName.getFirstPickedInstance();
+  const facilityDescriptionDisplay = runtime.objects.FacilityDescription.getFirstPickedInstance();
+  facilityIcon.setAnimation(facilityData["Animation"]);
+  facilityNameDisplay.text = facilityName;
+  facilityDescriptionDisplay.text = facilityData["Description"];
+}
+
 /**
  * Reduce all nodes in sector to the sum of the passed instance variable.
  * The instance variable must be a numeric value. This method is not exported
