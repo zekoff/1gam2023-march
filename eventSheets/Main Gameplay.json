@@ -43,6 +43,16 @@
 			"isActiveOnStart": true,
 			"children": [
 				{
+					"eventType": "variable",
+					"name": "buildSuccessful",
+					"type": "boolean",
+					"initialValue": "false",
+					"comment": "Whether facility build was successful.",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 525041207746679
+				},
+				{
 					"functionName": "BuildFacility",
 					"functionDescription": "Function to build a facility on a picked planet. (Checks that facility build is allowed.)",
 					"functionCategory": "",
@@ -63,7 +73,7 @@
 					"actions": [
 						{
 							"type": "script",
-							"script": "const planetUid = runtime.objects.Planet.getFirstPickedInstance().uid;\nconst buildPreventedMessage = GameUtils.isFacilityBuildPrevented(runtime, planetUid, localVars.facilityName);\nif (buildPreventedMessage) {\n\truntime.callFunction(\"LogDebugMessage\", buildPreventedMessage);\n\treturn;\n}\nGameUtils.buildFacilityOnPlanet(runtime, planetUid, localVars.facilityName);\nruntime.callFunction(\"LogDebugMessage\", `Built ${localVars.facilityName} on planet ${planetUid}.`);"
+							"script": "const planetUid = runtime.objects.Planet.getFirstPickedInstance().uid;\nconst buildPreventedMessage = GameUtils.isFacilityBuildPrevented(runtime, planetUid, localVars.facilityName);\nif (buildPreventedMessage) {\n\truntime.callFunction(\"LogDebugMessage\", buildPreventedMessage);\n\treturn;\n}\nGameUtils.buildFacilityOnPlanet(runtime, planetUid, localVars.facilityName);\nruntime.callFunction(\"LogDebugMessage\", `Built ${localVars.facilityName} on planet ${planetUid}.`);\nlocalVars.buildSuccessful = true;"
 						}
 					],
 					"sid": 426283044993029,
@@ -71,6 +81,14 @@
 						{
 							"eventType": "block",
 							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 519956852407878,
+									"parameters": {
+										"variable": "buildSuccessful"
+									}
+								},
 								{
 									"id": "evaluate-expression",
 									"objectClass": "System",
@@ -135,8 +153,7 @@
 									],
 									"sid": 140495177921207
 								}
-							],
-							"isOrBlock": true
+							]
 						}
 					]
 				},
@@ -913,15 +930,59 @@
 								},
 								{
 									"eventType": "comment",
-									"text": "Send camera to new location."
+									"text": "Build Warp Depot in Supply mode."
 								},
 								{
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "else",
-											"objectClass": "System",
-											"sid": 439604012055165
+											"id": "compare-instance-variable",
+											"objectClass": "GameController",
+											"sid": 365544724150252,
+											"parameters": {
+												"instance-variable": "overviewMode",
+												"comparison": 0,
+												"value": "OVERVIEW_SUPPLY"
+											}
+										},
+										{
+											"id": "pick-nearestfurthest",
+											"objectClass": "Planet",
+											"sid": 317264088912827,
+											"parameters": {
+												"which": "nearest",
+												"x": "Touch.X",
+												"y": "Touch.Y"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "BuildFacility",
+											"sid": 993792591987560,
+											"parameters": [
+												"\"Warp Depot\""
+											]
+										}
+									],
+									"sid": 850563700933270
+								},
+								{
+									"eventType": "comment",
+									"text": "Send camera to new location in Sector mode."
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "GameController",
+											"sid": 514490578170812,
+											"parameters": {
+												"instance-variable": "overviewMode",
+												"comparison": 0,
+												"value": "OVERVIEW_SECTOR"
+											}
 										}
 									],
 									"actions": [
@@ -1529,13 +1590,13 @@
 						{
 							"id": "tween-value",
 							"objectClass": "VisualizationController",
-							"sid": 962148287555556,
+							"sid": 920279002313053,
 							"behaviorType": "Tween",
 							"parameters": {
 								"tags": "\"planet\"",
 								"start-value": "VisualizationController.planetOpacity",
 								"end-value": "100",
-								"time": "ZOOM_TIME",
+								"time": "VISUALIZATION_CYCLE_TIME",
 								"ease": "default",
 								"destroy-on-complete": "no",
 								"loop": "no",
@@ -1546,13 +1607,13 @@
 						{
 							"id": "tween-value",
 							"objectClass": "VisualizationController",
-							"sid": 953636231856257,
+							"sid": 564454015492468,
 							"behaviorType": "Tween",
 							"parameters": {
 								"tags": "\"background\"",
 								"start-value": "VisualizationController.backgroundOpacity",
 								"end-value": "20",
-								"time": "ZOOM_TIME",
+								"time": "VISUALIZATION_CYCLE_TIME",
 								"ease": "default",
 								"destroy-on-complete": "no",
 								"loop": "no",
@@ -1581,13 +1642,13 @@
 						{
 							"id": "tween-value",
 							"objectClass": "VisualizationController",
-							"sid": 292403598523574,
+							"sid": 324495982053066,
 							"behaviorType": "Tween",
 							"parameters": {
 								"tags": "\"exploration\"",
 								"start-value": "VisualizationController.explorationOpacity",
 								"end-value": "100",
-								"time": "ZOOM_TIME",
+								"time": "VISUALIZATION_CYCLE_TIME",
 								"ease": "default",
 								"destroy-on-complete": "no",
 								"loop": "no",
@@ -1598,13 +1659,13 @@
 						{
 							"id": "tween-value",
 							"objectClass": "VisualizationController",
-							"sid": 890208433103160,
+							"sid": 449454732739618,
 							"behaviorType": "Tween",
 							"parameters": {
 								"tags": "\"supply\"",
 								"start-value": "VisualizationController.supplyOpacity",
 								"end-value": "0",
-								"time": "ZOOM_TIME",
+								"time": "VISUALIZATION_CYCLE_TIME",
 								"ease": "default",
 								"destroy-on-complete": "no",
 								"loop": "no",
@@ -1633,13 +1694,13 @@
 						{
 							"id": "tween-value",
 							"objectClass": "VisualizationController",
-							"sid": 627833167033850,
+							"sid": 193382776711594,
 							"behaviorType": "Tween",
 							"parameters": {
 								"tags": "\"exploration\"",
 								"start-value": "VisualizationController.explorationOpacity",
 								"end-value": "0",
-								"time": "ZOOM_TIME",
+								"time": "VISUALIZATION_CYCLE_TIME",
 								"ease": "default",
 								"destroy-on-complete": "no",
 								"loop": "no",
@@ -1650,13 +1711,13 @@
 						{
 							"id": "tween-value",
 							"objectClass": "VisualizationController",
-							"sid": 486289950565806,
+							"sid": 130847572544345,
 							"behaviorType": "Tween",
 							"parameters": {
 								"tags": "\"supply\"",
 								"start-value": "VisualizationController.supplyOpacity",
 								"end-value": "0",
-								"time": "ZOOM_TIME",
+								"time": "VISUALIZATION_CYCLE_TIME",
 								"ease": "default",
 								"destroy-on-complete": "no",
 								"loop": "no",
@@ -1685,13 +1746,13 @@
 						{
 							"id": "tween-value",
 							"objectClass": "VisualizationController",
-							"sid": 544113287110563,
+							"sid": 563106448740229,
 							"behaviorType": "Tween",
 							"parameters": {
 								"tags": "\"exploration\"",
 								"start-value": "VisualizationController.explorationOpacity",
 								"end-value": "0",
-								"time": "ZOOM_TIME",
+								"time": "VISUALIZATION_CYCLE_TIME",
 								"ease": "default",
 								"destroy-on-complete": "no",
 								"loop": "no",
@@ -1702,13 +1763,13 @@
 						{
 							"id": "tween-value",
 							"objectClass": "VisualizationController",
-							"sid": 716935135198377,
+							"sid": 122123534585850,
 							"behaviorType": "Tween",
 							"parameters": {
 								"tags": "\"supply\"",
 								"start-value": "VisualizationController.supplyOpacity",
 								"end-value": "100",
-								"time": "ZOOM_TIME",
+								"time": "VISUALIZATION_CYCLE_TIME",
 								"ease": "default",
 								"destroy-on-complete": "no",
 								"loop": "no",
@@ -1733,13 +1794,13 @@
 						{
 							"id": "tween-value",
 							"objectClass": "VisualizationController",
-							"sid": 900446488787005,
+							"sid": 147107405761267,
 							"behaviorType": "Tween",
 							"parameters": {
 								"tags": "\"supply\"",
 								"start-value": "VisualizationController.supplyOpacity",
 								"end-value": "0",
-								"time": "ZOOM_TIME",
+								"time": "VISUALIZATION_CYCLE_TIME",
 								"ease": "default",
 								"destroy-on-complete": "no",
 								"loop": "no",
@@ -1750,13 +1811,13 @@
 						{
 							"id": "tween-value",
 							"objectClass": "VisualizationController",
-							"sid": 972951692854958,
+							"sid": 879025505916498,
 							"behaviorType": "Tween",
 							"parameters": {
 								"tags": "\"planet\"",
 								"start-value": "VisualizationController.planetOpacity",
 								"end-value": "0",
-								"time": "ZOOM_TIME",
+								"time": "VISUALIZATION_CYCLE_TIME",
 								"ease": "default",
 								"destroy-on-complete": "no",
 								"loop": "no",
@@ -1767,13 +1828,13 @@
 						{
 							"id": "tween-value",
 							"objectClass": "VisualizationController",
-							"sid": 354413213336297,
+							"sid": 113697864653044,
 							"behaviorType": "Tween",
 							"parameters": {
 								"tags": "\"background\"",
 								"start-value": "VisualizationController.backgroundOpacity",
 								"end-value": "100",
-								"time": "ZOOM_TIME",
+								"time": "VISUALIZATION_CYCLE_TIME",
 								"ease": "default",
 								"destroy-on-complete": "no",
 								"loop": "no",
@@ -1784,13 +1845,13 @@
 						{
 							"id": "tween-value",
 							"objectClass": "VisualizationController",
-							"sid": 115299935435103,
+							"sid": 534404215090618,
 							"behaviorType": "Tween",
 							"parameters": {
 								"tags": "\"exploration\"",
 								"start-value": "VisualizationController.explorationOpacity",
 								"end-value": "0",
-								"time": "ZOOM_TIME",
+								"time": "VISUALIZATION_CYCLE_TIME",
 								"ease": "default",
 								"destroy-on-complete": "no",
 								"loop": "no",
@@ -2071,9 +2132,17 @@
 								{
 									"id": "append-text",
 									"objectClass": "OverviewTextDisplay",
-									"sid": 740657972415337,
+									"sid": 466127400838482,
 									"parameters": {
-										"text": "\"Crysether Available: \" & GameController.crysetherStockpile & newline & \"Total Sector Improvement Level: \" & Functions.GetTotalImprovement"
+										"text": "\"[i](zoom to default view by tapping location)[/i]\" & newline & newline\n"
+									}
+								},
+								{
+									"id": "append-text",
+									"objectClass": "OverviewTextDisplay",
+									"sid": 811457029767134,
+									"parameters": {
+										"text": " \"Total Sector Improvement Level: \" & Functions.GetTotalImprovement & newline"
 									}
 								}
 							],
@@ -2262,9 +2331,25 @@
 								{
 									"id": "append-text",
 									"objectClass": "OverviewTextDisplay",
-									"sid": 687773333256838,
+									"sid": 231658456564486,
 									"parameters": {
-										"text": "\"Stats on supply...\""
+										"text": "\"[i](build Warp Depot by tapping target planet)[/i]\" & newline & newline\n"
+									}
+								},
+								{
+									"id": "append-text",
+									"objectClass": "OverviewTextDisplay",
+									"sid": 595633261906124,
+									"parameters": {
+										"text": "\"Crysether Available: \" & GameController.crysetherStockpile & newline"
+									}
+								},
+								{
+									"id": "append-text",
+									"objectClass": "OverviewTextDisplay",
+									"sid": 799745405642532,
+									"parameters": {
+										"text": "\"Cost of Warp Depot: \" & str(1) & \" Crysether\""
 									}
 								}
 							],
