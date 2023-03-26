@@ -180,6 +180,16 @@
 			"isStatic": false,
 			"isConstant": true,
 			"sid": 243376221784188
+		},
+		{
+			"eventType": "variable",
+			"name": "VISUALIZATION_CYCLE_TIME",
+			"type": "number",
+			"initialValue": "0.2",
+			"comment": "Amount of time in seconds for visualizations to cycle to something new.",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 810618394982244
 		}
 	],
 	"sid": 496559410000628

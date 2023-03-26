@@ -1230,13 +1230,12 @@
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "GameController",
-									"sid": 584819423930554,
+									"sid": 889044059407725,
 									"parameters": {
-										"instance-variable": "selectedPlanetUid",
+										"instance-variable": "overviewMode",
 										"comparison": 4,
-										"value": "0"
-									},
-									"isInverted": true
+										"value": "DEFAULT_VIEW"
+									}
 								}
 							],
 							"actions": [
@@ -1245,8 +1244,7 @@
 									"sid": 787893708069790
 								}
 							],
-							"sid": 843203814569873,
-							"disabled": true
+							"sid": 843203814569873
 						},
 						{
 							"eventType": "block",
@@ -2107,13 +2105,136 @@
 								{
 									"id": "append-text",
 									"objectClass": "OverviewTextDisplay",
-									"sid": 802024318282529,
+									"sid": 636237045347030,
 									"parameters": {
-										"text": "\"[i](control Research Station by tapping target location)[/i]\" & newline &\n\"Percentage of sector charted: \" & \"UNKNOWN\""
+										"text": "\"[i](control Research Station by tapping target location)[/i]\" & newline & newline\n"
+									}
+								},
+								{
+									"id": "append-text",
+									"objectClass": "OverviewTextDisplay",
+									"sid": 490865389852103,
+									"parameters": {
+										"text": "\"Research Station Status: \""
 									}
 								}
 							],
-							"sid": 176563109742235
+							"sid": 176563109742235,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-moving",
+											"objectClass": "ResearchStation",
+											"sid": 613040458064237,
+											"behaviorType": "MoveTo"
+										}
+									],
+									"actions": [
+										{
+											"id": "append-text",
+											"objectClass": "OverviewTextDisplay",
+											"sid": 628575456578213,
+											"parameters": {
+												"text": "\"Moving to new location\""
+											}
+										}
+									],
+									"sid": 736518869535013
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 917488302866128
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "ResearchStation",
+											"sid": 891113418538008,
+											"parameters": {
+												"instance-variable": "activeScanUid",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "append-text",
+											"objectClass": "OverviewTextDisplay",
+											"sid": 520583063857874,
+											"parameters": {
+												"text": "\"Scanning for planets\""
+											}
+										}
+									],
+									"sid": 126883880419043
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 698071546072706
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "ResearchStation",
+											"sid": 504580099488229,
+											"parameters": {
+												"instance-variable": "exploringPlanetUid",
+												"comparison": 4,
+												"value": "0"
+											}
+										},
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "Planet",
+											"sid": 361015969603205,
+											"parameters": {
+												"unique-id": "ResearchStation.exploringPlanetUid"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "append-text",
+											"objectClass": "OverviewTextDisplay",
+											"sid": 887937096260460,
+											"parameters": {
+												"text": "\"Exploring planet \" & Planet.name"
+											}
+										}
+									],
+									"sid": 363937639121441
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 530087794392208
+										}
+									],
+									"actions": [
+										{
+											"id": "append-text",
+											"objectClass": "OverviewTextDisplay",
+											"sid": 363623739564239,
+											"parameters": {
+												"text": "\"IDLE\""
+											}
+										}
+									],
+									"sid": 721584936229220
+								}
+							]
 						},
 						{
 							"eventType": "block",

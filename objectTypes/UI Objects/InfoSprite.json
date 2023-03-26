@@ -179,6 +179,49 @@
 				"repeatCount": 1,
 				"repeatTo": 0,
 				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 128,
+						"height": 128,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 183667,
+						"collisionPoly": {
+							"points": [
+								0.1640625,
+								0.1640625,
+								0.5,
+								0.3125,
+								0.8359375,
+								0.1640625,
+								0.6875,
+								0.5,
+								0.8359375,
+								0.8359375,
+								0.5,
+								0.6875,
+								0.1640625,
+								0.8359375,
+								0.3125,
+								0.5
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 450011474350888,
+				"name": "Research Station",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
 			}
 		],
 		"subfolders": []

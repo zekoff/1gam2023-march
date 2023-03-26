@@ -578,6 +578,46 @@
 							}
 						}
 					},
+					"sceneGraphData": {
+						"parent-uid": null,
+						"uid": 58,
+						"children": [
+							{
+								"uid": 73,
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"a": false,
+									"d": true,
+									"sm": "normal"
+								}
+							}
+						],
+						"flags": {
+							"x": true,
+							"y": true,
+							"z": true,
+							"w": true,
+							"h": true,
+							"a": true,
+							"d": true,
+							"sm": "normal"
+						},
+						"preview": {
+							"transformX": 0,
+							"transformY": 0,
+							"transformZElevation": 0,
+							"transformW": 0,
+							"transformH": 0,
+							"transformA": 0,
+							"transformSX": 0,
+							"transformSY": 0,
+							"previewSceneGraph": false
+						}
+					},
 					"world": {
 						"x": 655,
 						"y": 1596,
@@ -1167,7 +1207,62 @@
 					"name": "Exploration Highlights",
 					"overriden": 0,
 					"subLayers": [],
-					"instances": [],
+					"instances": [
+						{
+							"type": "InfoSprite",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Research Station",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 73,
+							"instanceVariables": {},
+							"behaviors": {},
+							"sceneGraphData": {
+								"parent-uid": 58,
+								"uid": 73,
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"a": false,
+									"d": true,
+									"sm": "normal"
+								},
+								"preview": {
+									"transformX": 0,
+									"transformY": 0,
+									"transformZElevation": 0,
+									"transformW": 0,
+									"transformH": 0,
+									"transformA": 0,
+									"transformSX": 0,
+									"transformSY": 0,
+									"previewSceneGraph": false
+								}
+							},
+							"world": {
+								"x": 654,
+								"y": 1597,
+								"width": 376.2437627479323,
+								"height": 376.2437627479323,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						}
+					],
 					"sid": 423723177968482,
 					"effectTypes": [],
 					"isInitiallyVisible": true,
