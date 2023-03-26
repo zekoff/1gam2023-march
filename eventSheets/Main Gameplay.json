@@ -149,13 +149,13 @@
 										{
 											"id": "fill-ellipse",
 											"objectClass": "SupplyHighlight",
-											"sid": 287417816104951,
+											"sid": 920789680382420,
 											"parameters": {
 												"x": "SupplyHighlight.Width / 2",
 												"y": "SupplyHighlight.Height / 2",
 												"radius-x": "SupplyHighlight.Width / 2",
 												"radius-y": "SupplyHighlight.Height / 2",
-												"color": "rgba(100, 100, 0, 50)",
+												"color": "rgba(100, 100, 0, 100)",
 												"edge": "smooth"
 											}
 										}
@@ -1772,12 +1772,12 @@
 						{
 							"id": "tween-value",
 							"objectClass": "VisualizationController",
-							"sid": 122123534585850,
+							"sid": 509237114767848,
 							"behaviorType": "Tween",
 							"parameters": {
 								"tags": "\"supply\"",
 								"start-value": "VisualizationController.supplyOpacity",
-								"end-value": "100",
+								"end-value": "50",
 								"time": "VISUALIZATION_CYCLE_TIME",
 								"ease": "default",
 								"destroy-on-complete": "no",

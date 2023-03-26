@@ -150,13 +150,13 @@
 				{
 					"id": "fill-ellipse",
 					"objectClass": "SupplyHighlight",
-					"sid": 106634833841496,
+					"sid": 402967203557640,
 					"parameters": {
 						"x": "SupplyHighlight.Width / 2",
 						"y": "SupplyHighlight.Height / 2",
 						"radius-x": "SupplyHighlight.Width / 2",
 						"radius-y": "SupplyHighlight.Height / 2",
-						"color": "rgba(100, 100, 0, 50)",
+						"color": "rgba(100, 100, 0, 100)",
 						"edge": "smooth"
 					}
 				},
