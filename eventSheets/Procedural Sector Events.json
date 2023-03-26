@@ -185,6 +185,51 @@
 					],
 					"actions": [
 						{
+							"id": "add-child",
+							"objectClass": "GlassPanel",
+							"sid": 769823599485940,
+							"parameters": {
+								"child": "FacilityIcon",
+								"transform-x": true,
+								"transform-y": true,
+								"transform-w": true,
+								"transform-h": true,
+								"transform-a": true,
+								"transform-z-elevation": true,
+								"destroy-with-parent": false
+							}
+						},
+						{
+							"id": "add-child",
+							"objectClass": "GlassPanel",
+							"sid": 386171248050254,
+							"parameters": {
+								"child": "FacilityName",
+								"transform-x": true,
+								"transform-y": true,
+								"transform-w": true,
+								"transform-h": true,
+								"transform-a": true,
+								"transform-z-elevation": true,
+								"destroy-with-parent": false
+							}
+						},
+						{
+							"id": "add-child",
+							"objectClass": "GlassPanel",
+							"sid": 319310056868161,
+							"parameters": {
+								"child": "FacilityDescription",
+								"transform-x": true,
+								"transform-y": true,
+								"transform-w": true,
+								"transform-h": true,
+								"transform-a": true,
+								"transform-z-elevation": true,
+								"destroy-with-parent": false
+							}
+						},
+						{
 							"id": "set-position",
 							"objectClass": "FacilityIcon",
 							"sid": 145918048647666,

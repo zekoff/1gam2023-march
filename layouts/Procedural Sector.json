@@ -1754,7 +1754,7 @@
 							},
 							"uid": 94,
 							"instanceVariables": {
-								"handle": ""
+								"handle": "Planet Name"
 							},
 							"behaviors": {},
 							"template": {
@@ -1836,7 +1836,7 @@
 												"state": [
 													{
 														"iv": "handle",
-														"state": true
+														"state": false
 													}
 												]
 											}
@@ -2006,7 +2006,7 @@
 							},
 							"uid": 95,
 							"instanceVariables": {
-								"handle": ""
+								"handle": "Improvement Level"
 							},
 							"behaviors": {},
 							"template": {
@@ -2088,7 +2088,7 @@
 												"state": [
 													{
 														"iv": "handle",
-														"state": true
+														"state": false
 													}
 												]
 											}
@@ -2258,7 +2258,7 @@
 							},
 							"uid": 96,
 							"instanceVariables": {
-								"handle": ""
+								"handle": "Quantia"
 							},
 							"behaviors": {},
 							"template": {
@@ -2340,7 +2340,7 @@
 												"state": [
 													{
 														"iv": "handle",
-														"state": true
+														"state": false
 													}
 												]
 											}
@@ -2510,7 +2510,7 @@
 							},
 							"uid": 97,
 							"instanceVariables": {
-								"handle": ""
+								"handle": "Stellium"
 							},
 							"behaviors": {},
 							"template": {
@@ -2592,7 +2592,7 @@
 												"state": [
 													{
 														"iv": "handle",
-														"state": true
+														"state": false
 													}
 												]
 											}
@@ -2762,7 +2762,7 @@
 							},
 							"uid": 98,
 							"instanceVariables": {
-								"handle": ""
+								"handle": "Exploration"
 							},
 							"behaviors": {},
 							"template": {
@@ -2844,7 +2844,7 @@
 												"state": [
 													{
 														"iv": "handle",
-														"state": true
+														"state": false
 													}
 												]
 											}
@@ -3014,7 +3014,7 @@
 							},
 							"uid": 99,
 							"instanceVariables": {
-								"handle": ""
+								"handle": "Supply"
 							},
 							"behaviors": {},
 							"template": {
@@ -3096,7 +3096,7 @@
 												"state": [
 													{
 														"iv": "handle",
-														"state": true
+														"state": false
 													}
 												]
 											}
@@ -3266,7 +3266,7 @@
 							},
 							"uid": 100,
 							"instanceVariables": {
-								"handle": ""
+								"handle": "Trait"
 							},
 							"behaviors": {},
 							"template": {
@@ -3348,7 +3348,7 @@
 												"state": [
 													{
 														"iv": "handle",
-														"state": true
+														"state": false
 													}
 												]
 											}
@@ -3639,6 +3639,45 @@
 											"d": true,
 											"sm": "normal"
 										}
+									},
+									{
+										"uid": 83,
+										"flags": {
+											"x": true,
+											"y": true,
+											"z": true,
+											"w": true,
+											"h": true,
+											"a": true,
+											"d": true,
+											"sm": "normal"
+										}
+									},
+									{
+										"uid": 85,
+										"flags": {
+											"x": true,
+											"y": true,
+											"z": true,
+											"w": true,
+											"h": true,
+											"a": true,
+											"d": true,
+											"sm": "normal"
+										}
+									},
+									{
+										"uid": 84,
+										"flags": {
+											"x": true,
+											"y": true,
+											"z": true,
+											"w": true,
+											"h": true,
+											"a": true,
+											"d": true,
+											"sm": "normal"
+										}
 									}
 								],
 								"flags": {
@@ -3664,10 +3703,10 @@
 								}
 							},
 							"world": {
-								"x": 29,
-								"y": 715,
+								"x": 34,
+								"y": 1936,
 								"width": 1025,
-								"height": 734.0312801281598,
+								"height": 839.0312801281598,
 								"originX": 0,
 								"originY": 0,
 								"color": [
@@ -3927,8 +3966,8 @@
 								}
 							},
 							"world": {
-								"x": 46,
-								"y": 778,
+								"x": 51,
+								"y": 1999,
 								"width": 992,
 								"height": 122,
 								"originX": 0,
@@ -4118,8 +4157,8 @@
 								}
 							},
 							"world": {
-								"x": 106,
-								"y": 840,
+								"x": 111,
+								"y": 2061,
 								"width": 111.6968869176144,
 								"height": 111.6968869176144,
 								"originX": 0.5,
@@ -4363,8 +4402,8 @@
 								}
 							},
 							"world": {
-								"x": 158.56853873980458,
-								"y": 785.0382373798606,
+								"x": 164,
+								"y": 2006,
 								"width": 867.6064182337329,
 								"height": 39.72824878005508,
 								"originX": 0,
@@ -4608,8 +4647,8 @@
 								}
 							},
 							"world": {
-								"x": 159.39987667993137,
-								"y": 825.4920559826998,
+								"x": 164,
+								"y": 2046,
 								"width": 871.215580867073,
 								"height": 65.86431776815641,
 								"originX": 0,
@@ -4668,8 +4707,8 @@
 								}
 							},
 							"world": {
-								"x": 48.57995003094783,
-								"y": 909.5731040113576,
+								"x": 54,
+								"y": 2131,
 								"width": 992,
 								"height": 122,
 								"originX": 0,
@@ -4728,8 +4767,8 @@
 								}
 							},
 							"world": {
-								"x": 47.033192341355914,
-								"y": 1042.6391877176056,
+								"x": 52,
+								"y": 2264,
 								"width": 992,
 								"height": 122,
 								"originX": 0,
@@ -4788,8 +4827,8 @@
 								}
 							},
 							"world": {
-								"x": 48.249918504710365,
-								"y": 1173.2475705341114,
+								"x": 53,
+								"y": 2394,
 								"width": 992,
 								"height": 122,
 								"originX": 0,
@@ -4848,8 +4887,8 @@
 								}
 							},
 							"world": {
-								"x": 48.10797412858449,
-								"y": 1304.8512462872154,
+								"x": 53,
+								"y": 2526,
 								"width": 992,
 								"height": 122,
 								"originX": 0,
@@ -4892,11 +4931,172 @@
 								"handle": "BuildMenuLabel"
 							},
 							"behaviors": {},
+							"sceneGraphData": {
+								"parent-uid": 74,
+								"uid": 83,
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"a": true,
+									"d": true,
+									"sm": "normal"
+								},
+								"preview": {
+									"transformX": 0,
+									"transformY": 0,
+									"transformZElevation": 0,
+									"transformW": 0,
+									"transformH": 0,
+									"transformA": 0,
+									"transformSX": 0,
+									"transformSY": 0,
+									"previewSceneGraph": false
+								}
+							},
 							"world": {
-								"x": 106.37216342367674,
-								"y": 717.3293929057627,
+								"x": 111,
+								"y": 1938,
 								"width": 882,
 								"height": 59.04229427017583,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "OverviewLine1Display",
+							"properties": {
+								"text": "QUANTIA",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 24,
+								"line-height": 0,
+								"bold": false,
+								"italic": false,
+								"color": [
+									0,
+									0,
+									0,
+									1
+								],
+								"horizontal-alignment": "left",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "top-left",
+								"read-aloud": false
+							},
+							"uid": 84,
+							"instanceVariables": {},
+							"behaviors": {},
+							"sceneGraphData": {
+								"parent-uid": 74,
+								"uid": 84,
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"a": true,
+									"d": true,
+									"sm": "normal"
+								},
+								"preview": {
+									"transformX": 0,
+									"transformY": 0,
+									"transformZElevation": 0,
+									"transformW": 0,
+									"transformH": 0,
+									"transformA": 0,
+									"transformSX": 0,
+									"transformSY": 0,
+									"previewSceneGraph": false
+								}
+							},
+							"world": {
+								"x": 64,
+								"y": 2660,
+								"width": 965,
+								"height": 52,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "OverviewLine2Display",
+							"properties": {
+								"text": "STELLIUM",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 24,
+								"line-height": 0,
+								"bold": false,
+								"italic": false,
+								"color": [
+									0,
+									0,
+									0,
+									1
+								],
+								"horizontal-alignment": "left",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "top-left",
+								"read-aloud": false
+							},
+							"uid": 85,
+							"instanceVariables": {},
+							"behaviors": {},
+							"sceneGraphData": {
+								"parent-uid": 74,
+								"uid": 85,
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"a": true,
+									"d": true,
+									"sm": "normal"
+								},
+								"preview": {
+									"transformX": 0,
+									"transformY": 0,
+									"transformZElevation": 0,
+									"transformW": 0,
+									"transformH": 0,
+									"transformA": 0,
+									"transformSX": 0,
+									"transformSY": 0,
+									"previewSceneGraph": false
+								}
+							},
+							"world": {
+								"x": 67,
+								"y": 2711,
+								"width": 956,
+								"height": 51,
 								"originX": 0,
 								"originY": 0,
 								"color": [

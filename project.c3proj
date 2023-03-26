@@ -190,7 +190,6 @@
 	"containers": [
 		{
 			"members": [
-				"Camera",
 				"FacilityDescription",
 				"FacilityIcon",
 				"FacilityName",

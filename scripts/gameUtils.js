@@ -324,11 +324,16 @@ export function getConnectedPlanets(runtime, planetUid) {
  */
 export function updateUiText(runtime) {
   const gameController = runtime.objects.GameController.getFirstInstance();
-  runtime.objects.OverviewLine1Display.getFirstInstance().text =
-    "Quantia Generation: " + (getQuantiaRate(runtime) - getQuantiaDrain(runtime)) + " surplus";
-  runtime.objects.OverviewLine2Display.getFirstInstance().text =
-    "Stellium: " + Math.floor(gameController.instVars.stelliumStockpile) + " (net extraction +" +
-    (getStelliumRate(runtime) - getStelliumDrain(runtime)) + "/yr)";
+  Array.from(runtime.objects.OverviewLine1Display.instances()).forEach(instance =>
+    instance.text = "Quantia Generation: " + (getQuantiaRate(runtime) - getQuantiaDrain(runtime)) + " surplus");
+  // runtime.objects.OverviewLine1Display.getFirstInstance().text =
+  //   "Quantia Generation: " + (getQuantiaRate(runtime) - getQuantiaDrain(runtime)) + " surplus";
+  Array.from(runtime.objects.OverviewLine2Display.instances()).forEach(instance =>
+    instance.text = "Stellium: " + Math.floor(gameController.instVars.stelliumStockpile) + " (net extraction +" +
+    (getStelliumRate(runtime) - getStelliumDrain(runtime)) + "/yr)");
+  // runtime.objects.OverviewLine2Display.getFirstInstance().text =
+  //   "Stellium: " + Math.floor(gameController.instVars.stelliumStockpile) + " (net extraction +" +
+  //   (getStelliumRate(runtime) - getStelliumDrain(runtime)) + "/yr)";
   runtime.objects.OverviewTextDisplay.getFirstInstance().text =
     "Crysether Available: " + gameController.instVars.crysetherStockpile;
   const year = gameController.instVars.yearsElapsed;

@@ -438,6 +438,41 @@
 								}
 							],
 							"sid": 173554995804206
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "UiBox",
+									"sid": 708241208453805,
+									"parameters": {
+										"instance-variable": "handle",
+										"comparison": 0,
+										"value": "\"Build\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "tween-one-property",
+									"objectClass": "UiBox",
+									"sid": 593152387364057,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"selection\"",
+										"property": "offsetY",
+										"end-value": "1930",
+										"time": "0.5",
+										"ease": "easeoutcubic",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								}
+							],
+							"sid": 150922985207516
 						}
 					]
 				},
@@ -506,6 +541,41 @@
 								}
 							],
 							"sid": 933041962787836
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "UiBox",
+									"sid": 965545649452702,
+									"parameters": {
+										"instance-variable": "handle",
+										"comparison": 0,
+										"value": "\"Build\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "tween-one-property",
+									"objectClass": "UiBox",
+									"sid": 588671587971449,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"selection\"",
+										"property": "offsetY",
+										"end-value": "1070",
+										"time": "0.5",
+										"ease": "easeoutcubic",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								}
+							],
+							"sid": 925935238467309
 						}
 					]
 				},
@@ -678,6 +748,37 @@
 					"description": "",
 					"isActiveOnStart": true,
 					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-tap-object",
+									"objectClass": "Touch",
+									"sid": 112966827650052,
+									"parameters": {
+										"object": "GlassPanel"
+									}
+								},
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Planet",
+									"sid": 757600913715976,
+									"parameters": {
+										"unique-id": "GameController.selectedPlanetUid"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "BuildFacility",
+									"sid": 967847595009734,
+									"parameters": [
+										"GlassPanel.handle"
+									]
+								}
+							],
+							"sid": 743043893420525
+						},
 						{
 							"eventType": "comment",
 							"text": "Camera control via double-taps in default view."
