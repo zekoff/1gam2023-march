@@ -97,21 +97,26 @@ export function isFacilityBuildPrevented(runtime, planetUid, facilityName) {
 export function applyPlanetTraitRetroactively(runtime, planetUid) {
   const planet = runtime.getInstanceByUid(planetUid);
   const facilityDataMapping = JSON.parse(runtime.globalVars.facilityDataMapping);
+  const logMsg = runtime.callFunction.bind(runtime, "LogMessage");
   if (planet.instVars.explorationLevel !== 2) return;
   if (!planet.instVars.trait) return;
   switch (planet.instVars.trait) {
     case "Stellium Rich":
+      logMsg(`Found stellium-rich core on planet ${planet.instVars.name}.`);
       planet.instVars.stelliumRate *= 2;
       break;
     case "Quantia Clouds":
+      logMsg(`Found quantia clouds on planet ${planet.instVars.name}.`);
       planet.instVars.quantiaRate *= 2;
       break;
     case "Garden World":
+      logMsg(`Located the garden world planet ${planet.instVars.name}.`)
       const numHabitats = numFacilityOnPlanet(runtime, planet.uid, "Habitat");
       const habitatImprovementValue = facilityDataMapping["Habitat"]["Improvement Level"];
       planet.instVars.improvementLevel += numHabitats * habitatImprovementValue;
       break;
     case "Large Landmasses":
+      logMsg(`Found unusually large landmasses on planet ${planet.instVars.name}.`)
       planet.instVars.totalFacilitySlots += 2;
       let facilities = JSON.parse(planet.instVars.facilityList);
       facilities = facilities.map(uid => runtime.getInstanceByUid(uid));
@@ -121,13 +126,16 @@ export function applyPlanetTraitRetroactively(runtime, planetUid) {
       });
       break;
     case "Precursor Ruins":
+      logMsg(`Discovered precursor civiliation ruins on planet ${planet.instVars.name}.`)
       const numResearchFacilities = numFacilityOnPlanet(runtime, planet.uid, "Research Facility");
       gameController.instVars.crysetherStockpile += numResearchFacilities;
       break;
     case "Stellium Cache":
+      logMsg(`Found stellium cache on planet ${planet.instVars.name}.`)
       runtime.objects.GameController.getFirstInstance().instVars.stelliumStockpile += 1000;
       break;
     case "Crysether Cache":
+      logMsg(`Found crysether cache on planet ${planet.instVars.name}.`)
       runtime.objects.GameController.getFirstInstance().instVars.crysetherStockpile += 1;
       break;
     default:

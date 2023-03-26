@@ -159,14 +159,6 @@
 						"color": "rgba(100, 100, 0, 100)",
 						"edge": "smooth"
 					}
-				},
-				{
-					"id": "signal",
-					"objectClass": "System",
-					"sid": 316705013331812,
-					"parameters": {
-						"tag": "\"sector_generation_complete\""
-					}
 				}
 			],
 			"sid": 252064592148514,
@@ -262,6 +254,28 @@
 						}
 					],
 					"sid": 714507269641423
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "signal",
+							"objectClass": "System",
+							"sid": 607319436011657,
+							"parameters": {
+								"tag": "\"sector_generation_complete\""
+							}
+						},
+						{
+							"callFunction": "LogMessage",
+							"sid": 447559200982531,
+							"parameters": [
+								"\"Colony founded on planet \" & Planet.name & \". Beginning our exploration of the sector.\""
+							]
+						}
+					],
+					"sid": 643172567699955
 				}
 			]
 		}
