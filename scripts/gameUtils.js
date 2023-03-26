@@ -76,7 +76,8 @@ export function isFacilityBuildPrevented(runtime, planetUid, facilityName) {
   if (facilityData["Stellium Drain"] > stelliumRate)
     return "Inadequate Stellium extraction rate to maintain this facility.";
   const crysether = runtime.objects.GameController.getFirstInstance().instVars.crysetherStockpile;
-  if (facilityData["Crysether Cost"] > crysether)
+  const gc = runtime.objects.GameController.getFirstInstance();
+  if (facilityData["Crysether Cost"] > crysether || (facilityName === "Warp Depot" && gc.instVars.warpDepotCost > crysether))
     return "Insufficient crysether available to build this facility.";
   return false;
 }
@@ -172,7 +173,11 @@ export function buildFacilityOnPlanet(runtime, planetUid, facilityName) {
 
   // Consume resources
   gameController.instVars.stelliumStockpile -= facilityData["Stellium Cost"];
-  gameController.instVars.crysetherStockpile -= facilityData["Crysether Cost"];
+  if (facilityName === "Warp Depot") {
+    gameController.instVars.crysetherStockpile -= gameController.instVars.warpDepotCost;
+  } else {
+    gameController.instVars.crysetherStockpile -= facilityData["Crysether Cost"];
+  }
   planet.instVars.stelliumDrain += facilityData["Stellium Drain"];
   planet.instVars.quantiaDrain += facilityData["Quantia Drain"];
 }

@@ -4257,7 +4257,8 @@
 						"crysetherStockpile": 0,
 						"yearsElapsed": 0,
 						"selectedPlanetUid": 0,
-						"overviewMode": ""
+						"overviewMode": "",
+						"warpDepotCost": 1
 					},
 					"behaviors": {},
 					"world": {

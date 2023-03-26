@@ -111,6 +111,15 @@
 										"create-hierarchy": false,
 										"template-name": "\"Standard Template\""
 									}
+								},
+								{
+									"id": "add-to-instvar",
+									"objectClass": "GameController",
+									"sid": 931819199151757,
+									"parameters": {
+										"instance-variable": "warpDepotCost",
+										"value": "GameController.warpDepotCost"
+									}
 								}
 							],
 							"sid": 690792689413816,
@@ -2347,9 +2356,9 @@
 								{
 									"id": "append-text",
 									"objectClass": "OverviewTextDisplay",
-									"sid": 799745405642532,
+									"sid": 401478787325663,
 									"parameters": {
-										"text": "\"Cost of Warp Depot: \" & str(1) & \" Crysether\""
+										"text": "\"Cost of Warp Depot: \" & GameController.warpDepotCost & \" Crysether\""
 									}
 								}
 							],

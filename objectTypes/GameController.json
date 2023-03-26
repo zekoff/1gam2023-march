@@ -38,6 +38,13 @@
 			"desc": "One of \"SECTOR\", \"SUPPLY\", or \"EXPLORATION\", or empty (blank string) if the UI is not in overview mode.",
 			"show": true,
 			"sid": 731612232501253
+		},
+		{
+			"name": "warpDepotCost",
+			"type": "number",
+			"desc": "Cost in Crysether of next Warp Depot.",
+			"show": true,
+			"sid": 559234971337756
 		}
 	],
 	"behaviorTypes": [],

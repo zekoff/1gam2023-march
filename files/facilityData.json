@@ -1,7 +1,7 @@
 {
     "c2array": true,
     "size": [
-        11,
+        12,
         8,
         1
     ],
@@ -290,6 +290,32 @@
             ],
             [
                 500
+            ]
+        ],
+        [
+            [
+                "Description"
+            ],
+            [
+                "Connects planets into supply network."
+            ],
+            [
+                "Increases overall Quantia generation rate of planet."
+            ],
+            [
+                "Increases overall Stellium generation rate of planet."
+            ],
+            [
+                "Home base and supply center of sector exploration."
+            ],
+            [
+                "Researches Precursor technology to create Crysether."
+            ],
+            [
+                "City-in-a-dome, providing living space and major improvement to a planet."
+            ],
+            [
+                "Destructively harvests planet's raw materials for a one-time Stellium gain."
             ]
         ]
     ]
