@@ -144,6 +144,125 @@
 			"isActiveOnStart": true,
 			"children": [
 				{
+					"functionName": "CycleOverviewMode",
+					"functionDescription": "When already in an overview mode, cycle to the next one.",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 582783365998797,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "GameController",
+									"sid": 719145965010365,
+									"parameters": {
+										"instance-variable": "overviewMode",
+										"comparison": 0,
+										"value": "OVERVIEW_SECTOR"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "GameController",
+									"sid": 209664027595993,
+									"parameters": {
+										"instance-variable": "overviewMode",
+										"value": "OVERVIEW_EXPLORATION"
+									}
+								},
+								{
+									"callFunction": "HighlightExploration",
+									"sid": 742510459135228
+								}
+							],
+							"sid": 261348175057854
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 795058167325511
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "GameController",
+									"sid": 386775291355385,
+									"parameters": {
+										"instance-variable": "overviewMode",
+										"comparison": 0,
+										"value": "OVERVIEW_EXPLORATION"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "GameController",
+									"sid": 477551696608129,
+									"parameters": {
+										"instance-variable": "overviewMode",
+										"value": "OVERVIEW_SUPPLY"
+									}
+								},
+								{
+									"callFunction": "HighlightSupply",
+									"sid": 701774474531125
+								}
+							],
+							"sid": 319184540486169
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 747006838066861
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "GameController",
+									"sid": 621442741781327,
+									"disabled": true,
+									"parameters": {
+										"instance-variable": "overviewMode",
+										"comparison": 0,
+										"value": "OVERVIEW_SUPPLY"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "GameController",
+									"sid": 379928923060695,
+									"parameters": {
+										"instance-variable": "overviewMode",
+										"value": "OVERVIEW_SECTOR"
+									}
+								},
+								{
+									"callFunction": "HighlightSector",
+									"sid": 657835721010143
+								}
+							],
+							"sid": 158242506200407
+						}
+					]
+				},
+				{
 					"functionName": "SetDefaultMode",
 					"functionDescription": "Deselect a planet by updating GameController and UI.",
 					"functionCategory": "",
@@ -179,6 +298,10 @@
 								"instance-variable": "overviewMode",
 								"value": "DEFAULT_VIEW"
 							}
+						},
+						{
+							"callFunction": "RemoveHighlights",
+							"sid": 142988706655111
 						}
 					],
 					"sid": 821159689685967,
@@ -311,10 +434,15 @@
 							"id": "set-instvar-value",
 							"objectClass": "GameController",
 							"sid": 984518094355410,
+							"disabled": true,
 							"parameters": {
 								"instance-variable": "overviewMode",
 								"value": "OVERVIEW_SECTOR"
 							}
+						},
+						{
+							"callFunction": "CycleOverviewMode",
+							"sid": 248950441979793
 						}
 					],
 					"sid": 651224011027360
@@ -638,101 +766,13 @@
 									}
 								}
 							],
-							"actions": [],
-							"sid": 239015437137507,
-							"children": [
+							"actions": [
 								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "GameController",
-											"sid": 390963195219264,
-											"parameters": {
-												"instance-variable": "overviewMode",
-												"comparison": 0,
-												"value": "OVERVIEW_SECTOR"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-instvar-value",
-											"objectClass": "GameController",
-											"sid": 575625303338791,
-											"parameters": {
-												"instance-variable": "overviewMode",
-												"value": "OVERVIEW_EXPLORATION"
-											}
-										}
-									],
-									"sid": 928830421680504
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "else",
-											"objectClass": "System",
-											"sid": 370009637441567
-										},
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "GameController",
-											"sid": 732713431847950,
-											"parameters": {
-												"instance-variable": "overviewMode",
-												"comparison": 0,
-												"value": "OVERVIEW_EXPLORATION"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-instvar-value",
-											"objectClass": "GameController",
-											"sid": 491630397000148,
-											"parameters": {
-												"instance-variable": "overviewMode",
-												"value": "OVERVIEW_SUPPLY"
-											}
-										}
-									],
-									"sid": 731599678056145
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "else",
-											"objectClass": "System",
-											"sid": 917615358557627
-										},
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "GameController",
-											"sid": 429843200606707,
-											"parameters": {
-												"instance-variable": "overviewMode",
-												"comparison": 0,
-												"value": "OVERVIEW_SUPPLY"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-instvar-value",
-											"objectClass": "GameController",
-											"sid": 996001609062396,
-											"parameters": {
-												"instance-variable": "overviewMode",
-												"value": "OVERVIEW_SECTOR"
-											}
-										}
-									],
-									"sid": 999417047033616
+									"callFunction": "CycleOverviewMode",
+									"sid": 500796242220051
 								}
-							]
+							],
+							"sid": 239015437137507
 						},
 						{
 							"eventType": "comment",
@@ -1110,6 +1150,38 @@
 								{
 									"id": "on-key-pressed",
 									"objectClass": "Keyboard",
+									"sid": 748035714872436,
+									"parameters": {
+										"key": 67
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "GameController",
+									"sid": 584819423930554,
+									"parameters": {
+										"instance-variable": "selectedPlanetUid",
+										"comparison": 4,
+										"value": "0"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "CycleOverviewMode",
+									"sid": 787893708069790
+								}
+							],
+							"sid": 843203814569873,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
 									"sid": 181692237755819,
 									"parameters": {
 										"key": 27
@@ -1192,6 +1264,287 @@
 				}
 			],
 			"sid": 367876103598794
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Visualization Layers",
+			"description": "Events and functions that modify the visualization layers in overview mode.",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 931945177038741
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-opacity",
+							"objectClass": "System",
+							"sid": 790018054971894,
+							"parameters": {
+								"layer": "\"Exploration Highlights\"",
+								"opacity": "VisualizationController.explorationOpacity"
+							}
+						},
+						{
+							"id": "set-layer-opacity",
+							"objectClass": "System",
+							"sid": 678905463602424,
+							"parameters": {
+								"layer": "\"Supply Area\"",
+								"opacity": "VisualizationController.supplyOpacity"
+							}
+						},
+						{
+							"id": "set-layer-opacity",
+							"objectClass": "System",
+							"sid": 804790798669032,
+							"parameters": {
+								"layer": "\"Sector Highlights\"",
+								"opacity": "VisualizationController.sectorOpacity"
+							}
+						},
+						{
+							"id": "set-layer-opacity",
+							"objectClass": "System",
+							"sid": 140031974710925,
+							"parameters": {
+								"layer": "\"Planet Highlights\"",
+								"opacity": "VisualizationController.planetOpacity"
+							}
+						},
+						{
+							"id": "set-layer-opacity",
+							"objectClass": "System",
+							"sid": 815026705250888,
+							"parameters": {
+								"layer": "\"Ships\"",
+								"opacity": "VisualizationController.shipsOpacity"
+							}
+						},
+						{
+							"id": "set-layer-opacity",
+							"objectClass": "System",
+							"sid": 513065082582724,
+							"parameters": {
+								"layer": "\"Background\"",
+								"opacity": "VisualizationController.backgroundOpacity"
+							}
+						}
+					],
+					"sid": 969683363951685,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-playing",
+									"objectClass": "VisualizationController",
+									"sid": 201379424331103,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"planet\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "VisualizationController",
+									"sid": 953223170914017,
+									"parameters": {
+										"instance-variable": "planetOpacity",
+										"value": "VisualizationController.Tween.Value(\"planet\")"
+									}
+								}
+							],
+							"sid": 213263566800489
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-playing",
+									"objectClass": "VisualizationController",
+									"sid": 962093145241738,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"background\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "VisualizationController",
+									"sid": 894749815753007,
+									"parameters": {
+										"instance-variable": "backgroundOpacity",
+										"value": "VisualizationController.Tween.Value(\"background\")"
+									}
+								}
+							],
+							"sid": 794691632662751
+						}
+					]
+				},
+				{
+					"functionName": "GenericHighlights",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "tween-value",
+							"objectClass": "VisualizationController",
+							"sid": 962148287555556,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"planet\"",
+								"start-value": "VisualizationController.planetOpacity",
+								"end-value": "100",
+								"time": "ZOOM_TIME",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "tween-value",
+							"objectClass": "VisualizationController",
+							"sid": 953636231856257,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"background\"",
+								"start-value": "VisualizationController.backgroundOpacity",
+								"end-value": "20",
+								"time": "ZOOM_TIME",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						}
+					],
+					"sid": 676357692296198
+				},
+				{
+					"functionName": "HighlightExploration",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"callFunction": "GenericHighlights",
+							"sid": 112384089304563
+						}
+					],
+					"sid": 672471986017895
+				},
+				{
+					"functionName": "HighlightSector",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"callFunction": "GenericHighlights",
+							"sid": 403804664104768
+						}
+					],
+					"sid": 965237121943544
+				},
+				{
+					"functionName": "HighlightSupply",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"callFunction": "GenericHighlights",
+							"sid": 284100006791105
+						}
+					],
+					"sid": 281739808477068
+				},
+				{
+					"functionName": "RemoveHighlights",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "tween-value",
+							"objectClass": "VisualizationController",
+							"sid": 972951692854958,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"planet\"",
+								"start-value": "VisualizationController.planetOpacity",
+								"end-value": "0",
+								"time": "ZOOM_TIME",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "tween-value",
+							"objectClass": "VisualizationController",
+							"sid": 354413213336297,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"background\"",
+								"start-value": "VisualizationController.backgroundOpacity",
+								"end-value": "100",
+								"time": "ZOOM_TIME",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						}
+					],
+					"sid": 198857503677512
+				}
+			],
+			"sid": 543982209890823
 		},
 		{
 			"eventType": "group",
@@ -1422,6 +1775,14 @@
 						{
 							"type": "script",
 							"script": "GameUtils.updateUiText(runtime);"
+						},
+						{
+							"id": "set-text",
+							"objectClass": "OverviewTextDisplay",
+							"sid": 981059117552307,
+							"parameters": {
+								"text": "\"\""
+							}
 						}
 					],
 					"sid": 201205195501745,
@@ -1442,11 +1803,19 @@
 							],
 							"actions": [
 								{
-									"id": "set-text",
+									"id": "append-text",
 									"objectClass": "OverviewTextDisplay",
-									"sid": 272235709468938,
+									"sid": 123697812542476,
 									"parameters": {
-										"text": "\"SECTOR OVERVIEW:\" & newline & \"Crysether Available: \" & GameController.crysetherStockpile & newline & \"Total Sector Improvement Level: \" & Functions.GetTotalImprovement"
+										"text": "\"[b]SECTOR OVERVIEW[/b]\" & newline"
+									}
+								},
+								{
+									"id": "append-text",
+									"objectClass": "OverviewTextDisplay",
+									"sid": 740657972415337,
+									"parameters": {
+										"text": "\"Crysether Available: \" & GameController.crysetherStockpile & newline & \"Total Sector Improvement Level: \" & Functions.GetTotalImprovement"
 									}
 								}
 							],
@@ -1468,11 +1837,19 @@
 							],
 							"actions": [
 								{
-									"id": "set-text",
+									"id": "append-text",
 									"objectClass": "OverviewTextDisplay",
-									"sid": 843314734612125,
+									"sid": 835897045729548,
 									"parameters": {
-										"text": "\"EXPLORATION OVERVIEW:\" & newline & \"Percentage of sector charted: \" & \"UNKNOWN\""
+										"text": "\"[b]EXPLORATION OVERVIEW[/b]\" & newline"
+									}
+								},
+								{
+									"id": "append-text",
+									"objectClass": "OverviewTextDisplay",
+									"sid": 802024318282529,
+									"parameters": {
+										"text": "\"[i](control Research Station by tapping target location)[/i]\" & newline &\n\"Percentage of sector charted: \" & \"UNKNOWN\""
 									}
 								}
 							],
@@ -1494,11 +1871,19 @@
 							],
 							"actions": [
 								{
-									"id": "set-text",
+									"id": "append-text",
 									"objectClass": "OverviewTextDisplay",
-									"sid": 242074274911852,
+									"sid": 106520322772746,
 									"parameters": {
-										"text": "\"SUPPLY OVERVIEW:\" & newline & \"Stats on supply...\""
+										"text": "\"[b]SUPPLY OVERVIEW[/b]\" & newline"
+									}
+								},
+								{
+									"id": "append-text",
+									"objectClass": "OverviewTextDisplay",
+									"sid": 687773333256838,
+									"parameters": {
+										"text": "\"Stats on supply...\""
 									}
 								}
 							],

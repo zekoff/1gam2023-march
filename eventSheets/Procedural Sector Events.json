@@ -134,7 +134,77 @@
 					}
 				}
 			],
-			"sid": 252064592148514
+			"sid": 252064592148514,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-all",
+							"objectClass": "System",
+							"sid": 398488856388634,
+							"parameters": {
+								"object": "Planet"
+							}
+						},
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 143438298135371,
+							"parameters": {
+								"object": "Planet"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 662978522966184,
+							"parameters": {
+								"object-to-create": "PlanetHighlight",
+								"layer": "\"Planet Highlights\"",
+								"x": "Planet.X",
+								"y": "Planet.Y",
+								"create-hierarchy": false,
+								"template-name": "\"Standard Template\""
+							}
+						}
+					],
+					"sid": 795152704790351,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-last-created",
+									"objectClass": "System",
+									"sid": 422117332608454,
+									"parameters": {
+										"object": "PlanetHighlight"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "fill-ellipse",
+									"objectClass": "PlanetHighlight",
+									"sid": 890873050321035,
+									"parameters": {
+										"x": "PlanetHighlight.Width / 2",
+										"y": "PlanetHighlight.Height / 2",
+										"radius-x": "PlanetHighlight.Width / 2",
+										"radius-y": "PlanetHighlight.Height / 2",
+										"color": "rgba(100, 100, 100, 100)",
+										"edge": "smooth"
+									}
+								}
+							],
+							"sid": 872566593909953
+						}
+					]
+				}
+			]
 		}
 	],
 	"sid": 610176550027079

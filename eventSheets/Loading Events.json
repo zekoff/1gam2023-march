@@ -65,6 +65,19 @@
 						"tag": "\"facilityData.json\"",
 						"file": "facilityData.json"
 					}
+				},
+				{
+					"id": "fill-ellipse",
+					"objectClass": "PlanetHighlight",
+					"sid": 956113683833464,
+					"parameters": {
+						"x": "PlanetHighlight.Width / 2",
+						"y": "PlanetHighlight.Height / 2",
+						"radius-x": "PlanetHighlight.Width / 2",
+						"radius-y": "PlanetHighlight.Height / 2",
+						"color": "rgba(100, 100, 100, 100)",
+						"edge": "smooth"
+					}
 				}
 			],
 			"sid": 695386772024004

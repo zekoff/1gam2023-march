@@ -156,7 +156,9 @@
 			"AJAX",
 			"FacilityData",
 			"Mouse",
-			"GameController"
+			"GameController",
+			"PlanetHighlight",
+			"VisualizationController"
 		],
 		"subfolders": [
 			{

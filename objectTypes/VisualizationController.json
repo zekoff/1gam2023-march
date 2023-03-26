@@ -1,0 +1,93 @@
+{
+	"name": "VisualizationController",
+	"plugin-id": "Sprite",
+	"sid": 215704405877565,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "supplyOpacity",
+			"type": "number",
+			"desc": "Opacity (0-100) of supply layer.",
+			"show": true,
+			"sid": 434991811249176
+		},
+		{
+			"name": "sectorOpacity",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 503040850368942
+		},
+		{
+			"name": "explorationOpacity",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 623104133534453
+		},
+		{
+			"name": "planetOpacity",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 905912556910979
+		},
+		{
+			"name": "shipsOpacity",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 410822225986343
+		},
+		{
+			"name": "facilitiesOpacity",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 297548620887418
+		},
+		{
+			"name": "backgroundOpacity",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 270059626326553
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 197191598256926
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 250,
+						"height": 250,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 8165010,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 631700382596641,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}
