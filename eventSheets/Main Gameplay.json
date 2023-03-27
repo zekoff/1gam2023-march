@@ -601,12 +601,12 @@
 								{
 									"id": "tween-one-property",
 									"objectClass": "UiBox",
-									"sid": 588671587971449,
+									"sid": 846420853482982,
 									"behaviorType": "Tween",
 									"parameters": {
 										"tags": "\"selection\"",
 										"property": "offsetY",
-										"end-value": "1070",
+										"end-value": "1120",
 										"time": "0.5",
 										"ease": "easeoutcubic",
 										"destroy-on-complete": "no",
@@ -4366,6 +4366,16 @@
 			"isActiveOnStart": true,
 			"children": [
 				{
+					"eventType": "variable",
+					"name": "planetsCharted",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 593336006813934
+				},
+				{
 					"eventType": "block",
 					"conditions": [
 						{
@@ -4409,6 +4419,16 @@
 							}
 						},
 						{
+							"id": "compare-instance-variable",
+							"objectClass": "Planet",
+							"sid": 382044143588045,
+							"parameters": {
+								"instance-variable": "explorationLevel",
+								"comparison": 4,
+								"value": "0"
+							}
+						},
+						{
 							"id": "trigger-once-while-true",
 							"objectClass": "System",
 							"sid": 744565008831689
@@ -4424,9 +4444,9 @@
 						},
 						{
 							"callFunction": "LogMessage",
-							"sid": 599476671587939,
+							"sid": 519524200449834,
 							"parameters": [
-								"\"Score (tota sector improvement level plus crysether stockpiled): \" & (Functions.GetTotalImprovement + GameController.crysetherStockpile)"
+								"\"Score (total sector improvement level, plus crysether stockpiled, plus planets charted): \" & (Functions.GetTotalImprovement + GameController.crysetherStockpile + Planet.PickedCount)"
 							]
 						},
 						{

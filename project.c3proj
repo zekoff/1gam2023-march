@@ -196,7 +196,7 @@
 				"FacilityName",
 				"GlassPanel"
 			],
-			"selectMode": "normal"
+			"selectMode": "all"
 		}
 	],
 	"families": {
