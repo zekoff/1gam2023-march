@@ -45,6 +45,13 @@
 			"desc": "Cost in Crysether of next Warp Depot.",
 			"show": true,
 			"sid": 559234971337756
+		},
+		{
+			"name": "nextTap",
+			"type": "string",
+			"desc": "Whether next tap in sector should send research station or place warp depot.",
+			"show": true,
+			"sid": 269559494863943
 		}
 	],
 	"behaviorTypes": [],

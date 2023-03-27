@@ -1218,7 +1218,9 @@
 								"live-preview": false
 							},
 							"uid": 73,
-							"instanceVariables": {},
+							"instanceVariables": {
+								"handle": ""
+							},
 							"behaviors": {},
 							"sceneGraphData": {
 								"parent-uid": 58,
@@ -4434,10 +4436,10 @@
 						{
 							"type": "FacilityDescription",
 							"properties": {
-								"text": "FACILITY DESCRIPTION",
+								"text": "FACILITY\nDESCRIPTION",
 								"enable-bbcode": true,
 								"font": "Arial",
-								"size": 22,
+								"size": 20,
 								"line-height": 0,
 								"bold": false,
 								"italic": false,
@@ -5274,6 +5276,32 @@
 											"d": true,
 											"sm": "normal"
 										}
+									},
+									{
+										"uid": 113,
+										"flags": {
+											"x": true,
+											"y": true,
+											"z": true,
+											"w": true,
+											"h": true,
+											"a": true,
+											"d": true,
+											"sm": "normal"
+										}
+									},
+									{
+										"uid": 112,
+										"flags": {
+											"x": true,
+											"y": true,
+											"z": true,
+											"w": true,
+											"h": true,
+											"a": true,
+											"d": true,
+											"sm": "normal"
+										}
 									}
 								],
 								"flags": {
@@ -5571,9 +5599,9 @@
 								}
 							},
 							"world": {
-								"x": 18,
+								"x": 132,
 								"y": 1933,
-								"width": 1042,
+								"width": 780,
 								"height": 289,
 								"originX": 0,
 								"originY": 0,
@@ -5679,8 +5707,8 @@
 								}
 							},
 							"world": {
-								"x": 1006.0018519321296,
-								"y": 2165.0018519321297,
+								"x": 69,
+								"y": 2070,
 								"width": 134.9922960717387,
 								"height": 134.9922960717387,
 								"originX": 0.5,
@@ -5743,6 +5771,118 @@
 								"height": 7,
 								"originX": 0,
 								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "InfoSprite",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Share",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 112,
+							"instanceVariables": {
+								"handle": "Supply"
+							},
+							"behaviors": {},
+							"sceneGraphData": {
+								"parent-uid": 101,
+								"uid": 112,
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"a": true,
+									"d": true,
+									"sm": "normal"
+								},
+								"preview": {
+									"transformX": 0,
+									"transformY": 0,
+									"transformZElevation": 0,
+									"transformW": 0,
+									"transformH": 0,
+									"transformA": 0,
+									"transformSX": 0,
+									"transformSY": 0,
+									"previewSceneGraph": false
+								}
+							},
+							"world": {
+								"x": 983,
+								"y": 2007,
+								"width": 140.78129192207095,
+								"height": 140.78129192207095,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "InfoSprite",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Research Station",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 113,
+							"instanceVariables": {
+								"handle": "Explore"
+							},
+							"behaviors": {},
+							"sceneGraphData": {
+								"parent-uid": 101,
+								"uid": 113,
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"a": true,
+									"d": true,
+									"sm": "normal"
+								},
+								"preview": {
+									"transformX": 0,
+									"transformY": 0,
+									"transformZElevation": 0,
+									"transformW": 0,
+									"transformH": 0,
+									"transformA": 0,
+									"transformSX": 0,
+									"transformSY": 0,
+									"previewSceneGraph": false
+								}
+							},
+							"world": {
+								"x": 986,
+								"y": 2149,
+								"width": 140.29060964176364,
+								"height": 140.29060964176364,
+								"originX": 0.5,
+								"originY": 0.5,
 								"color": [
 									1,
 									1,
@@ -5905,7 +6045,8 @@
 						"yearsElapsed": 0,
 						"selectedPlanetUid": 0,
 						"overviewMode": "",
-						"warpDepotCost": 1
+						"warpDepotCost": 1,
+						"nextTap": ""
 					},
 					"behaviors": {},
 					"world": {
@@ -5936,7 +6077,7 @@
 					},
 					"uid": 61,
 					"instanceVariables": {
-						"zoomLevel": 1
+						"zoomLevel": 0.8
 					},
 					"behaviors": {
 						"ScrollTo": {
@@ -6071,7 +6212,9 @@
 						"live-preview": false
 					},
 					"uid": 69,
-					"instanceVariables": {},
+					"instanceVariables": {
+						"handle": ""
+					},
 					"behaviors": {},
 					"template": {
 						"mode": "template",
@@ -6109,7 +6252,12 @@
 								"component": [
 									{
 										"key": "instance-variable",
-										"state": []
+										"state": [
+											{
+												"iv": "handle",
+												"state": true
+											}
+										]
 									}
 								]
 							},

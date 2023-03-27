@@ -330,10 +330,6 @@
 										"instance-variable": "overviewMode",
 										"value": "OVERVIEW_EXPLORATION"
 									}
-								},
-								{
-									"callFunction": "HighlightExploration",
-									"sid": 742510459135228
 								}
 							],
 							"sid": 261348175057854
@@ -366,10 +362,6 @@
 										"instance-variable": "overviewMode",
 										"value": "OVERVIEW_SUPPLY"
 									}
-								},
-								{
-									"callFunction": "HighlightSupply",
-									"sid": 701774474531125
 								}
 							],
 							"sid": 319184540486169
@@ -403,10 +395,6 @@
 										"instance-variable": "overviewMode",
 										"value": "OVERVIEW_SECTOR"
 									}
-								},
-								{
-									"callFunction": "HighlightSector",
-									"sid": 657835721010143
 								}
 							],
 							"sid": 158242506200407
@@ -664,6 +652,10 @@
 						{
 							"callFunction": "CycleOverviewMode",
 							"sid": 248950441979793
+						},
+						{
+							"callFunction": "GenericHighlights",
+							"sid": 468078468989204
 						}
 					],
 					"sid": 651224011027360
@@ -801,6 +793,10 @@
 					"description": "",
 					"isActiveOnStart": true,
 					"children": [
+						{
+							"eventType": "comment",
+							"text": "Events for facility build menu taps."
+						},
 						{
 							"eventType": "block",
 							"conditions": [
@@ -998,6 +994,15 @@
 									],
 									"actions": [
 										{
+											"id": "set-instvar-value",
+											"objectClass": "GameController",
+											"sid": 730862307625482,
+											"parameters": {
+												"instance-variable": "nextTap",
+												"value": "\"\""
+											}
+										},
+										{
 											"callFunction": "SetDefaultMode",
 											"sid": 774029314021066
 										}
@@ -1019,6 +1024,15 @@
 								}
 							],
 							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "GameController",
+									"sid": 343495435183619,
+									"parameters": {
+										"instance-variable": "nextTap",
+										"value": "\"\""
+									}
+								},
 								{
 									"callFunction": "CycleOverviewMode",
 									"sid": 500796242220051
@@ -1071,11 +1085,11 @@
 										{
 											"id": "compare-instance-variable",
 											"objectClass": "GameController",
-											"sid": 896961313319622,
+											"sid": 371500421676656,
 											"parameters": {
-												"instance-variable": "overviewMode",
+												"instance-variable": "nextTap",
 												"comparison": 0,
-												"value": "OVERVIEW_EXPLORATION"
+												"value": "\"send_vessel\""
 											}
 										}
 									],
@@ -1087,6 +1101,15 @@
 												"Touch.X",
 												"Touch.Y"
 											]
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "GameController",
+											"sid": 252395172909571,
+											"parameters": {
+												"instance-variable": "nextTap",
+												"value": "\"\""
+											}
 										}
 									],
 									"sid": 756997762831841
@@ -1099,13 +1122,18 @@
 									"eventType": "block",
 									"conditions": [
 										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 186361110602534
+										},
+										{
 											"id": "compare-instance-variable",
 											"objectClass": "GameController",
-											"sid": 365544724150252,
+											"sid": 533128863709429,
 											"parameters": {
-												"instance-variable": "overviewMode",
+												"instance-variable": "nextTap",
 												"comparison": 0,
-												"value": "OVERVIEW_SUPPLY"
+												"value": "\"build_warp_depot\""
 											}
 										},
 										{
@@ -1126,6 +1154,15 @@
 											"parameters": [
 												"\"Warp Depot\""
 											]
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "GameController",
+											"sid": 451104515358410,
+											"parameters": {
+												"instance-variable": "nextTap",
+												"value": "\"\""
+											}
 										}
 									],
 									"sid": 850563700933270
@@ -1138,13 +1175,18 @@
 									"eventType": "block",
 									"conditions": [
 										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 272202605406044
+										},
+										{
 											"id": "compare-instance-variable",
 											"objectClass": "GameController",
-											"sid": 514490578170812,
+											"sid": 878323037958239,
 											"parameters": {
-												"instance-variable": "overviewMode",
+												"instance-variable": "nextTap",
 												"comparison": 0,
-												"value": "OVERVIEW_SECTOR"
+												"value": "\"\""
 											}
 										}
 									],
@@ -1163,6 +1205,208 @@
 										}
 									],
 									"sid": 360123330370473
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-tap-object",
+									"objectClass": "Touch",
+									"sid": 514849639031075,
+									"parameters": {
+										"object": "InfoSprite"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "InfoSprite",
+									"sid": 503757183038470,
+									"parameters": {
+										"instance-variable": "handle",
+										"comparison": 0,
+										"value": "\"Supply\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 357879184441777,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "GameController",
+											"sid": 924990190563819,
+											"parameters": {
+												"instance-variable": "nextTap",
+												"comparison": 0,
+												"value": "\"\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "GameController",
+											"sid": 850523556139288,
+											"parameters": {
+												"instance-variable": "nextTap",
+												"value": "\"build_warp_depot\""
+											}
+										},
+										{
+											"callFunction": "LogMessage",
+											"sid": 167051193452693,
+											"parameters": [
+												"\"Build warp depot where? (or press button again to cancel)\""
+											]
+										}
+									],
+									"sid": 127367783828110
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 804070187219148
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "GameController",
+											"sid": 214436259629713,
+											"parameters": {
+												"instance-variable": "nextTap",
+												"comparison": 0,
+												"value": "\"\""
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "LogMessage",
+											"sid": 826561220164664,
+											"parameters": [
+												"\"Canceled action\""
+											]
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "GameController",
+											"sid": 173468775821318,
+											"parameters": {
+												"instance-variable": "nextTap",
+												"value": "\"\""
+											}
+										}
+									],
+									"sid": 154825586057494
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-tap-object",
+									"objectClass": "Touch",
+									"sid": 795550000230410,
+									"parameters": {
+										"object": "InfoSprite"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "InfoSprite",
+									"sid": 538284031354806,
+									"parameters": {
+										"instance-variable": "handle",
+										"comparison": 0,
+										"value": "\"Explore\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 995698919694614,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "GameController",
+											"sid": 480205814682955,
+											"parameters": {
+												"instance-variable": "nextTap",
+												"comparison": 0,
+												"value": "\"\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "GameController",
+											"sid": 577729632171786,
+											"parameters": {
+												"instance-variable": "nextTap",
+												"value": "\"send_vessel\""
+											}
+										},
+										{
+											"callFunction": "LogMessage",
+											"sid": 267155064125780,
+											"parameters": [
+												"\"Send Research Station where? (or press button again to cancel)\""
+											]
+										}
+									],
+									"sid": 828026458180061
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 300154413839157
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "GameController",
+											"sid": 179312183386448,
+											"parameters": {
+												"instance-variable": "nextTap",
+												"comparison": 0,
+												"value": "\"\""
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "LogMessage",
+											"sid": 614096439345338,
+											"parameters": [
+												"\"Canceled action\""
+											]
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "GameController",
+											"sid": 423013702445469,
+											"parameters": {
+												"instance-variable": "nextTap",
+												"value": "\"\""
+											}
+										}
+									],
+									"sid": 443069282133709
 								}
 							]
 						}
@@ -1783,6 +2027,40 @@
 								"ping-pong": "no",
 								"repeat-count": "1"
 							}
+						},
+						{
+							"id": "tween-value",
+							"objectClass": "VisualizationController",
+							"sid": 871109695710940,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"exploration\"",
+								"start-value": "VisualizationController.explorationOpacity",
+								"end-value": "100",
+								"time": "VISUALIZATION_CYCLE_TIME",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "tween-value",
+							"objectClass": "VisualizationController",
+							"sid": 815642256727496,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"supply\"",
+								"start-value": "VisualizationController.supplyOpacity",
+								"end-value": "50",
+								"time": "VISUALIZATION_CYCLE_TIME",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
 						}
 					],
 					"sid": 676357692296198
@@ -1801,23 +2079,6 @@
 						{
 							"callFunction": "GenericHighlights",
 							"sid": 112384089304563
-						},
-						{
-							"id": "tween-value",
-							"objectClass": "VisualizationController",
-							"sid": 324495982053066,
-							"behaviorType": "Tween",
-							"parameters": {
-								"tags": "\"exploration\"",
-								"start-value": "VisualizationController.explorationOpacity",
-								"end-value": "100",
-								"time": "VISUALIZATION_CYCLE_TIME",
-								"ease": "default",
-								"destroy-on-complete": "no",
-								"loop": "no",
-								"ping-pong": "no",
-								"repeat-count": "1"
-							}
 						},
 						{
 							"id": "tween-value",
@@ -1915,23 +2176,6 @@
 								"tags": "\"exploration\"",
 								"start-value": "VisualizationController.explorationOpacity",
 								"end-value": "0",
-								"time": "VISUALIZATION_CYCLE_TIME",
-								"ease": "default",
-								"destroy-on-complete": "no",
-								"loop": "no",
-								"ping-pong": "no",
-								"repeat-count": "1"
-							}
-						},
-						{
-							"id": "tween-value",
-							"objectClass": "VisualizationController",
-							"sid": 509237114767848,
-							"behaviorType": "Tween",
-							"parameters": {
-								"tags": "\"supply\"",
-								"start-value": "VisualizationController.supplyOpacity",
-								"end-value": "50",
 								"time": "VISUALIZATION_CYCLE_TIME",
 								"ease": "default",
 								"destroy-on-complete": "no",
